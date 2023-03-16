@@ -131,6 +131,8 @@ app.get('/write', (request, response) => {
 // 이미지 여러개 업로드시 upload.array('img1', 3)
 app.post('/add', async (request, response) => {
   await db.collection('counter').findOne({name : 'dataLength'}, async function(err, result) {
+    console.log('error' + err)
+    console.log('result' + result)
     let totalDataLength = result.totalData;
     upload.single('img1')(request, response, async (err) => {
       // console.log(request.user)
@@ -153,6 +155,12 @@ app.post('/add', async (request, response) => {
             content : request.body.content,
             img : request.file ? request.file.location : '',
           })
+
+          db.collection('counter').updateOne({ name : 'dataLength' }, { $inc : {totalData : 1}}, function(err, result){
+            if(err) {
+              return console.log(err)
+            }
+          })
           response.redirect('/list')
         }
       } catch(e) {
@@ -162,12 +170,6 @@ app.post('/add', async (request, response) => {
         console.log(e)
         response.status(500).send('서버 에러났음;')
       }
-      db.collection('counter').updateOne({ name : 'dataLength' }, { $inc : {totalData : 1}}, function(err, result){
-        if(err) {
-          return console.log(err)
-        }
-      })
-      
     })
   })
 })
@@ -330,8 +332,9 @@ app.get('/register', (request, response) => {
 })
 
 app.post('/register', async (request, response) => {
-  let hash = await bcrypt.hash(request.body.password, 10)
+  let hash = await bcrypt.hash(request.body.password, 10);
   console.log(hash)
+  console.log(request.body.username)
   
   await db.collection('counter').findOne({ name : 'dataLength' }, function(error, result) {
     console.log(result.totalData)
@@ -345,15 +348,15 @@ app.post('/register', async (request, response) => {
       // hasing algorithm : md5, SHA1, (SHA3-256, SHA3-512, bcrypt, scrype, argon2)... etc
       password : hash
     }, function(error, result) {
-      console.log('user collection에 저장완료!')
+      console.log('user collection에 저장완료!' + result)
     })
 
     db.collection('counter').updateOne({ name : 'dataLength'}, { $inc : {totalData : 1}}, function(error, result) {
       if(error) {
         return console.log(error)
       }
-      response.redirect('/')
     })
+    response.redirect('/')
   })
 })
 
