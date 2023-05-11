@@ -20,3 +20,6 @@ https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-gith
   <li>git config --global --unset user.email "이메일"로 global 선언해둔 email 삭제</li>
   <li>--global 빼고 git config user.email "이메일"로 해당 리포지토리에만 등록</li>
 </ol>
+
+🤯 새로운 문제 등장..
+이번에는 리포지토리 들어가면 옆에 이름은 잘 뜨는데 계정 연동이 안 되어 있다.. 일단 자고 내일 해야지
