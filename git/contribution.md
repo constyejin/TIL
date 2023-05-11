@@ -1,13 +1,14 @@
 # Github에 Commit을 남겼는데 Contribution 그래프가 채워지지 않는 이유와 해결 방법
 
 ## 이유
-<p>Github 문서</p> 
+<p>Github 공식문서</p> 
 https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile
 
 ## 해결방법
 ### 로컬 Git 커밋 이메일이 계정에 연결되지 않은 경우
 
-<b>문제</b>Github 리포지토리에서 확인 했을 때, 내 계정이 아닌 Contributor 계정으로 뜸 
+<b>문제</b>
+<p>Github 리포지토리에서 확인 했을 때, 내 계정이 아닌 다른 계정으로 뜸 & Contribution 그래프가 채워지지 않음.</p>
 
  1. 터미널에서 해당 리포지토리로 이동 
  2. git config --global user.email -> 확인 해보니 다른 이메일 계정이 등록되어 있음.
