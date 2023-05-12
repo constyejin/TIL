@@ -11,14 +11,14 @@ https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-gith
 <p>Github 리포지토리에서 확인 했을 때, 내 계정이 아닌 다른 계정으로 뜸 & Contribution 그래프가 채워지지 않음.</p>
 
  1. 터미널에서 해당 리포지토리로 이동 
- 2. git config --global user.email -> 확인 해보니 다른 이메일 계정이 등록되어 있음.
- 3. git config user.email로 --global을 빼고 작성해서 해당 리포지토리에서만 설정 이메일 변경
+ 2. ```git config --global user.email``` -> 확인 해보니 다른 이메일 계정이 등록되어 있음.
+ 3. ```git config --global user.email```에서 --global을 빼고 작성해서 해당 리포지토리에서만 설정 이메일 변경
  4. 해결!
  <img width="317" alt="스크린샷 2023-05-11 23 35 51" src="https://github.com/lightup-jin/SW-Professional-Developer-Course/assets/82255996/dc1e7d2f-bfd5-4fd6-baeb-1e95dd1eb7e0"> 
 
 <ol>계정을 두 개 사용하고 싶어서 
-  <li>git config --global --unset user.email "이메일"로 global 선언해둔 email 삭제</li>
-  <li>--global 빼고 git config user.email "이메일"로 해당 리포지토리에만 등록</li>
+  <li>₩₩₩git config --global --unset user.email "ingkein@gmail.com"```으로 global 선언해둔 email 삭제</li>
+  <li>--global 빼고 ```git config user.email "lightup.jin@gmail.com"``` 으로 해당 리포지토리에만 등록</li>
 </ol>
 
 🤯 새로운 문제 등장..
@@ -28,3 +28,5 @@ https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-gith
       lightup-jin@gamil.com
 
       치명적인 오타가 있었다..
+
+      
