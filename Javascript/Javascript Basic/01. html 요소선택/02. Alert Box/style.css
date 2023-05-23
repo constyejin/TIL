@@ -1,0 +1,9 @@
+.alert-box {
+  /* 버튼을 누르면 보이게 해야하니까 우선 display : none으로 숨겨준다. <-> 반대로 보여주고 싶으면 display : block */
+  display: none;
+  justify-content: space-between;
+  padding: 20px;
+  color: #fff;
+  border-radius: 5px;
+  background-color: skyblue;
+}
