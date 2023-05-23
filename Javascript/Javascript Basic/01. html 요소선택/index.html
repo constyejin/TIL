@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alert Box</title>
+</head>
+<body>
+  <!-- 안녕하세요 -> 안녕으로 변경 -->
+  <h1 id="hello">안녕하세요!</h1>
+  <h1 id="hi">JS 초보 입니다</h1>
+
+  <!-- script 파일은 HTML 파일이 로드할 때 실행된다 -->
+  <!-- HTML 요소를 영어로 Element라 부른다. -->
+  <script>
+    // HTML 문서 안에서 아이디가 hello인 Element를 가져와 달라는 코드
+    // 프로그래밍에서 등호는 같다는 의미가 아니라 오른쪽 값을 왼쪽에 넣어달라는 뜻
+    // document.getElementById("??").?? = ??;
+    // 1. 바꿀요소 id 2. 무엇을 3. 어떻게
+
+    document.getElementById('hello').innerHTML = '안녕';
+    document.getElementById('hello').style.color = 'red';
+
+    document.getElementById('hi').innerHTML = 'JS 고수 입니다';
+    document.getElementById('hi').style.color = 'blue';
+
+    // 숙제 #hello 폰트 사이즈 16px 로 줄이기.
+    document.getElementById('hello').style.fontSize = '16px';
+
+    // 프로그래밍 : 컴퓨터에게 일 시키는 행위
+    // 컴퓨터한테 일을 시킬 때는 사람한테 시킬 때 처럼 명령하면 안 된다.
+    // '저기 가서 저것 좀 바꿔라'처럼 추상적으로 말하면 사람은 알아 들을 수 있지만, 컴퓨터는 그렇지 않기 때문에 정확하게 명령을 내려줘야 한다.
+    // 'id가 hello인 html 요소를 찾아서 그 안에 텍스트를 '안녕'으로 바꿔줘.' 처럼 컴퓨터에게 구체적으로 지시를 내려줘야 한다.
+  </script>
+</body>
+</html>
