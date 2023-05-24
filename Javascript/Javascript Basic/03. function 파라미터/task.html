@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+<style>
+  .alert-box {
+    display: none;
+    justify-content: space-between;
+    padding: 20px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: skyblue;
+  }
+</style>
+<body>
+  <!-- 
+    ID 버튼 누르면 : 아이디 입력 
+    PW 버튼 누르면 : 비밀번호 입력
+  -->
+  <div class="alert-box" id="alert">
+    <p id="text">Alert</p>
+    <button type="button" onclick="modal('none')">X</button>
+  </div>
+  <button type="button" onclick="modal('flex', '아이디 입력')">ID BTN</button>
+  <button type="button" onclick="modal('flex', '비밀번호 입력')">PW BTN</button>
+  <script>
+    function modal(display, txt) {
+      document.getElementById('alert').style.display = display;
+      document.getElementById('text').innerHTML = txt;
+    }
+  </script>
+</body>
+</html>
