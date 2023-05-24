@@ -14,9 +14,9 @@
       2. 필요할 때 보여달라고 자바스크립트 코드를 작성한다.
   -->
   <div class="alert-box" id="alert">Alert
-    <button onclick="modalClose()">X</button>
+    <button onclick="closeModal()">X</button>
   </div>
-  <button onclick="modalOpen()">Open</button>
+  <button onclick="openModal()">Open</button>
 
   <!-- 숙제 : alert-box 안에 X 버튼 추가 후, 클릭 했을 때 화면상에서 안 보이게 스타일 변경 -->
   <script>
@@ -28,11 +28,11 @@
       // modalOpen, modalClose 처럼 camelCase로 작성 하는 게 자바스크립트 작명 관습
     }
 
-    function modalOpen() {
+    function openModal() {
       document.getElementById('alert').style.display = 'flex';
     }
 
-    function modalClose() {
+    function closeModal() {
       document.getElementById('alert').style.display = 'none'
     }
 
