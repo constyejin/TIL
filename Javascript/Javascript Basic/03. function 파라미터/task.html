@@ -7,6 +7,9 @@
   <title>Task</title>
 </head>
 <style>
+  p {
+    margin: 0;
+  }
   .alert-box {
     display: none;
     justify-content: space-between;
@@ -28,6 +31,9 @@
   <button type="button" onclick="modal('flex', '아이디 입력')">ID BTN</button>
   <button type="button" onclick="modal('flex', '비밀번호 입력')">PW BTN</button>
   <script>
+    // 내가 컴퓨터한테 어떻게 일하라고 시켜야 하는지 먼저 한글로 정리한다.
+    // 1. p태그 안에 내용을 아이디 입력 or 비밀번호 입력으로 바꾼다.
+    // alert 창 display : none -> flex로 바꾼다.
     function modal(display, txt) {
       document.getElementById('alert').style.display = display;
       document.getElementById('text').innerHTML = txt;
