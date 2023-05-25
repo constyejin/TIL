@@ -26,7 +26,7 @@
   -->
   <div class="alert-box" id="alert">
     <p id="text">Alert</p>
-    <button type="button" onclick="modal('none')">X</button>
+    <button id="close" type="button">X</button>
   </div>
   <button type="button" onclick="modal('flex', '아이디 입력')">ID BTN</button>
   <button type="button" onclick="modal('flex', '비밀번호 입력')">PW BTN</button>
@@ -34,9 +34,24 @@
     // 내가 컴퓨터한테 어떻게 일하라고 시켜야 하는지 먼저 한글로 정리한다.
     // 1. p태그 안에 내용을 아이디 입력 or 비밀번호 입력으로 바꾼다.
     // alert 창 display : none -> flex로 바꾼다.
+    // 비슷한 함수 여러개 있을 경우, 가변적인 부분은 구멍을 뚫어서 값을 받아 이용한다.
     function modal(display, txt) {
       document.getElementById('alert').style.display = display;
       document.getElementById('text').innerHTML = txt;
+      // getElementsByClassName으로 쓸 때는 꼭 [] 몇번째 요소인지 인덱싱을 해줘야 작동한다.
+      // document.getElementsByClassName('alert-box')[0].style.display = display;
+      // document.getElementsByClassName('alert-box')[0].innerHTML = txt;
+
+
+      // HTML에 onclick 사용하고 싶지 않다면, => addEventListener
+      // addEventListener() 소괄호 안에는 파라미터를 두 개 입력해야 한다. (1.click, 2.함수)
+      // event : 클릭, 키 입력, 스크롤, 드래그 등 / mouseover 
+      // event 종류가 몇 십개 정도 되는데, 외울 필요 없고 필요할 때 검색해서 사용!
+      // 콜백 함수 : 함수 파라미터 자리에 들어가는 함수
+      // 코드를 순차적으로 실행하고 싶을 때 콜백함수를 이용한다.
+      document.getElementById('close').addEventListener('click', function(){
+        document.getElementById('alert').style.display = 'none';
+      });
     }
   </script>
 </body>
