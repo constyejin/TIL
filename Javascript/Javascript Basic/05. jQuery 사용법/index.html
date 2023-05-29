@@ -10,6 +10,21 @@
   <!-- jQeury -->
   <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
+<style>
+  .hi {
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  .list-group {
+    display: none;
+  }
+
+  .show {
+    /* css코드는 하단에 적을수록 우선 적용된다 */
+    display: block;
+  }
+</style>
 <body>
   <!-- 
     HTML 조작 문법을 쉽게 바꿔주는 툴 : jQuery, React, Vue등이 있는데,
@@ -47,12 +62,51 @@
     </ul> 
     
     <p class="hello">안녕!</p>
+    <p class="hello">안녕!</p>
+    <p class="hello">안녕!</p>
 
     <script> 
       document.querySelector('.hello').innerHTML = '안녕하세요';
       // querySelector() And querySelectorAll()
       // .html 이라는 jQuery 기본 함수로 html 내용 변경
       $('.hello').html('제이쿼리로 html 내용 변경!');
+      $('.hello').css('color', 'red');
+
+      // .addClass(클래스 추가), .removeClass(제거), .toggleClass(토글)
+      $('.hello').addClass('hi');
+      $('.hello').removeClass('hi');
+      $('.hello').toggleClass('hi');
+
+      // jQuery의 장점 
+      // 1. 코드가 간결해진다. 2. 중복된 클래스 한 번에 선택 및 적용
+      document.querySelectorAll('.hello')[0].innerHTML = '바닐라 JS'
+      document.querySelectorAll('.hello')[1].innerHTML = '바닐라 JS'
+      document.querySelectorAll('.hello')[2].innerHTML = '바닐라 JS'
+
+      document.querySelectorAll('.hello')[1].style.color = 'green'
+      document.querySelectorAll('.hello')[2].style.color = 'green'
+
+      $('.hello').html('제이쿼리');
+      $('.hello').css('color', 'blue');
+
+      // addEventListener 차이
+      // Vanilla JS (외부 라이브러리나 프레임워크를 사용하지 않은 순수 Javascript)
+      // document.querySelector('.navbar-toggler').addEventListener('click', function(){
+      //   document.querySelector('#test1').classList.toggle('show');
+      // })
+
+      // jQuery
+      // jQuery는 UI Animation 효과도 쉽게 줄 수 있다.
+      // hide() : display : none과 비슷
+      // fadeIn(), fadeOut(), slideUp(), slideDown()
+      
+      // jQuery Selector($)로 찾으면 jQuery 함수만 붙일 수 있다.
+      // querySelector()등 Vanilla JS Selector로 찾으면 쌩 자바스크립트 함수만 붙일 수 있다.
+      $('.navbar-toggler').on('click', function() {
+        $('#test1').toggleClass('show');
+      })
+
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
