@@ -22,12 +22,15 @@
   }
   .white-bg {
     display: none;
-    justify-content: space-between;
     background-color: white;
     border-radius: 5px;
     padding: 30px;
   } 
 
+  .is-open {
+    display: flex;
+    justify-content: space-between;
+  }
 </style>
 <body>
   <div class="black-bg">
@@ -40,16 +43,22 @@
 
   <script>
     // btn 클릭시 css display 속성 변경
-    document.getElementById('open-btn').addEventListener('click', function(){
-      document.querySelector('.white-bg').style.display = 'flex';
+    // document.getElementById('open-btn').addEventListener('click', function(){
+    //   document.querySelector('.white-bg').style.display = 'flex';
+    // })
+
+    // document.querySelector('#close-btn').addEventListener('click', function(){
+    //   document.querySelector('.white-bg').style.display = 'none';
+    // })
+
+    // class 탈부착 (확장성이 좋다)
+    document.getElementById('open-btn').addEventListener('click', function() {
+      document.querySelector('.white-bg').classList.add('is-open');
     })
 
-    document.querySelector('#close-btn').addEventListener('click', function(){
-      document.querySelector('.white-bg').style.display = 'none';
+    document.getElementById('close-btn').addEventListener('click', function() {
+      document.querySelector('.white-bg').classList.remove('is-open');
     })
-
-    // class 탈부착
-    
   </script>
 </body>
 </html>
