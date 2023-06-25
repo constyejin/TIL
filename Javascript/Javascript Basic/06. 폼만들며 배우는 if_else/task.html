@@ -96,6 +96,15 @@
         alert('비밀번호를 여섯자 이상 입력하세요')
       }
     })
+
+    document.getElementById('email').addEventListener('input', function (){
+      console.log('input')
+    })
+
+    // change 이벤트도 값이 변경 되는걸 감지 하는데, input값이 바뀌고 포커스를 잃을 때 발생한다.
+    document.getElementById('email').addEventListener('change', function (){
+      console.log('change')
+    })
   </script>
 </body>
 </html>
