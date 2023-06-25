@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 다름 비교하고 싶으면 != 
+    if(1 == 1) {
+      console.log('맞음')
+    }
+
+    // 느슨한 비교 : ==
+    // 엄격한 비교 : === (왼쪽과 오른쪽이 타입까지 같아야 같다는 결과가 나온다.)
+    if(1 === '1') {
+      console.log('같다')
+    }
+
+    // 조건 2개 이상을 동시에 비교
+    // && (AND) : 왼쪽, 오른쪽 둘 다 참이면 전체를 참으로 하겠다 (하나라도 거짓일시 False)
+    // || (OR) : 둘 중 하나라도 참이라면 전체를 참으로 하겠다.
+    if(1 == 1 && 2 == 3) {
+      console.log('둘 다 같다')
+    }
+
+    if(1 == 1 || 2 == 3) {
+      console.log('OR 연산자')
+    }
+  </script>
+</body>
+</html>
