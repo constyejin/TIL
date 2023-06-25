@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nav dark / light</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 2px solid #ccc;
+    background-color: #fff;
+  }
+
+  .btn {
+    border: 1px solid #888;
+    border-radius: 20px;
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #444;
+    font-weight: 700;
+  }
+
+  .btn > span {
+    margin-left: 5px;
+  }
+
+  nav.dark_mode {
+    color: #fff;
+    background-color: #444;
+  }
+
+  .btn.dark_mode {
+    color: #444;
+    background-color: #fff;
+  }
+</style>
+<body>
+  <nav>
+    <h1>LOGO</h1>
+    <button type="button" class="btn">Dark 
+      <span>🔄</span>
+    </button>
+  </nav>
+</body>
+
+<script>
+  count = 0
+  document.querySelector('.btn').addEventListener('click', function(){
+    count = count + 1
+    if(count % 2 == 0) {
+      this.innerHTML = 'Dark 🔄'
+      document.querySelector('nav').classList.remove('dark_mode')
+      document.querySelector('.btn').classList.remove('dark_mode')
+    } else {
+      this.innerHTML = 'Light 🔄'
+      document.querySelector('nav').classList.add('dark_mode')
+      document.querySelector('.btn').classList.add('dark_mode')
+    }
+  })
+</script>
+</html>
+
