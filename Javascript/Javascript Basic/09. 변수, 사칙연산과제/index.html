@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>변수, 사칙연산 실력향상 과제</title>
+</head>
+<body>
+  <script>
+    // Q1. 내 나이와 고향을 변수에 저장
+    // 나이는 해마다 바뀌니 재할당 가능한 변수
+    // 고향은 바뀌지 않으니 재할당 불가능한 변수
+    let age = '29'
+    const place = '울산'
+
+    // Q2. 왜 동작하지 않을까?
+    var name = 'yejin'
+    var id = 0;
+
+    function showName(){
+      // var name의 경우 함수 안에서 재선언, 재할당 했으니 그 값이 console에 찍힌다.
+      var name = 'lee'
+      var id = 1;
+      console.log(name)
+    }
+
+    showName()
+    // var id = 1은 함수 안에 있는 지역변수 이므로, 0인 전역변수가 출력된다.
+    console.log(id)
+  </script>
+</body>
+</html>
