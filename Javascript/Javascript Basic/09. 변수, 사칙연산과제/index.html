@@ -65,7 +65,22 @@
     // Q5. 유저가 <input>에 답을 적고 제출버튼을 누르는 간단한 퀴즈 UI 만들기
     // 유저가 답을 맞추면 alert('정답!')
     // 유저가 답을 세 번 찍어서 못 맞추면 alert('멍청이')
-
+    let count = 0;
+    let send_btn = document.getElementById('send');
+    
+    send_btn.addEventListener('click', function(){
+      // script안에 그냥 있는 코드는 새로고침시 1회만 실행된다.
+      // addEventListener 안에 있는 코드는 이벤트 발생시 실행된다.
+      let answer = document.getElementById('answer').value
+      console.log(answer)
+      count = count + 1
+      
+      if(answer  == 0508) {
+        alert('정답')
+      } else if(count > 3 && answer != 0508) {
+        alert('멍청이')
+      }
+    })
   </script>
 
 </body>
