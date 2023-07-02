@@ -114,7 +114,11 @@
     } else {
       미래예금액2 = 예금액2 * Math.pow(1.2, 10)
     }
-    console.log(미래예금액2)
+    // toFixed() 함수 : 인수로 전달된 소수 자릿수로 반올림된 숫자를 문자열 타입으로 반환한다.
+    console.log(미래예금액2.toFixed())
+    console.log(typeof(미래예금액2))
+    console.log(typeof(미래예금액2.toFixed()))
+
 
     // (응용 2)
     // 커피리필을 무한으로 해준다면 처음 담아주는 커피가 360ml일 때 총 몇 ml의 커피를 마실 수 있을까?
