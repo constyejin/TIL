@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+  <link rel="stylesheet" href="./style.css">
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <p class="discount">
+      <span class="num">5</span>초 이내 클릭시 할인!
+    </p>
+  </div>
+
+  <script>
+    // 1초 마다 5라는 문자를 1씩 감소시킨다. 5 4 3 2 1
+    // 0이 되면 discount 클래스를 가진 태그가 화면상에서 보이지 않게한다.
+    let count = 5;
+
+    let timer = setInterval(function(){
+      count = count - 1;
+      document.querySelector('.num').innerHTML = count;
+      // console.log(count)
+
+      if(count == 0) {
+        clearTimeout(timer);
+        // document.querySelector('.discount').classList.add('is-active');
+        document.querySelector('.discount').style.display = 'none';
+      }
+    }, 1000)
+
+    // setInterval을 삭제하고 싶다면
+    // let timer = setInterval(어쩌구) 변수에 저장
+    // clearTimeout(timer)
+  </script>
+</body>
+</html>
+
