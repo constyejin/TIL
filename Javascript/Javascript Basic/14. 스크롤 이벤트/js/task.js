@@ -11,7 +11,8 @@ window.addEventListener('scroll', function(){
   // console.log('스크롤 높이:',  scrollHeight)
 
   // 백분율 환산
-  let progress = ((scrollTop / (scrollHeight - clientHeight)) * 100)
+  // (구하려는 백분율을 나타내는 수 / 전체의 수) * 100
+  let progress = ((scrollTop / (scrollHeight - clientHeight)) * 100);
   console.log(progress)
   document.querySelector('.line').style.width = progress + '%';
 });
