@@ -17,6 +17,7 @@ nav {
   width: 100%;
   background-color: #fff;
   padding: 10px 30px;
+  transition: background-color 300ms ease-in-out;
 }
 
 .logo img {
@@ -27,8 +28,14 @@ i {
   font-size: 24px;
 }
 
-
 .box {
   height: 3000px;
   background-color :cornflowerblue;
+}
+
+.lorem {
+  width: 200px;
+  height: 200px;
+  overflow-y: scroll;
+  margin: 50px auto;
 }
