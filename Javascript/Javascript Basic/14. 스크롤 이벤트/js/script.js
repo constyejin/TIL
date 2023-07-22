@@ -36,10 +36,10 @@ document.querySelector('.lorem').addEventListener('scroll', function(){
   let 높이 = document.querySelector('.lorem').clientHeight;
   // 박스에 스타일로 넣은 높이값 말고 스크롤 가능한 실제높이
   let 실제높이 = document.querySelector('.lorem').scrollHeight;
-  console.log(스크롤양 + 높이, 실제높이)
+  // console.log(스크롤양 + 높이, 실제높이)
 
   if(스크롤양 + 높이 == 실제높이) {
-    alert('lorem 스크롤 끝!')
+    // alert('lorem 스크롤 끝!')
   }
 
   // 풀이
@@ -55,10 +55,10 @@ window.addEventListener('scroll', function(){
   let 스크롤양1 = document.documentElement.scrollTop;
   let 높이1 = document.querySelector('html').clientHeight;
   let 실제높이1 = document.querySelector('html').scrollHeight;
-  console.log(스크롤양1, 높이1, 실제높이1)
+  // console.log(스크롤양1, 높이1, 실제높이1)
   
   if(스크롤양1 + 높이1 == 실제높이1) {
-    alert('html 스크롤 끝!');
+    // alert('html 스크롤 끝!');
   }
 })
 
