@@ -24,16 +24,18 @@ window.addEventListener('scroll', function(){
   } else {
     document.querySelector('nav').style.backgroundColor = '#fff';
   }
+})
 
-  // task2
-  // 스크롤이 끝까지 됐을 때 '스크롤 끝!' alert 창 띄우기
-  // 스크롤바 내린 양 + 화면에 보이는 높이 == div 실제 높이
-  let scHeight = document.querySelector('.box').scrollHeight;
-  let boxHeight = document.querySelector('.box').clientHeight;
-  console.log(window.scrollY + scHeight);
-  console.log(boxHeight);
+// task2
+// 스크롤이 끝까지 됐을 때 '스크롤 끝!' alert 창 띄우기
+// 스크롤바 내린 양 + 화면에 보이는 div 높이 == div 실제 높이
+document.querySelector('.lorem').addEventListener('scroll', function(){
+  let 스크롤양 = document.querySelector('.lorem').scrollTop;
+  let 실제높이 = document.querySelector('.lorem').scrollHeight;
+  let 높이 = document.querySelector('.lorem').clientHeight;
+  console.log(스크롤양 + 높이, 실제높이)
 
-  if(window.scrollY + boxHeight == boxHeight) {
-    alert('스크롤 끝!');
+  if(스크롤양 + 높이 == 실제높이) {
+    alert('스크롤 끝!')
   }
 })
