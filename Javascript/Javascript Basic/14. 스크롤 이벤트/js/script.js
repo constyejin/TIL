@@ -39,7 +39,7 @@ document.querySelector('.lorem').addEventListener('scroll', function(){
   // console.log(스크롤양 + 높이, 실제높이)
 
   if(스크롤양 + 높이 == 실제높이) {
-    // alert('lorem 스크롤 끝!')
+    alert('lorem 스크롤 끝!')
   }
 
   // 풀이
@@ -58,7 +58,7 @@ window.addEventListener('scroll', function(){
   // console.log(스크롤양1, 높이1, 실제높이1)
   
   if(스크롤양1 + 높이1 == 실제높이1) {
-    // alert('html 스크롤 끝!');
+    alert('html 스크롤 끝!');
   }
 })
 
