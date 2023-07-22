@@ -65,6 +65,7 @@ window.addEventListener('scroll', function(){
 // 1. 스크롤바 조작할 때 마다 코드실행 가능
 // 2. 박스의 실제 높이 / 보이는 높이 구하는 방법 (scrollHeight / clientScroll)
 // 3. 스크롤된 양 구하는 방법 (scrollTop)
+// 이 정도 이해하고 지나가면 충분함. 문법은 필요할 때 구글에서 검색해서 쓰면 됨.
 
 // scroll 다룰 때 주의점
 // 1. scroll 이벤트리스너 안의 코드는 1초의 60번 이상 실행 되므로 컴퓨터한테 부담을 줄 수 있으니 너무 많이 사용하지 않는 게 좋다.
