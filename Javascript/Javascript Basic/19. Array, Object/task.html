@@ -17,25 +17,25 @@
 
 <body>
   <div class="card-group container">
-    <div class="card">
+    <div class="card card-item">
       <img src="https://via.placeholder.com/600">
-      <div class="card-body card-item">
+      <div class="card-body">
         <h5>Card title</h5>
         <p>가격 : 70000</p>
         <button class="btn btn-danger">주문하기</button>
       </div>
     </div>
-    <div class="card">
+    <div class="card card-item">
       <img src="https://via.placeholder.com/600">
-      <div class="card-body card-item">
+      <div class="card-body">
         <h5>Card title</h5>
         <p>가격 : 70000</p>
         <button class="btn btn-danger">주문하기</button>
       </div>
     </div>
-    <div class="card">
+    <div class="card card-item">
       <img src="https://via.placeholder.com/600">
-      <div class="card-body card-item">
+      <div class="card-body">
         <h5>Card title</h5>
         <p>가격 : 70000</p>
         <button class="btn btn-danger">주문하기</button>
@@ -47,37 +47,32 @@
     var products = [{
         id: 0,
         price: 70000,
-        title: 'Blossom Dress',
+        title: '꽃 원피스',
         src : "./images/dress.jpg"
       },
       {
         id: 1,
         price: 50000,
-        title: 'Springfield Shirt',
+        title: '하와이안 셔츠',
         src : "./images/shirt.jpg"
       },
       {
         id: 2,
         price: 60000,
-        title: 'Black Monastery',
+        title: '검은 모자',
         src : "./images/s-l1600.jpg"
       }
     ];
 
     let cards = document.querySelectorAll('.card-item');
-    let images = document.querySelectorAll('.card img');
     // console.log(cards);
-    // console.log(images)
 
     cards.forEach(function(card, index){
       card.querySelector('h5').innerHTML = products[index].title;
       card.querySelector('p').innerHTML = products[index].price;
+      card.querySelector('img').src = products[index].src;
     })
 
-    images.forEach(function(img, index){
-      console.log(img)
-      img.src = products[index].src;
-    })
   </script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
