@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<style>
+  .card img {
+    height: 400px;
+    object-fit: cover;
+  }
+</style>
+
+<body>
+  <div class="card-group container">
+    <div class="card">
+      <img src="https://via.placeholder.com/600">
+      <div class="card-body card-item">
+        <h5>Card title</h5>
+        <p>가격 : 70000</p>
+        <button class="btn btn-danger">주문하기</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/600">
+      <div class="card-body card-item">
+        <h5>Card title</h5>
+        <p>가격 : 70000</p>
+        <button class="btn btn-danger">주문하기</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/600">
+      <div class="card-body card-item">
+        <h5>Card title</h5>
+        <p>가격 : 70000</p>
+        <button class="btn btn-danger">주문하기</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var products = [{
+        id: 0,
+        price: 70000,
+        title: 'Blossom Dress',
+        src : "./images/dress.jpg"
+      },
+      {
+        id: 1,
+        price: 50000,
+        title: 'Springfield Shirt',
+        src : "./images/shirt.jpg"
+      },
+      {
+        id: 2,
+        price: 60000,
+        title: 'Black Monastery',
+        src : "./images/s-l1600.jpg"
+      }
+    ];
+
+    let cards = document.querySelectorAll('.card-item');
+    let images = document.querySelectorAll('.card img');
+    // console.log(cards);
+    // console.log(images)
+
+    cards.forEach(function(card, index){
+      card.querySelector('h5').innerHTML = products[index].title;
+      card.querySelector('p').innerHTML = products[index].price;
+    })
+
+    images.forEach(function(img, index){
+      console.log(img)
+      img.src = products[index].src;
+    })
+  </script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+   </script>
+</body>
+</html>
