@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="card">
+      <span class="car-price"></span>
+    </div>
+  </div>
+
+  <script>
+    // array, object 안에는 아무거나 다 넣을 수 있다.
+    // array, object도 가능
+    let car = {
+      name : '소나타',
+      price : [300, 400, 500]
+    }
+
+    document.querySelector('.car-price').innerHTML = car.price[0]
+
+    // 복잡하게 생긴 array, object 자료 다룰 땐 출력해보고 시작기호 확인하면 됨
+
+    // 개발방식1. Server-side rendering
+    // 완성된 html 파일
+    // 개발방식2. Client-side rendering
+    // 빈 html파일 + 데이터 (html 완성은 JS가)
+
+    // 프론트엔드 개발자가 하는 역할
+    // 서버가 보낸 데이터를 html에 꽂아준다
+    // 그걸 전문 용어로 '데이터바인딩이' 라고 부른다.
+    // 데이터바인딩을 쉽게 할 수 있도록 도와주는 라이브러리 (jQuery, React, Vue.. 등)
+  </script>
+</body>
+</html>
