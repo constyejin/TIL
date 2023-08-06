@@ -34,6 +34,11 @@ app.get('/hello', function(requests, response){
 
 
 // /bye 로 접속 했을 때 Goodbye 텍스트 보여주기
+// .get()으로 경로 여러개 생성 가능
 app.get('/bye', function(requests, response){
   response.send('Goodbye');
 })
+
+
+// 서버 재실행 자동화
+// npm install -g nodemon
