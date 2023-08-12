@@ -9,8 +9,8 @@ const app = express();
 
 // 포트 : 컴퓨터에는 외부랑 네트워크 통신을 하기 위한 6만개 정도의 구멍이 있다.  
 // 그 여러개의 구멍중에 8080으로 접속한 사람에게는 이 서버를 띄워주세요.
-app.listen(8080, function(){
-  console.log('8080 포트!');
+app.listen(8000, function(){
+  console.log('8000 포트!');
 });
 
 // node ./Node.js/server.js 서버가 잘 뜨는지 확인
