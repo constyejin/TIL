@@ -9,8 +9,8 @@ const app = express();
 
 // 포트 : 컴퓨터에는 외부랑 네트워크 통신을 하기 위한 6만개 정도의 구멍이 있다.  
 // 그 여러개의 구멍중에 8080으로 접속한 사람에게는 이 서버를 띄워주세요.
-app.listen(8002, function(){
-  console.log('8001 포트!');
+app.listen(8000, function(){
+  console.log('8000 포트!');
 });
 
 // node ./Node.js/server.js 서버가 잘 뜨는지 확인
@@ -24,6 +24,7 @@ app.listen(8002, function(){
 // 인사말을 띄워준다.
 // app.get('경로', function(){});
 // requests / response
+// slash / 하나는 홈페이지
 app.get('/hello', function(requests, response){
   response.send('Hello World!');
 })
@@ -41,4 +42,20 @@ app.get('/bye', function(requests, response){
 
 
 // 서버 재실행 자동화
+// -g 컴퓨터 모든 폴더에서 이용 가능하게 global하게 설치
 // npm install -g nodemon
+// nodemon ./Node.js/server.js
+
+
+// powershell 보안 오류시
+// poswershell (관리자 권한으로 실행)
+// executionpolicy 입력
+// Restricted 라고 뜨면 허가한 script 외에 막아버리기 때문에 에러 발생
+// set-executionpolicy unrestricted 입력
+// y 입력 후 엔터
+
+
+app.get('/', function(requests, response){
+  response.sendFile(__dirname + '/index.html')
+})
+
