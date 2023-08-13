@@ -46,15 +46,19 @@
   </nav>
 
   <section>
-    <div>
-      <label for="inputPassword5" class="form-label">할 일</label>
-      <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-    </div>
-    <div>
-      <label for="inputPassword5" class="form-label">Due Date</label>
-      <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-    </div>
-    <button type="button" class="btn btn-success">Submit</button>
+    <!-- action과 method가 없으면 form 내용을 서버로 전달 할 수 없다 -->
+    <!-- method : 정보를 어떤 형태로 전달할건지 작성 GET / POST -->
+    <form action="/add" method="POST">
+      <div class="form-group">
+        <label>할 일</label>
+        <input type="text" class="form-control" >
+      </div>
+      <div class="form-group">
+        <label>Due Date</label>
+        <input type="text" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
   </section>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

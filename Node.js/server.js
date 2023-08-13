@@ -55,7 +55,31 @@ app.get('/bye', function(requests, response){
 // y 입력 후 엔터
 
 
+// Javascript나 Node.js에서는 callback 함수를 자주 사용한다.
+// 함수 안에 함수 (function(){}) = 콜백함수
+// 순차적으로 코드를 실행하고 싶을 때 사용
 app.get('/', function(requests, response){
   response.sendFile(__dirname + '/index.html')
 })
 
+// // 어떤 사람이 슬래시 write로 접속하면 이 함수 안에 내용을 실행 해주세요.
+// 콜백 함수 안에는 두 개의 파라미터가 들어간다.
+// (요청 내용, 응답 방법)
+app.get('/write', function(requests, response){
+  response.sendFile(__dirname + '/write.html')
+})
+
+// ES6 신문법
+// arrow function 
+// function 대신 => 화살표 사용
+// .get('경로', (요청 내용, 응답 방법) => {})
+
+
+// 어떤 사람이 /add 경로로 POST 요청을 하면 ?? 를 해주세요
+// POST 요청 처리 함수
+
+// input에 적은 정보는 requests에 저장되어 있다
+// 이 정보를 꺼내쓰려면 라이브러리 필요! => body-parser
+app.post('/add', function(requests, response){
+  response.send('전송 완료!')
+})
