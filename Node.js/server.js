@@ -86,8 +86,16 @@ app.get('/write', function(requests, response){
 // npm install body-parser
 app.post('/add', function(requests, response){
   response.send('전송 완료!')
+  // form에서 보낸 데이터를 object 자료형으로 수신
+  // (requests.body.htmlName) => 내가 원하는 데이터만 뽑기도 가능
+  console.log(requests.body);
 })
 
 // POST 요청으로 서버에 데이터 전송 하고 싶다
 // 1. body-parser install
 // 2. form에 input에 name 작성
+
+// 여기까지가 서버한테 정보를 보내는 코드
+// 서버에 보낸 정보를 영구 저장하려면 DB에 저장
+
+
