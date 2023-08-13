@@ -138,3 +138,11 @@ app.post('/add', function(requests, response){
 // www.shopping.com/products/4000
 // instagram.com/explore/tags/food/
 // facebook.com/natgeo/photos/
+
+
+// 좋은 REST API 이름짓기 원칙
+// 1. URLㅇㄹ 명사로 작성 추천
+// 2. 하위 문서를 나타낼 땐 / slash
+// 3. 파일 확장자(.html) 사용 X
+// 4. 띄어쓰기 대신 (-) 사용
+// 5. 자료 하나당 하나의 URL
