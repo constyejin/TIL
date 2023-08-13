@@ -133,3 +133,8 @@ app.post('/add', function(requests, response){
 // 5. Layered System (중요 X)
 // 6. Code on Demand (중요 X)
 
+
+// 좋은 REST API 예시
+// www.shopping.com/products/4000
+// instagram.com/explore/tags/food/
+// facebook.com/natgeo/photos/
