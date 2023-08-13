@@ -2,6 +2,9 @@
 const express = require('express');
 const app = express();
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended : true}));
+
 // .listen이라는 함수를 쓰면 서버를 열 수 있는데 어디에 열건지 정해줘야 한다.
 // listen(파라미터1, 파라미터2)
 // 파라미터1 : 서버를 띄울 포트 번호
@@ -80,6 +83,11 @@ app.get('/write', function(requests, response){
 
 // input에 적은 정보는 requests에 저장되어 있다
 // 이 정보를 꺼내쓰려면 라이브러리 필요! => body-parser
+// npm install body-parser
 app.post('/add', function(requests, response){
   response.send('전송 완료!')
 })
+
+// POST 요청으로 서버에 데이터 전송 하고 싶다
+// 1. body-parser install
+// 2. form에 input에 name 작성
