@@ -2,6 +2,20 @@
 const express = require('express');
 const app = express();
 
+
+// 만든 MongoDB 접속 하는 법
+const MongoClient = require('mongodb').MongoClient;
+// mongoDB Library install
+// npm install mongodb@3.6.4
+
+// MongoClient 접속
+MongoClient.connect('mongodb+srv://ingkejin:wmfdlekt12@yejin.bck8pic.mongodb.net/?retryWrites=true&w=majority', function(error, client){
+  app.listen(5000, function(){
+    console.log('MongoDB 5000 포트!');
+  });
+})
+
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended : true}));
 
