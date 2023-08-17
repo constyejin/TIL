@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nike</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="box-list">
+      <div class="box-item">
+        <img src="" alt="">
+        <div class="sho-info">
+          <h2></h2>
+          <p></p>
+          <p></p> 
+        </div>
+      </div>
+
+      <div class="box-item">
+        <img src="" alt="">
+        <div class="sho-info">
+          <h2></h2>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+       
+      <div class="box-item">
+        <img src="" alt="">
+        <div class="sho-info">
+          <h2></h2>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let products = [
+      {
+      img :
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/856b44ab-0c1f-4001-9f89-f95e699470d0/%EB%8D%A9%ED%81%AC-%EB%A1%9C%EC%9A%B0-%EB%A0%88%ED%8A%B8%EB%A1%9C-se-%EB%82%A8%EC%84%B1-%EC%8B%A0%EB%B0%9C-uKAFYXN0.png",
+      title : "나이키 에어포스 1'07",
+      price : "139,000 원",
+      size : ["230", "235", "240", "245"]
+      },
+      {
+      img :
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd17b420-b388-4c8a-aaaa-e0a98ddf175f/%EB%8D%A9%ED%81%AC-%ED%95%98%EC%9D%B4-%EB%A0%88%ED%8A%B8%EB%A1%9C-%EB%82%A8%EC%84%B1-%EC%8B%A0%EB%B0%9C-I6zTsA39.png",
+      title : "나이키 덩크 하이 레트로",
+      price: "111,200 원",
+      size : ["240", "245", "250", "255", "260"]
+      },
+      {
+      img :
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/4a7afed0-26c4-415c-b0f4-12ca39dc0e80/%EB%8D%A9%ED%81%AC-%EB%A1%9C%EC%9A%B0-se-%EC%97%AC%EC%84%B1-%EC%8B%A0%EB%B0%9C-VgWtJv2o.png",
+      title : "나이키 덩크 로우 SE",
+      price : "139,000 원",
+      size : ["220", "225", "230", "235", "240"]
+      },
+    ]
+
+    // 박스 하나 생성
+    // document.querySelector('.sho-img').src = products[0].img;
+    // document.querySelector('.sho-title').innerHTML = products[0].title;
+    // document.querySelector('.sho-price').innerHTML = products[0].price;
+    // document.querySelector('.sho-size').innerHTML = products[0].size;
+
+
+    // forEach로 생성
+    let boxItems = document.querySelectorAll('.box-item');
+    // console.log(boxItems)
+
+    boxItems.forEach(function(item, index){
+      item.querySelector('img').src = products[index].img;
+      item.querySelector('h2').innerHTML = products[index].title;
+      item.querySelectorAll('p')[0].innerHTML = products[index].price;
+      item.querySelectorAll('p')[1].innerHTML = products[index].size;
+    })
+
+
+    // products length 만큼 html 요소 생성
+    // let boxList = document.querySelector(".box-list");
+
+    // products.forEach(function(item) {
+    //   let boxItem = document.createElement("div");
+    //   boxItem.classList.add("box-item");
+      
+    //   boxList.appendChild(boxItem);
+
+    //   let boxImg = document.createElement("img");
+    //   boxImg.src = item.img;
+    //   boxImg.alt = item.title;
+    //   boxItem.appendChild(boxImg);
+
+    //   let shoInfo = document.createElement('div');
+    //   shoInfo.classList.add('sho-info');
+    //   boxItem.appendChild(shoInfo);
+
+    //   let boxTitle = document.createElement("h2");
+    //   boxTitle.innerHTML = item.title;
+    //   shoInfo.appendChild(boxTitle);
+
+    //   let boxPrice = document.createElement("p");
+    //   boxPrice.innerHTML = item.price;
+    //   shoInfo.appendChild(boxPrice);
+
+    //   let boxSize = document.createElement("p");
+    //   boxSize.textContent = item.size;
+    //   shoInfo.appendChild(boxSize);
+    // });
+  </script>
+</body>
+</html>
