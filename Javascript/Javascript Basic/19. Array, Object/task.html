@@ -68,9 +68,9 @@
     // console.log(cards);
 
     cards.forEach(function(card, index){
+      card.querySelector('img').src = products[index].src;
       card.querySelector('h5').innerHTML = products[index].title;
       card.querySelector('p').innerHTML = products[index].price;
-      card.querySelector('img').src = products[index].src;
     })
 
   </script>
