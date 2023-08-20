@@ -14,8 +14,7 @@
   height: 30px;
 }
 
-.form-two,
-.form-thr {
+.form-hide {
   display: none;
 }
 
@@ -32,13 +31,13 @@
       </select>
     </div>
     <div class="form-box">
-      <select class="select-input form-two">
+      <select class="select-input form-hide">
         <option>90</option>
         <option>95</option>
       </select>
     </div>
     <div class="form-box">
-      <select class="select-input form-thr"></select>
+      <select class="select-input form-hide"></select>
     </div>
   </form>
 
@@ -67,9 +66,9 @@
       let formTwo = inputs[1];
 
         if(formOne == '셔츠') {
-        formTwo.classList.remove('form-two');
+        formTwo.classList.remove('form-hide');
         } else {
-        formTwo.classList.add('form-two');
+        formTwo.classList.add('form-hide');
         }
     })
 
@@ -103,9 +102,9 @@
         let opt2 = '<option>27</option>';
         document.querySelectorAll('.select-input')[2].insertAdjacentHTML('beforeend', opt1);
         document.querySelectorAll('.select-input')[2].insertAdjacentHTML('beforeend', opt2);
-        document.querySelectorAll('.select-input')[2].classList.remove('form-thr');
+        document.querySelectorAll('.select-input')[2].classList.remove('form-hide');
       } else {
-        document.querySelectorAll('.select-input')[2].classList.add('form-thr');
+        document.querySelectorAll('.select-input')[2].classList.add('form-hide');
       }
     })
   </script>
