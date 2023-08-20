@@ -39,20 +39,33 @@
 
     // script 안에 작성된 코드는 페이지 로드시 1회만 실행된다.
     // 유저가 선택할 때 마다 코드를 실행 해줘야 한다. => 이벤트 리스너
-    $('.form-one').on('input', function(){
-      // 1. 유저가 셔츠를 골랐을 때 form-two 보여주기
-      let formOne = $(this).val();
-      let formTwo = $('.select-input').eq(1);
+    // $('.form-one').on('input', function(){
+    //   // 1. 유저가 셔츠를 골랐을 때 form-two 보여주기
+    //   let formOne = $(this).val();
+    //   let formTwo = $('.select-input').eq(1);
 
-      if(formOne == '셔츠') {
-        formTwo.removeClass('form-two');
-      } else {
-       formTwo.addClass('form-two');
-      }
-    })
-    // document.querySelector('.form-one').addEventListener('input', function(){
-
+    //   if(formOne == '셔츠') {
+    //     formTwo.removeClass('form-two');
+    //   } else {
+    //    formTwo.addClass('form-two');
+    //   }
     // })
+    
+    
+    let inputs = document.querySelectorAll('.select-input');
+
+    inputs[0].addEventListener('input', function(){
+      let formOne = this.value;
+      let formTwo = inputs[1];
+
+        if(formOne == '셔츠') {
+        formTwo.classList.remove('form-two');
+        } else {
+        formTwo.classList.add('form-two');
+        }
+    })
+    // 미리 숨겨놨다가 보여주는 방색 => 확장성 부족
+
   </script>
 </body>
 </html>
