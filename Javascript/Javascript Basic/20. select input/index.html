@@ -14,9 +14,12 @@
   height: 30px;
 }
 
-.form-two {
+.form-two,
+.form-thr {
   display: none;
 }
+
+
 </style>
 <body>
   <form class="wrapper">
@@ -33,6 +36,9 @@
         <option>90</option>
         <option>95</option>
       </select>
+    </div>
+    <div class="form-box">
+      <select class="select-input form-thr"></select>
     </div>
   </form>
 
@@ -87,7 +93,21 @@
     // 1. .createElement() => 성능적으로는 더 빠름
     // 2. .insertAdjacentHTML()
 
+    
+    // 바지 선택 했을 때 26, 27 option 나오게 작성 (JS로 HTML 추가)
+    inputs[0].addEventListener('input', function(){
+      let formOne = this.value;
 
+      if(formOne == '바지') {
+        let opt1 = '<option>26</option>';
+        let opt2 = '<option>27</option>';
+        document.querySelectorAll('.select-input')[2].insertAdjacentHTML('beforeend', opt1);
+        document.querySelectorAll('.select-input')[2].insertAdjacentHTML('beforeend', opt2);
+        document.querySelectorAll('.select-input')[2].classList.remove('form-thr');
+      } else {
+        document.querySelectorAll('.select-input')[2].classList.add('form-thr');
+      }
+    })
   </script>
 </body>
 </html>
