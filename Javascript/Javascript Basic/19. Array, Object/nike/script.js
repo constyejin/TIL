@@ -59,33 +59,62 @@ let products = [
 
 
 // products length 만큼 html 요소 생성
-let boxList = document.querySelector(".box-list");
+// let boxList = document.querySelector(".box-list");
 
-products.forEach(function (item) {
-  let boxItem = document.createElement("div");
-  boxItem.classList.add("box-item");
+// products.forEach(function (item) {
+//   let boxItem = document.createElement("div");
+//   boxItem.classList.add("box-item");
 
-  boxList.appendChild(boxItem);
+//   boxList.appendChild(boxItem);
 
-  let boxImg = document.createElement("img");
-  boxImg.src = item.img;
-  boxImg.alt = item.title;
-  boxItem.appendChild(boxImg);
+//   let boxImg = document.createElement("img");
+//   boxImg.src = item.img;
+//   boxImg.alt = item.title;
+//   boxItem.appendChild(boxImg);
 
-  let shoInfo = document.createElement('div');
-  shoInfo.classList.add('sho-info');
-  boxItem.appendChild(shoInfo);
+//   let shoInfo = document.createElement('div');
+//   shoInfo.classList.add('sho-info');
+//   boxItem.appendChild(shoInfo);
 
-  let boxTitle = document.createElement("h2");
-  boxTitle.innerHTML = item.title;
-  shoInfo.appendChild(boxTitle);
+//   let boxTitle = document.createElement("h2");
+//   boxTitle.innerHTML = item.title;
+//   shoInfo.appendChild(boxTitle);
 
-  let boxPrice = document.createElement("p");
-  boxPrice.innerHTML = item.price;
-  shoInfo.appendChild(boxPrice);
+//   let boxPrice = document.createElement("p");
+//   boxPrice.innerHTML = item.price;
+//   shoInfo.appendChild(boxPrice);
 
-  let boxSize = document.createElement("p");
-  boxSize.textContent = item.size;
-  shoInfo.appendChild(boxSize);
+//   let boxSize = document.createElement("p");
+//   boxSize.textContent = item.size;
+//   shoInfo.appendChild(boxSize);
+// });
+
+
+// products.forEach(function(item){
+//   let boxItem = '<div class="box-item"></div>';
+//   document.querySelector('.box-list').insertAdjacentHTML('beforeend', boxItem);
+
+//   let boxImg = `<img src="${item.img}" alt="${item.title}">`;
+//   document.querySelector('.box-item').insertAdjacentHTML('beforeend', boxImg);
+// })
+
+
+products.forEach(function(item, index) {
+  let boxItem = '<div class="box-item"></div>';
+  document.querySelector('.box-list').insertAdjacentHTML('beforeend', boxItem);
+
+  let boxImg = `<img src="${item.img}" alt="${item.title}">`;
+  document.querySelectorAll('.box-item')[index].insertAdjacentHTML('beforeend', boxImg);
+
+  let boxInfo = `<div class="sho-info"></div>`;
+  document.querySelectorAll('.box-item')[index].insertAdjacentHTML('beforeend', boxInfo);
+
+  let boxTitle = `<h2>${item.title}</h2>`;
+  document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxTitle);
+
+  let boxPrice = `<p>${item.price}</p>`;
+  document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxPrice);
+
+  let boxSize = `<p>${item.size}</p>`;
+  document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxSize);
 });
-
