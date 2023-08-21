@@ -1,0 +1,9 @@
+.box-list {
+  display: flex;
+}
+
+.box-item {
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
