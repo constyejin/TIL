@@ -23,8 +23,24 @@ function findName(para){
 // Q2. 구구단 2~9단까지 콘솔창에 출력
 for(let i = 2; i < 10; i++) {
   for(let j = 1; j < 10; j++) {
-    console.log(`${i} * ${j} = ${i * j}`);
+    // console.log(`${i} * ${j} = ${i * j}`);
   }
 }
 
 
+// Q3. 평균점수 계산기 만들기 
+function cal(arr, b){
+  var result = 0;
+
+  for ( let i = 0; i < arr.length; i++ ) {
+    result = result + arr[i]
+  }
+  
+  if (result/arr.length < b) {
+    console.log('올랐네요');
+  } else {
+    console.log('같거나 떨어졌네요 재수 추천')
+  }
+}
+
+cal([2,3,4], 10); 
