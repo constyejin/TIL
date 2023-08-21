@@ -1,3 +1,7 @@
+.wrapper {
+  padding: 50px;
+}
+
 .box-list {
   display: flex;
 }
@@ -6,4 +10,13 @@
   padding: 30px;
   text-align: center;
   border: 1px solid #ccc;
+}
+
+.more-btn {
+  margin-top: 20px;
+  padding: 8px 16px;
+  color: #fff;
+  background-color: dodgerblue;
+  border: none;
+  border-radius: 5px;
 }
