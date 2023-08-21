@@ -13,6 +13,8 @@
 // })
 
 let inputs = document.querySelectorAll('.select-input');
+// 데이터 length 만큼 option 생성하기
+let pants = [25, 26, 27, 28, 29, 30, 31]
 
 inputs[0].addEventListener('input', function(){
   let formOne = this.value;
@@ -24,14 +26,20 @@ inputs[0].addEventListener('input', function(){
       <option>90</option>
       <option>95</option>
     `
+  // 바지 선택 했을 때 26, 27 option 나오게 작성 (JS로 HTML 추가)
   } else if(formOne == '바지') {
     formTwo.classList.remove('form-hide');
     formTwo.innerHTML = ''
-    let pants = `
-      <option>26</option>
-      <option>27</option>
-    `
-    formTwo.insertAdjacentHTML('beforeend', pants);
+    // for(let i = 0; i < pants.length; i++) {
+    //   let pantsOpt = `<option>${pants[i]}</option>`
+    //   formTwo.insertAdjacentHTML('beforeend', pantsOpt);
+    // }
+
+    // forEach로 작성 => array에 붙일 수 있는 반복문
+    pants.forEach(function(item){
+      let pantsOpt = `<option>${item}</option>`
+      formTwo.insertAdjacentHTML('beforeend', pantsOpt);
+    })
   } else {
     formTwo.classList.add('form-hide');
   } 
@@ -58,17 +66,4 @@ document.querySelector('.box').insertAdjacentHTML('beforeend', txt);
 // 2. .insertAdjacentHTML()
 
 
-// 바지 선택 했을 때 26, 27 option 나오게 작성 (JS로 HTML 추가)
-// inputs[0].addEventListener('input', function(){
-//   let formOne = this.value;
 
-//   if(formOne == '바지') {
-//     let opt1 = '<option>26</option>';
-//     let opt2 = '<option>27</option>';
-//     document.querySelectorAll('.select-input')[2].insertAdjacentHTML('beforeend', opt1);
-//     document.querySelectorAll('.select-input')[2].insertAdjacentHTML('beforeend', opt2);
-//     document.querySelectorAll('.select-input')[2].classList.remove('form-hide');
-//   } else {
-//     document.querySelectorAll('.select-input')[2].classList.add('form-hide');
-//   }
-// })
