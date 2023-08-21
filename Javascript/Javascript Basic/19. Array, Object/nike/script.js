@@ -64,7 +64,6 @@ let products = [
 // products.forEach(function (item) {
 //   let boxItem = document.createElement("div");
 //   boxItem.classList.add("box-item");
-
 //   boxList.appendChild(boxItem);
 
 //   let boxImg = document.createElement("img");
@@ -99,22 +98,37 @@ let products = [
 // })
 
 
-products.forEach(function(item, index) {
-  let boxItem = '<div class="box-item"></div>';
+// products.forEach(function(item, index) {
+//   let boxItem = '<div class="box-item"></div>';
+//   document.querySelector('.box-list').insertAdjacentHTML('beforeend', boxItem);
+
+//   let boxImg = `<img src="${item.img}" alt="${item.title}">`;
+//   document.querySelectorAll('.box-item')[index].insertAdjacentHTML('beforeend', boxImg);
+
+//   let boxInfo = `<div class="sho-info"></div>`;
+//   document.querySelectorAll('.box-item')[index].insertAdjacentHTML('beforeend', boxInfo);
+
+//   let boxTitle = `<h2>${item.title}</h2>`;
+//   document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxTitle);
+
+//   let boxPrice = `<p>${item.price}</p>`;
+//   document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxPrice);
+
+//   let boxSize = `<p>${item.size}</p>`;
+//   document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxSize);
+// });
+
+
+products.forEach(function(item) {
+  let boxItem = `
+    <div class="box-item">
+      <img src="${item.img}" alt="${item.title}">
+      <div class="sho-info">
+        <h2>${item.title}</h2>
+        <p>${item.price}</p>
+        <p>${item.size}</p> 
+      </div>
+    </div>
+  `;
   document.querySelector('.box-list').insertAdjacentHTML('beforeend', boxItem);
-
-  let boxImg = `<img src="${item.img}" alt="${item.title}">`;
-  document.querySelectorAll('.box-item')[index].insertAdjacentHTML('beforeend', boxImg);
-
-  let boxInfo = `<div class="sho-info"></div>`;
-  document.querySelectorAll('.box-item')[index].insertAdjacentHTML('beforeend', boxInfo);
-
-  let boxTitle = `<h2>${item.title}</h2>`;
-  document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxTitle);
-
-  let boxPrice = `<p>${item.price}</p>`;
-  document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxPrice);
-
-  let boxSize = `<p>${item.size}</p>`;
-  document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxSize);
 });
