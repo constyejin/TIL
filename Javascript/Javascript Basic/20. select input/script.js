@@ -77,7 +77,7 @@ let obj = {
 }
 // key 값(자료 이름)
 for(let key in obj) {
-  console.log(obj[key]);
+  // console.log(obj[key]);
 }
 
 // 반복문의 용도
