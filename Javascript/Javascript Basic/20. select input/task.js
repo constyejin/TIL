@@ -17,5 +17,14 @@ function findName(para){
   //   } 
   // }
 }
+// findName('빛나');
 
-findName('빛나');
+
+// Q2. 구구단 2~9단까지 콘솔창에 출력
+for(let i = 2; i < 10; i++) {
+  for(let j = 1; j < 10; j++) {
+    console.log(`${i} * ${j} = ${i * j}`);
+  }
+}
+
+
