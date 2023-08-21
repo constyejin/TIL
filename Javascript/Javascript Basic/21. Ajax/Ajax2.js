@@ -4,6 +4,17 @@ let products = [
   { id : 2, title : '신발3', price : 70000}
 ]
 
+// products.forEach(function(item){
+//   let product = `
+//     <div class="box-item">
+//       <h3>${item.title}</h3>
+//       <p>${item.price}</p>
+//     </div>
+//   `
+//   document.querySelector('.box-list').insertAdjacentHTML('beforeend', product);
+// })
+
+// jQuery로 구현
 products.forEach(function(item){
   let product = `
     <div class="box-item">
@@ -11,5 +22,5 @@ products.forEach(function(item){
       <p>${item.price}</p>
     </div>
   `
-  document.querySelector('.box-list').insertAdjacentHTML('beforeend', product);
+  $('.box-list').append(product);
 })
