@@ -87,6 +87,7 @@ app.get('/write', function(requests, response){
 })
 
 
+// Kakao map page 
 app.get('/map', function(requests, response){
   response.sendFile(__dirname + '/map.html')
 })
