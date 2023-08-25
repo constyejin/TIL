@@ -86,6 +86,12 @@ app.get('/write', function(requests, response){
   response.sendFile(__dirname + '/write.html')
 })
 
+
+app.get('/map', function(requests, response){
+  response.sendFile(__dirname + '/map.html')
+})
+
+
 // ES6 신문법
 // arrow function 
 // function 대신 => 화살표 사용
