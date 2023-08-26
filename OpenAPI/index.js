@@ -4,10 +4,10 @@ const app = express();
 
 app.listen(7000, function(){
   console.log('7000 포트!');
-  // document.write = 'Main page'
+  // document.querySelector('body').innerHTML = '<h1>hello</h1>';
 });
 
 
-app.get('/hello', function(requests, response){
-  response.send('Hello World!');
+app.get('/', function(requests, response){
+  response.send('Hello World!!!');
 })
