@@ -41,6 +41,7 @@ app.get('/', function(requests, response){
 })
 
 
+
 // localhost:7000/login 으로 접속 했을 때 HTML 파일 보여주고 싶을 때
 app.get('/login', function(requests, response){
   response.sendFile(__dirname + '/login.html');
@@ -52,7 +53,6 @@ app.get('/login', function(requests, response){
 // npm install -g nodemon
 // nodemon index.js
  
-
 
 // 카카오 개발자 사이트 접속
 // 내 애플리케이션 -> 애플리케이션 추가하기
@@ -84,6 +84,12 @@ app.post('/add', function(requests, response){
   response.send('전송 완료!')
   console.log(requests.body.id)
 })
+
+
+
+// 폴더 내 모든 정적 파일 제공(css, 이미지, js, 폰트 등)
+app.use(express.static(__dirname));
+
 
 // 여기까지가 서버한테 정보를 보내는 코드
 // 서버에 보낸 정보를 영구 저장하려면 DB에 저장
@@ -136,3 +142,5 @@ app.post('/add', function(requests, response){
 // 3. 파일 확장자(.html) 사용 X
 // 4. 띄어쓰기 대신 (-) 사용
 // 5. 자료 하나당 하나의 URL
+
+
