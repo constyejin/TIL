@@ -47,51 +47,13 @@ app.get('/login', function(requests, response){
 // -g 컴퓨터 모든 폴더에서 이용 가능하게 global하게 설치
 // npm install -g nodemon
 // nodemon index.js
+ 
 
 
-
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended : true}));
-
-app.post("/city", (req, res) => {
-  dustData(req.body.sidoName, (body) => {
-    return res.send(body);
-  });
-});
-
-// const body = {
-//   sidoName: "서울",
-// };
-
-// fetch("http://localhost:3000/city", {
-//   method: "POST",
-//   headers: { "Content-Type": "application/json" },
-//   body: JSON.stringify(body),
-// })
-
-
-const requestUrl =
-    "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty";
-  let queryParams = "?" + encodeURIComponent("ServiceKey") + "=" + serviceKey; //서비스키
-  queryParams +=
-    "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("1");
-  queryParams +=
-    "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1");
-  queryParams +=
-    "&" + encodeURIComponent("dataTerm") + "=" + encodeURIComponent("DAILY"); //데이터측정시간
-  queryParams +=
-    "&" + encodeURIComponent("sidoName") + "=" + encodeURIComponent(sidoName); //시도 이름
-  queryParams +=
-    "&" + encodeURIComponent("ver") + "=" + encodeURIComponent("1.3");
-  queryParams +=
-    "&" + encodeURIComponent("_returnType") + "=" + encodeURIComponent("json");
-
-
-request(
-  {
-    url: requestUrl + queryParams,
-    method: "GET",
-  },
-  function (error, response, body) {
-    callback(body);
-  })
+// 카카오 개발자 사이트 접속
+// 내 애플리케이션 -> 애플리케이션 추가하기
+// 플랫폼 -> 플랫폼 설정하기 -> Web 플랫폼 등록
+// Javascript key
+app.get('/map', function(requests, response){
+  response.sendFile(__dirname + '/kakaoMap.html');
+})
