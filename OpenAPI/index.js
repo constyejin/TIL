@@ -149,11 +149,16 @@ app.use(express.static(__dirname));
 // npm install mongodb@3.6.4
 const MongoClient = require('mongodb').MongoClient;
 
-MongoClient.connect('', function(error, client){
-  // 커넥션 url
-  // Database Access에서 만든 아이디 : 비밀번호 입력
-  // 몽고 디비 클라우드 접속 끝
-  'mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?retryWrites=true&w=majority'
+// 커넥션 url
+// Database Access에서 만든 아이디 : 비밀번호 입력
+// 몽고 디비 클라우드 접속 끝
+
+// 콜백함수 에러 파라미터 : 에러가 발생했을 때 어떤 에러인지 알려준다.
+MongoClient.connect('mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?retryWrites=true&w=majority', function(error, client){
+  // 커넥션 에러 대부분은 url 오타
+  if(error) {
+    return console.log(error)
+  }
 
   // 접속 확인
   app.listen('7070', function(){
