@@ -144,3 +144,24 @@ app.use(express.static(__dirname));
 // 5. 자료 하나당 하나의 URL
 
 
+
+// MongoDB
+// npm install mongodb@3.6.4
+const MongoClient = require('mongodb').MongoClient;
+
+MongoClient.connect('', function(error, client){
+  // 커넥션 url
+  // Database Access에서 만든 아이디 : 비밀번호 입력
+  // 몽고 디비 클라우드 접속 끝
+  'mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?retryWrites=true&w=majority'
+
+  // 접속 확인
+  app.listen('7070', function(){
+    console.log('seccess!')
+  })
+})
+
+// 빨간 에러외에 워닝 메세지는 무시해도된다.
+
+
+
