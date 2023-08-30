@@ -18,7 +18,7 @@
           <p>ID : <%= posts[i].아이디 %> </p>
           <p>PW : <%= posts[i].비밀번호 %> </p>
         </div>
-        <button>삭제</button>
+        <button type="button" class="delete">삭제</button>
       </div>
     <% } %>
   </div>
@@ -35,16 +35,23 @@
     // 장점 : 새로고침 없이 서버에 요청할 수 있다.
 
     // jQuery를 이용해서 요청
-    $.ajax({
-      // method : 'DELETE', 서버에 새로고침없이 delete 요청 부탁
-      // url : '요청 할 경로', 
-      // data : '요청과 함께 보낼 데이터' 
-      method : 'DELETE',
-      url : '/delete'
+    $('.delete').on('click', function(e){
+      let dataNum = e.target.dataset.id;
+      let curClick = $(this);
 
-    // done = Ajax 요청이 성공 했을 때 실행할 코드(콜백함수)
-    }).done(function(result){
+      $.ajax({
+        // method : 'DELETE', 서버에 새로고침없이 delete 요청 부탁
+        // url : '요청 할 경로',
+        // data : '요청과 함께 보낼 데이터'
+        method : 'DELETE',
+        url : '/delete'
 
+        // done = Ajax 요청이 성공 했을 때 실행할 코드(콜백함수)
+        }).done(function(result){
+        console.log('성공했지롱')
+        }).fail(function(){
+        // 요청 실패시 실행 할 코드
+      })
     })
   </script>
 </body>

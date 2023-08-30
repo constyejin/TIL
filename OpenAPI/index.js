@@ -186,9 +186,38 @@ app.post('/add', function(requests, response){
   response.send('전송 완료!')
   console.log(requests.body)
 
-  db.collection('post').insertOne({아이디 : requests.body.id , 비밀번호 : requests.body.pw}, function(error, result){
-    console.log('저장완료!!')
-  })
+  // DB에서 총 데이터 수 꺼내오기
+  // 데이터를 전부 찾고싶으면 find(), 하나만 찾고싶으면 findOne()
+  // 이름이 tatalData인 데이터를 찾아달라는 쿼리문
+  db.collection('counter').findOne({name : 'dataLength'}, function(error, result){
+    console.log(result.totalData) // 서버에 있는 총 데이터 수
+    let totalDataLength = result.totalData;
+
+    db.collection('post').insertOne({_id: totalDataLength + 1, 아이디 : requests.body.id , 비밀번호 : requests.body.pw}, function(error, result){
+      console.log('저장완료!!')
+
+      // 새로운 데이터가 생기면 counter collection에 있는 totalData 1 증가 시키키
+      // undateOne({data name},{ $set : {수정값}})
+      // update operator(연산자) $set(변경), $inc(증가) 등 여러가지가 있음
+      // {$set : {totalData : 변경할 값} }
+      // {$inc : {totalData : 기존값에 더해줄 값}}
+      db.collection('counter').updateOne({name : 'dataLength'},{ $inc : {totalData : 1}}, function(error, result){
+        if(error) {
+          // form에서 /add로 post청하면 DB에서 counter라는 collection에서
+          // counter 내 총 데이터 수를 찾고 그 값을 변수에 저장한다
+          // post 라는 collection에 새 데이터 저장 할 때 id값 = 현재 데이터 수 + 1
+          // counter내 총 데이터 수 + 1
+          return console.log(error);
+        }
+      })
+    })
+  });
+
+  // 아이디 값을 1이라고 하드 코딩하면 안되고 '총 데이터 수 + 1'
+  // auto increment 
+  // db에 항목 추가할 때마다 자동으로 1 증가시켜서 저장
+  // 총 게시물 수 구하는 기능 posts라는 collection에 저장된 값에 + 1하는 기능 (간단하지만 좋은 방법 X)
+  // 데이터가 삭제되고, 바뀌어도 id값은 바뀌지 않고 그대로 지정되어 있는 게 좋다.
 })
  
 // /data 로 접속하면 GET 요청으로 DB에 저장된 데이터를 보여준다.
@@ -224,5 +253,11 @@ app.get('/data', function(requests, response){
 
 app.delete('/delete', function(requests, response){
   console.log(requests.body)
+  // 서버에서 응답 코드로 요청의 상태를 표시할 수 있다
+  // 2xx => 요청 성공
+  // 4xx => 고객 문제로 요청 실패
+  // 5xx => 서버 문제로 요청 실패
+  // 응답코드 200과 함께 보낼 메세지 작성
+  response.status(200).send({message : '성공적'});
 })
 
