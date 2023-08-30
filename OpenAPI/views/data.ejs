@@ -4,10 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <h1>DB에서 받은 데이터</h1>
-  <p>ID : <%= %> </p>
-  <p>PW : <%= %> </p>
+  <div class="wrapper">
+    <h1>DB에서 받은 데이터</h1>
+    <% for (let i = 0; i < posts.length; i++) { %>
+      <div class="info-box">
+        <div>
+          <p>ID : <%= posts[i].아이디 %> </p>
+          <p>PW : <%= posts[i].비밀번호 %> </p>
+        </div>
+        <button>삭제</button>
+      </div>
+    <% } %>
+  </div>
 </body>
 </html>
