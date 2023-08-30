@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../style.css">
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="wrapper">
@@ -19,5 +22,30 @@
       </div>
     <% } %>
   </div>
+
+  <script>
+    // 글 목록마다 삭제버튼 생성
+    // Ajax로 삭제 요청하기 (Delete 요청)
+    // html 상에서는 get, post 요청밖에 할 수 없다.
+
+    // 1. method-override 라이브러리 사용 (form에서 delete 요청 가능)
+    // 2. Javascript Ajax 요청 사용 (Ajax 많이 사용)
+
+    // Ajax : 서버랑 통신 할 수 있게 도와주는 JS 문법 (서버에 요청)
+    // 장점 : 새로고침 없이 서버에 요청할 수 있다.
+
+    // jQuery를 이용해서 요청
+    $.ajax({
+      // method : 'DELETE', 서버에 새로고침없이 delete 요청 부탁
+      // url : '요청 할 경로', 
+      // data : '요청과 함께 보낼 데이터' 
+      method : 'DELETE',
+      url : '/delete'
+
+    // done = Ajax 요청이 성공 했을 때 실행할 코드(콜백함수)
+    }).done(function(result){
+
+    })
+  </script>
 </body>
 </html>

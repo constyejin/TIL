@@ -160,6 +160,7 @@ MongoClient.connect('mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?re
     return console.log(error)
   }
 
+  // db 이름
   db = client.db('testapp');
   // db.collection('post').insertOne('저장 할 데이터', 콜백함수)
   // 데이터는 object 자료형으로 저장해야 한다.
@@ -197,11 +198,31 @@ app.set('view engine', 'ejs');
 // .html -> ejs로 바꾸기
 // 서버에서 html 말고 .ejs 파일 보내주는 방법
 app.get('/data', function(requests, response){
-  response.render('data.ejs');
+  // DB에 저장된 post라는 collection안 데이터를 꺼낸다.
+  // 데이터를 꺼내서 html에 보여주는 거니까 데이터를 꺼내는 게 먼저
+  db.collection('post').find().toArray(function(error, result){
+    // result가 가지고 있는 데이터를 ejs 안으로 집어 넣는다.
+    console.log(result)
+
+    // 서버에서 보낸 posts라는 변수
+    // posts에 들어있는 길이만큼 반복문으로 반복
+    response.render('data.ejs', {posts : result});
+  });
 });
 
 
 // Error: Failed to lookup view
 // ejs 파일들은 항상 views 라는 폴더내에 생성해야 한다.
 
+
+// ejs 문법 반복문
+// for (let i = 0; i < posts.length; i++) {
+//   <p>ID : <%= posts[0].아이디 %> </p>
+//   <p>PW : <%= posts[0].비밀번호 %> </p>
+// }
+
+
+app.delete('/delete', function(requests, response){
+  console.log(requests.body)
+})
 
