@@ -62,6 +62,8 @@ app.get('/map', function(requests, response){
   response.sendFile(__dirname + '/kakaoMap.html');
 })
 
+// 폴더 내 모든 정적 파일 제공(css, 이미지, js, 폰트 등)
+app.use(express.static(__dirname));
 
 
 // body-parser 라이브러리 사용하는 방법
@@ -80,15 +82,10 @@ app.use(bodyParser.urlencoded({extended : true}));
 // 우리가 작성한 input 속 내용은 requests라는 파라미터가 가지고 있다.
 // 이 값을 꺼내서 사용하려면 body-parser 라이브러리가 필요하다.
 // npm install body-parser
-app.post('/add', function(requests, response){
-  response.send('전송 완료!')
-  console.log(requests.body.id)
-})
-
-
-
-// 폴더 내 모든 정적 파일 제공(css, 이미지, js, 폰트 등)
-app.use(express.static(__dirname));
+// app.post('/add', function(requests, response){
+//   response.send('전송 완료!')
+//   console.log(requests.body)
+// })
 
 
 // 여기까지가 서버한테 정보를 보내는 코드
@@ -115,7 +112,7 @@ app.use(express.static(__dirname));
 // - URL 하나를 알면 둘을 알 수 있어야함
 // - 요청과 응답을 정보가 충분히 들어있어야 함
 
-// 2. Client-Server 역할 구분
+// 2. Client - Server 역할 구분
 // - 브라우저는 요청만 할 뿐 서버의 역할을 해서는 안됨
 // - 서버는 응답만 한다
 
@@ -154,19 +151,57 @@ const MongoClient = require('mongodb').MongoClient;
 // 몽고 디비 클라우드 접속 끝
 
 // 콜백함수 에러 파라미터 : 에러가 발생했을 때 어떤 에러인지 알려준다.
+
+// 데이터를 저장할 변수 하나 지정
+let db;
 MongoClient.connect('mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?retryWrites=true&w=majority', function(error, client){
   // 커넥션 에러 대부분은 url 오타
   if(error) {
     return console.log(error)
   }
 
+  db = client.db('testapp');
+  // db.collection('post').insertOne('저장 할 데이터', 콜백함수)
+  // 데이터는 object 자료형으로 저장해야 한다.
+  // db.collection('post').insertOne({이름 : '홍길동', 나이 : 20}, function(error, result){
+  //   console.log('저장!')
+  // })
+
   // 접속 확인
   app.listen('7070', function(){
     console.log('seccess!')
   })
+
 })
 
 // 빨간 에러외에 워닝 메세지는 무시해도된다.
 
+
+
+// 어떤 사람이 /add 라는 경로로 post 요청하면
+// 아이디랑 비밀번호 데이터를 보내고 
+// 이 데이터를 post라는 이름을 가진 collection에 저장한다.
+app.post('/add', function(requests, response){
+  response.send('전송 완료!')
+  console.log(requests.body)
+
+  db.collection('post').insertOne({아이디 : requests.body.id , 비밀번호 : requests.body.pw}, function(error, result){
+    console.log('저장완료!!')
+  })
+})
+ 
+// /data 로 접속하면 GET 요청으로 DB에 저장된 데이터를 보여준다.
+// npm install ejs
+app.set('view engine', 'ejs');
+
+// .html -> ejs로 바꾸기
+// 서버에서 html 말고 .ejs 파일 보내주는 방법
+app.get('/data', function(requests, response){
+  response.render('data.ejs');
+});
+
+
+// Error: Failed to lookup view
+// ejs 파일들은 항상 views 라는 폴더내에 생성해야 한다.
 
 
