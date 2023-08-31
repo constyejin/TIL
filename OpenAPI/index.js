@@ -21,10 +21,10 @@ const app = express();
 // node. index.js
 // 내 컴퓨터에서 7000번 포트로 진입
 // localhose:7000
-app.listen(7000, function(){
-  console.log('7000 포트!!!');
-  // document.querySelector('body').innerHTML = '<h1>hello</h1>';
-});
+// app.listen(7000, function(){
+//   console.log('7000 포트!!!');
+//   // document.querySelector('body').innerHTML = '<h1>hello</h1>';
+// });
 
 
 // 서버에 GET 요청으로 정보 받아오기
@@ -197,7 +197,7 @@ app.post('/add', function(requests, response){
       console.log('저장완료!!')
 
       // 새로운 데이터가 생기면 counter collection에 있는 totalData 1 증가 시키키
-      // undateOne({data name},{ $set : {수정값}})
+      // undateOne({변경 할 데이터},{ $set : {수정값}})
       // update operator(연산자) $set(변경), $inc(증가) 등 여러가지가 있음
       // {$set : {totalData : 변경할 값} }
       // {$inc : {totalData : 기존값에 더해줄 값}}
@@ -252,12 +252,21 @@ app.get('/data', function(requests, response){
 
 
 app.delete('/delete', function(requests, response){
+  // body에 담긴 게시물 번호에 따라 DB에서 해당 데이터 삭제
   console.log(requests.body)
   // 서버에서 응답 코드로 요청의 상태를 표시할 수 있다
   // 2xx => 요청 성공
-  // 4xx => 고객 문제로 요청 실패
+  // 4xx => 고객 문제로 요청 실패`
   // 5xx => 서버 문제로 요청 실패
   // 응답코드 200과 함께 보낼 메세지 작성
+  
+  // deleteOne(삭제 대상, function(error, result){})
+  // 데이터를 주고 받을 때 형이 변환되는 경우가 있다 parseInt로 형변환
+  requests.body._id =  parseInt(requests.body._id);
+
+  db.collection('post').deleteOne({}, function(error, result){
+    console.log('삭제 완료!')
+  })
   response.status(200).send({message : '성공적'});
 })
 
