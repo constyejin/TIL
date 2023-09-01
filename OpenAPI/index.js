@@ -270,3 +270,36 @@ app.delete('/delete', function(requests, response){
   response.status(200).send({message : '성공적'});
 })
 
+
+
+// HTML form 에서는 get, post요청만 가능 
+// put, delete 요청을 하고 싶다면 외부 라이브러리 사용
+// npm install method-override
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
+
+// 게시글 마다 각각 다른 edit.ejs가 필요함
+// url 파라미터 (params.id)
+// /edit/1 로 접속하면 1번 게시물 아이디 비밀번호를 보내준다.
+app.get('/edit/:id', function(requests, response){
+  // findOne 안에 어떤 데이터를 찾고싶은지 쿼리문 작성
+  // 문자가 아니라 숫자로 보내줘야하기 때문에 parseInt()
+  db.collection('post').findOne({_id : parseInt(requests.params.id)}, function(error, result){
+    console.log(result)
+    response.render('edit.ejs', {post : result})
+  })
+})
+
+
+// 서버로 put요청 들어오면 데이터 수정 처리
+app.put('/edit', function(requests, response){
+  // 폼에 담긴 데이터(아이디, 비밀번호)를 db.collection('post')에 업데이트
+  db.collection('post').updateOne({_id : parseInt(requests.body._id)}, { $set : {아이디 : requests.body.id, 비밀번호 : requests.body.pw}}, function(error, result){
+    console.log('데이터 수정 완료!')
+    response.redirect('/data')
+  })
+})
+
+
+// 읽기, 쓰기, 수정, 삭제 CRUD
