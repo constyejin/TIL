@@ -38,8 +38,10 @@
     // jQuery를 이용해서 요청
     $('.delete').on('click', function(e){
       // 눌린 버튼의 해당 데이터가 삭제 되어야한다.
-      let dataNum = e.target.dataset.id;
+      let dataNum = e.target; //클릭한 요소의 DOM 요소
       let curClick = $(this); // 지금 이벤트가 동작하는 곳
+      console.log(dataNum)
+      console.log(curClick)
 
       $.ajax({
         // method : 'DELETE', 서버에 새로고침없이 delete 요청 부탁
