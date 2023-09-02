@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.wrapper {
+.info-box-list {
   padding: 50px;
 }
 
@@ -15,5 +15,13 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   margin: 10px;
+  padding: 10px 20px;
+}
+
+.delete {
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(203, 8, 8, 0.837);
+  color: #fff;
   padding: 10px 20px;
 }
