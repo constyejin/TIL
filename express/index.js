@@ -253,7 +253,7 @@ app.get('/data', function(requests, response){
 
 app.delete('/delete', function(requests, response){
   // body에 담긴 게시물 번호에 따라 DB에서 해당 데이터 삭제
-  console.log(requests.body)
+  console.log(requests.body._id)
   // 서버에서 응답 코드로 요청의 상태를 표시할 수 있다
   // 2xx => 요청 성공
   // 4xx => 고객 문제로 요청 실패`
@@ -264,7 +264,7 @@ app.delete('/delete', function(requests, response){
   // 데이터를 주고 받을 때 형이 변환되는 경우가 있다 parseInt로 형변환
   requests.body._id =  parseInt(requests.body._id);
 
-  db.collection('post').deleteOne({}, function(error, result){
+  db.collection('post').deleteOne({_id : requests.body._id}, function(error, result){
     console.log('삭제 완료!')
   })
   response.status(200).send({message : '성공적'});
