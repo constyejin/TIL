@@ -22,7 +22,12 @@
           <p><span class="txt-bold">ID</span>: <%= posts[i].아이디 %></p>
           <p><span class="txt-bold">PW</span> : <%= posts[i].비밀번호 %></p>
         </div>
-        <button type="button" class="delete" data-id="<%= posts[i]._id %>">삭제</button>
+        <div>
+          <a href="/edit/<%= posts[i]._id %>">
+            <button type="button" class="edit">수정</button>
+          </a>
+          <button type="button" class="delete" data-id="<%= posts[i]._id %>">삭제</button>
+        </div>
       </div>
       <% } %>
     </div>
@@ -51,7 +56,7 @@
         // Ajax 요청이 성공 했을 때 실행할 코드(콜백함수)
       }).done(function (result) {
         console.log(result)
-        curClick.parent('.info-box-item').fadeOut();
+        curClick.parent().parent('.info-box-item').fadeOut();
       })
     })
   </script>
