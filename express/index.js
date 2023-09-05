@@ -43,9 +43,9 @@ app.get('/', function(requests, response){
 
 
 // localhost:7000/login 으로 접속 했을 때 HTML 파일 보여주고 싶을 때
-app.get('/login', function(requests, response){
-  response.sendFile(__dirname + '/login.html');
-})
+// app.get('/login', function(requests, response){
+//   response.sendFile(__dirname + '/login.html');
+// })
 
 // 서버 종료 ctrl + c
 // 서버 재실행 자동화
@@ -349,9 +349,110 @@ const session = require('express-session');
 // app.use (미들웨어)
 // 서버에 요청 - 응답 하는 중간에 실행하고 싶은 코드
 // passport가 제공하는 미들웨어
-app.use(session({secret : '비밀코드', resave : true, saveUninitialized : false}));
+app.use(session({secret : 'secretCode', resave : true, saveUninitialized : false}));
 app.use(passport.initialize());
 app.use(passport.session());
 
 
 // 로그인 페이지 제작 & 라우팅
+// mongo db로 가서 login collection에 아이디 비밀번호 한 쌍을 직접 만든다.
+app.get('/login', function(requests, response){
+  response.render('login.ejs')
+})
+
+// 어떤 사람이 로그인 페이지에 가서 아이디/비밀번호를 입력
+// 아이디 비밀번호 검사해서 일치하면 응답
+// passport : Node.js 환경에서 로그인을 쉽게 구현할 수 있게 도와주는 라이브러리
+// local 이라는 방식으로 인증 
+// 회원인증 실패하면 /fail 경로로 이동
+
+// 사용자가 '/login' 경로로 POST 요청을 보내면 
+// Passport.js를 사용하여 로컬 인증을 시도하고, 인증이 성공하면 메인 페이지('/')로 리디렉션 한다. 
+// 인증이 실패하면 '/fail' 경로로 리디렉션
+app.post('/login', passport.authenticate('local', {
+  failureRedirect : '/fail'
+}), function(requests, response){
+  // 인증 성공하면 메인 페이지 경로로 보내달라는 뜻
+  response.redirect('/')
+})
+
+
+// 로그인 실패 했을 때 fail 경로로 가니까 보여줄 화면 작성
+app.get('/fail', function(requests, response){
+  response.send('로그인 실패~!')
+})
+
+
+// 로컬스트레트지로 아디디, 비밀번호 값 인증
+passport.use(new LocalStrategy({
+  // 유저가 입력한 아이디와 비밀번호 필드 이름 설정. 
+  // HTML 폼에서 입력한 값을 설정된 필드 이름으로 서버로 전달(name 속성)
+  usernameField: 'id',
+  passwordField: 'pw',
+  // 사용자의 로그인 세션을 유지할 것인지 여부
+  session: true,
+  // 아이디 / 비밀번호 말고 다른 정보 검증하고 싶을 때 사용 (req)를 콜백 함수로 전달
+  passReqToCallback: false,
+// 콜백함수에서 사용자 아이디 / 비밀번호 검증
+}, function (userID, userPW, done) {
+  //console.log(userID, userPW);
+  db.collection('login').findOne({ id: userID }, function (error, result) {
+    if (error) {
+      return done(error)
+    }
+
+    // 결과에 아무것도 없다면 실행
+    // done 세 개의 파라미터를 받는다
+    // (서버에러, 사용자 db 데이터, 에러 메세지)
+    if (!result) {
+      return done(null, false, { message: '없는 아이디' })
+    }
+
+    if (userPW == result.pw) {
+      return done(null, result)
+    } else {
+      return done(null, false, { message: '비밀번호 불일치'})
+    }
+  })
+}));
+
+// 로그인 성공 -> 세션 정보(유저 로그인 데이터)를 만든다.
+// 씨리얼라이즈유저 : 유저 정보를 암호화 한다.
+// 로그인 성공 했을 때 
+passport.serializeUser(function(user, done){
+  done(null, user.id)
+});
+
+// 해당 세션 데이처를 가진 사람을 db에서 찾아준다.
+// 로그인한 유저의 개인정보를 db에서 찾는 역할
+passport.deserializeUser(function(id, done){
+  // db에서 user.id로 유저를 찾은 후 유저 정보를 done에 넣어준다.
+  // 마이페이지 같은 곳에서 유저 이름 표시해주고 싶을 때 사용
+  // 로그인한 유저의 세션아이디를 바탕으로 개인정보를 db에서 찾는 역할
+  db.collection('login').findOne({id : id}, function(error, result){
+    done(null, result)
+  })
+})
+
+
+
+// 로그인 한 사람만 접속할 수 있는 페이지
+app.get('/mypage', getLogin ,function(requests, response){
+  console.log(requests.user)
+  response.render('mypage.ejs', {info : requests.user})
+})
+
+// 로그인 여부를 판단하는 미들웨어 생성
+// 파라미터 3개
+function getLogin(requests, response, next){
+  // 로그인 후 세션이 있으면 requests에 user정보가 있다.
+  if(requests.user) {
+    next()
+  } else {
+    response.send('로그인 하세요.')
+  }
+}
+
+
+// 회원가입 양식을 만들고 거기에 입력된 정보 login db에 저장
+// 서버를 껐다 키면 세션이 사라져서 다시 로그인 해야한다.
