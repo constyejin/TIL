@@ -354,8 +354,33 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-// 로그인 페이지 제작 & 라우팅
-// mongo db로 가서 login collection에 아이디 비밀번호 한 쌍을 직접 만든다.
+// Login 기능 구현
+// 1. views 폴더 안 join.ejs 파일 생성 
+// 2. 회원가입 폼 작성 
+// 3. db.collection('login')에 join.ejs 파일에 있는 input value값 저장 
+app.get('/join', function(requests, response){
+  response.render('join.ejs')
+})
+
+app.post('/join', function(requests, response){
+  db.collection('counter').findOne({name : 'dataLength'}, function(error, result){
+    console.log(result.totalData)
+    let totalDataLength = result.totalData;
+
+    db.collection('login').insertOne({_id : totalDataLength + 1, name : requests.body.name, id : requests.body.id, pw : requests.body.pw}, function(error, result){
+      console.log('login collection에 저장완료!')
+    })
+
+    db.collection('counter').updateOne({name : 'dataLength'},{ $inc : {totalData : 1}}, function(error, result){
+      if(error) {
+        return console.log(error);
+      }
+      response.redirect('/login')
+    })
+  })
+})
+
+
 app.get('/login', function(requests, response){
   response.render('login.ejs')
 })
@@ -378,12 +403,13 @@ app.post('/login', passport.authenticate('local', {
 
 
 // 로그인 실패 했을 때 fail 경로로 가니까 보여줄 화면 작성
+// 
 app.get('/fail', function(requests, response){
   response.send('로그인 실패~!')
 })
 
 
-// 로컬스트레트지로 아디디, 비밀번호 값 인증
+// 로컬스트레트지로 아이디, 비밀번호 값 인증
 passport.use(new LocalStrategy({
   // 유저가 입력한 아이디와 비밀번호 필드 이름 설정. 
   // HTML 폼에서 입력한 값을 설정된 필드 이름으로 서버로 전달(name 속성)
@@ -396,7 +422,7 @@ passport.use(new LocalStrategy({
 // 콜백함수에서 사용자 아이디 / 비밀번호 검증
 }, function (userID, userPW, done) {
   //console.log(userID, userPW);
-  db.collection('login').findOne({ id: userID }, function (error, result) {
+  db.collection('login').findOne({ id : userID }, function (error, result) {
     if (error) {
       return done(error)
     }
@@ -433,7 +459,6 @@ passport.deserializeUser(function(id, done){
     done(null, result)
   })
 })
-
 
 
 // 로그인 한 사람만 접속할 수 있는 페이지
