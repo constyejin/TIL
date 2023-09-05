@@ -272,6 +272,24 @@ app.delete('/delete', function(requests, response){
 
 
 
+// 데이터 마다 상세페이지 만들기
+// 각 페이지에 보여줄 내용이 다르기 때문에 경로도 달라져야함
+// detail/1 로 접속 했을 때
+// detail/2 로 접속 했을 때
+// detail/ _id가 가진 고유 값
+// 일반적인 서버 개발 방법
+// 사용자가 /detail: 콜론 뒤에 아무 문자나 입력 했을 때 
+// url 파라미터 = 함수의 파라미터
+app.get('/detail/:id', function(requests, response){
+  // params.id : 파라미터 중 :id 값 
+  // parseInt 정수로 변환 (String X)
+  db.collection('post').findOne({_id : parseInt(requests.params.id)}, function(error, result){
+    console.log(result)
+    response.render('detail.ejs', {data : result})
+  })
+})
+
+
 // HTML form 에서는 get, post요청만 가능 
 // put, delete 요청을 하고 싶다면 외부 라이브러리 사용
 // npm install method-override
@@ -297,9 +315,43 @@ app.put('/edit', function(requests, response){
   // 폼에 담긴 데이터(아이디, 비밀번호)를 db.collection('post')에 업데이트
   db.collection('post').updateOne({_id : parseInt(requests.body._id)}, { $set : {아이디 : requests.body.id, 비밀번호 : requests.body.pw}}, function(error, result){
     console.log('데이터 수정 완료!')
+
+    // 다른 URL로 리디렉션하는 즉, "/data"라는 URL로 다시 이동
     response.redirect('/data')
   })
 })
 
 
-// 읽기, 쓰기, 수정, 삭제 CRUD
+// 읽기, 쓰기, 수정, 삭제 CRUD 완료!
+
+
+// 세션, JWT, OAuth 등 회원인증 방법론
+// 회원가입 구현하는 방법 여러가지 중 제일 많이 사용하는 세션
+// 1. session-based 
+// 2. token-based(JWT)
+// 유저가 로그인 하면 세션 아이디라는걸 하나 발급해서 서버와 고객 둘 다 그 값을 가진다.
+// 세션 아이디란? 유저가 로그인 한 정보가 담긴 자료
+// 로그인하는 유저가 여러명이니까 고유의 세션 아이디 값으로 구분한다.
+// 발급된 세션 아이디는 서버에 보관되고, 사용자 브라우저 쿠키에도 저장 시킨다.
+// 유저가 페이지를 요청할 때 마다 쿠키가 서버로 전송된다.
+// 서버는 전송 받은 쿠키에 기록된 세션 아이디 값과 DB에 있는 세션 아이디를 비교해서 같다면 원하는 정보를 준다.
+// 세션 정보가 만료되었거나 다른 곳에서 로그인 됐다.
+
+// Session 로그인 기능 구현
+// 라이브러리 3개 설치
+// 1. npm install passport passport-local express-session
+// npm install 다음 띄어쓰기 하면 여러개 라이브러리를 동시에 설치할 수 있다.
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
+
+// 라이브러리 첨부
+// app.use (미들웨어)
+// 서버에 요청 - 응답 하는 중간에 실행하고 싶은 코드
+// passport가 제공하는 미들웨어
+app.use(session({secret : '비밀코드', resave : true, saveUninitialized : false}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+// 로그인 페이지 제작 & 라우팅

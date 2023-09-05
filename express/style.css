@@ -30,10 +30,20 @@ p {
   font-weight: 700;
 }
 
-.delete {
+button {
   border: none;
   border-radius: 10px;
-  background-color: rgba(203, 8, 8, 0.837);
   color: #fff;
   padding: 10px 20px;
+  cursor: pointer;
 }
+
+.edit {
+ background-color: dodgerblue;
+ margin-right: 10px;
+}
+
+.delete {
+  background-color: rgba(203, 8, 8, 0.837);
+}
+
