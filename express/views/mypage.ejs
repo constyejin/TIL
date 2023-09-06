@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <!-- jQuey CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
   <h1>My page</h1>
   <p><%= info.id %>님 안녕하세요!</p>
+  <form action="/logout" method="POST">
+    <button type="submit" class="logout">로그아웃</button>
+  </form>
 </body>
 </html>
