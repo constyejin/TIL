@@ -320,38 +320,9 @@ app.put('/edit', function(requests, response){
     response.redirect('/data')
   })
 })
-
-
 // 읽기, 쓰기, 수정, 삭제 CRUD 완료!
 
 
-// 세션, JWT, OAuth 등 회원인증 방법론
-// 회원가입 구현하는 방법 여러가지 중 제일 많이 사용하는 세션
-// 1. session-based 
-// 2. token-based(JWT)
-// 유저가 로그인 하면 세션 아이디라는걸 하나 발급해서 서버와 고객 둘 다 그 값을 가진다.
-// 세션 아이디란? 유저가 로그인 한 정보가 담긴 자료
-// 로그인하는 유저가 여러명이니까 고유의 세션 아이디 값으로 구분한다.
-// 발급된 세션 아이디는 서버에 보관되고, 사용자 브라우저 쿠키에도 저장 시킨다.
-// 유저가 페이지를 요청할 때 마다 쿠키가 서버로 전송된다.
-// 서버는 전송 받은 쿠키에 기록된 세션 아이디 값과 DB에 있는 세션 아이디를 비교해서 같다면 원하는 정보를 준다.
-// 세션 정보가 만료되었거나 다른 곳에서 로그인 됐다.
-
-// Session 로그인 기능 구현
-// 라이브러리 3개 설치
-// 1. npm install passport passport-local express-session
-// npm install 다음 띄어쓰기 하면 여러개 라이브러리를 동시에 설치할 수 있다.
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const session = require('express-session');
-
-// 라이브러리 첨부
-// app.use (미들웨어)
-// 서버에 요청 - 응답 하는 중간에 실행하고 싶은 코드
-// passport가 제공하는 미들웨어
-app.use(session({secret : 'secretCode', resave : true, saveUninitialized : false}));
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 // Login 기능 구현
@@ -380,6 +351,32 @@ app.post('/join', function(requests, response){
   })
 })
 
+// 세션, JWT, OAuth 등 회원인증 방법론
+// 회원가입 구현하는 방법 여러가지 중 제일 많이 사용하는 세션
+// 유저가 로그인 하면 세션 아이디라는걸 하나 발급해서 서버와 고객 둘 다 그 값을 가진다.
+// 세션 아이디란? 유저가 로그인 한 정보가 담긴 자료
+// 로그인 하는 유저가 여러명이니까 고유의 세션 아이디 값으로 구분한다.
+// 발급된 세션 아이디는 서버에도 보관되고, 사용자 브라우저 쿠키에도 기록된다.
+// 유저가 페이지를 요청할 때 마다 쿠키가 서버로 전송된다.
+// 서버는 전송 받은 쿠키에 기록된 세션 아이디 값과 DB에 있는 세션 아이디를 비교해서 같다면 원하는 정보를 준다.
+
+// Session 로그인 기능 구현
+// 라이브러리 3개 설치
+// 1. npm install passport 
+// 2. npm install passport-local 
+// 3. npm install express-session
+// npm install 다음 띄어쓰기 하면 동시에 여러개 라이브러리를 설치할 수 있다.
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
+
+// app.use (미들웨어)
+// 서버에 요청 - 응답 하는 중간에 실행하고 싶은 코드
+// passport가 제공하는 미들웨어
+// passport : Node.js 환경에서 로그인을 쉽게 구현할 수 있게 도와주는 라이브러리
+app.use(session({secret : 'secret', resave : true, saveUninitialized : false}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/login', function(requests, response){
   response.render('login.ejs')
@@ -387,23 +384,20 @@ app.get('/login', function(requests, response){
 
 // 어떤 사람이 로그인 페이지에 가서 아이디/비밀번호를 입력
 // 아이디 비밀번호 검사해서 일치하면 응답
-// passport : Node.js 환경에서 로그인을 쉽게 구현할 수 있게 도와주는 라이브러리
 // local 이라는 방식으로 인증 
 // 회원인증 실패하면 /fail 경로로 이동
 
 // 사용자가 '/login' 경로로 POST 요청을 보내면 
-// Passport.js를 사용하여 로컬 인증을 시도하고, 인증이 성공하면 메인 페이지('/')로 리디렉션 한다. 
+// Passport로 로컬 방식으로 인증을 시도하고, 인증이 성공하면 메인 페이지('/')로 리디렉션 한다. 
 // 인증이 실패하면 '/fail' 경로로 리디렉션
 app.post('/login', passport.authenticate('local', {
   failureRedirect : '/fail'
 }), function(requests, response){
-  // 인증 성공하면 메인 페이지 경로로 보내달라는 뜻
   response.redirect('/')
 })
 
 
 // 로그인 실패 했을 때 fail 경로로 가니까 보여줄 화면 작성
-// 
 app.get('/fail', function(requests, response){
   response.send('로그인 실패~!')
 })
@@ -419,17 +413,14 @@ passport.use(new LocalStrategy({
   session: true,
   // 아이디 / 비밀번호 말고 다른 정보 검증하고 싶을 때 사용 (req)를 콜백 함수로 전달
   passReqToCallback: false,
+
 // 콜백함수에서 사용자 아이디 / 비밀번호 검증
 }, function (userID, userPW, done) {
   //console.log(userID, userPW);
   db.collection('login').findOne({ id : userID }, function (error, result) {
-    if (error) {
-      return done(error)
-    }
-
-    // 결과에 아무것도 없다면 실행
+    // 결과에 찾는 값이 없다면 실행
     // done 세 개의 파라미터를 받는다
-    // (서버에러, 사용자 db 데이터, 에러 메세지)
+    // (서버에러, 사용자 db 데이터, 에러메세지)
     if (!result) {
       return done(null, false, { message: '없는 아이디' })
     }
@@ -449,8 +440,9 @@ passport.serializeUser(function(user, done){
   done(null, user.id)
 });
 
-// 해당 세션 데이처를 가진 사람을 db에서 찾아준다.
+// 해당 세션 데이터를 가진 사람을 db에서 찾아준다.
 // 로그인한 유저의 개인정보를 db에서 찾는 역할
+// 디씨리얼라이즈유저
 passport.deserializeUser(function(id, done){
   // db에서 user.id로 유저를 찾은 후 유저 정보를 done에 넣어준다.
   // 마이페이지 같은 곳에서 유저 이름 표시해주고 싶을 때 사용
@@ -474,9 +466,17 @@ function getLogin(requests, response, next){
   if(requests.user) {
     next()
   } else {
-    response.send('로그인 하세요.')
+    response.send('로그인 하세요~!')
   }
 }
+
+
+app.post('/logout', function (requests, response, next) {
+  requests.session.destroy();
+  // response.clearCookie();
+  console.log('로그아웃 완료!')
+  response.redirect('/login')
+});
 
 
 // 회원가입 양식을 만들고 거기에 입력된 정보 login db에 저장
