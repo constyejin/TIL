@@ -1,13 +1,11 @@
 // 문제 1
 // constructor 문법을 사용해서 똑같은 object 3개 한번에 뽑기
 // 학생1.sayHi()로 사용하면  "안녕 나는 Kim이야" 라는 글자가 나오도록 sayHi()함수 constructor 안에 추가
-console.log(this);
-
 function Student(name, age){
   // this : Student {}
   // console.log(this)
-  this.a = name; // 매개변수 name으로 전달받은 값 this.name(key) = name(value)
-  this.b = age;  // 매개변수 age로 전달받은 값 this.age(key) = age(value)
+  this.name = name; // 매개변수 name으로 전달받은 값 this.name(key) = name(value)
+  this.age = age;  // 매개변수 age로 전달받은 값 this.age(key) = age(value)
   this.sayHi = function(){
     console.log(`안녕하세요 ${this.name} 입니다.`)
   }
@@ -25,15 +23,16 @@ var 학생3 = new Student('Lee', 30);
 
 // 문제 2
 // 다음 코드의 출력값은?
-// function Parent(){
-//   this.name = 'Kim';
-// }
+function Parent(){
+  this.name = 'Kim';
+}
 
-// var a = new Parent();
+var a = new Parent();
 
-// // 부모 prototype에 {name : 'Park'}을 추가하라는 뜻
-// a.__proto__.name = 'Park';
-// console.log(a.name)
+// 부모 prototype에 {name : 'Park'}을 추가하라는 뜻
+a.__proto__.name = 'Park';
+// 내가 직접 가지고 있는 {name : 'Kim'} 우선 출력
+console.log(a.name)
 
 
 // 문제 3
