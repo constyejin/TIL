@@ -481,3 +481,6 @@ app.post('/logout', function (requests, response, next) {
 
 // 회원가입 양식을 만들고 거기에 입력된 정보 login db에 저장
 // 서버를 껐다 키면 세션이 사라져서 다시 로그인 해야한다.
+
+
+
