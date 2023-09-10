@@ -1,3 +1,7 @@
+// 환경 변수 라이브러리 등록
+// index.js 파일과 같은 경로에 env 파일 생성
+require('dotenv').config();
+
 // Express라는 라이브러리를 사용해서 서버 구축
 // 1. nodemon 폴더 생성
 // 2. 터미널 창에서 해당 폴더로 이동
@@ -154,29 +158,39 @@ const MongoClient = require('mongodb').MongoClient;
 
 // 데이터를 저장할 변수 하나 지정
 let db;
-MongoClient.connect('mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?retryWrites=true&w=majority', function(error, client){
-  // 커넥션 에러 대부분은 url 오타
-  if(error) {
-    return console.log(error)
-  }
 
-  // db 이름
+// 기존 index.js 코드
+// MongoClient.connect('mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?retryWrites=true&w=majority', function(error, client){
+//   // 커넥션 에러 대부분은 url 오타
+//   if(error) {
+//     return console.log(error)
+//   }
+
+//   // db 이름
+//   db = client.db('testapp');
+//   // db.collection('post').insertOne('저장 할 데이터', 콜백함수)
+//   // 데이터는 object 자료형으로 저장해야 한다.
+//   // db.collection('post').insertOne({이름 : '홍길동', 나이 : 20}, function(error, result){
+//   //   console.log('저장!')
+//   // })
+
+//   // 접속 확인
+//   app.listen('7070', function(){
+//     console.log('seccess!')
+//   })
+
+// })
+
+// env 파일 적용 코드
+  MongoClient.connect(process.env.MONGO_URI, function(error, client){
+  if (error) return console.log(error)
+
   db = client.db('testapp');
-  // db.collection('post').insertOne('저장 할 데이터', 콜백함수)
-  // 데이터는 object 자료형으로 저장해야 한다.
-  // db.collection('post').insertOne({이름 : '홍길동', 나이 : 20}, function(error, result){
-  //   console.log('저장!')
-  // })
-
-  // 접속 확인
-  app.listen('7070', function(){
-    console.log('seccess!')
+  
+  app.listen(process.env.PORT, function() {
+    console.log('listening on 7070')
   })
-
-})
-
-// 빨간 에러외에 워닝 메세지는 무시해도된다.
-
+}) 
 
 
 // 어떤 사람이 /add 라는 경로로 post 요청하면
