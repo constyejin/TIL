@@ -9,7 +9,7 @@ var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'rOGI%2BIvn6bqh
 queryParams += '&' + encodeURIComponent('returnType') + '=' + encodeURIComponent('json'); // 응답 데이터 타입 설정
 queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); // 한 페이지에 표시할 항목 개수 설정
 queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); // 페이지 번호 설정
-queryParams += '&' + encodeURIComponent('sidoName') + '=' + encodeURIComponent('대전'); // 조회할 시도 이름 설정
+queryParams += '&' + encodeURIComponent('sidoName') + '=' + encodeURIComponent('경북'); // 조회할 시도 이름 설정
 queryParams += '&' + encodeURIComponent('searchCondition') + '=' + encodeURIComponent('DAILY'); // 데이터 기간 하루
 
 // API 호출 및 응답 데이터 처리
@@ -76,20 +76,32 @@ function updateData() {
           let latestData = null;
           // 데이터를 담을 html 요소(div)
           let dataDisplay = document.getElementById('data-display');
-
           for (let i = 0; i < items.length; i++) {
             // items 배열을 순회한 값을 item 이라는 변수에 할당
               let item = items[i];
 
-            if (item.cityName == '대덕구') { 
+            if (item.cityName == '경주시') { 
               // 1. latestData에 값이 비어있을 경우 = 참  
               // 2. 현재 item.dataTiem 보다 최신 데이터라면 latestData 변수에 그 값을 저장한다.
               if (!latestData || item.dataTime > latestData.dataTime) {
                  // latestData에 더 큰 item 값을 넣어서 latestData에 제일 최근 데이터를 담는다.
                 latestData = item;
-                let newDataItem = document.createElement('div');
-                newDataItem.textContent = '지역: ' + latestData.sidoName + ', 미세먼지 농도: ' + latestData.pm10Value;
-                dataDisplay.appendChild(newDataItem);
+                let newDataItem = `
+                  <div class="dust-item">
+                    <div>${latestData.sidoName}</div>
+                    <div>${latestData.cityName}</div>
+                    <div>${latestData.pm10Value}</div>
+                  </div>
+                `;
+                dataDisplay.insertAdjacentHTML('beforeend', newDataItem);
+
+                
+               let dustItem = document.querySelector('.dust-item');
+               if(item.pm10Value >= 20) {
+                dustItem.classList.add('not-good');
+               } else {
+                dustItem.classList.add('good');
+               }
               }
             }
           }
