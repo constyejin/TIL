@@ -571,30 +571,53 @@ app.use('/', require('./routes/shop.js'))
 //   response.send('test 02번 페이지');
 // })
 
-let multer = require('multer');
-// 휘발성이 있게 저장하고 싶으면 memoryStorage에 저장
-var storage = multer.memoryStorage({
-  destination : function(req, file, cb) {
-    cb(null, './public/image')
-  },
-  filename : function(req, file, cb) {
-    cb(null, file.originalname)
-  }
-})
-
-var upload = multer({storage : storage});
 
 // 이미지는 DB보다 일반하드에 저장하는게 싸고 편함.
 app.get('/upload', (requests, response)=> {
   response.render('upload.ejs')
 })
 
+let multer = require('multer');
+
+// 휘발성이 있게 저장하고 싶으면 memoryStorage에 저장
+var storage = multer.diskStorage({
+  destination : function(req, file, cb){
+    cb(null, './public/image')
+  },
+  filename : function(req, file, cb){
+    cb(null, file.originalname)
+    // cb(null, new Date().valueOf() + path.extname(file.originalname));
+  }
+});
+
+var path = require('path');
+
+var upload = multer({
+  storage : storage,
+  // filefileter : function(req, file, callback) {
+  //   var ext = path.extname(file.originalname);
+  //   if(ext !== '.png' && ext !== '.jpg' && ext !== '.jpeg') {
+  //     return callback(new Error('PNG, JPG만 업로드하세요'))
+  //   }
+  //   callback(null, true)  
+  // },
+  // limits : {
+  //   fileSize: 1024 * 1024
+  // }
+});
+
 // 데이터를 쉽게 처리할 수 있게 도와주는 라이브러리
 // npm install multer 
 // 이미지 업로드시 multer를 미들웨어로 동작시키기
 // upload.single('input의 name 속성 이름')
+
+// 파일 여러개 받고 싶을 때(html input도 변경 해야함)
+// upload.array('profile', 10)
 app.post('/upload', upload.single('profile'), (requests, response) => {
   response.send('업로드 완료!')
+  console.log(requests.file)
 });
 
-
+app.get('/image/:imgTitle', (requests, response) => {
+  response.sendFile(__dirname + '/public/image/' + requests.params.imgTitle)
+})
