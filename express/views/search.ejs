@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>검색 결과</h1>
+  <div class="search-box">
+    <input type="text" id="search-input">
+    <button id="search-btn">검색</button>
+  </div>
+  <div>
+    <% for(let i = 0; i < data.length; i++) { %>
+      <div>
+        <p class="data-id">_id : <%= data[i]._id %></p>
+        <p><span class="txt-bold">ID</span>: <%= data[i].id %></p>
+        <p><span class="txt-bold">PW</span> : <%= data[i].pw %></p>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>

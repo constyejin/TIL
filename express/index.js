@@ -352,7 +352,7 @@ app.post('/join', function(requests, response){
     console.log(result.totalData)
     let totalDataLength = result.totalData;
 
-    db.collection('login').insertOne({_id : totalDataLength + 1, name : requests.body.name, id : requests.body.id, pw : requests.body.pw}, function(error, result){
+    db.collection('post').insertOne({_id : totalDataLength + 1, name : requests.body.name, id : requests.body.id, pw : requests.body.pw}, function(error, result){
       console.log('login collection에 저장완료!')
     })
 
@@ -492,9 +492,73 @@ app.post('/logout', function (requests, response, next) {
   response.redirect('/login')
 });
 
-
 // 회원가입 양식을 만들고 거기에 입력된 정보 login db에 저장
 // 서버를 껐다 키면 세션이 사라져서 다시 로그인 해야한다.
 
 
+// 검색 버튼 누르면 해당 키워드 DB에서 찾기 서버에게 요청
+// 하나 찾을 때 collection().findOne()
+// 다 찾을 때 collection.find().toArray)()
 
+// GET 요청으로도 서버로 데이터를 전달할 수 있다.
+// query string 또는 query parameter
+// localhost/data?데이터이름=데이터값
+// GET 요청으로 서버에 데이터 넘겨주는 방법
+
+// app.get('/search', (requests, response) => {
+//   // console.log(requests.query.value);
+//   db.collection('post').findOne({아이디 : requests.query.value}, (error, result) => {
+//     console.log(result)
+//     response.render('search.ejs', {data : result})
+//   })
+// })
+
+// 정확히 일치하는 것만 찾아주는 게 아니라 그 해당 키워드가 들어가는 것 전부 찾기
+// 정규식으로 구현
+// 데이터가 많을 경우, find로 하나하나 찾으려면 너무 오래 걸리기 때문에 indexing 사용
+// 컴퓨터의 기본적인 search 알고리즘 = 0번 부터 순서대로 하나씩 체크하면서 해당 값을 찾는다. (비효율적)
+
+// Binary Search 
+// 데이터가 100개 있다면 0부터 찾는 게 아니라 반 부터 시작
+// Binary Search 적용 조건 : 데이터가 숫자순(오름, 내림차순)으로 정렬되어 있어야 한다.
+
+// Mongo DB는 _id 값 순으로 정렬 시켜준다.
+// 문자열도 적용 가능한데, 가나다, abc 순으로 정렬되어 있어야함. => 이 과정을 '인덱스 생성'이라고 한다.
+
+// find -> agreegate 
+// 검색조건을 여러개 설정 할 수 있다.
+app.get('/search', (requests, response) => {
+  let searchPara = [
+    {
+      $search: {
+        index: 'idSearch',
+        text: {
+          query: requests.query.value,
+          path: 'id'  // 제목날짜 둘다 찾고 싶으면 ['제목', '날짜']
+        }
+      }
+    },
+  //  { $sort : { _id : 1 } },
+  //  { $limit : 10 },
+  //  { $project : { 제목 : 1, _id : 0 } }
+  ]
+  db.collection('post').aggregate(searchPara).toArray((error, result) => {
+    console.log(result) 
+    response.render('search.ejs', {data : result})
+  })
+})
+
+// 띄어쓰기 기준이로 검색해서 붙어있으면 검색 X
+// Create Search Index
+// Lucene => lucene.korean으로 선택 (한국어 형태소 분석 ~을,를 등 조사 제거)
+
+// index.js에 shop.js 라우터 첨부
+// app.use => 미들웨어(요청과 응답사이에 실행 할 코드)
+app.use('/', require('./routes/shop.js'))
+// app.get('/test/01', function(requests, response){
+//   response.send('test 01번 페이지');
+// })
+
+// app.get('/test/02', function(requests, response){
+//   response.send('test 02번 페이지');
+// })

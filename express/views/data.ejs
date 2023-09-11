@@ -10,17 +10,43 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
+<style>
+  .box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
+  .search-box input {
+    outline: none;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 5px;
+  }
+
+  .search-box button {
+    background-color: #fff;
+    border: 1px solid dodgerblue;
+    color: dodgerblue;
+  }
+</style>
 <body>
   <div class="wrapper">
     <div class="info-box-list">
-      <h1>DB에서 받아온 데이터</h1>
+      <div class="box">
+        <h1>DB에서 받아온 데이터</h1>
+        <div class="search-box">
+          <input type="text" id="search-input">
+          <button id="search-btn">검색</button>
+        </div>
+      </div>
       <% for(let i = 0; i < posts.length; i++) { %>
       <div class="info-box-item">
         <div>
           <p class="data-id"><%= posts[i]._id %></p>
-          <p><span class="txt-bold">ID</span>: <%= posts[i].아이디 %></p>
-          <p><span class="txt-bold">PW</span> : <%= posts[i].비밀번호 %></p>
+          <p><span class="txt-bold">ID</span>: <%= posts[i].name %></p>
+          <p><span class="txt-bold">ID</span>: <%= posts[i].id %></p>
+          <p><span class="txt-bold">PW</span> : <%= posts[i].pw %></p>
         </div>
         <div>
           <a href="/edit/<%= posts[i]._id %>">
@@ -60,6 +86,13 @@
         console.log(result)
         curClick.parent().parent('.info-box-item').fadeOut();
       })
+    })
+
+    $('#search-btn').on('click', function(e){
+      let dataNum = e.target.dataset.id;
+      // url 변경
+      let searchInput = $('#search-input').val();
+      window.location.replace('/search?value=' + searchInput)
     })
   </script>
 </body>
