@@ -570,3 +570,31 @@ app.use('/', require('./routes/shop.js'))
 // app.get('/test/02', function(requests, response){
 //   response.send('test 02번 페이지');
 // })
+
+let multer = require('multer');
+// 휘발성이 있게 저장하고 싶으면 memoryStorage에 저장
+var storage = multer.memoryStorage({
+  destination : function(req, file, cb) {
+    cb(null, './public/image')
+  },
+  filename : function(req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+
+var upload = multer({storage : storage});
+
+// 이미지는 DB보다 일반하드에 저장하는게 싸고 편함.
+app.get('/upload', (requests, response)=> {
+  response.render('upload.ejs')
+})
+
+// 데이터를 쉽게 처리할 수 있게 도와주는 라이브러리
+// npm install multer 
+// 이미지 업로드시 multer를 미들웨어로 동작시키기
+// upload.single('input의 name 속성 이름')
+app.post('/upload', upload.single('profile'), (requests, response) => {
+  response.send('업로드 완료!')
+});
+
+
