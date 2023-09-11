@@ -265,23 +265,26 @@ app.get('/data', function(requests, response){
 // }
 
 
+// 로그인중인 유저의 _id와 글에 저장된 _id가 일치하면 데이터 삭제
 app.delete('/delete', function(requests, response){
   // body에 담긴 게시물 번호에 따라 DB에서 해당 데이터 삭제
-  console.log(requests.body._id)
+  console.log(requests.body)
   // 서버에서 응답 코드로 요청의 상태를 표시할 수 있다
   // 2xx => 요청 성공
   // 4xx => 고객 문제로 요청 실패`
   // 5xx => 서버 문제로 요청 실패
   // 응답코드 200과 함께 보낼 메세지 작성
-  
+
+  let removeData = {_id : requests.body._id, writer : requests.body.name}
+
   // deleteOne(삭제 대상, function(error, result){})
   // 데이터를 주고 받을 때 형이 변환되는 경우가 있다 parseInt로 형변환
   requests.body._id =  parseInt(requests.body._id);
 
-  db.collection('post').deleteOne({_id : requests.body._id}, function(error, result){
+  db.collection('post').deleteOne(removeData, function(error, result){
     console.log('삭제 완료!')
+    response.status(200).send({message : '성공적'});
   })
-  response.status(200).send({message : '성공적'});
 })
 
 
@@ -336,34 +339,6 @@ app.put('/edit', function(requests, response){
 })
 // 읽기, 쓰기, 수정, 삭제 CRUD 완료!
 
-
-
-
-// Login 기능 구현
-// 1. views 폴더 안 join.ejs 파일 생성 
-// 2. 회원가입 폼 작성 
-// 3. db.collection('login')에 join.ejs 파일에 있는 input value값 저장 
-app.get('/join', function(requests, response){
-  response.render('join.ejs')
-})
-
-app.post('/join', function(requests, response){
-  db.collection('counter').findOne({name : 'dataLength'}, function(error, result){
-    console.log(result.totalData)
-    let totalDataLength = result.totalData;
-
-    db.collection('post').insertOne({_id : totalDataLength + 1, name : requests.body.name, id : requests.body.id, pw : requests.body.pw}, function(error, result){
-      console.log('login collection에 저장완료!')
-    })
-
-    db.collection('counter').updateOne({name : 'dataLength'},{ $inc : {totalData : 1}}, function(error, result){
-      if(error) {
-        return console.log(error);
-      }
-      response.redirect('/login')
-    })
-  })
-})
 
 // 세션, JWT, OAuth 등 회원인증 방법론
 // 회원가입 구현하는 방법 여러가지 중 제일 많이 사용하는 세션
@@ -431,7 +406,7 @@ passport.use(new LocalStrategy({
 // 콜백함수에서 사용자 아이디 / 비밀번호 검증
 }, function (userID, userPW, done) {
   //console.log(userID, userPW);
-  db.collection('login').findOne({ id : userID }, function (error, result) {
+  db.collection('post').findOne({ id : userID }, function (error, result) {
     // 결과에 찾는 값이 없다면 실행
     // done 세 개의 파라미터를 받는다
     // (서버에러, 사용자 db 데이터, 에러메세지)
@@ -463,6 +438,36 @@ passport.deserializeUser(function(id, done){
   // 로그인한 유저의 세션아이디를 바탕으로 개인정보를 db에서 찾는 역할
   db.collection('login').findOne({id : id}, function(error, result){
     done(null, result)
+  })
+})
+
+
+// Login 기능 구현
+// 1. views 폴더 안 join.ejs 파일 생성 
+// 2. 회원가입 폼 작성 
+// 3. db.collection('login')에 join.ejs 파일에 있는 input value값 저장 
+// 저장전에 id가 이미 있는지 중복 여부 체크
+// id에 알파벳 숫자만 잘 들어있나 체크
+// 비밀번호 저장 전에 암호화 했는지 여부 체크
+app.get('/join', function(requests, response){
+  response.render('join.ejs')
+})
+
+app.post('/join', function(requests, response){
+  db.collection('counter').findOne({name : 'dataLength'}, function(error, result){
+    console.log(result.totalData)
+    let totalDataLength = result.totalData;
+
+    db.collection('post').insertOne({_id : totalDataLength + 1, name : requests.body.name, id : requests.body.id, pw : requests.body.pw}, function(error, result){
+      console.log('login collection에 저장완료!')
+    })
+
+    db.collection('counter').updateOne({name : 'dataLength'},{ $inc : {totalData : 1}}, function(error, result){
+      if(error) {
+        return console.log(error);
+      }
+      response.redirect('/login')
+    })
   })
 })
 
@@ -538,8 +543,11 @@ app.get('/search', (requests, response) => {
         }
       }
     },
-  //  { $sort : { _id : 1 } },
-  //  { $limit : 10 },
+    // 결과 정렬(_id를 오름차순 정렬)
+   { $sort : { _id : 1 } },
+  //  결과 제한(맨 위 10개만 가져오기)
+   { $limit : 10 },
+  //  찾아온 결과 중 원하는 항목만 보여주기.
   //  { $project : { 제목 : 1, _id : 0 } }
   ]
   db.collection('post').aggregate(searchPara).toArray((error, result) => {
