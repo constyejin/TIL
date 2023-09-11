@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    enctype : 서버로 폼 데이터 전송하는 방식(base64로 인코딩 / 용량 1.3배 증가)
+    multipart/form-data : 인코딩없이 말고 파일 그대로 전송 
+  -->
+  <form method="POST" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="profile">
+    <button type="submit">전송</button>
+  </form>
+</body>
+</html>
