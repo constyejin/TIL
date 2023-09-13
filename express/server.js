@@ -188,7 +188,7 @@ let db;
   db = client.db('testapp');
   
   app.listen(process.env.PORT, function() {
-    console.log('listening on 7070')
+    console.log('listening on 8080')
   })
 }) 
 
