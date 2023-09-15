@@ -1,3 +1,7 @@
+// 확장 프로그램 Code runner 단축키
+// window : Ctrl + Alt + N
+// mac : command + r
+
 // Object Shorthand Assignment
 // ES6에서는 객체를 반환할 때 불필요한 반복을 하지 않아도 된다.
 let name = 'yejin';
