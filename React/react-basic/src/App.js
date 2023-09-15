@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react';
 
 function App() {
+  const [count, setCount] = useState(0);
+  let [title, setTitle] = useState('리액트 너무 어려워요!')
+
+  let change = 'fkfkfk';
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <p>클릭시 + {count}</p>
+        <button onClick={() => setCount(count + 1)}>Click me</button>
+      </div>
+
+      <h4>{title}</h4>
+      <button onClick={()=>{
+        let copy = [...title];
+        copy = "리액트 너무 재밌어요!";
+        setTitle(copy)
+      }}>글제목 변경</button>
     </div>
   );
 }
