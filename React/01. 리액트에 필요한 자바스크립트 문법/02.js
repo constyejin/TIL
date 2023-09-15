@@ -27,7 +27,7 @@ console.log(name)
 // 이 문법은 array[배열]에서도 동일하게 적용된다.
 
 // Array (State에서 사용하는 문법)
-let arr = [1,2,3,4,5]
+let arr = [{name : 'yejin', age : 12},2,3,4,5]
 // a와 b라는 변수가 생성되고, a랑 b에는 배열의 순서대로
 // a에는 배열의 0번째 값, b에는 배열의 1값이 들어간다.
 // let [a,b] = arr
@@ -39,5 +39,5 @@ let arr = [1,2,3,4,5]
 // rest대신에 다른 이름을 사용 상관없다
 // 변수 앞에 '...' 변수가 가장 마지막에 위치해야 한다.
 // 구조 분해 할당
-let [a,b,...rest] = arr
+let [a, b,...rest] = arr
 console.log(rest)
