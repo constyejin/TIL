@@ -37,19 +37,22 @@ console.log(a.name)
 
 // 문제 3
 // 문제1 에서 생성한 이름 출력해주는 함수에 prototype을 추가 했는데 의도대로 동작하지 않는 이유는?
-// function Student1(이름, 나이){
-//   this.name = 이름;
-//   this.age = 나이;
-// }
+function Student1(이름, 나이){
+  this.name = 이름;
+  this.age = 나이;
+}
 
-// Student1.prototype.sayHi = () => {
-//   // console.log(this)
-//   console.log('안녕 나는 ' + this.name + '이야');
-// }
+// 문제 : Arrow funciton ()=> {} -> function(){}
+// 함수 내부에 있는 this값을 사용해야 하는데 Arrow function은 this는 바깥에 있는 값을 그대로 사용한다.
+// 함수 안에서 this값은 매번 재정의 된다. (object안 함수 안에 있는 this는 함수를 부른 object)
+// 즉 Student라는 object안 sayHi 함수의 this => Student Object
+Student1.prototype.sayHi = function(){
+  console.log(this)
+  console.log('안녕 나는 ' + this.name + '이야');
+}
 
-// var 학생1 = new Student1('Kim', 20);
-
-// 학생1.sayHi();
+var 학생1 = new Student1('Kim', 20);
+학생1.sayHi();
 
 
 // 문제 4
