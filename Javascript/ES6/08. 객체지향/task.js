@@ -46,6 +46,7 @@ function Student1(이름, 나이){
 // 함수 내부에 있는 this값을 사용해야 하는데 Arrow function은 this는 바깥에 있는 값을 그대로 사용한다.
 // 함수 안에서 this값은 매번 재정의 된다. (object안 함수 안에 있는 this는 함수를 부른 object)
 // 즉 Student라는 object안 sayHi 함수의 this => Student Object
+// sayHi() 함수를 prototype에 추가 Student1(parents), sayHi(children)
 Student1.prototype.sayHi = function(){
   console.log(this)
   console.log('안녕 나는 ' + this.name + '이야');
@@ -57,17 +58,16 @@ var 학생1 = new Student1('Kim', 20);
 
 // 문제 4
 // 모든 Array에 적용할 수 있는 함수 생성
+Array.prototype.remove3 = function(){
+  console.log(this)
+  for(var i = 0; i < this.length; i++) {
+    if(this[i] == 3) {
+      this.splice(i, 1);
+    }
+  }
+}
 
-// Array.prototype.remove3 = function(){
-//   console.log(this)
-//   for(var i = 0; i < this.length; i++) {
-//     if(this[i] == 3) {
-//       this.splice(i, 1);
-//     }
-//   }
-// }
+var arr = [1,2,3,4];
 
-// var arr = [1,2,3,4];
-
-// arr.remove3();
-// console.log(arr);
+arr.remove3();
+console.log(arr);
