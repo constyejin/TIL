@@ -15,7 +15,7 @@ function App() {
     <div className="App" style={{backgroundColor : bgColor}}>
        <button onClick={changeBg}>배경색 변경</button>
       <div>
-        <p>클릭시 + {count}</p>
+        <p>클릭시 + {count }</p>
         <button onClick={() => setCount(count + 1)}>Click me</button>
       </div>
       {/* 
