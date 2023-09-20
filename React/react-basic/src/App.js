@@ -3,6 +3,7 @@ import './App.css'
 // import Map from './component/Map';
 import Header from './component/Header/Header';
 import Main from './component/Main/Main';
+import Cards from './component/Main/Cards';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       {/* <Map/> */}
       <Header/>
       <Main/>
+      <Cards/>
     </div>
   );
 }
