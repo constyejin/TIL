@@ -1,10 +1,11 @@
 import './App.css'
-import Box from './component/Box';
+// import Box from './component/Box';
+import Map from './component/Map';
 
-function App(props) {
+function App() {
   return (
-    <div className="App" style={{backgroundColor : props.name}}>
-      <Box/>
+    <div className="App">
+      <Map/>
     </div>
   );
 }
