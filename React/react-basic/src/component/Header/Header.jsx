@@ -1,13 +1,12 @@
 import React from 'react'
-import logo from '../../applelogo.png'
 import './Header.css'
-import {Link} from 'react-router-dom'
+import logo from '../applelogo.png'
 
 const Header = () => {
   const menuItems = [
     { to: '/menu1', text: 'menu1' },
     { to: '/menu2', text: 'menu2' },
-    { to: './menu3', text: 'menu3' }, 
+    { to: '/menu3', text: 'menu3' }, 
   ];
 
   return (
@@ -19,7 +18,6 @@ const Header = () => {
           </a>
         </h1>
 
-        <h2 className="visually-hidden">메뉴</h2>
         <ul className="gnb-list">
           {
             menuItems.map((item, i) => {
