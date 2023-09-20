@@ -44,8 +44,8 @@ const Map = () => {
 
       {
         // 03. 문자열 대문자로 변경
-        ["yejin", "lee", "jin"].map((str) => {
-          return <div>{str.toUpperCase()}</div>
+        ["yejin", "lee", "jin"].map((str, i) => {
+          return <div key={i}>{str.toUpperCase()}</div>
         })
       }
 
@@ -55,8 +55,8 @@ const Map = () => {
           { name: "yejin1", age: 100 },
           { name: "yejin2", age: 101 },
           { name: "yejin3", age: 102 }
-        ].map((obj) => {
-          return <div>이름 : {obj.name}, 나이 :{obj.age}</div>
+        ].map((obj, i) => {
+          return <div key={i}>이름 : {obj.name}, 나이 :{obj.age}</div>
         })
       }
 
