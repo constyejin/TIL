@@ -1,0 +1,53 @@
+.background {
+  height: 600px;
+  background-image: url('../back.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.front-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  color: #fff;
+  text-align: center;
+}
+
+.front-title {
+  font-size: 36px;
+}
+
+.front-content {
+  font-size: 24px;
+  margin-top: 30px;
+}
+
+.front-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  font-weight: 700;
+  border: none;
+}
+
+.top {
+  margin-top: -100px;
+}
+
+.second-txt {
+  width: 500px;
+  margin: 0 auto;
+  color: #fff;
+  background-color: #000;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #666;
+}
+
+.second-txt p {
+  margin-top: 30px;
+}
