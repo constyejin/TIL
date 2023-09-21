@@ -1,7 +1,7 @@
 import React from 'react'
 import './Cards.css'
 
-const Cards = (props) => {
+const Cards = () => {
   const data = [
     {title: 'Title1', content: 'Lorem ipsum dolor sit amet.'},
     {title: 'Title2', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, modi!'},
@@ -21,6 +21,7 @@ const Cards = (props) => {
   )
 }
 
+// prosp : 부모 컴포넌트에 있는걸 자식 컴포넌트에서 가져다 사용하고 싶을 때
 function Card(props){
   return (
     <div className="post-card">
