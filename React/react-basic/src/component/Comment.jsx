@@ -24,14 +24,9 @@ const styles = {
     flexGrow : 1,
     marginLeft : '12px',
   },
-
-  nameText : {
-    fontSize : '18px',
-    fontWeight : 'bold',
-  },
-
-  commentText : {
-    fontSize : '14px',
+  
+  marginZero : {
+    margin : 0
   }
 }
 
@@ -43,8 +38,8 @@ function Comment(props) {
       </div>
 
       <div style={styles.contentContainer}>
-        <span style={styles.nameText}>{props.name}</span>
-        <span style={styles.commentText}>{props.comment}</span>
+        <h3 style={styles.marginZero}>{props.name}</h3>
+        <p style={styles.marginZero}>{props.comment}</p>
       </div>
       <button onClick={props.delete}>X</button>
     </div>
