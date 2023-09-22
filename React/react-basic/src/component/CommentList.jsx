@@ -77,8 +77,8 @@ function CommentList() {
       {/* onChange 이벤트는 input 요소에서 값이 변경될 때 발생 
           그 때 발생한 이벤트를 매개변수 e
       */}
-      이름 : <input value={name} onChange={(e) => setName(e.target.value)}/>
-      댓글 : <input value={text} onChange={(e) => setText(e.target.value)}/>
+      <span>이름 : <input value={name} onChange={(e) => setName(e.target.value)}/></span>
+      <span>댓글 : <input value={text} onChange={(e) => setText(e.target.value)}/></span>
       <button onClick={addComment}>글추가</button>
     </div>
   )
