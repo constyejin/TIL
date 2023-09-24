@@ -198,17 +198,17 @@ let db;
 // 이 데이터를 post라는 이름을 가진 collection에 저장한다.
 app.post('/add', function(requests, response){
   response.send('전송 완료!')
-  console.log(requests.body)
+  // console.log(requests.body)
 
   // DB에서 총 데이터 수 꺼내오기
   // 데이터를 전부 찾고싶으면 find(), 하나만 찾고싶으면 findOne()
   // 이름이 tatalData인 데이터를 찾아달라는 쿼리문
   db.collection('counter').findOne({name : 'dataLength'}, function(error, result){
-    console.log(result.totalData) // 서버에 있는 총 데이터 수
+    // console.log(result.totalData) // 서버에 있는 총 데이터 수
     let totalDataLength = result.totalData;
 
     db.collection('post').insertOne({_id: totalDataLength + 1, 아이디 : requests.body.id , 비밀번호 : requests.body.pw}, function(error, result){
-      console.log('저장완료!!')
+      // console.log('저장완료!!')
 
       // 새로운 데이터가 생기면 counter collection에 있는 totalData 1 증가 시키키
       // undateOne({변경 할 데이터},{ $set : {수정값}})
@@ -245,7 +245,7 @@ app.get('/data', function(requests, response){
   // 데이터를 꺼내서 html에 보여주는 거니까 데이터를 꺼내는 게 먼저
   db.collection('post').find().toArray(function(error, result){
     // result가 가지고 있는 데이터를 ejs 안으로 집어 넣는다.
-    console.log(result)
+    // console.log(result)
 
     // 서버에서 보낸 posts라는 변수
     // posts에 들어있는 길이만큼 반복문으로 반복
@@ -275,14 +275,14 @@ app.delete('/delete', function(requests, response){
   // 5xx => 서버 문제로 요청 실패
   // 응답코드 200과 함께 보낼 메세지 작성
 
-  let removeData = {_id : requests.body._id, writer : requests.body.name}
-
+  
   // deleteOne(삭제 대상, function(error, result){})
   // 데이터를 주고 받을 때 형이 변환되는 경우가 있다 parseInt로 형변환
   requests.body._id =  parseInt(requests.body._id);
+  let removeData = {_id : requests.body._id}
 
   db.collection('post').deleteOne(removeData, function(error, result){
-    console.log('삭제 완료!')
+    // console.log('삭제 완료!')
     response.status(200).send({message : '성공적'});
   })
 })
@@ -621,3 +621,7 @@ app.post('/upload', upload.single('profile'), (requests, response) => {
 app.get('/image/:imgTitle', (requests, response) => {
   response.sendFile(__dirname + '/public/image/' + requests.params.imgTitle)
 })
+
+
+// 유저간 채팅기능
+// 게시물간 관계맺기 & DB 실시간 업데이트
