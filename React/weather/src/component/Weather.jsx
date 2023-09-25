@@ -1,11 +1,12 @@
 import React from 'react'
 
-export const Weather = () => {
+export const Weather = (props) => {
   return (
     <div className='weather-box'>
-      <div>대전</div>
-      <h2>30도 / 230</h2>
-      <h3>맑은 하늘</h3>
+      <div>{props.weather && props.weather.name}</div>
+      {/* Celsius로 단위 변경 (섭씨) */}
+      <h2>{props.weather && props.weather.main.temp}℃</h2>
+      <h3>{props.weather && props.weather.weather[0].description}</h3>
     </div>
 
   )

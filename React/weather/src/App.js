@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Weather from './component/Weather';
 import Buttons from './component/Buttons';
 
@@ -12,8 +12,9 @@ import Buttons from './component/Buttons';
 
 // 앱이 실행 되자마자 => 리액트 라이프 사이클 useEffect 사용
 function App() {
-  // 현재 내 위치 가져오기
+  const [weather, setWeather] = useState(null);
 
+  // 현재 내 위치 가져오기
   const getCurrentLocation = () => {
     // Geolocation API 검색
     // navigator 라는 자바스크립트 기본 객체 사용
@@ -25,20 +26,22 @@ function App() {
   }
 
   const getWeatherByCurrentLocation = async (lat, lon) => {
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=a0f26ad7c4499a0f6c1015b173b85237`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=a0f26ad7c4499a0f6c1015b173b85237&units=metric`;
     let response = await fetch(url)
     let data = await response.json();
     console.log(data)
+    setWeather(data)
   }
 
-  
+  // useEffect =>  첫번째 UI 렌더 후에 작동
   useEffect(() => {
     getCurrentLocation()
   },[]);
 
   return (
     <div className='wrapper'>
-      <Weather/>
+      {/* weather 정보를 props로 보내준다 */}
+      <Weather weather={weather}/>
       <Buttons/>
     </div>
   );
