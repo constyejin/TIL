@@ -625,3 +625,7 @@ app.get('/image/:imgTitle', (requests, response) => {
 
 // 유저간 채팅기능
 // 게시물간 관계맺기 & DB 실시간 업데이트
+// /chat 페이지 접속하면 내가 속한 채팅방 게시물 보여주기
+app.get('/chat', (requests, response) => {
+  response.render()
+})

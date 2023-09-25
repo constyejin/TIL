@@ -53,6 +53,7 @@
             <button type="button" class="edit">수정</button>
           </a>
           <button type="button" class="delete" data-id="<%= posts[i]._id %>">삭제</button>
+          <button type="button" class="chat" data-id="<%= posts[i].writer %>">채팅하기</button>
         </div>
       </div>
       <% } %>
@@ -94,6 +95,14 @@
       let searchInput = $('#search-input').val();
       window.location.replace('/search?value=' + searchInput)
     })
+
+    $('.chat').click(function(e){
+      var _id = e.target.dataset.id;
+      $.post('/chatroom', {당한사람id : _id})
+      .then(()=>{
+      console.log('채팅방 게시물 생성완료')
+      })
+    });
   </script>
 </body>
 
