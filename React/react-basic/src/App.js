@@ -6,11 +6,13 @@ import Main from './component/Main/Main';
 import Cards from './component/Main/Cards';
 // import Comment from './component/Comment';
 import CommentList from './component/CommentList';
+import Blog from './component/Blog';
 
 function App() {
   return (
     <div className="App">
-      <CommentList/>
+      <Blog/>
+      {/* <CommentList/> */}
       {/* <Map/> */}
       {/* <Header/>
       <Main/>
