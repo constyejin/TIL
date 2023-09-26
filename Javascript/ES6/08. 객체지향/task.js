@@ -59,27 +59,30 @@ var 학생1 = new Student1('Kim', 20);
 // 문제 4
 // 모든 Array에 적용할 수 있는 함수 생성
 // var arr = new Array(1,2,3); => [1,2,3]
-Array.prototype.remove3 = function(){
+// Array prototype에 remove3 함수 추가
+Array.prototype.remove3 = function(num){
   // console.log(this);
-  // for(var i = 0; i < this.length; i++) {
-  //   if(this[i] == 3) {
-  //     this.splice(i, 1);
-  //   }
-  // }
-
-  // forEach
-  this.forEach((i) => {
-    if(i == 3) {
-      // function(){} 사용시 새로운 함수가 생성되면서 this가 window가 되므로
-      // Arrow function을 사용해서 바깥 함수 this 값을 받는다.
-      // console.log(this)
+  for(var i = 0; i < this.length; i++) {
+    if(this[i] == num) {
       this.splice(i, 1);
     }
-  })
+  }
+
+  // forEach
+  // this.forEach((i) => {
+  //   // console.log(this)
+  //   if(i == 2) {
+  //     // function(){} 사용시 새로운 함수가 생성되면서 this가 window가 되므로
+  //     // Arrow function을 사용해서 바깥 함수 this 값을 받는다.
+  //     // console.log(this)
+  //     this.splice(i, 1);
+  //   }
+  // })
 }
 
 var arr = [1,2,3,4];
 // var abc = ['a','b',3,4];
 
-arr.remove3();
+// Array라는 부모의 prototype에 있는 자식 함수를 자유롭게 사용 가능
+arr.remove3(2);
 console.log(arr);
