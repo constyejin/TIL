@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES5방식으로 쉽게 구현하는 상속기능</title>
+</head>
+<body>
+  <script>
+    // 상속기능을 구현하는 Object.create(prototype object);
+    var parents = {name : 'Lee', age : 50};
+
+    // 부모가 가진 name, age를 물려받은 자식 object 만들기
+    // 1. constructor 함수 생성
+    // 2. Object.create() 사용
+    // prototype을 부모로 해주세요.
+    var child = Object.create(parents);
+    child.age = 20;
+  
+    var grandChild = Object.create(child);
+
+    // 1. 자식이 name을 직접 가지고 있는지 확인 (X)
+    // 2. 자식의 부모 prototype에 name이 있는지 확인 (O) -> 출력
+    console.log(child.name)
+    // 본인이 가지고 있는 값을 먼저 확인한 다음 없으면 부모 값 확인 하므로 본 값이 우선순위
+    console.log(child.age)
+    console.log(grandChild.name)
+
+    console.log(grandChild.__proto__)
+  </script>
+</body>
+</html>
