@@ -1,13 +1,17 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 
-export const Buttons = (props) => {
-
+export const Buttons = ({cities}) => {
   return (
     <div className='btn-list'>
-      <Button onClick={props.currentLocation} variant="primary">Current Location</Button>{' '}
+      {
+        cities.map((item, i) => {
+          return <Button key={i} variant="primary">{item}</Button>
+        })
+      }
+      {/* <Button onClick={props.currentLocation} variant="primary">Current Location</Button>{' '}
       <Button onClick={(e) => props.cityWeather(e.target.innerHTML)} variant="secondary">Paris</Button>{' '}
-      <Button onClick={(e) => props.cityWeather(e.target.innerHTML)} variant="success">Bangkok</Button>{' '}
+      <Button onClick={(e) => props.cityWeather(e.target.innerHTML)} variant="success">Bangkok</Button>{' '} */}
     </div>
   )
 }
