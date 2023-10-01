@@ -38,12 +38,20 @@ button {
   cursor: pointer;
 }
 
+.btn-list {
+  display: flex;
+  justify-content: space-between;
+  width: 230px;
+}
+
 .edit {
  background-color: dodgerblue;
- margin-right: 10px;
 }
 
 .delete {
   background-color: rgba(203, 8, 8, 0.837);
 }
 
+.chat {
+  background-color: darkblue;  
+}
