@@ -7,7 +7,35 @@
 </head>
 <body>
   <script>
+    // 상속기능을 구현하는 ES5 방법 : class (객체지향 문법)
+    // 객체지향 문법 사용 용도
+    // 1. object 여러개 만들어 쓰려고 하는 것
     
+   class parents {
+    // 함수를 추가하고 싶으면 
+    // 1. constructor에 추가
+    // 2. parents 에 추가 (여기에 쓰면 자식 오브젝트에 추가 X) -> 
+    constructor(){
+      this.name = 'Lee';
+      // 자식이 직접 함수를 가짐
+      // this.sayHi = function(){console.log('hello')}
+     }
+     // 부모의 prototype에 추가됨
+     sayHi(){
+      console.log('hello');
+     }
+     sayHello(){
+      console.log('Hello!');
+     }
+   }
+
+  //  parents.prototype.sayHello = function(){console.log('Hello!')};
+
+   var child = new parents();
+   console.log(child)
+   // child의 부모 prototype(부모 유전자)가 출력된다.
+   console.log(child.__proto__);
+   console.log(Object.getPrototypeOf(child));
   </script>
 </body>
 </html>
