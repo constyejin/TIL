@@ -13,6 +13,7 @@ import Buttons from './component/Buttons';
 // 앱이 실행 되자마자 => 리액트 라이프 사이클 useEffect 사용
 function App() {
   const [weather, setWeather] = useState(null);
+  const [city, setCity] = useState('');
   const cities = ['Paris', 'Bangkok', 'Tokyo', 'Seoul'];
 
   // 현재 내 위치 가져오기
@@ -36,24 +37,32 @@ function App() {
 
   // useEffect =>  첫번째 UI 렌더 후에 작동
   useEffect(() => {
-    getCurrentLocation()
-  },[]);
+    if(city == '') {
+      getCurrentLocation();
+    } else {
+      getCityWether();
+    }
+  },[city]);
 
-  // 함수를 하나로 줄일 수 있는 방법?
-  const getCityWether = async (city) => {
+
+  const getCityWether = async () => {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a0f26ad7c4499a0f6c1015b173b85237&units=metric`;
     let response = await fetch(url);
     let data = await response.json();
-    console.log(data)
+    // console.log(data)
     setWeather(data)
   }
+
+  // useEffect(() => {
+  //   getCityWether()
+  // },[city])
 
   return (
     <div className='wrapper'>
       {/* weather 정보를 props로 보내준다 */}
       <Weather weather={weather}/>
       {/* <Buttons currentLocation={getCurrentLocation} cityWeather={getCityWether}/> */}
-      <Buttons cities={cities}/>
+      <Buttons cities={cities} setCity={setCity}/>
     </div>
   );
 }
