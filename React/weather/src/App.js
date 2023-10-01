@@ -29,7 +29,7 @@ function App() {
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=a0f26ad7c4499a0f6c1015b173b85237&units=metric`;
     let response = await fetch(url)
     let data = await response.json();
-    // console.log(data)
+    console.log(data)
     setWeather(data)
   }
 
@@ -38,11 +38,19 @@ function App() {
     getCurrentLocation()
   },[]);
 
+  const getCityWether = async (city) => {
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a0f26ad7c4499a0f6c1015b173b85237&units=metric`;
+    let response = await fetch(url);
+    let data = await response.json();
+    console.log(data)
+    setWeather(data)
+  }
+
   return (
     <div className='wrapper'>
       {/* weather 정보를 props로 보내준다 */}
       <Weather weather={weather}/>
-      <Buttons/>
+      <Buttons currentLocation={getCurrentLocation} cityWeather={getCityWether}/>
     </div>
   );
 }
