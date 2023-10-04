@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체지향5. class를 복사하는 extends / super</title>
+</head>
+<body>
+  <script>
+    // 유사한 class를 하나 더 만들고 싶다면?
+    // - 복사 / 상속할 값이 많으면 힘듦 -> 그래서 extends로 class 복사
+    // class, prototype, constructor 남에게 설명가능
+    class grandfather {
+      constructor(name){
+        this.성 = 'Lee';
+        this.이름 = name;
+      }
+    }
+
+    var grandfather1 = new grandfather('아무개');
+    console.log(grandfather1);
+
+
+    // 'grandfather'이라는 class를 extends 해서 아버지 class 생성
+    class father extends grandfather {
+      constructor(name){
+        // extends해서 만든 class는 this를 그냥 사용할 수 없고 super() 다음에 사용해야 한다.
+        // super() : extends한 부모 class의 constructor를 뜻한다.
+        super(name);
+        this.나이 = 50;
+      }
+    }
+
+    var father1 = new father('안녕!');
+    console.log(father1)
+  </script>
+</body>
+</html>
