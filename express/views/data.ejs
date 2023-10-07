@@ -97,10 +97,9 @@
     })
 
     $('.chat').click(function(e){
-      var _id = e.target.dataset.id;
-      $.post('/chatroom', {당한사람id : _id})
-      .then(()=>{
-      console.log('채팅방 게시물 생성완료')
+      var id = e.target.dataset.id;
+      $.post('/chatroom', {당한사람id : id}).then(()=>{
+        console.log('채팅방 게시물 생성완료')
       })
     });
   </script>
