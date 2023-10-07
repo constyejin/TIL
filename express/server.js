@@ -627,5 +627,21 @@ app.get('/image/:imgTitle', (requests, response) => {
 // 게시물간 관계맺기 & DB 실시간 업데이트
 // /chat 페이지 접속하면 내가 속한 채팅방 게시물 보여주기
 app.get('/chat', (requests, response) => {
-  response.render()
+  response.render('chat.ejs')
+})
+
+app.post('/chatroom', getLogin, (requests, response) => {  
+  console.log(requests.body.당한사람id)
+  console.log(requests.user._id)
+  
+  let saveData = {
+    title : '채팅방',
+    member : [requests.body.당한사람id, requests.user._id],
+    date : new Date()
+  }
+
+  // 콜백함수 대신 .then 사용 가능
+  db.collection('chatroom').insertOne(saveData).then((result) => {
+    console.log(result)
+  })
 })
