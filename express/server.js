@@ -330,7 +330,7 @@ app.get('/edit/:id', function(requests, response){
 // 서버로 put요청 들어오면 데이터 수정 처리
 app.put('/edit', function(requests, response){
   // 폼에 담긴 데이터(아이디, 비밀번호)를 db.collection('post')에 업데이트
-  db.collection('post').updateOne({_id : parseInt(requests.body._id)}, { $set : {아이디 : requests.body.id, 비밀번호 : requests.body.pw}}, function(error, result){
+  db.collection('post').updateOne({_id : parseInt(requests.body._id)}, { $set : {id : requests.body.id, pw : requests.body.pw}}, function(error, result){
     console.log('데이터 수정 완료!')
 
     // 다른 URL로 리디렉션하는 즉, "/data"라는 URL로 다시 이동
@@ -633,7 +633,7 @@ app.get('/chat', (requests, response) => {
 app.post('/chatroom', getLogin, (requests, response) => {  
   console.log(requests.body.당한사람id)
   console.log(requests.user._id)
-  
+
   let saveData = {
     title : '채팅방',
     member : [requests.body.당한사람id, requests.user._id],
