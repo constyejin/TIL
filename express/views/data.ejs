@@ -96,12 +96,12 @@
       window.location.replace('/search?value=' + searchInput)
     })
 
-    $('.chat').click(function(e){
-      var id = e.target.dataset.id;
-      $.post('/chatroom', {당한사람id : id}).then(()=>{
-        console.log('채팅방 게시물 생성완료')
+    $('chat').on('click', function(e){
+      let id = e.target.dataset.id;
+      $.post('/chatroom', {당한사람id : id}).then(() => {
+        console.log('채팅방 게시물 생성완료!')
       })
-    });
+    })
   </script>
 </body>
 
