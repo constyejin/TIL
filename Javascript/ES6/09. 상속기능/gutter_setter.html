@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>getter, setter 왜 쓰는지 알아보기</title>
+</head>
+<body>
+  <script>
+    // 복잡한 소괄호 싫다면 => set, get 키워드 (ES5~)
+    var person = {
+      name : 'Lee',
+      age : 30,
+      // get은 데이터 꺼내쓰는 함수 (getter 함수)
+      // - retrun이 있어야한다.
+      // - 파라미터 없어야함
+      get nextAge(){
+        return this.age + 1;
+      },
+      // set은 데이터 변경하는 함수 (setter 함수)
+      // - 파라미터가 1개 있어야한다.
+      set setAge(age){
+        // 데이터 수정전 미리 검사가능 (안전장치 기능개발 가능)
+        // if(age === NaN) {}
+        this.age = parseInt(age);
+      }
+    }
+
+    // age라는 자료를 꺼내고 싶다면? 자료를 꺼내는 함수 생성(자료 꺼내는 법)
+    // 함수를 만들어 object 데이터를 다루는 이유
+    // 1. object 자료가 복잡할 때 이득
+    // 2. object 자료 수정시 편리 (실수방지 & 관리기능)
+    console.log(person.setAge = '10'); // person.setAge('10')
+    console.log(person.age);
+    console.log(person.nextAge); // person.nextAge() / 소괄호 생략
+
+    // ** get, set 사용시 함수를 프로퍼티화 (getter, setter)
+  </script>
+</body>
+</html>
