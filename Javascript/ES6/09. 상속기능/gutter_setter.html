@@ -35,6 +35,27 @@
     console.log(person.nextAge); // person.nextAge() / 소괄호 생략
 
     // ** get, set 사용시 함수를 프로퍼티화 (getter, setter)
+
+
+    // class에서 사용하는 get / set
+    class 사람 {
+      constructor(){
+        this.name = 'Lee';
+        this.age = 20;
+      }
+      // prototype 함수들에도 get / set 사용가능
+      get nextAge(){
+        return this.age + 1;
+      }
+      set setAge(age){
+        this.age = age;
+      }
+    }
+
+    var 사람1 = new 사람();
+    console.log(사람1.setAge = 200);
+    console.log(사람1);
+    console.log(사람1.nextAge);
   </script>
 </body>
 </html>
