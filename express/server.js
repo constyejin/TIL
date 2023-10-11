@@ -2,7 +2,7 @@
 // index.js 파일과 같은 경로에 env 파일 생성
 require('dotenv').config();
 
-// Express라는 라이브러리를 사용해서 서버 구축
+// Express 라이브러리를 사용해서 서버 구축
 // 1. nodemon 폴더 생성
 // 2. 터미널 창에서 해당 폴더로 이동
 
@@ -446,9 +446,9 @@ passport.deserializeUser(function(id, done){
 // 1. views 폴더 안 join.ejs 파일 생성 
 // 2. 회원가입 폼 작성 
 // 3. db.collection('login')에 join.ejs 파일에 있는 input value값 저장 
-// 저장전에 id가 이미 있는지 중복 여부 체크
+// 저장 전에 id가 이미 있는지 중복 여부 체크
 // id에 알파벳 숫자만 잘 들어있나 체크
-// 비밀번호 저장 전에 암호화 했는지 여부 체크
+// 비밀번호 저장 전에 암호화 여부 체크
 app.get('/join', function(requests, response){
   response.render('join.ejs')
 })
