@@ -436,7 +436,7 @@ passport.deserializeUser(function(id, done){
   // db에서 user.id로 유저를 찾은 후 유저 정보를 done에 넣어준다.
   // 마이페이지 같은 곳에서 유저 이름 표시해주고 싶을 때 사용
   // 로그인한 유저의 세션아이디를 바탕으로 개인정보를 db에서 찾는 역할
-  db.collection('login').findOne({id : id}, function(error, result){
+  db.collection('post').findOne({id : id}, function(error, result){
     done(null, result)
   })
 })
@@ -472,12 +472,6 @@ app.post('/join', function(requests, response){
 })
 
 
-// 로그인 한 사람만 접속할 수 있는 페이지
-app.get('/mypage', getLogin ,function(requests, response){
-  console.log(requests.user)
-  response.render('mypage.ejs', {info : requests.user})
-})
-
 // 로그인 여부를 판단하는 미들웨어 생성
 // 파라미터 3개
 function getLogin(requests, response, next){
@@ -488,6 +482,12 @@ function getLogin(requests, response, next){
     response.send('로그인 하세요~!')
   }
 }
+
+// 로그인 한 사람만 접속할 수 있는 페이지
+app.get('/mypage', getLogin ,function(requests, response){
+  console.log(requests.user)
+  response.render('mypage.ejs', {info : requests.user})
+})
 
 
 app.post('/logout', function (requests, response, next) {
