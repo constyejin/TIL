@@ -471,6 +471,12 @@ app.post('/join', function(requests, response){
   })
 })
 
+// 로그인 한 사람만 접속할 수 있는 페이지
+app.get('/mypage', getLogin ,function(requests, response){
+  console.log(requests.user)
+  response.render('mypage.ejs', {info : requests.user})
+})
+
 
 // 로그인 여부를 판단하는 미들웨어 생성
 // 파라미터 3개
@@ -482,12 +488,6 @@ function getLogin(requests, response, next){
     response.send('로그인 하세요~!')
   }
 }
-
-// 로그인 한 사람만 접속할 수 있는 페이지
-app.get('/mypage', getLogin ,function(requests, response){
-  console.log(requests.user)
-  response.render('mypage.ejs', {info : requests.user})
-})
 
 
 app.post('/logout', function (requests, response, next) {
