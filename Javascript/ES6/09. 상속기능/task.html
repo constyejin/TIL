@@ -15,11 +15,22 @@
       }
     }
 
-    var dogs1 = new dogs('말티즈', 'white');
-    var dogs2 = new dogs('진돗개', 'brown');
-    console.log(dogs1, dogs2);
+    var dog1 = new dogs('말티즈', 'white');
+    var dog2 = new dogs('진돗개', 'brown');
+    console.log(dog1, dog2);
 
-    
+
+    // 2. class를 이용해 object 여러개 뽑기 (extends 문법 사용)
+    class cats extends dogs {
+      constructor(type, color, age){
+        super(type, color);
+        this.age = age;
+      }
+    }
+
+    var cat1 = new cats('코숏', 'white', 5);
+    var cat2 = new cats('러시안블루', 'gray', 2);
+    console.log(cat1, cat2)
   </script>
 </body>
 </html>
