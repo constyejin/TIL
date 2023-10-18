@@ -26,11 +26,20 @@
         super(type, color);
         this.age = age;
       }
+      get nextAge(){
+        return this.age + 1;
+      }
     }
 
     var cat1 = new cats('코숏', 'white', 5);
     var cat2 = new cats('러시안블루', 'gray', 2);
-    console.log(cat1, cat2)
+    console.log(cat1, cat2);
+
+
+    // 3. 1,2번 object에 .한살먹기() 기능 추가
+    // dogs class로부터 생성된 object가 사용하면 error 출력
+    // cats class로부터 생성된 object가 사용하면 현재 age + 1 
+    console.log(cat2.nextAge)
   </script>
 </body>
 </html>
