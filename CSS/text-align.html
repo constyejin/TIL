@@ -7,44 +7,47 @@
   <title>CSS Text-align 질문</title>
 </head>
 <style>
-  /* CSS 내 코드 */
-  .box div {
-    width: 100px;
-    height: 100px;
-    border: 5px solid red;
+  .flex1 {
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
   }
 
-  /* .right_flex {
+  .right_flex {
     display: flex;
     justify-content: end;
-  } */
+  }
 
   /* 
   문제 : css 선택자 잘못 선택 
   해결 : 바로 자식인 div만 선택하면 text-align이 잘 적용 된다! 
   .right_flex div => .right_flex > div */
+
   .right_flex > div {
     display: flex;
-    justify-content: flex-end;
-    text-align: right;
+    text-align: center;
+  }  
+
+  .box div {
+    width: 100px;
+    height: 100px;
+    border: 5px solid red;
   }
-  
 </style>
 <body>
-  <!-- 23.05.16(화) 수업 내 코드 -->
   <div>
     <h3>2.3 flex 이용</h3>
     <p>
       나란히 배치하고 싶은 아이템들의 부모 요소에게
       display:flex 속성을 준다.
     </p>
-    <div class="right_flex box">
+    <div class="flex1 box">
       <div>1</div> <div>2</div> <div>3</div>
     </div>
   </div>
 
   <hr>
-  <!-- 학생 코드 -->
+
   <div>
     <h3>2.3 flex 이용</h3>
     <p>
