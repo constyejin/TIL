@@ -1,5 +1,5 @@
 .txt-primary {
-  color: rgb(179, 200, 221);
+  color: #c2d3de;
 }
 
 .txt-dark {
@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: rgb(179, 200, 221);
+  background-color: #c2d3de;
 }
 
 .wrapper {
@@ -16,7 +16,8 @@ body {
 }
 
 table {
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   border-radius: 6px;
   background-color: #fff;
   border-collapse: collapse;
@@ -24,32 +25,52 @@ table {
   font-size: 18px;
 }
 
+tr:last-child {
+  text-align: right;
+}
+
 th {
-  color:rgb(172, 179, 197);
+  text-align: left;
+  color: rgb(172, 179, 197);
 }
 
 tr:not(:last-child) {
   border-bottom: 1px solid rgb(170, 182, 209);
 }
 
-th, td {
-  padding: 10px 0;
+tr th:not(:nth-child(2)) {
+  text-align: right;
 }
 
+tr td:first-child {
+  padding-left: 30px;
+}
+
+tr th:last-child,
 tr td:last-child {
   padding-right: 30px;
-  text-align: end;
+}
+
+tr td:not(:nth-child(1), :nth-child(2)) {
+  text-align: right;
+}
+
+.cell-long {
+  width: 280px;
+}
+
+th, td {
+  padding: 10px 0;
 }
 
 .camera-img {
   width: 100px;
   height: 100px;
   object-fit: cover;
-  padding-left: 30px;
 }
 
 .logo-img {
-  width: 80px;
+  width: 60px;
 }
 
 .total-price {
@@ -67,7 +88,7 @@ tr td:last-child {
   border: none;
   border-radius: 6px;
   outline: none;
-  padding: 30px 40px;
+  padding: 26px 40px;
   color: #fff;
   background-color: rgb(75, 89, 123);
   font-size: 18px;
