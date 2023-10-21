@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pseudo-class로 인터랙티브 버튼 만들기</title>
+</head>
+<style>
+  .btn {
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: dodgerblue;
+    border-radius: 6px;
+    padding: 12px 20px;
+    cursor: pointer;
+  }
+
+  /* :hover :focus :active 넣을 땐 순서 중요! */
+
+  /* .btn이라는 클래스에 마우스를 hover 했을 때 적용할 속성 */
+  .btn:hover {
+    color: dodgerblue;
+    background-color: white;
+    border: 1px solid dodgerblue;
+    transition: all 500ms ease-in-out;
+  }
+
+  /* 클릭하고 나서 커서가 포커스되어 있는 상태 */
+    .btn:focus {
+    background-color: blueviolet;
+  }
+
+  /* 마우스 클릭하고 있는 상태 */
+  .btn:active {
+    background-color: antiquewhite;
+  }
+
+  .custom-link {
+    text-decoration: none;
+  }
+
+  /* 방문 전 링크 스타일링 */
+  a {
+    color: rgb(131, 184, 227);
+  }
+
+  /* a:visited {
+    color: red;
+  } */
+  a:visited {
+    color: black;
+  }
+</style>
+<body>
+  <button class="btn" type="button">BUTTON</button>
+  <a class="custom-link" href="#">LINK</a>
+</body>
+</html>
