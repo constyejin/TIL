@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+</head>
+<style>
+  table {
+    /* table 태그는 기본적으로 틈이 존재, 셀간의 간격 없애는 속성 */
+    border-collapse: collapse;
+  }
+
+  td, th {
+    border: 1px solid black;
+  }
+</style>
+<body>
+  <div class="wrapper">
+    <!-- 표 만들 때 사용 -->
+    <table>
+      <!-- 제목행은 thead 안, 일반행은 tbody 안 -->
+      <thead></thead>
+      <tbody></tbody>
+
+      <!-- 가로 행 : tr -->
+      <!-- 세로 열 : td -->
+      <tr>
+        <th>
+          <p>aaaa</p>
+          <p>bbbb</p>
+        </th>
+        <td style="vertical-align: top">2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <th>1</th>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+    </table>
+
+    <!-- 
+      vertical-align :
+      inline / inline-block 요소간의 세로 정렬할 때 사용!
+    -->
+    <div>
+      <p style="font-size: 50px;">Greetings<span style="font-size: 20px;vertical-align: sub;">안녕!</span></p>
+    </div>
+
+    <div> 
+      <img src="https://mdn.mozillademos.org/files/12245/frame_image.svg" width="32" height="32"> 
+      <span style="vertical-align: top;">image with a default alignment.</span>
+    </div>
+
+    <!-- 일반 div로 표 만들기 -->
+    <div style="display : table">
+      <div style="display : table-row">
+        <div style="display: table-cell;">a</div>
+        <div style="display: table-cell;">b</div>
+        <div style="display: table-cell;">c</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
