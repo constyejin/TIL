@@ -1,5 +1,5 @@
 .txt-primary {
-  color: rgb(170, 182, 209);
+  color: rgb(179, 200, 221);
 }
 
 .txt-dark {
@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color:lightsteelblue ;
+  background-color: rgb(179, 200, 221);
 }
 
 .wrapper {
