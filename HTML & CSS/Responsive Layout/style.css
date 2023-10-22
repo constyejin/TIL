@@ -1,0 +1,109 @@
+/* 
+html 기본 폰트 사이즈 : 16px
+
+- rem의 요즘 용도 : typography 디자인할 때 px 외우기 귀찮으면 사용
+- rem(기본 폰트사이즈에 비례) 10rem(16px의 10배) 1rem = 16px
+*/
+
+/* 기본 px 단위
+  width : 1.5rem;
+  : html태그 혹은 기본 폰트사이즈의 1.5배 
+
+  width : 2em;
+  : 내 폰트사이즈 혹은 상위요소 폰트사이즈의 2배 
+
+  width : 50vw;
+  : 브라우저(viewport) 화면 폭의 50% 
+
+  width : 50vh;
+  : 브라우저(viewport) 화면 높이의 50% 
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main-back {
+  width: 100%;
+  height: 500px;
+  background-image: url('./back.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+
+  /* edge 이상 사용가능 */
+  filter: brightness(100%);
+  /* margin collapse 현상을 상쇄시키기 위해 박스 안쪽에 여백 추가 */
+  padding: 1px;
+}
+
+.main-title {
+  color: #1f365f;
+  font-size: 60px;
+  /* 박스 2개 위쪽 테두리가 겹칠 경우 margin collapse 현상 발생 */
+  margin-top: 60px;
+}
+
+.main-content {
+  font-size: 18px;
+  margin: 40px auto 0 auto;
+  max-width: 700px;
+}
+
+.main-btn {
+  margin-top: 160px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  color: #1f365f;
+  font-weight: 700;
+  padding: 12px 40px;
+  cursor: pointer;
+  background-image: url('./btn-back.jpg');
+  background-size: cover;
+  background-position: top;
+}
+
+.shop {
+  width: 100%;
+  display: flex;
+}
+
+.shop > div {
+  width: 25%;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.shop > div > p {
+  margin-top: 10px;
+}
+
+
+/* breakpoint 설정 */
+/* Bootstrap 라이브러리가 기본으로 권장하는 breakpoint 1200px / 992px / 768px / 576px */
+
+/* 현재 브라우저 폭이 1200px 이하인 경우 적용 */
+@media screen and (max-width : 1200px) {
+  .main-title {
+    font-size: 48px;
+  }
+
+  .shop {
+    flex-wrap: wrap;
+  }
+
+  .shop > div {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width : 576px) {
+  .shop>div {
+    width: 100%;
+  }
+}
+
+
