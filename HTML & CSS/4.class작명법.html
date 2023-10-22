@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>코드양이 줄어드는 class 작명법(OOCSS, BEM)</title>
+</head>
+<style>
+  /* 뼈대용 class, 살점용 class 각각 제작 */
+
+  /* 
+    OOCSS(Object Oriented CSS) CSS 작성 관습
+    장점
+    1. CSS 양이 줄어든다.
+    2. 생산성이 높아진다.
+    3. 유지, 보수가 편리하다. 
+  */
+
+  /* 만들어두면 편한 Utility class */
+  .f-small {
+    font-size: 12px;
+  }
+
+  .f-mid {
+    font-size: 16px;
+  }
+
+  .f-lg {
+    font-size: 20px;
+  }
+
+  .main-btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 6px;
+  }
+
+  /* 특정 요소마다 다른 속성들 적용 */
+  .bg-red {
+    background-color: red;
+  }
+
+  .bg-blue {
+    background-color: blue;
+  }
+</style>
+<body>
+  <button class="main-btn bg-red" type="button">BUTTON1</button>
+  <button class="main-btn bg-blue" type="button">BUTTON2</button>
+
+  <!-- class 작명할 때 BEM(Block Element Modifier)룰을 따라하자. -->
+  <!-- class="덩어리이름__역할--세부특징" -->
+  <!-- 
+    React, Vue로 html 만들게 되면 덩어리(component)단위로 html 파일 나눠서 코드 작성하기 때문에 사용 X
+    해당 component에만 적용되는 CSS 파일 생성 가능(같은 클래스 명 사용 가능)
+  -->
+  <div class="profile">
+    <img class="profile__img" src="" alt="">
+    <h2 class="profile__title"></h2>
+    <p class="profile__content"></p>
+    <button class="profile__btn--red">BUTTON1</button>
+    <button class="profile__btn--blue">BUTTON2</button>
+  </div>
+</body>
+</html>
