@@ -101,7 +101,7 @@ html 기본 폰트 사이즈 : 16px
 }
 
 @media screen and (max-width : 576px) {
-  .shop>div {
+  .shop > div {
     width: 100%;
   }
 }
