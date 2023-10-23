@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pseudo-element</title>
+</head>
+<style>
+  /* :pseudo-class : 다른 상태일 때 */
+  /* ::pseudo-element : 내부의 일부분만 스타일줄 때 (하나여도 적용은 되지만, class와 구분하기 위해 두 개 사용!) */
+  .lorem::first-letter {
+    color: red;
+    font-size: 28px;
+  }
+
+  .lorem::first-line {
+    text-decoration: underline;
+  }
+
+  .lorem::before {
+    content: '안녕?';
+    color: green;
+    font-size: 28px;
+  }
+
+  .lorem::after {
+    content: '잘가!';
+    color: green;
+    font-size: 28px;
+  }
+
+  /* 일부 요소 스타일링시 pseudo-element 사용가능 */
+  .input-file::file-selector-button {
+    border: none;
+    color: #fff;
+    background-color: dodgerblue;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: all 400ms;
+  }
+
+  .input-file::file-selector-button:hover {
+    color: dodgerblue;
+    background-color: #fff;
+    border: 1px solid dodgerblue;
+  }
+</style>
+<body>
+  <p class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni facilis ducimus excepturi incidunt accusamus accusantium quidem ipsum sunt beatae itaque! Pariatur deleniti perspiciatis alias? Velit aperiam dolore voluptas exercitationem esse.</p>
+
+  <input class="input-file" type="file">
+
+  <!-- 
+    - CSS 만으로 버튼에 마우스 올리면 배경 어둡게하기 https://codepen.io/css-tricks/pen/dxyfA
+    - CSS만으로 3D 느낌 리본모양만들기 https://codepen.io/team/css-tricks/pen/mVZGKa
+    - ol 태그의 숫자 스타일링하기 https://www.456bereastreet.com/archive/201105/styling_ordered_list_numbers/
+    - table 반응형으로 만드는 여러가지 방법 https://css-tricks.com/responsive-data-tables/
+   -->
+</body>
+</html>
