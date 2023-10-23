@@ -1,0 +1,30 @@
+// 1. 어려운 단어 기억해야 할 때 & 규칙적인 스탕리 만들 때 => 변수 문법 사용
+// $변수명 : 저장해서 사용할 값
+
+// CSS 기본 변수 문법 
+// 변수 선언
+// :root {
+// --main-color : green;
+// }
+
+// 변수 사용
+//  color: var(--main-color);
+$main-color : #2a4cb2;
+$basic-box : 16px;
+
+.background {
+  background-color: $main-color;
+}
+
+.box1 {
+  // Sass에선 사칙연산 바로 가능(+, -는 같은 단위끼리만 가능)
+  // 사칙연산 할 때는 소괄호를 사용하는 게 좋다.
+
+  // CSS 기본 사칙연산 문법
+  // cale(40px - 20px)
+  width: ($basic-box - 2px);
+}
+
+.box2 {
+  width: ($basic-box + 2px);
+}
