@@ -1,16 +1,25 @@
+// 다른 파일에 있는 내용 가져오고 싶을 때 @use '파일경로';
+// CSS 기본 문법에서도 사용 가능함.
+// 다른 파일에 종속되는 파일은 굳이 reset.css로 컴파일 될 필요 없기 때문에
+// 컴파일되지 않게 앞에 언더바를 붙인다.
+@use 'reset';
+
 // 1. 어려운 단어 기억해야 할 때 & 규칙적인 스탕리 만들 때 => 변수 문법 사용
 // 2. 관련있는 class들 묶을 때 => nesting syntax (두 개 이상은 중첩 X)
-// 3. => @extend 문법
-// $변수명 : 저장해서 사용할 값
+// 3. 긴 코드를 축약 할 때 => @extend 문법
+// 4. 긴 코드를 가변적으로 짧은 단어로 축약할 때 => @mixin
+// 5. 다른 파일에 있는 내용 가져오고 싶을 때 => @import, @use
 
 // CSS 기본 변수 문법 
 // 변수 선언
 // :root {
-// --main-color : green;
+  // --main-color : green;
 // }
-
+  
 // *** 변수 사용
 //  color: var(--main-color);
+
+// $변수명 : 저장해서 사용할 값
 $main-color : #2a4cb2;
 $basic-box : 16px;
 
@@ -48,6 +57,9 @@ $basic-box : 16px;
 
 .main-bg {
   h4 {
+    // 다른 파일의 $변수를 사용하려면 => 파일명.$변수명
+    // @mixin도 마찬가지 @include 파일명.mixin이름
+    color: reset.$primary-color;
     font-size: $basic-box;
   }
 
@@ -91,6 +103,7 @@ $basic-box : 16px;
 
 .box-green {
   @extend %box;
+  @include reset.border(black);
   background-color: green;
 }
 
@@ -103,3 +116,22 @@ $basic-box : 16px;
   @extend %box;
   background-color: blue;
 }
+
+
+// Sass 3퍈 : @mixin, use등
+// @mixin 문법의 $파라미터 => 긴 코드를 가변적으로 만들 때 사용
+@mixin font-style($size, $spacing, $style) {
+ font-size: $size; 
+ letter-spacing: $spacing;
+ // 글자 중간에 $변수나 $파라미터 넣을 땐 #{$변수명  }
+ #{$style} : red;
+}
+
+h1 {
+  @include font-style(38px, -1px, color)
+}
+
+h2 {
+  @include font-style(24px, -2px, background-color)
+}
+
