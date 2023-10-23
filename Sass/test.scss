@@ -1,4 +1,6 @@
 // 1. 어려운 단어 기억해야 할 때 & 규칙적인 스탕리 만들 때 => 변수 문법 사용
+// 2. 관련있는 class들 묶을 때 => nesting syntax (두 개 이상은 중첩 X)
+// 3. => @extend 문법
 // $변수명 : 저장해서 사용할 값
 
 // CSS 기본 변수 문법 
@@ -7,7 +9,7 @@
 // --main-color : green;
 // }
 
-// 변수 사용
+// *** 변수 사용
 //  color: var(--main-color);
 $main-color : #2a4cb2;
 $basic-box : 16px;
@@ -27,4 +29,53 @@ $basic-box : 16px;
 
 .box2 {
   width: ($basic-box + 2px);
+}
+
+// .scss와 .sass 파일의 차이
+// .sass 파일은 괄호 생략해도 됨.
+
+
+// Sass 2편 : 핵심 문법
+// *** nesting syntax 
+
+// .main-bg h4 {
+//   font-size: $basic-box;
+// }
+
+// .main-bg button {
+//   color: $main-color;
+// }
+
+.main-bg {
+  h4 {
+    font-size: $basic-box;
+  }
+
+  button {
+    color: $main-color;
+  }
+}
+
+
+// *** @extent syntax
+// %임시클래스명(단독으로 컴파일되지 않음) or .클래스명
+%btn {
+  border: none;
+  border-radius: 4px;
+  padding : 10px 20px
+}
+
+.btn-green {
+  @extend %btn;
+  color : green;
+}
+
+.btn-red {
+  @extend %btn;
+  color: red;
+}
+
+.btn-blue {
+  @extend %btn;
+  color: blue;
 }
