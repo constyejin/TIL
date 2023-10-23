@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadow DOM</title>
+</head>
+<style>
+  /* ::pseudo-element - 내부 일부 스타일주고 싶을 때 사용 */
+  /* -webkit- : 크롬, 사파리, Edge 에서 적용되는 스타일 */
+  /* -moz- : Firefox에서만 적용 */
+  /* -ms- : Explorer에서만 적용(11 버전 이하) */
+  input[type=file]::-webkit-file-upload-button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #000;
+  }
+
+  input::-webkit-input-placeholder {
+    color: darkblue;
+  }
+
+  input::-webkit-slider-runnable-track {
+    background-color: darkblue;
+  }
+
+  input[type=range] {
+    appearance: none;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    /* 브라우저 기본 CSS 안 보이게 처리 */
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+
+  progress {
+    appearance: none;
+  }
+
+  progress::-webkit-progress-inner-element {
+    border: 1px solid darkblue;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  progress::-webkit-progress-bar {
+    background-color: #fff;
+  }
+
+  progress::-webkit-progress-value {
+    background: linear-gradient(darkblue, pink);
+  }
+</style>
+<body>
+  <!-- chorome 설정 -> Show user agent shadow DOM -->
+  <input type="file">
+  <input placeholder="안녕하세요">
+  <input type="range">
+  <progress value="0.5"></progress>
+
+  <!-- shadow DOM + 커스텀 태그 생성 가능! -->
+</body>
+</html>
