@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Bootstrap Grid</title>
+</head>
+<body>
+  <div class="container">
+    <!-- row : 일종의 Flexbox -->
+    <div class="row">
+      <!-- 가로로 쪼개고 싶으면 col-차지할크기 / 한 행은 총 12칸 -->
+      <!-- 
+        xl : 1200px 
+        lg : 992px
+        md : 768px
+        sm : 576px
+      -->
+      <!-- Order Class : 박스 순서 정렬 가능 -->
+      <div class="col-3 col-lg-6 order-md-4">Hello 1</div>
+      <div class="col-3 col-lg-2 order-md-3">Hello 2</div>
+      <div class="col-3 col-lg-2 order-md-2">Hello 3</div>
+      <div class="col-3 col-lg-2 order-md-1">Hello 4</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+</body>
+</html>
