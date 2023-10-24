@@ -1,0 +1,33 @@
+body {
+  height: 3000px;
+  background-color: grey;
+}
+
+.grey {
+  background-color: lightgray;
+  height: 2000px;
+  margin-top: 500px;
+}
+
+.img {
+  /* position : fixed와 유사 */
+  /* sicky => 조건부로 fixed / 부모박스 넘어서면 해제됨 */
+  position: sticky;
+  top: 100px;
+  width: 800px;
+  float: right;
+}
+
+.img img {
+  width: 100%;
+}
+
+.text {
+  width: 400px;
+  float: left;
+  margin-top: 200px;
+}
+
+.clear {
+  clear: both;
+}
