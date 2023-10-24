@@ -47,3 +47,27 @@ li {
     @include box-style(#fbf6db);
   }
 }
+
+@mixin box-width($width) {
+  width: $width;
+  box-sizing: border-box;
+  border: 1px solid #c5bdd2;
+  background-color: #dfdbe6;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-6 {
+  @include box-width(50%);
+}
+
+.col-4 {
+  @include box-width(33.333%);
+}
+
+.col-3 {
+  @include box-width(25%);
+}
