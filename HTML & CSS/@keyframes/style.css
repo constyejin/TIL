@@ -1,0 +1,63 @@
+.ani-text {
+  text-align: center;
+}
+
+.ani-text:hover {
+  animation-name : moving;
+  animation-duration: 2s;
+}
+
+@keyframes moving {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-100px);
+  }
+  75% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* 웹브라우저는 HTML, CSS코드를 그래픽으로 바꿔주는 간단한 프로그램 */
+/* 
+  브라우저가 그림 그리는 순서
+  1. Render Tree (CSS 정리한 참고자료) 
+  2. Layout 잡기 (weight, margin, padding 등)
+  3. Paint 하기 (color, background-color 등)
+  4. Composite 처리(transform, opacity 등 처리)
+
+  2번에 속하는 width를 변경 했을 때 2번부터 다시 실행함.
+*/
+
+
+.shake-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: skyblue;
+}
+
+.shake-btn:hover {
+  animation-name: shake;
+  animation-duration: 400ms;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+  75% {
+    transform: rotate(-8deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
