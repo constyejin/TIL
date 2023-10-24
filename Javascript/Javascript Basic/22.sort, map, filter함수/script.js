@@ -99,6 +99,8 @@ let titleBtn = document.getElementById('title-btn');
 
 titleBtn.addEventListener('click', function() {
   products.sort((a,b) => {
+    // return 양수 => a 우측으로
+    // return 음수 => b 우측으로
     if(a.title < b.title) return 1;
     if(a.title > b.title) return -1;
     if(a.title === b.title) return 0;
