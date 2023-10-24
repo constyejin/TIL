@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .ani-text {
   text-align: center;
 }
@@ -72,12 +77,63 @@
     transform: rotate(-4deg);
   }
   50% {
-    transform: scale(1.1);
-  }
-  75% {
-    transform: rotate(45deg);
+    transform: rotate(45deg) scale(1.4);
   }
   100% {
     transform: rotate(0);
   }
+}
+
+
+.plus {
+  text-align: center;
+  font-size: 120px;
+  cursor: pointer;
+}
+
+.plus:hover {
+  animation-name: turn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes turn {
+  0% {transform: rotate(0deg);}
+  25% {transform: rotate(-15deg);}
+  100% {transform: rotate(45deg) scale(1.4);}
+}
+
+
+.sidebar {
+  position: fixed;
+  z-index: 10;
+  width: 200px;
+  height: 100%;
+  transform: translateX(-150px);
+  padding: 25px;
+  color: #fff;
+  background-color: #000;
+  text-align: right;
+  transition: transform 500ms;
+}
+
+.sidebar:hover {
+  transform: translateX(0);
+  text-align: center;
+}
+
+.sidebar p {
+  text-align: center;
+}
+
+@keyframes slide {
+  0% { transform : translateX(-150px)}
+  50% { transform : translateX(50px) skewX(-30deg)}
+  100% { transform : translateX(0)}
+}
+
+
+.sidebar:hover p {
+  animation-name: slide;
+  animation-duration: 1s;
 }
