@@ -1,9 +1,9 @@
 ul {
   padding: 0;
-}
 
-li {
-  list-style: none;
+  li {
+    list-style: none;
+  }
 }
 
 .list {
@@ -16,14 +16,20 @@ li {
     border-bottom: 1px solid #ccc;
   }
 
+  &-item:hover {
+    color: dodgerblue;
+  }
+
   &-item:last-child {
     border-bottom: none;
   }
+
+  .active {
+    background-color: dodgerblue;
+  }
 }
 
-.active {
-  background-color: dodgerblue;
-}
+
 
 @mixin box-style($bg-color) {
   width: 80%;
@@ -58,16 +64,17 @@ li {
 .row {
   display: flex;
   flex-wrap: wrap;
+  
+  .col-6 {
+    @include box-width(50%);
+  }
+
+  .col-4 {
+    @include box-width(33.333%);
+  }
+
+  .col-3 {
+    @include box-width(25%);
+  }
 }
 
-.col-6 {
-  @include box-width(50%);
-}
-
-.col-4 {
-  @include box-width(33.333%);
-}
-
-.col-3 {
-  @include box-width(25%);
-}

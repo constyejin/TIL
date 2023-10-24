@@ -1,8 +1,7 @@
 ul {
   padding: 0;
 }
-
-li {
+ul li {
   list-style: none;
 }
 
@@ -15,11 +14,13 @@ li {
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
+.list-item:hover {
+  color: dodgerblue;
+}
 .list-item:last-child {
   border-bottom: none;
 }
-
-.active {
+.list .active {
   background-color: dodgerblue;
 }
 
@@ -52,22 +53,19 @@ li {
   display: flex;
   flex-wrap: wrap;
 }
-
-.col-6 {
+.row .col-6 {
   width: 50%;
   box-sizing: border-box;
   border: 1px solid #c5bdd2;
   background-color: #dfdbe6;
 }
-
-.col-4 {
+.row .col-4 {
   width: 33.333%;
   box-sizing: border-box;
   border: 1px solid #c5bdd2;
   background-color: #dfdbe6;
 }
-
-.col-3 {
+.row .col-3 {
   width: 25%;
   box-sizing: border-box;
   border: 1px solid #c5bdd2;
