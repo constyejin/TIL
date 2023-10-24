@@ -61,3 +61,23 @@
     transform: rotate(0);
   }
 }
+
+.close-img:hover {
+  animation-name: rotate;
+  animation-duration: 1s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
