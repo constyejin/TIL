@@ -1,0 +1,49 @@
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.list {
+  width: 260px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  &-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  &-item:last-child {
+    border-bottom: none;
+  }
+}
+
+.active {
+  background-color: dodgerblue;
+}
+
+@mixin box-style($bg-color) {
+  width: 80%;
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 4px;
+  font-weight: 700;
+  background-color: $bg-color;
+}
+
+.alert {
+  &-green {
+    @include box-style(#d8ecce);
+  }
+
+  &-blue {
+    @include box-style(#d2e8f5);
+  }
+
+  &-yellow {
+    @include box-style(#fbf6db);
+  }
+}
