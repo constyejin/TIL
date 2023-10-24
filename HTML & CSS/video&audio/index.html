@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Video and Audio</title>
+</head>
+<style>
+  .video-box {
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  }
+
+  .video-container {
+  position: absolute;
+  width : 100%;
+  top: 50%;
+  left: 50%;
+  transform : translate(-50%,-50%);
+  z-index: -1;
+  }
+</style>
+<body>
+  <video src="./bridge.mp4" controls></video>
+
+  <!-- 이렇게 작성 했을 때 장점 : 호환성을 챙길 수 있다. -->
+  <!-- 브라우저 마다 지원하는 확장자가 다름. -->
+  <!-- 자동재생은 autoplay muted 같이 사용해야 한다. -->
+  <!-- 
+    preload="none" => 미리 다운 X 
+    preload="auto" => 미리 다운 O
+    preload="metadata" => 미리 다운 적당히
+  -->
+  <!-- poster="경로" => 썸네일 이미지 -->
+  <!-- loop => 비디오 무한반복 -->
+  <video controls autoplay muted>
+    <!-- type="video/영상확장자" -->
+    <source src="./bridge.mp4" type="video/mp4">
+    <!-- <source src="./bridge-m.???" type="video/???"> -->
+  </video>
+
+  <!-- 비디오로 배경 넣기 -->
+  <div class="video-box">
+    <video class="video-container" autoplay muted loop>
+      <source src="./bridge.mp4" type="video/mp4">
+    </video>
+    <h3 class="video-title">Buy Our Shoes!</h3>
+  </div>
+
+  <audio src="./bass.mp3" controls></audio>
+  <audio controls muted>
+    <source src="./bass.mp3">
+  </audio>
+</body>
+</html>
