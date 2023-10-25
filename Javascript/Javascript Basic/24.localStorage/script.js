@@ -58,14 +58,14 @@ console.log(JSON.parse(getItme)[0]);
 // - cart 항목 없으면 array 추가
 // - cart 항목 있으면 array 수정
 let buyBtn = document.querySelectorAll('.buy');
+let newTitle = [];
 
 buyBtn.forEach(function(item) {
   item.addEventListener('click', function() {
-    let title = this.previousElementSibling.previousElementSibling;
-    let newTitle = [];
+    let title = item.previousElementSibling.previousElementSibling;
     
     newTitle.push(title.innerHTML)
-    // console.log(newTitle)
+    console.log(newTitle)
     let titleJson = JSON.stringify(newTitle);
     localStorage.setItem('title', titleJson);
   })
