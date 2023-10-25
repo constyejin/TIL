@@ -63,14 +63,18 @@ let newTitle = [];
 buyBtn.forEach(function(item) {
   item.addEventListener('click', function() {
     let title = item.previousElementSibling.previousElementSibling;
-    
-    newTitle.push(title.innerHTML)
-    console.log(newTitle)
+    newTitle.push(title.innerHTML);
+
     let titleJson = JSON.stringify(newTitle);
-    localStorage.setItem('title', titleJson);
+    
+    if(localStorage.getItem('title') === null) {
+      localStorage.setItem('title', titleJson);
+    } else {
+      localStorage.setItem('title', JSON.stringify(newTitle));
+    }
   })
 })
 
-
+// localStorage.removeItem('title')
 
 // 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기
