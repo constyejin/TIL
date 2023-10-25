@@ -57,5 +57,20 @@ console.log(JSON.parse(getItme)[0]);
 // 구매 버튼 클릭 했을 때
 // - cart 항목 없으면 array 추가
 // - cart 항목 있으면 array 수정
+let buyBtn = document.querySelectorAll('.buy');
+
+buyBtn.forEach(function(item) {
+  item.addEventListener('click', function() {
+    let title = this.previousElementSibling.previousElementSibling;
+    let newTitle = [];
+    
+    newTitle.push(title.innerHTML)
+    // console.log(newTitle)
+    let titleJson = JSON.stringify(newTitle);
+    localStorage.setItem('title', titleJson);
+  })
+})
+
+
 
 // 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기
