@@ -8,32 +8,33 @@
 <body>
   <div class="cart-list"></div>
   <script>
-    let cartList = document.querySelector('.cart-list');
+    // let cartList = document.querySelector('.cart-list');
     
-    function paintText(text) {
-      text.forEach(item => {
-        let product = `
-          <div class="box-item">
-            <h3>${item}</h3>
-          </div>`;
+    // function paintText(text) {
+    //   text.forEach(item => {
+    //     let product = `
+    //       <div class="box-item">
+    //         <h3>${item}</h3>
+    //       </div>`;
 
-          cartList.insertAdjacentHTML('beforeend', product);
-      });
-    }
+    //       cartList.insertAdjacentHTML('beforeend', product);
+    //   });
+    // }
 
-    function getTitle() {
-      let title = localStorage.getItem('title');
+    // function getTitle() {
+    //   let title = localStorage.getItem('title');
 
-      if(title === null) {
-        console.log('There is no localstorage');
-      } else {
-        title = JSON.parse(title);
-        // console.log(title)
-        paintText(title);
-      }
-    } 
+    //   if(title === null) {
+    //     console.log('There is no localstorage');
+    //   } else {
+    //     title = JSON.parse(title);
+    //     // console.log(title)
+    //     paintText(title);
+    //   }
+    // } 
 
-    getTitle();
+    // getTitle();
   </script>
+  <script src="./explanation.js"></script>
 </body>
 </html>
