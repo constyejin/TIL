@@ -78,3 +78,4 @@ buyBtn.forEach(function(item) {
 // localStorage.removeItem('title')
 
 // 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기
+
