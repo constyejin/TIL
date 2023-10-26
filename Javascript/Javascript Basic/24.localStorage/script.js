@@ -79,3 +79,6 @@ buyBtn.forEach(function(item) {
 
 // 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기
 
+
+// (응용1) array 안 중복제거
+// (응용2) 상품 수량 저장 [{상품명 : 'title', 수량 : 1}, {}...]
