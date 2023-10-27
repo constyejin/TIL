@@ -58,24 +58,22 @@ console.log(JSON.parse(getItme)[0]);
 // - cart 항목 없으면 array 추가
 // - cart 항목 있으면 array 수정
 let buyBtn = document.querySelectorAll('.buy');
-let newTitle = [];
 
 buyBtn.forEach(function(item) {
   item.addEventListener('click', function() {
-    let title = item.previousElementSibling.previousElementSibling;
-    newTitle.push(title.innerHTML);
-
-    let titleJson = JSON.stringify(newTitle);
+    let title = item.previousElementSibling.previousElementSibling.innerHTML;
     
     if(localStorage.getItem('title') === null) {
-      localStorage.setItem('title', titleJson);
+      localStorage.setItem('title', JSON.stringify([title]));
     } else {
-      localStorage.setItem('title', JSON.stringify(newTitle));
+      let getTItle = JSON.parse(localStorage.title);
+      getTItle.push(title);
+      localStorage.setItem('title', JSON.stringify(getTItle))
     }
   })
 })
 
-// localStorage.removeItem('title')
+// localStorage.removeItem('title');
 
 // 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기
 
