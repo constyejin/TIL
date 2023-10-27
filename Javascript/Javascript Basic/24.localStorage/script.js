@@ -59,7 +59,7 @@ console.log(JSON.parse(getItme)[0]);
 // - cart 항목 있으면 array 수정
 let buyBtn = document.querySelectorAll('.buy');
 
-buyBtn.forEach(function(item) {
+buyBtn.forEach(function(item, i) {
   item.addEventListener('click', function() {
     let title = item.previousElementSibling.previousElementSibling.innerHTML;
     
@@ -73,6 +73,8 @@ buyBtn.forEach(function(item) {
       let lastTitle = [...new Set(getTItle)];
 
       localStorage.setItem('title', JSON.stringify(lastTitle))
+
+      // let object = {'title' : getTItle, 'num' : title.length};
     }
   })
 })
