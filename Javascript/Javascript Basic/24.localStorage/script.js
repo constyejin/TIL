@@ -68,15 +68,19 @@ buyBtn.forEach(function(item) {
     } else {
       let getTItle = JSON.parse(localStorage.title);
       getTItle.push(title);
-      localStorage.setItem('title', JSON.stringify(getTItle))
+
+      // 배열 중복 제거
+      let lastTitle = [...new Set(getTItle)];
+
+      localStorage.setItem('title', JSON.stringify(lastTitle))
     }
   })
 })
 
 // localStorage.removeItem('title');
 
-// 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기
+// 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기 (완료!)
 
 
-// (응용1) array 안 중복제거
+// (응용1) array 안 중복제거 (완료!)
 // (응용2) 상품 수량 저장 [{상품명 : 'title', 수량 : 1}, {}...]
