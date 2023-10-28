@@ -13,6 +13,10 @@ $(window).scroll(function(){
   // 0 = a * 1150 + b
   // a = -1/500
   // b = 115/50
-
   $('.card-box').eq(0).css('opacity', y);
+  $('.card-box').eq(0).removeClass('active');
+
+  if(height > 650) {
+    $('.card-box').eq(0).addClass('active');
+  }
 })
