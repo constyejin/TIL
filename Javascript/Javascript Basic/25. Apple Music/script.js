@@ -14,5 +14,5 @@ $(window).scroll(function(){
   // a = -1/500
   // b = 115/50
 
-  $('.card-box').eq(0).css('opcity', y);
+  $('.card-box').eq(0).css('opacity', y);
 })
