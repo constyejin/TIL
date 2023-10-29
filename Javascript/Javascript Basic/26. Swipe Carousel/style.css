@@ -20,7 +20,7 @@ li {
   /* margin-left: -100vw; */
   /* 성능적인 이점이 있음 */
   /* transform: translateX(-100vw); */
-  transition: transform 1s;
+  /* transition: transform 1s; */
 }
 
 .slide-item {
