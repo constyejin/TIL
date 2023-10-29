@@ -1,5 +1,5 @@
 let start = 0;
-let push = true;
+let push = false;
 
 // mousedown, mouseup, mousemove Event
 $('.slide-item').eq(0).on('mousedown', function(e){
