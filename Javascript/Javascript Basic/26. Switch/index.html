@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>간혹 쓰는 Switch 문법</title>
+</head>
+<body>
+  <div id="quiz">
+    <h4>물에 빠지면 누구 먼저 구할 것임?</h4>
+    <button>남편</button>
+    <button>부모님</button>
+    <button>강아지</button>
+  </div>
+
+  <script>
+    let num = 2 + 5;
+
+    // if는 다양한 조건식 가능, switc는 변수 1개만 테스트 가능
+    // break : switch 실행 중지
+    // switch(num) {
+    //   case 3 :
+    //     alert('변수가 3이네여');
+    //     break
+    //   case 4:
+    //     alert('변수가 4네여');
+    //     break
+    //   default :
+    //     alert('아무것도 해당 안됨')
+    // }
+
+    document.getElementById('quiz').addEventListener('click', function(e) {
+      switch(e.target.innerHTML) {
+        case '남편' :
+          console.log('사랑꾼이네요.')
+          break
+        case '부모님' :
+          console.log('효녀네요.')
+          break
+        case '강아지' :
+          console.log('동물애호가네요.')
+      }
+    })
+  </script>
+</body>
+</html>
