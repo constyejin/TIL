@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.slide-wrapper {
+  /* 기본이 1이니까 그 이상 보이는 것들이 사라짐 */
+  overflow: hidden;
+}
+
+.slide-list {
+  /* viewport width 3배 */
+  display: flex;
+  width: 300vw;
+  height: 700px;
+  /* margin-left: -100vw; */
+  /* 성능적인 이점이 있음 */
+  /* transform: translateX(-100vw); */
+  transition: transform 1s;
+}
+
+.slide-item {
+  width: 100vw;
+  height: 100%;
+}
+
+.slide-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn-group button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #888;
+  color: #fff;
+  font-weight: 700;
+  margin-right: 5px;
+}
