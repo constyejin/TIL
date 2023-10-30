@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트 기본 문법 총정리</title>
+</head>
+<body>
+  <p id="hello">안녕</p>
+  <button type="button" id="btn">button</button>
+  <script>
+    document.getElementById('btn').addEventListener('click', function() {
+      document.getElementById('hello').innerHTML = '바보';
+    })
+
+    // 잠깐 자료 저장하고 싶으면 변수 사용
+    // var, let, const
+    let name = 'Lee';
+    let age = 10;
+
+    // 함수, 파라미터
+    function test(para) {
+      document.getElementById('hello').innerHTML = para;
+    }
+
+    // Arrow Function () => {}
+
+    // 자료 한번에 여러개 저장하려면 array, object
+    let names = ['Lee', 'Kim'];
+    let info = {name : 'Lee', age : 10};
+    console.log(names[0])
+    console.log(info.age)
+
+    // 코드를 조건부로 실행하고 싶을 때 if / else / else if
+    if(1 == 1) {
+      console.log('true')
+    } else {
+      console.log('false')
+    }
+
+    // 반복되는 코드를 줄이고 싶을 때 for 반복문
+    for (let i = 0; i < 4; i++) {
+      console.log('for!')
+    }
+
+    // forEach 반복문 => array에만 적용 가능!
+    [1,2,3,4,5].forEach(function(a){
+      // a : array안에 있는 자료들
+      console.log('forEach!')
+    })
+  </script>
+</body>
+</html>
