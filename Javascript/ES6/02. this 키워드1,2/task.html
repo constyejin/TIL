@@ -6,6 +6,7 @@
   <title>this & arrow function 연습문제 3개</title>
 </head>
 <body>
+  <button id="btn" type="button">버튼입니다</button>
   <script>
     // 1. 간단한 메소드 만들기
     let person = {
@@ -30,6 +31,14 @@
     })
     
     console.log(sum)
+
+
+    // 3. setTimeout 이용해보기
+    document.getElementById('btn').addEventListener('click', function(){
+      setTimeout(() => {
+        console.log(this.innerHTML)
+      },1000)
+    })
   </script>
 </body>
 </html>
