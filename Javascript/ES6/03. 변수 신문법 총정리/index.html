@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>변수 신문법 총정리 1. var, let, const와 선언, 할당, 범위</title>
+</head>
+<body>
+  <script>
+    // 'use strict'
+
+    // var   : 재선언O, 재할당O, 범위 function
+    // let   : 재선언X, 재할당O, 범위 {}
+    // const : 재선언X, 재할당X, 범위 {}
+
+    // 재선언 (var만 가능)
+    var 이름 = '김';
+    var 이름 = '냥';
+    
+
+    // 재할당 (const만 불가능 - constant)
+    let data = '하하'
+    data = '아아'
+    
+    // const로 object를 만들었을 때는 objcet내부 값 변경해도 에러 X
+    // const라는 변수 자체를 재할당한게 아니기 때문.
+    const person = {이름 : '이'}
+    person.이름 = '김';
+
+    // 수정 불가능한 오브젝트 생성
+    Object.freeze(person);
+    person.이름 = 'dgdsg';
+    console.log(person)
+
+
+    // 범위 (변수는 존재 범위라는게 있다.)
+    function test(){
+      // var는 function 안에서만 존재
+      var 이름 = 'Kim';
+    }
+
+    if(ture){
+      let 이름 = 'Kim';
+    }
+  </script>
+</body>
+</html>
