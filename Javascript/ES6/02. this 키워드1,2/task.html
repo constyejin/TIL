@@ -24,14 +24,24 @@
       nums : [1,2,3,4,5]
     }
 
-    let sum = 0;
+    // let sum = 0;
 
-    data.nums.forEach(function(num){
-      sum += num
-    })
+    // data.nums.forEach(function(num){
+    //   sum += num
+    // })
     
-    console.log(sum)
+    // console.log(sum)
 
+    // 해설
+    data.test = function(){
+      let total = 0;
+      this.nums.forEach(function(a){
+        total += a;
+      })
+      console.log(total)
+    }
+
+    data.test();
 
     // 3. setTimeout 이용해보기
     document.getElementById('btn').addEventListener('click', function(){
