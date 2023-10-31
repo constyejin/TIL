@@ -16,6 +16,20 @@
     }
 
     person.func();
+
+
+    // 2. 오브젝트 내의 데이터를 전부 더해주는 메소드만들기
+    let data = {
+      nums : [1,2,3,4,5]
+    }
+
+    let sum = 0;
+
+    data.nums.forEach(function(num){
+      sum += num
+    })
+    
+    console.log(sum)
   </script>
 </body>
 </html>
