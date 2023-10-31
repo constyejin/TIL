@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this 키워드를 알아보자 2. event listener constructor</title>
+</head>
+<body>
+  <button id="btn">버튼</button>
+  <script>
+    // 3. this : test안에서 쓰면 새로 생성되는 오브젝트를 뜻한다.(instance)
+    let info = {}
+
+    function test(){
+      this.name = 'Lee';
+    }
+
+    let test1 = new test();
+
+    // 4. this : 이벤트리스너(e.currentTarget)
+    document.getElementById('btn').addEventListener('click', function(e){
+      // 지금 클릭 이벤트가 동작하고 있는 곳
+      // console.log(this)
+      // console.log(e.currentTarget)
+
+      let arr = [1,2,3];
+      arr.forEach(function(num){
+        // console.log(num)
+
+        // * 함수가 쓰인 위치에 따라 this값이 변한다.
+        // 1. this : 일반 함수에서의 this => window 출력
+        // console.log(this)
+      });
+    })
+
+    
+    let test2 = {
+      names : ['김', '이', '박'],
+      func : function(){
+        // 함수를 소유한 오브젝트
+        console.log(this)
+        test2.names.forEach(function(){
+          // object내 콜백함수에서 this => window
+          console.log(this)
+        })
+      }
+    }
+
+    test2.func();
+
+
+    // Arrow Function
+    // 내부의 this값을 변화시키지 않음(외부 this값 그대로 재사용 가능)
+    let test3 = {
+    names : ['김', '이', '박'],
+      func : function(){
+      // 함수를 소유한 오브젝트
+      console.log(this)
+        test2.names.forEach(() => {
+        // object내 콜백함수에서 this => window
+        console.log(this)
+        })
+      }
+    }
+
+    test3.func();
+  </script>
+</body>
+</html>
