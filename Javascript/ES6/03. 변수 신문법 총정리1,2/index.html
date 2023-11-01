@@ -39,8 +39,32 @@
       var 이름 = 'Kim';
     }
 
-    if(ture){
+    if(true){
       let 이름 = 'Kim';
+    }
+
+
+    // 호이스팅 : 변수의 선언을 변수 범위 맨위로 끌고오는 현상(자바스크립트 언어 특성)
+    // 변수 선언 전에 console.log 찍었을 때 => undefined
+    console.log(age);
+
+    var age = 30;
+    console.log(age);
+
+    // window로 전역변수 만들기
+    window.name = 'Lee';
+    console.log(name)
+
+
+    // 연습문제
+    if(true) {
+      let a = 1;
+      var b =2;
+      if(true) {
+        // let 범위 : 중괄호 내
+        let b = 3;
+      }
+      console.log(b)
     }
   </script>
 </body>
