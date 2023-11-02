@@ -5,7 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>변수 연습문제 6개</title>
 </head>
+<style>
+  div {
+    display: none;
+  }
+</style>
 <body>
+  <div>모달창1</div>
+  <div>모달창2</div>
+  <div>모달창3</div>
+
+  <button>버튼1</button>
+  <button>버튼2</button>
+  <button>버튼3</button>
   <script>
     // 1~4. 다음 코드의 콘솔창 출력 결과는?
 
@@ -31,12 +43,32 @@
     // console.log(a);
 
     // 문제 4
-    let a = 1;
-    var b = 2;
-    window.a = 3;
-    window.b = 4;
+    // let a = 1;
+    // var b = 2;
+    // window.a = 3;
+    // window.b = 4;
 
-    console.log(a + b); // 5(1 + 4)
+    // console.log(a + b); // 5(1 + 4)
+
+    // 문제 5
+    // var : 함수 레벨 스코프(var는 for문에서 스코프를 따로 갖지 않기 때문에 전역변수의 값이 변경될 수 있다.)
+    // let : 블록(if, for, while등 중괄호로 묶은 부분) 레벨 스코프
+    // let은 ㄹor문 안에서 어떤걸 해도 전역변수에 영향을 미치지 않는다. 
+    // for(let i = 1; i < 6; i++) {
+    //   setTimeout(function(){
+    //     console.log(i);
+    //   }, i * 1000)
+    // }
+
+    // 문제 6
+    let buttons = document.querySelectorAll('button');
+    let modals = document.querySelectorAll('div');
+    
+    buttons.forEach(function(btn, i){
+      btn.addEventListener('click', function(){
+        modals[i].style.display = 'block';
+      })
+    })
   </script>
 </body>
 </html>
