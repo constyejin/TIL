@@ -17,15 +17,15 @@
 
     // backquote 문자열 + 함수 (tagged literal)
     // 단어 순서 변경, 단어 제거, ${변수} 위치 변경 등 `문자`를 해체분석할 수 있다.
-    function 함수(){
-      return 10
-    }
+    // function 함수(){
+    //   return 10
+    // }
 
     
-    function 해체분석기(txt, vari){
-      console.log(txt);
-      console.log(vari);
-    }
+    // function 해체분석기(txt, vari){
+    //   console.log(txt);
+    //   console.log(vari);
+    // }
 
     // 1. 해체분석용 함수 생성 후 파라미터 두 개 넣기
     // 파라미터1 : 문자들을 Array화 해준다.
@@ -34,10 +34,45 @@
     // console.log(해체분석기`안녕하세요 ${변수}`)
 
     // tagged literal 사용 예시 (글자 순서 변경)
-    function 해체분석기1(txt, vari){
-      console.log(txt[1] + vari + txt[0]);
+    // function 해체분석기1(txt, vari){
+    //   console.log(txt[1] + vari + txt[0]);
+    // }
+    // 해체분석기1`안녕하세요 ${변수} 입니다.`
+
+    var pants = 10;
+    var socks = 100;
+
+    
+    // Q1. 해체분석이(tagged literals)로 문자 중간 '양말'과 '바지' 단어 순서 변경하기
+    // function task1(txt, vari1, vari2){
+    //   console.log(txt[1] + vari1 + txt[0] + vari2)
+    // }
+
+    // task1`바지 ${pants} 양말 ${socks}`;
+
+    // Q2. pants가 0개면 '바지 안 팔아요 양말 100이라는 문자로 변경'
+
+    function task2(txt, vari1, vari2){
+      if(vari1 === 0) {
+        var val = txt[0] = '바지 안 팔아요.';
+        console.log(val + txt[1] + vari2)
+      } else {
+        val = txt[0] = '바지';
+        console.log(val + vari1 + txt[1] + vari2)
+      }
     }
-    해체분석기1`안녕하세요 ${변수} 입니다.`
+
+    task2`바지 ${pants} 양말 ${socks}`
+
+
+    function comment(txt, vari1, vari2){
+      if(vari1 == 0 ){
+        console.log(`바지 안 팔아요. 양말 ${vari2}`)
+      } else {
+        console.log(`${txt[0]} ${vari1} ${txt[1]} ${vari2}`)
+      }
+    }
+    comment`바지 ${pants} 양말 ${socks}`;
   </script>
 </body>
 </html>
