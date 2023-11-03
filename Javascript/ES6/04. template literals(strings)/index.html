@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트가 문자 다루는 신기한 방법(Template literals)</title>
+</head>
+<body>
+  <script>
+    // backquote 문자열의 장점
+    // 1. 엔터키 기능
+    // 2. 중간중간 변수넣기 쉬움
+    var 변수 = '이예진';
+    var txt = `문자`;
+    var txt1 = '문자' + 변수;
+    var txt2 = `문자 ${변수}`
+
+    // backquote 문자열 + 함수 (tagged literal)
+    // 단어 순서 변경, 단어 제거, ${변수} 위치 변경 등 `문자`를 해체분석할 수 있다.
+    function 함수(){
+      return 10
+    }
+
+    
+    function 해체분석기(txt, vari){
+      console.log(txt);
+      console.log(vari);
+    }
+
+    // 1. 해체분석용 함수 생성 후 파라미터 두 개 넣기
+    // 파라미터1 : 문자들을 Array화 해준다.
+    // 파라미터2 : ${변수}를 뜻한다.
+    // 파라미터3 : 두번째 ${변수}를 뜻한다.
+    // console.log(해체분석기`안녕하세요 ${변수}`)
+
+    // tagged literal 사용 예시 (글자 순서 변경)
+    function 해체분석기1(txt, vari){
+      console.log(txt[1] + vari + txt[0]);
+    }
+    해체분석기1`안녕하세요 ${변수} 입니다.`
+  </script>
+</body>
+</html>
