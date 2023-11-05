@@ -55,4 +55,13 @@ stu1.toString();
 console.log(stu1.gender);
 
 
+// prototype은 함수에만 생성된다.
+// 부모 prototype을 검사하고 싶다면 __proto__
+console.log(stu1.__proto__);
 
+
+// __proto__ 를 이용해 부모 강제 등록하기
+var parents = {name : 'Kim'};
+var children = {};
+children.__proto__ = parents;
+console.log(children.name)
