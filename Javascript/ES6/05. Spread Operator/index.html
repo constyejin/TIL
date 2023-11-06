@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>모든 괄호를 없애주는 Spread Operator 활용방법1</title>
+</head>
+<body>
+  <script>
+    // 1. Array에 붙이면 대괄호를 제거해준다.
+    var arr = ['hello', 'world'];
+    console.log(...arr);
+
+    // 2. 문자에 붙이면 'h', 'e', 'l', 'l', 'o'로 해체
+        var txt = 'hello';
+    console.log(...txt);
+
+
+    var a = [1,2,3];
+    var b = [4,5];
+
+    // 3. Array 합치기 / 복사(Deep copy)
+    var c = [...a, ...b];
+    console.log(c)
+
+    // 등호로 복사하면 d값을 수정한 적이 없어도 a값이 변경되면 같이 변경됨.
+    // 독립적인 값을 가지도록 복사하려면 => Spread Operator 사용!
+    var d = a;
+    var e = [...a]
+    a[3] = 4;
+    console.log(a)
+    console.log(d)
+    console.log(e)
+
+    // reference data type (Array, Object)
+
+    // Object
+    var o1 = {a : 1, b : 2};
+    var o2 = {...o1, c : 3};
+    // 카피할 때 값 중복시 => 가장 뒤에 있는 값 적용
+    var o3 = {a : 2, ...o1};
+    console.log(o3)
+  </script>
+</body>
+</html>
