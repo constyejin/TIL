@@ -7,7 +7,73 @@
 </head>
 <body>
   <script>
+    // 문제 1
+    // var a = [1,2,3];
+    // var b = '김밥';
+    // var c = [...b, ...a];
+    // console.log(c)
+
+
+    // 문제 2
+    // var a = [1,2,3];
+    // var b = ['You', 'are'];
+    // var c = function(a,b){
+    //   console.log([[...a], ...[...b]][1])
+    // }
     
+    // c(a,b);
+
+
+    // 문제 3
+    // function test1(a = 5, b = a * 2) {
+    //   console.log(a + b);
+    //   return 10
+    // }
+
+    // test1(3);
+
+
+    // 문제 4 
+    // function test2(a = 5, b = a * 2) {
+    //   console.log(a + b);
+    // }
+    
+    // test2(undefined, undefined);
+
+
+    // 문제 5 (Array를 만들어주는 함수)
+    function arr(...rest){
+      return [...rest]
+    }
+
+    var newArr = arr(1,2,3,4,5,6,7,8,9);
+    console.log(newArr);
+
+
+    // 문제 6 (최댓값 구하기)
+    var numbers = [2,3,4,5,6,1,3,2,5,5,4,6,7];
+    console.log(Math.max(...numbers))
+
+
+    // 문제 7 (글자 알파벳순으로 정렬해주는 함수)
+    function txtSort(a){
+      console.log([...a].sort())
+    }
+
+    txtSort('bear');
+
+
+    // 문제 8 (데이터 마이닝)
+    function data([...txt]){
+      let result = {};
+
+      txt.forEach((x) => {
+        result[x] = (result[x] || 0) + 1;
+      });
+      console.log(result);
+    }
+
+    data('apple');
   </script>
 </body>
 </html>
