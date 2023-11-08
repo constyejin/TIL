@@ -34,7 +34,31 @@
       }
     }
     
-    test2(1,2,3)
+    test2(1,2,3);
+
+    
+    // Rest Parameter
+    // ...
+    // 1. spread operator
+    // 2. rest parameter (함수 소괄호 안에서 사용시)
+    function test3(a,b,...rest){
+      // 이 자리에 오는 모든 파라미터를 []에 보관해준다.
+      console.log(rest)
+    }
+
+    test3(1,2,3,4,5);
+
+    
+    // ...rest는 파라미터가 몇개 들어올지 미리 지정하지 않아도 된다.
+    // 주의점 1 : 가장 뒤에 사용 해야한다. ...rest, a (X)
+    // 주의점 2 : 두번 이상 금지
+    function test4(...rest){
+      for(var i = 0; i < rest.length; i++) {
+        console.log(rest[i])
+      }
+    }
+
+    test4(1,2,3,4,5,6,7,8,9,10)
   </script>
 </body>
 </html>
