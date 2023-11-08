@@ -34,6 +34,7 @@
 
 
     // 문제 4 
+    // 파라미터에 값이 없으므로 default parameter 발동
     // function test2(a = 5, b = a * 2) {
     //   console.log(a + b);
     // }
@@ -41,7 +42,7 @@
     // test2(undefined, undefined);
 
 
-    // 문제 5 (Array를 만들어주는 함수)
+    // 문제 5 (Array 만들어주는 함수)
     function arr(...rest){
       return [...rest]
     }
@@ -64,16 +65,24 @@
 
 
     // 문제 8 (데이터 마이닝)
-    function data([...txt]){
+    function data(txt){
       let result = {};
 
-      txt.forEach((x) => {
-        result[x] = (result[x] || 0) + 1;
+      [...txt].forEach((x) => {
+        // 결과에 x가 있으면 + 1 해주고, 없으면 a : 1 
+        // result[x] = (result[x] || 0) + 1;
+
+        // 풀이
+        if(result[x] > 0) {
+          result[x] = result[x] + 1;
+        } else {
+          result[x] = 1;
+        }
       });
       console.log(result);
     }
 
-    data('apple');
+    data('aaapple');
   </script>
 </body>
 </html>
