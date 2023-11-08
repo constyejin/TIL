@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript 함수 업그레이드 하기(default parameter / arguments)</title>
+</head>
+<body>
+  <script>
+    // 파라미터 2개 들어가는 함수인데 1개만 써도 에러 발생 X (장점이자 단점)
+    // 함수의 default parameter (파라미터에 값이 없을때만 발동)
+    function test1(){
+      return 10
+    }
+
+    function plus(a, b = test1()) {
+      console.log(a + b)
+    }
+
+    // b 파라미터에 값이 없을 경우 10 (1 + 10) => default 값
+    plus(1);
+
+
+    // 모든 파라미터를 한꺼번에 다루고 싶을 경우 => arguments 사용
+    // parameter
+    function test2(a,b,c){
+      // arguments : 모든 파라미터를 []안에 넣은 변수
+      // console.log(arguments[0])
+      // console.log(arguments[1])
+      // console.log(arguments[2])
+
+      for(var i = 0; i < arguments.length; i++) {
+        console.log(arguments[i])
+      }
+    }
+    
+    test2(1,2,3)
+  </script>
+</body>
+</html>
