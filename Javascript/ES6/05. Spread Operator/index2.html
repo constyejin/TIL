@@ -7,7 +7,35 @@
 </head>
 <body>
   <script>
-    
+    // 4. 함수 파라미터 넣을 때 사용
+    function plus(a,b,c) {
+      console.log(a + b + c)
+    }
+
+    // plus(1,2,3);
+
+    var arr = [10, 20, 30];
+    // console.log(typeof(arr[0]))
+    plus(arr[0], arr[1], arr[2]);
+    plus.apply(undefined, arr);
+    plus(...arr)
+
+    var person = {
+      hi : function(){
+        console.log(this.name + ' 안녕!')
+      }
+    }
+
+    var person2 = {
+      name : '이예진'
+    }
+
+    // person.hi()를 person2에 적용하고 싶을 때 => apply 함수
+    person.hi();
+    // apply, call 비슷함
+    // apply는 파라미터를 array 형태로 집어넣을 수 있다.
+    person.hi.apply(person2, [1,2]);
+    person.hi.call(person2, 1,2);
   </script>
 </body>
 </html>
