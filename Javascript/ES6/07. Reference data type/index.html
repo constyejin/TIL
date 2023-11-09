@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reference data type과 예제 3개</title>
+</head>
+<body>
+  <script>
+    // Primitive / Reference Data types
+    // Primitive data type : 문자와 숫자 : 변수에 값이 그대로 저장됨
+    var vari = 1234;
+    // Array, object는 변수에 값이 저장되지 않는다. (변수에 reference 저장)
+    // 값이 어디에 있다는 화살표
+    var arr = [1,2,3];
+    var obj = {name : 'yejin'};
+
+    var name1 = 'Lee';
+    var name2 = name1;
+    name1 = 'Jin';
+    console.log(name2)
+
+    // Reference data type 다루기 : 복사
+    var name3 = {name : 'Lee'};
+    var name4 = name3;
+    name3.name = 'Jin';
+    console.log(name4.name);
+
+    
+    var name5 = {name : '김'};
+    var name6 = {name : '김'};
+    console.log(name5 == name6)
+
+    // Object 변경 함수
+    // 파라미터는 변수생성 & 할당과 같다 'var obj ='' 랑 동일
+    function change(obj){
+      // obj.name = 'Kim';
+      
+      // 새로운 object에 할당하면 새로운 화살표가 생성된다.
+      obj = {name : 'Kim'}
+    }
+    
+    change(name5)
+    console.log(name5)
+  </script>
+</body>
+</html>
