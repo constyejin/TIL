@@ -38,7 +38,7 @@ function Student(name, age){
 // var arr = [1,2,3]
 // var arr = new Array(1,2,3);
 
-// console.log(Array.prototype)
+console.log(Array.prototype)
 
 // 컴퓨터가 object를 만드는 방식
 // var obj = {name : 'yejin'}
