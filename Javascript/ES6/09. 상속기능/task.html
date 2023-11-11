@@ -17,7 +17,7 @@
 
     var dog1 = new dogs('말티즈', 'white');
     var dog2 = new dogs('진돗개', 'brown');
-    console.log(dog1, dog2);
+    // console.log(dog1, dog2);
 
 
     // 2. class를 이용해 object 여러개 뽑기 (extends 문법 사용)
@@ -26,8 +26,8 @@
         super(type, color);
         this.age = age;
       }
-      get nextAge(){
-        return this.age + 1;
+      nextAge(){
+        return Number(this.age) + 1;
       }
     }
 
@@ -39,7 +39,10 @@
     // 3. 1,2번 object에 .한살먹기() 기능 추가
     // dogs class로부터 생성된 object가 사용하면 error 출력
     // cats class로부터 생성된 object가 사용하면 현재 age + 1 
-    console.log(cat2.nextAge)
+    console.log(cat1.nextAge());
+
+
+    
   </script>
 </body>
 </html>
