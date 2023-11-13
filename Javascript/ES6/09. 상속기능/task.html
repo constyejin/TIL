@@ -68,6 +68,31 @@
     console.log(user1.battlePoint);
     console.log(user1.heal = 50);
     console.log(user1);
+
+
+    // 5. get / set 이용2
+    // (1) data 오브젝트안에 setter 역할 함수 생성
+    // (2) data 오브젝트안에 getter 역할 함수 생성
+    // (3) getter 함수를 사용하면 odd, even에 저장된 모든 데이터 숫자순으로 정렬
+    var data = {
+      odd : [],
+      even : [],
+      get number(){
+        return data;
+      },
+      set sort(num){
+        for(let i = 0; i < num.length; i++) {
+          if(num[i] % 2 === 0) {
+            this.even.push(num[i])
+          } else {
+            this.odd.push(num[i])
+          }
+        }
+      }
+    }
+
+    data.sort = [1,2,3,4,5];
+    console.log(data);
   </script>
 </body>
 </html>
