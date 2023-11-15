@@ -18,3 +18,16 @@ var 학생3 = new Student('Lee', 30);
 학생2.sayHi();
 학생3.sayHi();
 
+
+// 문제 2
+function Parent(){
+  this.name = 'Kim';
+}
+
+var a = new Parent();
+
+// 부모 prototype에 {name : 'Park'}을 추가하라는 뜻
+a.__proto__.name = 'Park';
+console.log(a.name)
+
+
