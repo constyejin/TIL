@@ -108,10 +108,10 @@
     console.log(data);
 
 
-    // *** 5번 풀이
+    // *** 5번 풀이 1
     var data1 = {
       odd : [],
-      event : [],
+      even : [],
       numSort : function(...num) {
         // forEach(function(){}) => 사용시 this.odd가 모 object의 odd를 뜻하는게 아니라 window를 가르킴
         // 그래서 부모 this.odd를 사용할 수 있도록 arrow function 사용 
@@ -128,6 +128,18 @@
     // numSort 함수로 들어온 매개변수를 몇 개가 될지 모르기 때문에 rest 파라미터로 배열 생성
     // ...rest를 사용하면 입력된 파라미터를 array로 감싸준다.
     data1.numSort(1,2,3,4,5);
+
+
+    // *** 5번 풀이 2
+    var data2 = {
+      odd : [1,3,5],
+      even : [2,4,6],
+      get getFun(){
+        return [...this.odd, ...this.even].sort();
+      }
+    }
+
+    console.log(data2.getFun);
   </script>
 </body>
 </html>
