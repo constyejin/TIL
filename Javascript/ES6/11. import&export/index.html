@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>import / export를 이용한 파일간 모듈식 개발</title>
+</head>
+<body>
+  <script></script>
+  <script type="module">
+    // ES6 import / export
+    // import 가져올거 from '경로'
+    // library.js 에 있는 모든 내용을 가져오는 것 X (특정 변수)
+    // import a from './library.js';
+    // export default 값이 제일 왼쪽에 위치해야 한다.
+    // import c,{a,b} from './library.js';
+    
+    // improt {변수 as 새변수명} form '경로' 
+    import {a as num1, b as num2} from './library.js';
+    console.log(num1, num2);
+
+    // 전부 다 import => *
+    // import * as 변수들명 from '경로';
+
+    // 호환성 문제 (IE에서 X)
+    // 프론트엔드 개발에선 모듈식으로 개발할 때 <script src=""> 사용
+  </script>
+</body>
+</html>
