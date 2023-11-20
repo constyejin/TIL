@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stack, Queue를 이용한 웹브라우저 동작원리</title>
+</head>
+<body>
+  <script>
+    // 웹 브라우저 : 서버에서 받아온 HTML, CSS, JS를 실행시켜주는 프로그램
+    // 브라우저는 C++이라는 언어로 코드가 짜여있다.
+    // 브라우저가 실행해야 할 Javascript 코드를 발견하면 C++ 언어로 만들어둔 stack에 넣어 돌린다.
+    // stsck : 맨 윗줄부터 하나하나 실행시키는 공간
+    
+    // 비동기적인 처리
+    // stack에 쌓아서 실행하지 않고, Queue에 잠깐 보류해놨다가 완료되는 시점(stack이 비었을 때)에 stack으로 보낸다.
+    // Queue에 들어온 순서대로 Stack으로 옮겨준다.
+    // setTimeout, 이벤스리스터, ajax 함수
+    
+    // setTimeout 타이머를 0초로 설정해도 실은 4ms로 동작한다. (설정가능한 최소시간 4ms)
+  </script>
+</body>
+</html>
