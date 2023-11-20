@@ -31,10 +31,9 @@
 
     // Q2. Ajax 요청 성공시 코드 실행
     // Promise의 then함수를 이용해서 Ajax로 받아온 인삿말 콘솔창에 출력
-    var getTxt = new Promise(function(resolve, reject){
-      $.get('https://codingapple1.github.io/hello.txt').done(function(result){ resolve(result)})
-    });
+    var getTxt = ajaxFun('https://codingapple1.github.io/hello.txt');
 
+    // result : Ajax 요청 결과(인삿말)
     // getTxt.then(function(result){
     //   console.log(result);
     // })
@@ -58,13 +57,25 @@
     getTxt.then(function(result){
       console.log(result);
 
-      var getTxt2 = new Promise(function(resolve, reject){
-        $.get('https://codingapple1.github.io/hello2.txt').done(function(result){ resolve(result)})
-      })
-      return getTxt2;
+      // var getTxt2 = new Promise(function(resolve, reject){
+      //   $.get('https://codingapple1.github.io/hello2.txt').done(function(result){ resolve(result)})
+      // })
+      
+      // .then()에서 new Promise()를 배출하면 뒤에 then을 또 쓸 수 있다.
+      // return new Promise();
+      return ajaxFun('https://codingapple1.github.io/hello2.txt');
+
+      // Ajax 요청 성공시 또 다른곳으로 Ajax 요청
     }).then(function(result){
       console.log(result);
     })
+
+    // getTxt, getTxt2 함수로 축약하기
+    function ajaxFun(url){
+      return new Promise(function(resolve, reject){
+        $.get(url).done(function(result){ resolve(result)})
+      })
+    }
   </script>
 </body>
 </html>
