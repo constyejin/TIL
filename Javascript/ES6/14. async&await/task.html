@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>버튼을 누르면 성공 판정하는 Promise</title>
+</head>
+<body>
+  <button id="btn" type="button">Button</button>
+
+  <script>
+    // async, await 사용
+    let btn = document.getElementById('btn');
+
+    async function plus(){
+      var pro = new Promise(function(resolve, reject){
+        btn.addEventListener('click', function(){
+          resolve('성공 했어여');
+        })
+      })
+
+      try {
+        var result = await pro;
+        console.log(result)
+      } catch {
+        console.log('에러에러에러');
+      }
+    }
+
+    plus();
+  </script>
+</body>
+</html>
