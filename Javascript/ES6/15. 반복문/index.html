@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for in / for of 반복문과 enumerable, iterable 속성</title>
+</head>
+<body>
+  <script>
+    // 반복문 용도
+    // 1. 코드 여러번 실행할 때
+    // 2. Array, Object에서 데이터 꺼내쓸 때
+
+    // 1. 그냥 for 반복문(어려움)
+    // for (var i = 0; i < 3; i++) {}
+
+    // 2. forEach() 반복문 (Array 전용)
+    // [1,2,3].forEach();
+
+    // 3. for in 반복문 (Object 전용)
+    // - enumerable한 것만 반복해준다.
+    // - 부모의 prototype도 반복해준다. (부모 prototype까지 반복할 일이 거의 없다.)
+    class parents {
+
+    }
+    parents.prototype.name = 'Park';
+    var obj = new parents();
+    // console.log(obj)
+
+    // var obj = {name : 'Lee', age : 20};
+    // Object.getOwnPropertyDescriptor(obj, 'name') => object.name의 숨겨진 정보 출력
+    // enumerable : true 일 경우 for..in 가능(셀 수 있는지 여부) 
+    // console.log(Object.getOwnPropertyDescriptor(obj, 'name'));
+
+    for (var key in obj){ 
+      // 내가 직접 가지고 있는 값만 반복
+      if (obj.hasOwnProperty(key)){
+        console.log(obj[key]);
+      }
+    }
+
+    // 4. for of 반복문 (iterable 전용)
+    // - Array, 문자, arguments, NodeList, Map, Set
+    // NodeList : getElementsByClassName(), querySelectorAll() 여러개의 요소를 찾으면 그 자리에 Array 같은 것이 남는다. [찾은거1, 찾은거2] 
+    // Javascript가 자료형을 만들 때 몰래 숨겨둔 flag가 있다 (자료형의 특징)
+    var arr = [1,2,3,4,5];
+    
+    for (var num of arr){
+      console.log(num);
+    }
+
+    // iterator : 내부 데이터 출력을 도와주는 함수 같은 것
+    console.log(arr[Symbol.iterator]());
+  </script>
+</body>
+</html>
