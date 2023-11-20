@@ -13,9 +13,43 @@
     for (var i of nums) {
       for(var j of nums) {
         result = i * j;
-        console.log(`${i} * ${j} = ${result}`)
+        // console.log(`${i} * ${j} = ${result}`)
       }
     }
-  </script>
+
+
+    // Q2. for of로 Array안 object key값 수정하기 
+    var products = [
+      {
+        name1 : 'chair',
+        price1 : 7000,
+      },
+      {
+        name2 : 'sofa',
+        price : 5000,
+      },
+      {
+        name1 : 'desk',
+        price3 : 9000,
+      },
+    ];
+
+    let newValue;
+    let newkey;
+
+    for (let obj of products) {
+      // for in으로 object 반복해서 key값 가져오기
+      for (let key in obj) {
+        // 마지막 글자를 숫자로 변환 했을 때 NaN가 아니라면 (=숫자라면)
+        if(isNaN(parseInt(key.slice(-1))) == false) {
+          newValue = obj[key];
+          newkey = key.slice(0, -1);
+          obj[newkey] = newValue;
+          delete obj[key];
+        }
+      }      
+    }
+    console.log(products)
+    </script>
 </body>
 </html>
