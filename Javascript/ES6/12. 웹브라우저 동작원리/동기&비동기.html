@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동기 / 비동기처리와 콜백함수라는 용어 깔끔하게 정리</title>
+</head>
+<body>
+  <script>
+    // 동기식 처리(Synchronous)
+    // 오래 걸리 연산 만나면 멈춘다.
+    // 비동기식 처리(Asynchronous)
+    // Web API와 연관된 특수한 함수를 사용하면 작업이 오래걸릴 때 다른거거부터 실행가능
+
+    console.log(1);
+    // 비동치식처리 도와주는 함수 => 오래걸리는 작업이 있으면 제껴두고 다른거부터 처리하는 방식
+    // 자바스크립트 실행하는 브라우저 덕분에 가능
+    setTimeout(()=>{console.log(2)}, 1000);
+    console.log(3);
+
+    // Web API (실행 대기실)
+    // Web API 덕분에 비동기식 처리가능 (async)
+    // 웹브라우저의 특수성
+    // element.addEventListener('click', function(){})
+    // $.ajax();
+
+
+    // JavaScript를 순차적으로 실행하려면? => 콜백함수 사용
+    // 콜백함수 : 함수 아넹 들어가는 함수
+
+
+    // 콜백함수를 이용한 함수 디자인
+    // 콜백함수는 동기/비동기가 아니라 함수 디자인 패턴일뿐이다.
+    // first -> second 순차적으로 함수 실행
+    function first(para){
+      console.log('첫번째')
+      para();
+    }
+
+    function second(){
+      console.log('두번째')
+    }
+
+    first(second);
+
+
+    // 콜백함수의 문제점 => 코드가 너무 어렵고 복잡해진다.
+    // first(function(){
+    //   console.log('콜백으로 두번째');
+    // })
+
+    // first(function(){
+    //   second(function(){
+    //     third(function(){
+
+    //     })
+    //   })
+    // });
+
+    // 콜백 함수를 더 쉽게 쓰기위한 promise 패턴
+    // first().then(function(){
+
+    // }).then(function(){
+
+    // })
+  </script>
+</body>
+</html>
