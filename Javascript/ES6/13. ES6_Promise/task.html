@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ES6 Promise 간단 연습문제 & 해설</title>
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
   <img id="img" src="https://avatars.githubusercontent.com/u/82255996?v=4" alt="">
@@ -24,6 +26,44 @@
       console.log('이미지 로드 성공');
     }).catch(function(){
       console.log('이미지 로드 실패');
+    })
+
+
+    // Q2. Ajax 요청 성공시 코드 실행
+    // Promise의 then함수를 이용해서 Ajax로 받아온 인삿말 콘솔창에 출력
+    var getTxt = new Promise(function(resolve, reject){
+      $.get('https://codingapple1.github.io/hello.txt').done(function(result){ resolve(result)})
+    });
+
+    // getTxt.then(function(result){
+    //   console.log(result);
+    // })
+
+
+    // jQuery로 Ajax 요청하려면 $.ajax 또는 $.get 사용
+    // $.ajax({
+    //   type : 'GET',
+    //   url : 'https://codingapple1.github.io/hello.txt'
+    // }).done(function(result){
+    //   console.log(result)
+    // })
+
+    // $.get('url경로')
+
+
+    // Q3. Promise Chaning
+    // 1. hello.txt GET 요청
+    // 2. 그게 완료되면 hello2.txt GET 요청
+    // 3. 그게 완료되면 hello2.txt 결과 콘솔창에 출력
+    getTxt.then(function(result){
+      console.log(result);
+
+      var getTxt2 = new Promise(function(resolve, reject){
+        $.get('https://codingapple1.github.io/hello2.txt').done(function(result){ resolve(result)})
+      })
+      return getTxt2;
+    }).then(function(result){
+      console.log(result);
     })
   </script>
 </body>
