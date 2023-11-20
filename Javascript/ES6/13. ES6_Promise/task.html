@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6 Promise 간단 연습문제 & 해설</title>
+</head>
+<body>
+  <img id="img" src="https://avatars.githubusercontent.com/u/82255996?v=4" alt="">
+  <script>
+    // Q1. 이미지 로딩 성공시 특정 코드 실행
+    var img = document.getElementById('img');
+    var loading = new Promise(function(resolve, reject){
+      img.addEventListener('load', function(){
+        resolve();
+      })
+
+      img.addEventListener('error', function(){
+        reject();
+      })
+    });
+
+    loading.then(function(){
+      console.log('이미지 로드 성공');
+    }).catch(function(){
+      console.log('이미지 로드 실패');
+    })
+  </script>
+</body>
+</html>
