@@ -14,6 +14,7 @@
    -->
   <custom-input name="id"></custom-input>
   <custom-input name="pw"></custom-input>
+  <label for="">오염된 label</label>
 
   <script>
     // 웹개발 잘하고 싶다면 브라우저 기능을 잘 알아야 한다. (JS 문법은 도구일 뿐)
@@ -30,7 +31,8 @@
         let name = this.getAttribute('name');
 
         let label = document.createElement('label');
-        label.innerHTML = `${name} 인풋`;
+        label.innerHTML = `${name} 인풋 
+        <style>label {color : red}</style>`;
         this.appendChild(label);
 
         let input = document.createElement('input');
