@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symbol 자료형</title>
+</head>
+<body>
+  <script>
+    // Symbol의 용도
+    // Symbol은 Object자료형의 비밀스런 Key값으로 사용한다.
+    // import 해온 파일 / 라이브러리 사용시 기존 Object에 자료 추가하고 싶을 때 사용 (반복문에 안뜨니까 기존 코드 해칠 염려 X)
+
+    var sym = Symbol('설명');
+    var weight = Symbol('몸무게 비밀!');
+
+    // 예제1. Symbol로 키 저장
+    var height = Symbol('키도 비밀!');
+
+    var person = {
+      name : 'Lee',
+      // Symbol 직접 넣어도 됨.
+      [height] : 160
+    }
+    person.weight = 100;
+    // Symbol을 이용해 비밀스런 데이터 저장
+    person[weight] = 200; // 반복문에서 출력 X -> enumerable 하지 않기때문
+    // person[height] = 160;
+
+    console.log(person);
+
+    for(var key in person) {
+      console.log(person[key])
+    }
+
+    // Symbol 특징
+    // 1. 설명이 같다고 같은 Symbol이 아니다. (만들때 마다 유니크한 Symbol이 생긴다.)
+    // 2. 전역 변수같은 전역 Symbol => Symbol.for()
+    // 3. 기본 내장 Symbol들
+    var a = Symbol('설명1');
+    var b = Symbol('설명1');
+    console.log(a === b); // false
+
+    // 같은 설명을 가지고있는 심볼이 이미 있으면 기존 심볼을 복붙한다.
+    var c = Symbol.for('전역 심볼');
+    var d = Symbol.for('전역 심볼'); 
+    console.log(c === d); // true
+
+    var arr = [1,2,3];
+    // Javascript가 Array, Object 생성시 기본적으로 집어 넣는 Symbol
+    console.log(arr[Symbol.iterator]);
+  </script>
+</body>
+</html>
