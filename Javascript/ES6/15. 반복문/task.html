@@ -45,7 +45,7 @@
           newValue = obj[key];
           newkey = key.slice(0, -1);
           obj[newkey] = newValue;
-          delete obj[key];
+          delete obj[key]; // 원래있던 key 제거
         }
       }      
     }
