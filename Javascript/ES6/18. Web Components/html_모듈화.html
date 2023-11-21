@@ -29,6 +29,7 @@
     class tags extends HTMLElement {
       connectedCallback() {
         this.attachShadow({mode : 'open'});
+        // Shadow DOM에 있는 스타일은 밖에 영향을 끼치지 않는다.
         this.shadowRoot.append(template1.content.cloneNode(true));
 
         // shadow DOM에 이벤트리스너 부착
