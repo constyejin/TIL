@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadow DOM과 Template으로 HTML 모듈화하기</title>
+</head>
+<body>
+  <!-- 개발자 도구 -> 설정  -> Show User agent shadow DOM (checked)-->
+  <input type="range">
+  <!-- shadow DOM 만드는 법 -->
+  <div id="mordor"></div>
+  <custom-input></custom-input>
+  <label>오염되지 않은 인풋</label>
+
+  <!-- HTML 임시 보관함 -->
+  <template id="template1">
+    <label>Label</label><input>
+    <style>label { color: red }</style>
+  </template>
+
+  <script>
+    // Web Components + Shadow DOM => 완벽한 HTML Module
+    document.getElementById('mordor').attachShadow({mode : 'open'});
+    document.getElementById('mordor').shadowRoot.innerHTML = `
+      <p>심연에서 왔도다.</p>
+    `;
+
+    class tags extends HTMLElement {
+      connectedCallback() {
+        this.attachShadow({mode : 'open'});
+        this.shadowRoot.append(template1.content.cloneNode(true));
+
+        // shadow DOM에 이벤트리스너 부착
+        let el = this.shadowRoot.querySelector('label');
+        el.addEventListener('click', function(){
+          console.log('Clicked!');
+        })
+      }
+    }
+
+    customElements.define('custom-input', tags);
+
+    // Web Component 생성 도와주는 라이브러리 => Lit, Stencil(Props, state 지원)
+  </script>
+</body>
+</html>
