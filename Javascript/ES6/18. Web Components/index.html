@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Components : 커스텀 HTML 태그 만들기</title>
+</head>
+<body>
+  <!-- 
+    커스텀 태그 장점 (함수 개념)
+    - html 중복 제거
+    - 다른 페이지에서 재활용 가능
+    - 파라미터 문법 구현 가능
+   -->
+  <custom-input name="id"></custom-input>
+  <custom-input name="pw"></custom-input>
+
+  <script>
+    // 웹개발 잘하고 싶다면 브라우저 기능을 잘 알아야 한다. (JS 문법은 도구일 뿐)
+    // JS 문법으로 구현할 수 있는 브라우저 기본 기능
+
+    // <커스텀태그>로 길고 복잡한 HTML 축약하기
+    class tags extends HTMLElement {
+      // 만든 커스텀 태그가 HTML에 장착될 때 실행 할 코드 적는 곳
+      connectedCallback(){
+        // this : 새로 생성될 <custom-input> 요소
+        // this.innerHTML = '<label>이메일 인풋</label><input>';
+        
+        // HTML 생성 속도가 빨라지는 방법
+        let name = this.getAttribute('name');
+
+        let label = document.createElement('label');
+        label.innerHTML = `${name} 인풋`;
+        this.appendChild(label);
+
+        let input = document.createElement('input');
+        label.appendChild(input);
+      }
+      // attribute 변경 감지하는 법
+      // name이라는 attribute 바뀌는지 감시 해주세요.
+      static get observedAttributes() {
+        return ['id'];
+      }
+      attributeChangedCallback(){
+        this.innerHTML = `${name} 인풋`;
+        console.log(this.getAttribute('id'));
+      }
+    }
+    customElements.define('custom-input', tags);
+
+    // React, Vue 특징 : Props(attribute) 변경되면 html 자동 재렌더링 됨.
+    // Web Components 기능 쓰면 긴 HTML도 함수처럼 재사용 가능하다.
+    // Lit, Stencil 등
+  </script>
+</body>
+</html>
