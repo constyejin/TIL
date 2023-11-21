@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>?. / ?? 연산자 (optional chaining)</title>
+</head>
+<body>
+  <script>
+    var user = {
+      name : 'Lee',
+      // age : {value : 12}
+    }
+
+    // optional chaining 연산자
+    // ?. 왼쪽이 null, undefined면 점 안찍어주고 undefined만 남겨준다.
+    // 중첩된 object자료에서 자료 뽑을 때 reference error없이 안전하게 뽑을 수 있다.
+    // . 두 개 이상일 때만 사용 / 하나일 경우 '?' 없어도 undefined 
+    console.log(user.age?.value);
+
+    // 에러를 해결해주는 게 아니라 잠깐 감춰주는 문법
+    document.querySelector('#btn')?.innerHTML;
+
+
+    // ?? : nullish coalescing 연산자
+    // 왼쪽이 undefined, null이면 오른쪽 값을 보여준다.
+    console.log(undefined ?? '으잉??');
+
+    var person;
+    console.log(person); // undefined
+    console.log(person ?? '데이터 오는중~~');
+  </script>
+</body>
+</html>
+ 
