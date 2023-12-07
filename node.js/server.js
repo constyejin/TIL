@@ -36,6 +36,11 @@ app.get('/list', async (request, response) => {
   response.render('list.ejs', { posts : result })
 })
 
+app.get('/time', (request, response) => {
+  let time = new Date();
+  console.log(time)
+  response.render('time.ejs', {time : time})
+})
 
 
 
