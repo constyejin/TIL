@@ -22,6 +22,7 @@ app.get('/', (request, response) => {
 
 app.get('/news', (request, response) => {
   response.send('News Page')
+  db.collection('post').insertOne({title : 'laala'})
 })
 // 
 
