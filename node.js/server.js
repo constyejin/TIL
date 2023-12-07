@@ -15,3 +15,15 @@ app.get('/', (request, response) => {
 app.get('/news', (request, response) => {
   response.send('News Page')
 })
+
+// 
+const { MongoClient } = require('mongodb')
+
+let db
+const url = 'mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?retryWrites=true&w=majority'
+new MongoClient(url).connect().then((client)=>{
+  console.log('DB연결성공')
+  db = client.db('forum')
+}).catch((err)=>{
+  console.log(err)
+})
