@@ -22,9 +22,18 @@ app.get('/', (request, response) => {
 
 app.get('/news', (request, response) => {
   response.send('News Page')
-  db.collection('post').insertOne({title : 'laala'})
+  // db.collection('post').insertOne({title : 'laala'})
 })
-// 
+
+// await : 다음줄을 실행하기 전에 잠깐 기다리라는 문법
+// Javascript는 처리가 오래 걸리는 코드는 처리완료 기다리지 않고 바로 다음줄을 실행한다.
+// await은 정해진 곳에만 붙일 수 있다 (promise 뱉는 것)
+app.get('/list', async (request, response) => {
+  let result = await db.collection('post').find().toArray();
+  console.log(result);
+  response.send('DB에 있던 데이터');
+})
+
 
 
 
