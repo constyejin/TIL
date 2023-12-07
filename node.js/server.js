@@ -30,8 +30,8 @@ app.get('/news', (request, response) => {
 // await은 정해진 곳에만 붙일 수 있다 (promise 뱉는 것)
 app.get('/list', async (request, response) => {
   let result = await db.collection('post').find().toArray();
-  console.log(result);
-  response.send('DB에 있던 데이터');
+  console.log(result[0]);
+  response.send(result[0].title);
 })
 
 
