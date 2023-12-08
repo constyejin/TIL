@@ -78,6 +78,9 @@ app.get('/detail/:id', async (request, response) => {
     // console.log(request.params.id)
     let result = await db.collection('post').findOne({ _id : new ObjectId(request.params.id)})
     // console.log(result)
+    if(result == null) {
+      response.status(404).send('이상한 url 입력 에러')
+    }
     response.render('detail.ejs', {result : result})
   } catch(e) {
     console.log(e)
