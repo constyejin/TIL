@@ -3,6 +3,8 @@ const app = express();
 
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs')
+app.use(express.json())
+app.use(express.urlencoded({extended:true})) 
 
 const { MongoClient } = require('mongodb');
 let db;
@@ -46,4 +48,11 @@ app.get('/write', (request, response) => {
   response.render('write.ejs')
 })
 
+app.post('/add', (request, response) => {
+  let title = request.body.title;
+  let content = request.body.content;
+  // console.log(title, content)
+  db.collection('post').insertOne({title : title, content : content})
+
+})
 
