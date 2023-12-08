@@ -50,13 +50,22 @@ app.get('/write', (request, response) => {
 
 app.post('/add', async (request, response) => {
   // console.log(request.body)
-  if(request.body.title === '') {
-    response.send('제목 입력 하세요.')
-  } else if (request.body.content === '') {
-    response.send('내용 입력 하세요.')
-  } else {
-    await db.collection('post').insertOne({title : request.body.title, content : request.body.content})
-    response.redirect('/list')
+  try {
+    // 여기 코드 실행해보고
+    if(request.body.title === '') {
+      response.send('제목 입력 하세요.')
+    } else if (request.body.content === '') {
+      response.send('내용 입력 하세요.')
+    } else {
+      await db.collection('post').insertOne({title : request.body.title, content : request.body.content})
+      response.redirect('/list')
+    }
+  } catch(e) {
+    // 에러나면 이 코드 실행
+    // 에러시 에러코드 같이 전송해주는 게 좋다.
+    // 500 : 서버 잘못으로 인한 에러
+    console.log(e)
+    response.status(500).send('서버 에러났음;')
   }
 })
 
