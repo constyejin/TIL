@@ -69,3 +69,10 @@ app.post('/add', async (request, response) => {
   }
 })
 
+
+// 상세피이지 만들기(URL Parameter)
+// 비슷한 /URL 가진 API 여러개 만들 필요 없음.
+app.get('/detail/:id', (request, response) => {
+  response.render('detail.ejs', {})
+})
+
