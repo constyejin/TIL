@@ -74,9 +74,15 @@ app.post('/add', async (request, response) => {
 // 상세페이지 만들기(URL Parameter)
 // 비슷한 /URL 가진 API 여러개 만들 필요 없음.
 app.get('/detail/:id', async (request, response) => {
-  console.log(request.params.id)
-  let result = await db.collection('post').findOne({ _id : new ObjectId(request.params.id)})
-  console.log(result)
-  response.render('detail.ejs', {result : result})
+  try {
+    // console.log(request.params.id)
+    let result = await db.collection('post').findOne({ _id : new ObjectId(request.params.id)})
+    // console.log(result)
+    response.render('detail.ejs', {result : result})
+  } catch(e) {
+    console.log(e)
+    // 400 : 유저 문제로 에러 발생 코드
+    response.status(404).send('이상한 url 입력 에러')
+  }
 })
 
