@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
+const { MongoClient, ObjectId } = require('mongodb');
+
 
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({extended:true})) 
 
-const { MongoClient } = require('mongodb');
 let db;
 const url = 'mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?retryWrites=true&w=majority'
 new MongoClient(url).connect().then((client)=>{
@@ -70,9 +71,12 @@ app.post('/add', async (request, response) => {
 })
 
 
-// 상세피이지 만들기(URL Parameter)
+// 상세페이지 만들기(URL Parameter)
 // 비슷한 /URL 가진 API 여러개 만들 필요 없음.
-app.get('/detail/:id', (request, response) => {
-  response.render('detail.ejs', {})
+app.get('/detail/:id', async (request, response) => {
+  console.log(request.params.id)
+  let result = await db.collection('post').findOne({ _id : new ObjectId(request.params.id)})
+  console.log(result)
+  response.render('detail.ejs', {result : result})
 })
 
