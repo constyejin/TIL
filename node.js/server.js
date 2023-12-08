@@ -42,5 +42,8 @@ app.get('/time', (request, response) => {
   response.render('time.ejs', {time : time})
 })
 
+app.get('/write', (request, response) => {
+  response.render('write.ejs')
+})
 
 
