@@ -48,11 +48,15 @@ app.get('/write', (request, response) => {
   response.render('write.ejs')
 })
 
-app.post('/add', (request, response) => {
-  let title = request.body.title;
-  let content = request.body.content;
-  // console.log(title, content)
-  db.collection('post').insertOne({title : title, content : content})
-
+app.post('/add', async (request, response) => {
+  // console.log(request.body)
+  if(request.body.title === '') {
+    response.send('제목 입력 하세요.')
+  } else if (request.body.content === '') {
+    response.send('내용 입력 하세요.')
+  } else {
+    await db.collection('post').insertOne({title : request.body.title, content : request.body.content})
+    response.redirect('/list')
+  }
 })
 
