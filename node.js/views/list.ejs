@@ -16,7 +16,6 @@
     <% for(let i = 0; i < posts.length; i++) { %>
       <div class="list-box">
         <h4>
-          <span style="display: none;" id="id"><%= posts[i]._id %></span>
           <a href="/detail/<%- posts[i]._id %>">
             <%= posts[i].title %>
           </a>
@@ -29,11 +28,11 @@
   </div>
   <script>
     // 삭제 버튼 클릭시 ajax로 요청
-    let id = document.getElementById('id').innerHTML;
-
     document.querySelectorAll('.delete')[0].addEventListener('click', function(){
       // query string으로 서버로 데이터 전송
-      fetch(`/delete?id=${id}`)
+      fetch('/delete?docid=<%= posts[0]._id %>', {
+        method : 'DELETE'
+      })
     })
   </script>
 </body>
