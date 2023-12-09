@@ -99,14 +99,14 @@ app.get('/edit/:id', async (request, response) => {
 })
 
 app.post('/edit', async(request, response) => {
-  console.log(request.body)
+  console.log(request.params)
    try {
     if(request.body.title === '') {
       response.send('제목 입력 하세요.')
     } else if (request.body.content === '') {
       response.send('내용 입력 하세요.')
     } else {
-      await db.collection('post').updateOne({ _id : new ObjectId( request.params.id )}, { $set : { title : request.body.title, content : request.body.content }})
+      await db.collection('post').updateOne({ _id : new ObjectId( request.body.id )}, { $set : { title : request.body.title, content : request.body.content }})
       response.redirect('/list')
     }
    } catch(e) {
