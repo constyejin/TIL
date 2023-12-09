@@ -116,10 +116,13 @@ app.put('/edit', async(request, response) => {
    }
 })
 
-app.get('/delete', async (request, response) => {
-  // console.log(request.query.id)
+app.delete('/delete', async (request, response) => {
+  console.log(request.query.docid)
   try {
-    await db.collection('post').deleteOne({ _id : new ObjectId( request.query.id )});
+    await db.collection('post').deleteOne({ _id : new ObjectId( request.query.docid )});
+    // ajax요청 사용시 response.redirect / response.render 사용 안하는게 좋다.
+    // ajax 장점이 새로 고침하지 않고 데이터를 가져오기 때문.
+    response.send('삭제 완료!')
   } catch(e) {
     console.log(e)
   }
