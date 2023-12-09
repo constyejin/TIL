@@ -20,10 +20,23 @@
             <%= posts[i].title %>
           </a>
           <a href="/edit/<%- posts[i]._id %>">📝</a>
+          <span class="delete">❌</ㄴhref=>
         </h4>
         <p><%= posts[i].content %></p>
       </div>
     <% } %>
   </div>
+  <script>
+    // 삭제 버튼 클릭시 ajax로 요청
+    document.querySelectorAll('.delete')[0].addEventListener('click', function(){
+      fetch('/abc', {
+        method : 'POST',
+        headers : {
+          'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify({a : 1})
+      })
+    })
+  </script>
 </body>
 </html>
