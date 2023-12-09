@@ -15,9 +15,12 @@
     <!-- html 사이에 JavaScirpt 문법 사용할 때 => <% %> -->
     <% for(let i = 0; i < posts.length; i++) { %>
       <div class="list-box">
-        <h4><a href="/detail/<%- posts[i]._id%>">
-          <%= posts[i].title %>
-        </a></h4>
+        <h4>
+          <a href="/detail/<%- posts[i]._id%>">
+            <%= posts[i].title %>
+          </a>
+          <a href="/edit">📝</a>
+        </h4>
         <p><%= posts[i].content %></p>
       </div>
     <% } %>
