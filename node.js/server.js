@@ -89,3 +89,27 @@ app.get('/detail/:id', async (request, response) => {
   }
 })
 
+app.get('/edit/:id', async (request, response) => {
+  let result = await db.collection('post').findOne({ _id : new ObjectId(request.params.id)});
+  console.log(result)
+  response.render('edit.ejs', { result : result });
+
+  // console.log(request.body)
+  // db.collection('post').updateOne({ _id : new ObjectId(request.params.id )}, {$set : {}});
+})
+
+app.post('/edit', async(request, response) => {
+  console.log(request.body)
+   try {
+    if(request.body.title === '') {
+      response.send('제목 입력 하세요.')
+    } else if (request.body.content === '') {
+      response.send('내용 입력 하세요.')
+    } else {
+      await db.collection('post').updateOne({ _id : new ObjectId( request.params.id )}, { $set : { title : request.body.title, content : request.body.content }})
+      response.redirect('/list')
+    }
+   } catch(e) {
+    console.log(e);
+   }
+})
