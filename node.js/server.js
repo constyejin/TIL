@@ -99,7 +99,7 @@ app.get('/edit/:id', async (request, response) => {
   // db.collection('post').updateOne({ _id : new ObjectId(request.params.id )}, {$set : {}});
 })
 
-app.post('/edit', async(request, response) => {
+app.put('/edit', async(request, response) => {
   console.log(request.params)
    try {
     if(request.body.title === '') {
@@ -107,10 +107,13 @@ app.post('/edit', async(request, response) => {
     } else if (request.body.content === '') {
       response.send('내용 입력 하세요.')
     } else {
-      await db.collection('post').updateOne({ _id : new ObjectId( request.body.id )}, { $set : { title : request.body.title, content : request.body.content }})
+      // await db.collection('post').updateOne({ _id : new ObjectId( request.body.id )}, { $set : { title : request.body.title, content : request.body.content }})
+      await db.collection('post').updateOne({ _id : 1 }, { $inc : { like : -1 }})
       response.redirect('/list')
     }
    } catch(e) {
     console.log(e);
    }
 })
+
+
