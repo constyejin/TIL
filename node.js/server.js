@@ -107,13 +107,22 @@ app.put('/edit', async(request, response) => {
     } else if (request.body.content === '') {
       response.send('내용 입력 하세요.')
     } else {
-      // await db.collection('post').updateOne({ _id : new ObjectId( request.body.id )}, { $set : { title : request.body.title, content : request.body.content }})
-      await db.collection('post').updateOne({ _id : 1 }, { $inc : { like : -1 }})
+      await db.collection('post').updateOne({ _id : new ObjectId( request.body.id )}, { $set : { title : request.body.title, content : request.body.content }})
+      // await db.collection('post').updateOne({ _id : 1 }, { $inc : { like : -1 }})
       response.redirect('/list')
     }
    } catch(e) {
     console.log(e);
    }
+})
+
+app.get('/delete', async (request, response) => {
+  // console.log(request.query.id)
+  try {
+    await db.collection('post').deleteOne({ _id : new ObjectId( request.query.id )});
+  } catch(e) {
+    console.log(e)
+  }
 })
 
 
