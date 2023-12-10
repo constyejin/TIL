@@ -47,7 +47,22 @@ new MongoClient(url).connect().then((client)=>{
   console.log(err)
 })
 
-app.get('/', (request, response) => {
+function checkLogin(request, response, next) {
+  // 미들웨어 함수에선 요청, 응답 자유롭게 사용 가능하다.
+  if(!request.user) {
+    response.send('로그인 하세요.')
+  }
+  next()
+}
+
+// 이 코드 밑에 있는 모든 API는 checkLogin middleware 적용
+// app.use(checkLogin)
+
+// middleware
+// (request, response, next) => {} 함수 바로 넣기 가능
+// middleware 여러개 넣기 가능
+app.get('/', checkLogin, (request, response) => {
+  // checkLogin(request, response)
   response.render('main.ejs')
 })
 
@@ -56,10 +71,15 @@ app.get('/news', (request, response) => {
   // db.collection('post').insertOne({title : 'laala'})
 })
 
+function currentTime(request, response, next) {
+  console.log(new Date())
+  next()
+}
+
 // await : 다음줄을 실행하기 전에 잠깐 기다리라는 문법
 // Javascript는 처리가 오래 걸리는 코드는 처리완료 기다리지 않고 바로 다음줄을 실행한다.
 // await은 정해진 곳에만 붙일 수 있다 (promise 뱉는 것)
-app.get('/list', async (request, response) => {
+app.get('/list', currentTime ,async (request, response) => {
   let result = await db.collection('post').find().toArray();
   // console.log(result[0]);
   // response.send(result[0].title);
