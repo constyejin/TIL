@@ -190,14 +190,19 @@ passport.serializeUser((user, done) => {
   })
 })
 
-// 유저가 보낸 쿠기 분석 passport.deserializeUser()
-passport.deserializeUser((user, done) => {
+// 유저가 보낸 쿠키 분석 passport.deserializeUser()
+// 쿠키 이상없으면 현재 로그인된 유저 정보를 알려준다.
+passport.deserializeUser(async (user, done) => {
+  let result = await db.collection('user').findOne({ _id : new ObjectId(user.id) })
+  delete result.password
+  
   process.nextTick(() => {
-    return done(null, user)
+    return done(null, result)
   })
 })
 
 app.get('/login', async (request, response) => {
+  console.log(request.user)
   response.render('login.ejs')
 })
 
