@@ -13,6 +13,18 @@ app.use(express.urlencoded({extended:true}))
 const session = require('express-session')
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
+const MongoStore = require('connect-mongo')
+
+// app.use(session({
+//   resave : false,
+//   saveUninitialized : false,
+//   secret: '세션 암호화 비번~~',
+//   cookie : {maxAge : 1000 * 60},
+//   store: MongoStore.create({
+//     mongoUrl : '님들 DB접속용 URL~~',
+//     dbName: 'forum',
+//   })
+// })) 
 
 app.use(passport.initialize())
 app.use(session({
@@ -23,7 +35,11 @@ app.use(session({
   // 로그인 안 해도 session 만들건지 여부
   saveUninitialized : false,
   // session document 유효기간 변경 가능
-  cookie : { maxAge : 60 * 60 * 1000 }
+  cookie : { maxAge : 60 * 60 * 1000 },
+  store : MongoStore.create({
+    mongoUrl : 'mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?retryWrites=true&w=majority',
+    dbName : 'forum'
+  })
 }))
 app.use(passport.session()) 
 
@@ -176,7 +192,6 @@ passport.use(new LocalStrategy(async (입력한아이디, 입력한비번, cb) =
   if (!result) {
     return cb(null, false, { message: '아이디 DB에 없음' })
   }
-
   
   if (await bcrypt.compare(입력한비번, result.password)) {
     return cb(null, result)
