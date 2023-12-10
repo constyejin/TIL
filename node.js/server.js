@@ -327,3 +327,4 @@ app.get('/mypage', (request, response) => {
 // 삭제 : /postDELETE
 app.use('/shop', require('./routes/shop.js'))
 app.use('/board/sub', require('./routes/board.js'))
+app.use(require('./routes/search.js'))
