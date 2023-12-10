@@ -129,17 +129,18 @@ app.delete('/delete', async (request, response) => {
 })
 
 // Pagenation
-// app.get('/list/:id', async (request, response) => {
-//   // .skip() 성능 안 좋음. 너무 많이 skip 불가능하게 막는게 좋다.
-//   let result = await db.collection('post').find().skip((request.params.id -1) * 5).limit(5).toArray();
-//   response.render('list.ejs', { posts : result })
-// })
+app.get('/list/:id', async (request, response) => {
+  // .skip() 성능 안 좋음. 너무 많이 skip 불가능하게 막는게 좋다.
+  let result = await db.collection('post').find().skip((request.params.id -1) * 5).limit(5).toArray();
+  response.render('list.ejs', { posts : result })
+})
 
 app.get('/list/next/:id', async (request, response) => {
+  console.log(request.params.id) 
   // .skip() 성능 안 좋음. 너무 많이 skip 불가능하게 막는게 좋다.
   let result = await db.collection('post')
   // 방금 본 게시물의 _id보다 큰 게시물 중에 위에서 부터 5개만 잘라서 가져오기
-  .find({_id : {$gt : }})
+  .find({_id : {$gt : new ObjectId(request.params.id)}})
   .limit(5).toArray();
   response.render('list.ejs', { posts : result })
 })
