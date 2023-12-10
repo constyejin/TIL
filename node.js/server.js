@@ -20,7 +20,9 @@ app.use(session({
   // 유저가 서버로 요청할 때 마다 session 갱신 할건지 여부
   resave : false,
   // 로그인 안 해도 session 만들건지 여부
-  saveUninitialized : false
+  saveUninitialized : false,
+  // session document 유효기간 변경 가능
+  cookie : { maxAge : 60 * 60 * 1000 }
 }))
 app.use(passport.session()) 
 
@@ -180,11 +182,26 @@ passport.use(new LocalStrategy(async (입력한아이디, 입력한비번, cb) =
   }
 }))
 
+passport.serializeUser((user, done) => {
+  console.log(user)
+  // Node.js 환경에서 특정코드를 비동기적으로 처리한다.
+  process.nextTick(() => {
+    done(null, { id : user._id ,username : user.username })
+  })
+})
+
+// 유저가 보낸 쿠기 분석 passport.deserializeUser()
+passport.deserializeUser((user, done) => {
+  process.nextTick(() => {
+    return done(null, user)
+  })
+})
+
 app.get('/login', async (request, response) => {
   response.render('login.ejs')
 })
 
-app.post('/login', async (request, response) => {
+app.post('/login', async (request, response, next) => {
   // user : 성공시 로그인한 유저정보
   // info : 요청 실패시 이유
   passport.authenticate('local', (error, user, info) => {
