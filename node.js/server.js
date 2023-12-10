@@ -9,6 +9,22 @@ app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({extended:true})) 
 
+const session = require('express-session')
+const passport = require('passport')
+const LocalStrategy = require('passport-local')
+
+app.use(passport.initialize())
+app.use(session({
+  // session의 document id는 암호화해서 유저에게 보낸다.
+  secret: '암호화에 쓸 비번',
+  // 유저가 서버로 요청할 때 마다 session 갱신 할건지 여부
+  resave : false,
+  // 로그인 안 해도 session 만들건지 여부
+  saveUninitialized : false
+}))
+app.use(passport.session()) 
+
+
 let db;
 const url = 'mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?retryWrites=true&w=majority'
 new MongoClient(url).connect().then((client)=>{
@@ -150,3 +166,7 @@ app.get('/list/next/:id', async (request, response) => {
 //   let result = await db.collection('post').find().skip(5).limit(5).toArray();
 //   response.render('list.ejs', { posts : result })
 // })
+
+app.get('/login', async (request, response) => {
+  response.render('login.ejs')
+})
