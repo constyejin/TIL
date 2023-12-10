@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Write Page</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="grey-bg">
+  <%- include('nav.ejs') %>
+
+  <form class="form-box" action="/login" method="POST">
+    <h4>로그인</h4>
+    <!-- name 속성이 없으면 Input에 입력된 값 서버로 전송 X -->
+    <input name="username">
+    <input name="password" type="password">
+    <button type="submit">전송</button>
+  </form>
+</body>
+
+</html>
