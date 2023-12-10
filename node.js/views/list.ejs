@@ -15,6 +15,15 @@
     <input class="search"></input>
     <button class="search-btn">검색</button>
   </div>
+  <script>
+    // 1. search-btn 클릭하면 서버로 GET 요청
+    // 2. search(input)값 query string으로 전송
+    document.querySelector('.search-btn').addEventListener('click', function() {
+      let searchText = document.querySelector('.search').value
+      location.href = '/search?val=' + searchText;
+    })
+  </script>
+
   <div class="white-bg">
     <!-- html 사이에 JavaScirpt 문법 사용할 때 => <% %> -->
     <% for(let i = 0; i < posts.length; i++) { %>
