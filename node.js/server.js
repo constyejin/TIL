@@ -316,3 +316,6 @@ app.post('/register', async (request, response) => {
 app.get('/mypage', (request, response) => {
   response.render('mypage.ejs')
 })
+
+app.use('/', require('./routes/shop.js'))
+
