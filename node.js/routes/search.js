@@ -11,7 +11,21 @@ connectData.then((client)=>{
 
 router.get('/search', async(request, response) => {
   // console.log(request.query.val)
-  let result = await db.collection('post').find({ title : { $regex : request.query.val} }).toArray();
+  // document가 많은 경우 .find() 사용하면 성능이 저하된다.
+  // => document가 많아도 빠르게 찾으려면 DB에 index를 만들면 된다.
+  // Binary Search (절반씩 잘라가며 찾기) 사용 => 정렬이 되어 있어야 사용 가능
+  // index : collection 복사해서 미리 정렬해둔 것
+
+  // let result = await db.collection('post').find({ title : { $regex : request.query.val} }).toArray();
+
+  // index 사용해서 검색하기
+  // index 단점 
+  // 1. 용량 차지
+  // 2. document 추가 / 수정/ 삭제시 idnex에도 반영해야 한다.
+  let result = await db.collection('post')
+  // explain('executionStats') => 실행 시간
+  .find({$text : { $search : request.query.val }}).toArray();
+  console.log(result)
   response.render('search.ejs', { posts : result })
 })
 
