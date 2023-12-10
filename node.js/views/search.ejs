@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIST</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="grey-bg">
+  <%- include('nav.ejs') %>
+
+  <div class="search-box">
+    <input class="search"></input>
+    <button class="search-btn">검색</button>
+  </div>
+  <h1>검색 결과</h1>
+  
+  <div class="white-bg">
+    <% for(let i = 0; i < posts.length; i++) { %>
+      <div class="list-box">
+        <h4>
+          <a href="/detail/<%- posts[i]._id %>">
+            <%= posts[i].title %>
+          </a>
+          <a href="/edit/<%- posts[i]._id %>">📝</a>
+          <span class="delete" data-id="<%= posts[i]._id %>">❌</span>
+        </h4>
+        <p><%= posts[i].content %></p>
+        <img width="80px" src="<%= posts[i].img %>" alt="">
+      </div>
+    <% } %>
+  </div>
+</body>
+
+</html>
