@@ -167,6 +167,32 @@ app.get('/list/next/:id', async (request, response) => {
 //   response.render('list.ejs', { posts : result })
 // })
 
+
+passport.use(new LocalStrategy(async (입력한아이디, 입력한비번, cb) => {
+  let result = await db.collection('user').findOne({ username : 입력한아이디})
+  if (!result) {
+    return cb(null, false, { message: '아이디 DB에 없음' })
+  }
+  if (result.password == 입력한비번) {
+    return cb(null, result)
+  } else {
+    return cb(null, false, { message: '비번불일치' });
+  }
+}))
+
 app.get('/login', async (request, response) => {
   response.render('login.ejs')
+})
+
+app.post('/login', async (request, response) => {
+  // user : 성공시 로그인한 유저정보
+  // info : 요청 실패시 이유
+  passport.authenticate('local', (error, user, info) => {
+    if(error) return response.status(500).json(error)
+    if(!user) return response.status(400).json(info.message)
+    request.logIn(user, (err) => {
+      if(err) return next(err)
+      response.redirect('/')
+    })
+  })(request, response, next)
 })
