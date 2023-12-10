@@ -236,6 +236,16 @@ passport.deserializeUser(async (user, done) => {
   })
 })
 
+function checkInput(request, response, next){
+  if(request.body.username === '' | request.body.password === '') {
+    response.send('아이디 / 비밀번호를 입력하세요.')
+  } else {
+    next()
+  }
+}
+
+app.use(checkInput)
+
 app.get('/login', async (request, response) => {
   console.log(request.user)
   response.render('login.ejs')
