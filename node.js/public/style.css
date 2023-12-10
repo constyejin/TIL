@@ -103,5 +103,5 @@ div {
   background: lightgray;
   border: none;
   border-radius: 5px;
-  vertical-align: middle;
+  cursor: pointer;
 }
