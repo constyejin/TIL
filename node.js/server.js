@@ -117,7 +117,7 @@ app.put('/edit', async(request, response) => {
 })
 
 app.delete('/delete', async (request, response) => {
-  console.log(request.query.docid)
+  // console.log(request.query.docid)
   try {
     await db.collection('post').deleteOne({ _id : new ObjectId( request.query.docid )});
     // ajax요청 사용시 response.redirect / response.render 사용 안하는게 좋다.
@@ -128,4 +128,9 @@ app.delete('/delete', async (request, response) => {
   }
 })
 
-
+// Pagenation
+app.get('/list/1', async (request, response) => {
+  // 1~5번 글을 찾아서 result 변수에 저장
+  let result = await db.collection('post').find().limit(5).toArray();
+  response.render('list.ejs', { posts : result })
+})
