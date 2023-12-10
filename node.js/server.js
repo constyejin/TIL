@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const { MongoClient, ObjectId } = require('mongodb');
 const methodOverride = require('method-override')
+const bcrypt = require('bcrypt') 
 
 app.use(methodOverride('_method')) 
 app.use(express.static(__dirname + '/public'));
@@ -175,7 +176,9 @@ passport.use(new LocalStrategy(async (입력한아이디, 입력한비번, cb) =
   if (!result) {
     return cb(null, false, { message: '아이디 DB에 없음' })
   }
-  if (result.password == 입력한비번) {
+
+  
+  if (await bcrypt.compare(입력한비번, result.password)) {
     return cb(null, result)
   } else {
     return cb(null, false, { message: '비번불일치' });
@@ -195,7 +198,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser(async (user, done) => {
   let result = await db.collection('user').findOne({ _id : new ObjectId(user.id) })
   delete result.password
-  
+
   process.nextTick(() => {
     return done(null, result)
   })
@@ -217,4 +220,26 @@ app.post('/login', async (request, response, next) => {
       response.redirect('/')
     })
   })(request, response, next)
+})
+
+app.get('/register', (request, response) => {
+  response.render('register.ejs')
+})
+
+app.post('/register', async (request, response) => {
+  let hash = await bcrypt.hash(request.body.password, 10)
+  console.log(hash)
+
+  await db.collection('user').insertOne({ 
+    username : request.body.username,
+    // 비밀번호는 hasing해서 저장하는 게 좋다.
+    // hasing : 문자 -> 랜덤문자로 변환
+    // hasing algorithm : md5, SHA1, (SHA3-256, SHA3-512, bcrypt, scrype, argon2)... etc
+    password : hash
+  })
+  response.redirect('/')
+})
+
+app.get('/mypage', (request, response) => {
+  response.render('mypage.ejs')
 })
