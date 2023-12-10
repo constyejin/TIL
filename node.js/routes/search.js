@@ -11,7 +11,7 @@ connectData.then((client)=>{
 
 router.get('/search', async(request, response) => {
   // console.log(request.query.val)
-  let result = await db.collection('post').find({ title : request.query.val }).toArray();
+  let result = await db.collection('post').find({ title : { $regex : request.query.val} }).toArray();
   response.render('search.ejs', { posts : result })
 })
 
