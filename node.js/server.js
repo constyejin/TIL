@@ -118,8 +118,9 @@ app.get('/write', (request, response) => {
   response.render('write.ejs')
 })
 
+// 이미지 여러개 업로드시 upload.array('img1', 3)
 app.post('/add', upload.single('img1'), async (request, response) => {
-  console.log(request.file)
+  console.log(request.file.location)
   // console.log(request.body)
   try {
     // 여기 코드 실행해보고
@@ -128,7 +129,11 @@ app.post('/add', upload.single('img1'), async (request, response) => {
     } else if (request.body.content === '') {
       response.send('내용 입력 하세요.')
     } else {
-      await db.collection('post').insertOne({title : request.body.title, content : request.body.content})
+      await db.collection('post').insertOne({
+        title : request.body.title, 
+        content : request.body.content,
+        img : request.file.location
+      })
       response.redirect('/list')
     }
   } catch(e) {
