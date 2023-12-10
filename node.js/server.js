@@ -15,16 +15,6 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local')
 const MongoStore = require('connect-mongo')
 
-// app.use(session({
-//   resave : false,
-//   saveUninitialized : false,
-//   secret: '세션 암호화 비번~~',
-//   cookie : {maxAge : 1000 * 60},
-//   store: MongoStore.create({
-//     mongoUrl : '님들 DB접속용 URL~~',
-//     dbName: 'forum',
-//   })
-// })) 
 
 app.use(passport.initialize())
 app.use(session({
