@@ -317,5 +317,5 @@ app.get('/mypage', (request, response) => {
   response.render('mypage.ejs')
 })
 
-app.use('/', require('./routes/shop.js'))
+app.use('/shop', require('./routes/shop.js'))
 
