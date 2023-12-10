@@ -11,6 +11,10 @@
   <!-- include 문법 사용할 때 => <%- %> -->
   <%- include('nav.ejs') %>
 
+  <div class="search-box">
+    <input class="search"></input>
+    <button class="search-btn">검색</button>
+  </div>
   <div class="white-bg">
     <!-- html 사이에 JavaScirpt 문법 사용할 때 => <% %> -->
     <% for(let i = 0; i < posts.length; i++) { %>
