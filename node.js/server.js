@@ -37,7 +37,9 @@ app.use(passport.session())
 
 const { S3Client } = require('@aws-sdk/client-s3')
 const multer = require('multer')
-const multerS3 = require('multer-s3')
+const multerS3 = require('multer-s3');
+const { connect } = require('./routes/shop.js');
+const connectDB = require('./database.js');
 const s3 = new S3Client({
   region : 'ap-northeast-2',
   credentials : {
@@ -56,23 +58,23 @@ const upload = multer({
   })
 })
 
+let connectData = require('./database.js')
 
 let db;
-const url = process.env.DB_URL
-new MongoClient(url).connect().then((client)=>{
-  console.log('DB연결성공')
-  db = client.db('forum')
+connectData.then((client)=>{
+  console.log('DB연결성공');
+  db = client.db('forum');
   app.listen(process.env.PORT, () => {
-    console.log('8080')
+    console.log('8080');
   })
 }).catch((err)=>{
-  console.log(err)
+  console.log(err);
 })
 
 function checkLogin(request, response, next) {
   // 미들웨어 함수에선 요청, 응답 자유롭게 사용 가능하다.
   if(!request.user) {
-    response.send('로그인 하세요.')
+    response.send('로그인 하세요.');
   }
   next()
 }
@@ -317,5 +319,10 @@ app.get('/mypage', (request, response) => {
   response.render('mypage.ejs')
 })
 
+// 관련있는 API들은 URL을 비슷하게 만드는게 좋다.
+// 조회 : /postGET
+// 발행 : /postPOST
+// 수정 : /psotPUT
+// 삭제 : /postDELETE
 app.use('/shop', require('./routes/shop.js'))
 
