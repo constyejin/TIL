@@ -28,7 +28,7 @@ app.use(session({
   // session document 유효기간 변경 가능
   cookie : { maxAge : 60 * 60 * 1000 },
   store : MongoStore.create({
-    mongoUrl : 'mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?retryWrites=true&w=majority',
+    mongoUrl : process.env.DB_URL,
     dbName : 'forum'
   })
 }))
@@ -36,11 +36,11 @@ app.use(passport.session())
 
 
 let db;
-const url = 'mongodb+srv://admin:wmfdlekt12@test.tithxy6.mongodb.net/?retryWrites=true&w=majority'
+const url = process.env.DB_URL
 new MongoClient(url).connect().then((client)=>{
   console.log('DB연결성공')
   db = client.db('forum')
-  app.listen(8080, () => {
+  app.listen(process.env.PORT, () => {
     console.log('8080')
   })
 }).catch((err)=>{
