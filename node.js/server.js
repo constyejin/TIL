@@ -71,13 +71,14 @@ connectData.then((client)=>{
   console.log(err);
 })
 
-function checkLogin(request, response, next) {
-  // 미들웨어 함수에선 요청, 응답 자유롭게 사용 가능하다.
-  if(!request.user) {
-    response.send('로그인 하세요.');
-  }
-  next()
-}
+let checkLogin = require('./checkLogin.js')
+// function checkLogin(request, response, next) {
+//   // 미들웨어 함수에선 요청, 응답 자유롭게 사용 가능하다.
+//   if(!request.user) {
+//     response.send('로그인 하세요.');
+//   }
+//   next()
+// }
 
 // 이 코드 밑에 있는 모든 API는 checkLogin middleware 적용
 // app.use(checkLogin)
@@ -325,4 +326,4 @@ app.get('/mypage', (request, response) => {
 // 수정 : /psotPUT
 // 삭제 : /postDELETE
 app.use('/shop', require('./routes/shop.js'))
-
+app.use('/board/sub', require('./routes/board.js'))
