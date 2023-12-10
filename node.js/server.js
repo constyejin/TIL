@@ -200,6 +200,12 @@ passport.serializeUser((user, done) => {
 
 // 유저가 보낸 쿠키 분석 passport.deserializeUser()
 // 쿠키 이상없으면 현재 로그인된 유저 정보를 알려준다.
+
+// 비효율 포인트 
+// 1. deserialize는 세션정보 적힌 쿠기 가지고 있는 유저가 요청 날릴 때 마다 실행된다.
+//   => 특정 API에서만 deserializeUser를 실행한다.
+// 2. 요청이 너무 많아서 DB가 부담 된다면?
+//   => connect redis 사용
 passport.deserializeUser(async (user, done) => {
   let result = await db.collection('user').findOne({ _id : new ObjectId(user.id) })
   delete result.password
