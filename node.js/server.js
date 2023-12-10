@@ -118,7 +118,8 @@ app.get('/write', (request, response) => {
   response.render('write.ejs')
 })
 
-app.post('/add', async (request, response) => {
+app.post('/add', upload.single('img1'), async (request, response) => {
+  console.log(request.file)
   // console.log(request.body)
   try {
     // 여기 코드 실행해보고
