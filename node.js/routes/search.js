@@ -22,9 +22,23 @@ router.get('/search', async(request, response) => {
   // index 단점 
   // 1. 용량 차지
   // 2. document 추가 / 수정/ 삭제시 idnex에도 반영해야 한다.
+  // search index(= Full text index)로 검색속도 향상, 단어 부분검색 가능
+  let searchRequire = [
+    {$search : {
+      index : 'title_index',
+      text : { query : request.query.val, path : 'title' }
+    }},
+    
+    // -1 : 역순정렬 
+    // 건너뛰기 : $skip : 
+    { $sort : { _id : 1 } },
+    { $limit : 10 },
+    // 필드 숨기기 : title 필드는 보여주고, id 필드는 숨겨주세요.
+    { $project : { title : 1, _id : 0 } }
+  ]
   let result = await db.collection('post')
   // explain('executionStats') => 실행 시간
-  .find({$text : { $search : request.query.val }}).toArray();
+  .aggregate(searchRequire).toArray()
   console.log(result)
   response.render('search.ejs', { posts : result })
 })
