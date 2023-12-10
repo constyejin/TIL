@@ -13,7 +13,7 @@ connectData.then((client)=>{
 // 공통된 URL 축약
 router.get('/shirts', async (request, response) => {
   let result = await db.collection('post').find().toArray()
-  console.log(result)
+  // console.log(result)
   response.send('셔츠 파는 페이지')
 })
 
