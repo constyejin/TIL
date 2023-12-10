@@ -85,3 +85,23 @@ div {
 .delete {
   cursor: pointer;
 }
+
+.search-box {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+}
+
+.search {
+  width: 200px;
+  margin-right: 4px;
+  padding: 5px;
+}
+
+.search-btn {
+  padding: 6px 10px;
+  background: lightgray;
+  border: none;
+  border-radius: 5px;
+  vertical-align: middle;
+}
