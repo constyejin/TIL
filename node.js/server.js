@@ -129,8 +129,14 @@ app.delete('/delete', async (request, response) => {
 })
 
 // Pagenation
-app.get('/list/1', async (request, response) => {
-  // 1~5번 글을 찾아서 result 변수에 저장
-  let result = await db.collection('post').find().limit(5).toArray();
+app.get('/list/:id', async (request, response) => {
+  // 1~5번 글 찾아서 result 변수에 저장
+  let result = await db.collection('post').find().skip((request.params.id -1) * 5).limit(5).toArray();
   response.render('list.ejs', { posts : result })
 })
+
+// app.get('/list/2', async (request, response) => {
+//   // 5~10번 글 찾아서 result 변수에 저장
+//   let result = await db.collection('post').find().skip(5).limit(5).toArray();
+//   response.render('list.ejs', { posts : result })
+// })
