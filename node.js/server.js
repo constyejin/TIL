@@ -124,8 +124,9 @@ app.get('/write', (request, response) => {
 // 이미지 여러개 업로드시 upload.array('img1', 3)
 app.post('/add', async (request, response) => {
   upload.single('img1')(request, response, async (err) => {
+    // console.log(request.user)
     if(err) return response.send('Upload Error!')
-      console.log(request.file.location)
+      // console.log(request.file.location)
       // console.log(request.body)
       try {
         // 여기 코드 실행해보고
@@ -135,9 +136,11 @@ app.post('/add', async (request, response) => {
           response.send('내용 입력 하세요.')
         } else {
           await db.collection('post').insertOne({
+            user : request.user._id,
+            username : request.user.username,
             title : request.body.title, 
             content : request.body.content,
-            img : request.file.location
+            img : request.file ? request.file.location : '',
           })
           response.redirect('/list')
         }
