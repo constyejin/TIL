@@ -346,3 +346,12 @@ app.post('/comment', async (request, response) => {
   })
   response.redirect('back')
 })
+
+
+app.get('/chat', (request, response) => {
+  response.render('chat.ejs')
+})
+
+app.post('/chat', async (request, response) => {
+  console.log(request)
+})
