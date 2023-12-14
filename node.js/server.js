@@ -162,7 +162,7 @@ app.get('/detail/:id', async (request, response) => {
     // console.log(request.params.id)
     let result = await db.collection('post').findOne({ _id : new ObjectId(request.params.id)})
     // console.log(result)
-    let result2 = await db.collection('commnet').find({ parentId : new ObjectId(request.params.id)}).toArray()
+    let result2 = await db.collection('comment').find({ parentId : new ObjectId(request.params.id)}).toArray()
 
     if(result == null) {
       response.status(404).send('이상한 url 입력 에러')
@@ -338,7 +338,7 @@ app.use('/board/sub', require('./routes/board.js'))
 app.use(require('./routes/search.js'))
 
 app.post('/comment', async (request, response) => {
-  await db.collection('commnet').insertOne({
+  await db.collection('comment').insertOne({
     content : request.body.content,
     writerId : new ObjectId(request.user.id),
     writer : request.user.username,
