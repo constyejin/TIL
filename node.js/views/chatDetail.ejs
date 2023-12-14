@@ -28,8 +28,13 @@
     // 유저 -> 서버 데이터 전송
     socket.emit('ask-join', '<%= result._id %>')
 
+    // document.querySelector('.chat-button').addEventListener('click', function(){
+    //   socket.emit('message', { msg : 'hello', room : '1'})
+    // })
+
     document.querySelector('.chat-button').addEventListener('click', function(){
-      socket.emit('message', { msg : 'hello', room : '1'})
+      let val = document.querySelector('.chat-input').value;
+      socket.emit('message-send', { msg : val, room : '<%= result._id %>'})
     })
 
     // 서버가 보낸 데이터 수신
@@ -37,8 +42,10 @@
       console.log('서버가 보낸 데이터' + data)
     })
 
-    socket.on('broadcast', (data) => {
-    console.log(data)
+    socket.on('message-broadcast', (data) => {
+      document.querySelector('.chat-screen').insertAdjacentHTML('beforeend', `
+        <div class="chat-box"><span>${data}</span></div>
+      `)
     })
   </script>
 </body>
