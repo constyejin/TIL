@@ -334,3 +334,13 @@ app.get('/mypage', (request, response) => {
 app.use('/shop', require('./routes/shop.js'))
 app.use('/board/sub', require('./routes/board.js'))
 app.use(require('./routes/search.js'))
+
+app.post('/comment', async (request, response) => {
+  await db.collection('commnet').insertOne({
+    content : request.body.content,
+    writerId : new ObjectId(request.user.id),
+    writer : request.user.username,
+    parentID : new ObjectId(request.body.parentID)
+  })
+  response.redirect('back')
+})
