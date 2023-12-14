@@ -162,10 +162,11 @@ app.get('/detail/:id', async (request, response) => {
     // console.log(request.params.id)
     let result = await db.collection('post').findOne({ _id : new ObjectId(request.params.id)})
     // console.log(result)
+    let comment = await db.collection('comment').find({ parentID : new ObjectId(request.params.id)}).toArray()
     if(result == null) {
       response.status(404).send('이상한 url 입력 에러')
     }
-    response.render('detail.ejs', {result : result})
+    response.render('detail.ejs', {result : result, comment : comment})
   } catch(e) {
     console.log(e)
     // 400 : 유저 문제로 에러 발생 코드
