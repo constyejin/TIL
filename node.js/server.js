@@ -379,3 +379,21 @@ app.get('/chat/detail/:id', async (request, response) => {
   let result = await db.collection('chatroom').findOne({ _id : new ObjectId(request.params.id)})
   response.render('chatDetail.ejs', {result : result})
 })
+
+io.on('connection', (socket) => {
+  socket.on('age', (data) => {
+    console.log('유저가 보낸거' + data)
+
+    // 서버 -> 모든 유저에게 데이터 전송
+    // io.emit('name', 'hehe')
+  })
+
+  // 서버 -> room에 속한 유저에게 데이터 전송 
+  socket.on('ask-join', (data) => {
+    socket.join(data)
+  })
+
+  socket.on('message', (data) => {
+    io.to(data.room).emit('broadcast', data.msg)
+  })
+})
