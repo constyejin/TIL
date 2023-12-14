@@ -360,9 +360,10 @@ app.get('/chat/list', async (request, response) => {
   let result = await db.collection('chatroom').find({
     member : request.user._id
   }).toArray()
-  response.render('chatList.ejs', {posts : result})
+  response.render('chatList.ejs', {result : result})
 })
 
-app.get('/chat/detail', (request, response) => {
-  response.render('chatDetail.ejs')
+app.get('/chat/detail/:id', async (request, response) => {
+  let result = await db.collection('chatroom').findOne({ _id : request.params.id })
+  response.render('chatDetail.ejs', {result : result})
 })
