@@ -390,10 +390,13 @@ io.on('connection', (socket) => {
 
   // 서버 -> room에 속한 유저에게 데이터 전송 
   socket.on('ask-join', (data) => {
+    // socket.request.session
     socket.join(data)
   })
 
-  socket.on('message', (data) => {
-    io.to(data.room).emit('broadcast', data.msg)
+  socket.on('message-send', (data) => {
+    // 채팅내용, 날짜, 부모document id, 작성자 등 db에 저장
+    // 실제 서비스는 socket.io + DB adapter 사용하는게 좋다.
+    io.to(data.room).emit('message-broadcast', data.msg)
   })
 })
