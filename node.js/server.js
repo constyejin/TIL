@@ -348,10 +348,19 @@ app.post('/comment', async (request, response) => {
 })
 
 
-app.get('/chat', (request, response) => {
-  response.render('chat.ejs')
+app.get('/chat/request', async (request, response) => {
+  await db.collection('chatroom').insertOne({
+    member : [request.user._id, new ObjectId(request.query.writerId)],
+    date : new Date()
+  })
+  response.render('chatList.ejs')
 })
 
-app.post('/chat', async (request, response) => {
-  console.log(request)
+app.get('/chat/list', async (request, response) => {
+  await db.collection('chatroom').find({}).toArray()
+  response.render('chatList.ejs')
 })
+
+// app.post('/chat', async (request, response) => {
+//   console.log(request)
+// })
