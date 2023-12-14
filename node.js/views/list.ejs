@@ -59,7 +59,7 @@
           .then((res) => {
             e.target.parentElement.parentElement.style.display = 'none';
             if(res.status == 200) {
-              return r.json()
+              return res.json()
             } else {
               // 서버가 에러코드 전송시 실행 할 코드
             }
