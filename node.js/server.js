@@ -365,7 +365,7 @@ app.get('/chat/list', async (request, response) => {
 
 app.get('/chat/detail/:id', async (request, response) => {
   // 현재 로그인중인 유저가 이 채팅방 document에 속해있는지 검사
-  if()
+  // if()
   let result = await db.collection('chatroom').findOne({ _id : new ObjectId(request.params.id )})
   response.render('chatDetail.ejs', {result : result})
 })
