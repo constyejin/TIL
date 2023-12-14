@@ -364,6 +364,6 @@ app.get('/chat/list', async (request, response) => {
 })
 
 app.get('/chat/detail/:id', async (request, response) => {
-  let result = await db.collection('chatroom').findOne({ _id : request.params.id })
+  let result = await db.collection('chatroom').findOne({ _id : new ObjectId(request.params.id )})
   response.render('chatDetail.ejs', {result : result})
 })
