@@ -3,6 +3,13 @@ const app = express();
 const { MongoClient, ObjectId } = require('mongodb');
 const methodOverride = require('method-override')
 const bcrypt = require('bcrypt') 
+
+const { createServer } = require('http')
+const { Server } = require('socket.io')
+const server = createServer(app)
+const io = new Server(server) 
+
+
 require('dotenv').config() 
 
 app.use(methodOverride('_method')) 
@@ -64,7 +71,7 @@ let db;
 connectData.then((client)=>{
   console.log('DB연결성공');
   db = client.db('forum');
-  app.listen(process.env.PORT, () => {
+  server.listen(process.env.PORT, () => {
     console.log('8080');
   })
 }).catch((err)=>{
@@ -161,8 +168,9 @@ app.get('/detail/:id', async (request, response) => {
   try {
     // console.log(request.params.id)
     let result = await db.collection('post').findOne({ _id : new ObjectId(request.params.id)})
-    // console.log(result)
     let result2 = await db.collection('comment').find({ parentId : new ObjectId(request.params.id)}).toArray()
+    console.log(result)
+    // console.log(result2)
 
     if(result == null) {
       response.status(404).send('이상한 url 입력 에러')
@@ -349,12 +357,15 @@ app.post('/comment', async (request, response) => {
 
 
 app.get('/chat/request', async (request, response) => {
+  // console.log(request.user._id)
+  // console.log(request.query.writerId)
   await db.collection('chatroom').insertOne({
     member : [request.user._id, new ObjectId(request.query.writerId)],
     date : new Date()
   })
-  response.render('chatList.ejs')
+  response.redirect('/chat/list')
 })
+
 
 app.get('/chat/list', async (request, response) => {
   let result = await db.collection('chatroom').find({
@@ -365,7 +376,6 @@ app.get('/chat/list', async (request, response) => {
 
 app.get('/chat/detail/:id', async (request, response) => {
   // 현재 로그인중인 유저가 이 채팅방 document에 속해있는지 검사
-  // if()
-  let result = await db.collection('chatroom').findOne({ _id : new ObjectId(request.params.id )})
+  let result = await db.collection('chatroom').findOne({ _id : new ObjectId(request.params.id)})
   response.render('chatDetail.ejs', {result : result})
 })
