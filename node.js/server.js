@@ -204,7 +204,7 @@ app.delete('/delete', async (request, response) => {
   try {
     await db.collection('post').deleteOne({ 
       _id : new ObjectId( request.query.docid ),
-      username : new ObjectId(request.user._id)
+      user : new ObjectId(request.user._id)
     });
     // ajax요청 사용시 response.redirect / response.render 사용 안하는게 좋다.
     // ajax 장점이 새로 고침하지 않고 데이터를 가져오기 때문.
