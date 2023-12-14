@@ -357,10 +357,12 @@ app.get('/chat/request', async (request, response) => {
 })
 
 app.get('/chat/list', async (request, response) => {
-  await db.collection('chatroom').find({}).toArray()
-  response.render('chatList.ejs')
+  let result = await db.collection('chatroom').find({
+    member : request.user._id
+  }).toArray()
+  response.render('chatList.ejs', {posts : result})
 })
 
-// app.post('/chat', async (request, response) => {
-//   console.log(request)
-// })
+app.get('/chat/detail', (request, response) => {
+  response.render('chatDetail.ejs')
+})
