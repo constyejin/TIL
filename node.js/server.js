@@ -340,7 +340,7 @@ app.use(require('./routes/search.js'))
 app.post('/comment', async (request, response) => {
   await db.collection('comment').insertOne({
     content : request.body.content,
-    writerId : new ObjectId(request.user.id),
+    writerId : new ObjectId(request.user._id),
     writer : request.user.username,
     parentId : new ObjectId(request.body.parentId)
   })
