@@ -400,3 +400,16 @@ io.on('connection', (socket) => {
     io.to(data.room).emit('message-broadcast', data.msg)
   })
 })
+
+app.get('/stream/list', (request, response) => {
+  response.writeHead(200, {
+    "Connection": "keep-alive",
+    "Content-Type": "text/event-stream",
+    "Cache-Control": "no-cache",
+  })
+
+  setInterval(() => {
+    response.write('event: msg\n' )
+    response.write('data: 바보 \n\n')
+  }, 1000)
+})
