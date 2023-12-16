@@ -104,7 +104,6 @@ app.get('/news', (request, response) => {
 })
 
 function currentTime(request, response, next) {
-  console.log(new Date())
   next()
 }
 
@@ -113,14 +112,11 @@ function currentTime(request, response, next) {
 // await은 정해진 곳에만 붙일 수 있다 (promise 뱉는 것)
 app.get('/list', currentTime ,async (request, response) => {
   let result = await db.collection('post').find().toArray();
-  // console.log(result[0]);
-  // response.send(result[0].title);
   response.render('list.ejs', { posts : result })
 })
 
 app.get('/time', (request, response) => {
   let time = new Date();
-  console.log(time)
   response.render('time.ejs', {time : time})
 })
 
@@ -131,14 +127,11 @@ app.get('/write', (request, response) => {
 // 이미지 여러개 업로드시 upload.array('img1', 3)
 app.post('/add', async (request, response) => {
   await db.collection('counter').findOne({name : 'dataLength'}, async function(err, result) {
-    console.log('error' + err)
-    console.log('result' + result)
+    
     let totalDataLength = result.totalData;
+
     upload.single('img1')(request, response, async (err) => {
-      // console.log(request.user)
       if(err) return response.send('Upload Error!')
-      // console.log(request.file.location)
-      // console.log(request.body)
 
       try {
         // 여기 코드 실행해보고
@@ -179,11 +172,8 @@ app.post('/add', async (request, response) => {
 // 비슷한 /URL 가진 API 여러개 만들 필요 없음.
 app.get('/detail/:id', async (request, response) => {
   try {
-    // console.log(request.params.id)
     let result = await db.collection('post').findOne({ _id : new ObjectId(request.params.id)})
     let result2 = await db.collection('comment').find({ parentId : new ObjectId(request.params.id)}).toArray()
-    console.log(result)
-    // console.log(result2)
 
     if(result == null) {
       response.status(404).send('이상한 url 입력 에러')
@@ -198,15 +188,11 @@ app.get('/detail/:id', async (request, response) => {
 
 app.get('/edit/:id', async (request, response) => {
   let result = await db.collection('post').findOne({ _id : new ObjectId(request.params.id)});
-  console.log(result)
   response.render('edit.ejs', { result : result });
-
-  // console.log(request.body)
   // db.collection('post').updateOne({ _id : new ObjectId(request.params.id )}, {$set : {}});
 })
 
 app.put('/edit', async(request, response) => {
-  console.log(request.params)
    try {
     if(request.body.title === '') {
       response.send('제목 입력 하세요.')
@@ -223,7 +209,6 @@ app.put('/edit', async(request, response) => {
 })
 
 app.delete('/delete', async (request, response) => {
-  // console.log(request.query.docid)
   try {
     await db.collection('post').deleteOne({ 
       _id : new ObjectId( request.query.docid ),
@@ -310,7 +295,6 @@ function checkInput(request, response, next){
 app.use(checkInput)
 
 app.get('/login', async (request, response) => {
-  console.log(request.user)
   response.render('login.ejs')
 })
 
@@ -333,11 +317,8 @@ app.get('/register', (request, response) => {
 
 app.post('/register', async (request, response) => {
   let hash = await bcrypt.hash(request.body.password, 10);
-  console.log(hash)
-  console.log(request.body.username)
   
   await db.collection('counter').findOne({ name : 'dataLength' }, function(error, result) {
-    console.log(result.totalData)
     let totalDataLength = result.totalData;
 
     db.collection('user').insertOne({ 
@@ -385,8 +366,6 @@ app.post('/comment', async (request, response) => {
 
 
 app.get('/chat/request', async (request, response) => {
-  // console.log(request.user._id)
-  // console.log(request.query.writerId)
   await db.collection('chatroom').insertOne({
     member : [request.user._id, new ObjectId(request.query.writerId)],
     date : new Date()
