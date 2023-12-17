@@ -415,10 +415,10 @@ app.get('/stream/list', (request, response) => {
     "Cache-Control": "no-cache",
   })
 
-  setInterval(() => {
-    response.write('event: msg\n' )
-    response.write('data: 바보 \n\n')
-  }, 1000)
+  // setInterval(() => {
+  //   response.write('event: msg\n' )
+  //   response.write('data: 바보 \n\n')
+  // }, 1000)
 })
 
 
