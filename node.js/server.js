@@ -127,14 +127,14 @@ app.get('/write', (request, response) => {
 // 이미지 여러개 업로드시 upload.array('img1', 3)
 app.post('/add', async (request, response) => {
   await db.collection('counter').findOne({name : 'dataLength'}, async function(err, result) {
-    
     let totalDataLength = result.totalData;
+    console.log(err)
 
     upload.single('img1')(request, response, async (err) => {
       if(err) return response.send('Upload Error!')
 
       try {
-        // 여기 코드 실행해보고
+        // 여3기 코드 실행해보고
         if(request.body.title === '') {
           response.send('제목 입력 하세요.')
         } else if (request.body.content === '') {
@@ -147,12 +147,12 @@ app.post('/add', async (request, response) => {
             title : request.body.title, 
             content : request.body.content,
             img : request.file ? request.file.location : '',
-          })
-
-          db.collection('counter').updateOne({ name : 'dataLength' }, { $inc : {totalData : 1}}, function(err, result){
-            if(err) {
-              return console.log(err)
-            }
+          }, function(err, result){
+            db.collection('counter').updateOne({ name : 'dataLength' }, { $inc : {totalData : 1}}, function(err, result){
+              if(err) {
+                return console.log(err)
+              }
+            })
           })
           response.redirect('/list')
         }
