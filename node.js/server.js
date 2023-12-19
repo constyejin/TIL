@@ -321,7 +321,11 @@ app.get('/register', (request, response) => {
 app.post('/register', async (request, response) => {
   let hash = await bcrypt.hash(request.body.password, 10)
   console.log(hash)
-
+  
+  db.collection('counter').findOne({ name : 'dataLength' }, function(error, result) {
+    console.log(result.totalData)
+    let totalDataLength = result.totalData;
+  })
   await db.collection('user').insertOne({ 
     username : request.body.username,
     // 비밀번호는 hasing해서 저장하는 게 좋다.
@@ -404,7 +408,7 @@ io.on('connection', (socket) => {
 app.get('/stream/list', (request, response) => {
   response.writeHead(200, {
     "Connection": "keep-alive",
-    "Content-Type": "text/event-stream",
+    "Content-Type": "text/event-stream",
     "Cache-Control": "no-cache",
   })
 
@@ -413,3 +417,5 @@ app.get('/stream/list', (request, response) => {
     response.write('data: 바보 \n\n')
   }, 1000)
 })
+
+
