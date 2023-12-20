@@ -130,11 +130,14 @@ app.get('/write', (request, response) => {
 
 // 이미지 여러개 업로드시 upload.array('img1', 3)
 app.post('/add', async (request, response) => {
-  upload.single('img1')(request, response, async (err) => {
-    // console.log(request.user)
-    if(err) return response.send('Upload Error!')
+  await db.collection('counter').findOne({name : 'dataLength'}, async function(err, result) {
+    let totalDataLength = result.totalData;
+    upload.single('img1')(request, response, async (err) => {
+      // console.log(request.user)
+      if(err) return response.send('Upload Error!')
       // console.log(request.file.location)
       // console.log(request.body)
+
       try {
         // 여기 코드 실행해보고
         if(request.body.title === '') {
@@ -143,6 +146,7 @@ app.post('/add', async (request, response) => {
           response.send('내용 입력 하세요.')
         } else {
           await db.collection('post').insertOne({
+            _id : totalDataLength + 1,
             user : request.user._id,
             username : request.user.username,
             title : request.body.title, 
@@ -158,6 +162,13 @@ app.post('/add', async (request, response) => {
         console.log(e)
         response.status(500).send('서버 에러났음;')
       }
+      db.collection('counter').updateOne({ name : 'dataLength' }, { $inc : {totalData : 1}}, function(err, result){
+        if(err) {
+          return console.log(err)
+        }
+      })
+      
+    })
   })
 })
 
@@ -322,18 +333,28 @@ app.post('/register', async (request, response) => {
   let hash = await bcrypt.hash(request.body.password, 10)
   console.log(hash)
   
-  db.collection('counter').findOne({ name : 'dataLength' }, function(error, result) {
+  await db.collection('counter').findOne({ name : 'dataLength' }, function(error, result) {
     console.log(result.totalData)
     let totalDataLength = result.totalData;
+
+    db.collection('user').insertOne({ 
+      _id : totalDataLength + 1,
+      username : request.body.username,
+      // 비밀번호는 hasing해서 저장하는 게 좋다.
+      // hasing : 문자 -> 랜덤문자로 변환
+      // hasing algorithm : md5, SHA1, (SHA3-256, SHA3-512, bcrypt, scrype, argon2)... etc
+      password : hash
+    }, function(error, result) {
+      console.log('user collection에 저장완료!')
+    })
+
+    db.collection('counter').updateOne({ name : 'dataLength'}, { $inc : {totalData : 1}}, function(error, result) {
+      if(error) {
+        return console.log(error)
+      }
+      response.redirect('/')
+    })
   })
-  await db.collection('user').insertOne({ 
-    username : request.body.username,
-    // 비밀번호는 hasing해서 저장하는 게 좋다.
-    // hasing : 문자 -> 랜덤문자로 변환
-    // hasing algorithm : md5, SHA1, (SHA3-256, SHA3-512, bcrypt, scrype, argon2)... etc
-    password : hash
-  })
-  response.redirect('/')
 })
 
 app.get('/mypage', (request, response) => {
