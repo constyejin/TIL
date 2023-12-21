@@ -128,39 +128,31 @@ app.get('/write', (request, response) => {
 app.post('/add', async (request, response) => {
   upload.single('img1')(request, response, async (err) => {
     if(err) return response.send('Upload Error!')
-    
-    await db.collection('counter').updateOne({name : new String("dataLength")}, { $inc : {totalData : 1}}, function(err, result){
-      console.log(result)
 
-      if(err) {
-        return console.log(err)
+    try {
+    // 여기 코드 실행해보고
+      if(request.body.title === ''){
+        response.send('제목 입력 하세요.')
+      } else if (request.body.content === ''){
+        response.send('내용 입력 하세요.')
+      } else {
+        await db.collection('post').insertOne({
+          // _id : totalDataLength + 1,
+          user : request.user._id,
+          username : request.user.username,
+          title : request.body.title, 
+          content : request.body.content,
+          img : request.file ? request.file.location : '',
+        })
       }
-    })
-
-    // try {
-    // // 여기 코드 실행해보고
-    //   if(request.body.title === ''){
-    //     response.send('제목 입력 하세요.')
-    //   } else if (request.body.content === ''){
-    //     response.send('내용 입력 하세요.')
-    //   } else {
-    //     // await db.collection('post').insertOne({
-    //     //   // _id : totalDataLength + 1,
-    //     //   user : request.user._id,
-    //     //   username : request.user.username,
-    //     //   title : request.body.title, 
-    //     //   content : request.body.content,
-    //     //   img : request.file ? request.file.location : '',
-    //     // })
-    //   }
-    // } catch(e){
-    //   // 에러나면 이 코드 실행
-    //   // 에러시 에러코드 같이 전송해주는 게 좋다.
-    //   // 500 : 서버 잘못으로 인한 에러
-    //   console.log(e)
-    //   response.status(500).send('서버 에러났음;')
-    // }
-    // response.redirect('/list')
+    } catch(e){
+      // 에러나면 이 코드 실행
+      // 에러시 에러코드 같이 전송해주는 게 좋다.
+      // 500 : 서버 잘못으로 인한 에러
+      console.log(e)
+      response.status(500).send('서버 에러났음;')
+    }
+    response.redirect('/list')
   })
 })
 
