@@ -398,10 +398,23 @@ app.get('/stream/list', (request, response) => {
     "Cache-Control": "no-cache",
   })
 
+  response.write('event: msg\n' )
+  response.write('data: 바보 \n\n')
+
   // setInterval(() => {
   //   response.write('event: msg\n' )
   //   response.write('data: 바보 \n\n')
   // }, 1000)
+
+  // change stream 사용법
+  let 조건 = [
+    {$match : { operationType : 'insert' }}
+  ]
+
+  let changeStream = db.collection('post').watch(조건)
+  changeStream.on('change', (result)=>{
+    console.log(result.fullDocument)
+  })
 })
 
 
