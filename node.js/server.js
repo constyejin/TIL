@@ -398,9 +398,6 @@ app.get('/stream/list', (request, response) => {
     "Cache-Control": "no-cache",
   })
 
-  response.write('event: msg\n' )
-  response.write('data: 바보 \n\n')
-
   // setInterval(() => {
   //   response.write('event: msg\n' )
   //   response.write('data: 바보 \n\n')
@@ -413,7 +410,9 @@ app.get('/stream/list', (request, response) => {
 
   let changeStream = db.collection('post').watch(조건)
   changeStream.on('change', (result)=>{
-    console.log(result.fullDocument)
+    // console.log(result.fullDocument)
+    response.write('event: msg\n')
+    response.write(`data: ${JSON.stringify(result.fullDocument)}\n\n`)
   })
 })
 
