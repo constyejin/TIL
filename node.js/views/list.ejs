@@ -83,14 +83,14 @@
       document.querySelector('.white-bg').insertAdjacentHTML('afterbegin', `
         <div class="list-box">
           <h4>
-            <a href="/detail/${e.data._id}">
-              ${e.data.title}
+            <a href="/detail/${parseData._id}">
+              ${parseData.title}
             </a>
-            <a href="/edit/${e.data._id}">📝</a>
-            <span class="delete" data-id="${e.data._id}">❌</span>
+            <a href="/edit/${parseData._id}">📝</a>
+            <span class="delete" data-id="${parseData._id}">❌</span>
           </h4>
-          <p>${e.data.content}</p>
-          <img width="80px" src="${e.data.img}" alt="">
+          <p>${parseData.content}</p>
+          <img width="80px" src="${parseData.img}" alt="">
         </div>
       `)
     })
