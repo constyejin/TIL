@@ -74,10 +74,10 @@ connectData.then((client)=>{
   db = client.db('forum');
 
   let 조건 = [
-    {$match : { operationType : 'insert' }}
+    { $match : { operationType : 'insert' }}
   ]
-  changeStream = db.collection('post').watch(조건)
 
+  changeStream = db.collection('post').watch(조건)
   server.listen(process.env.PORT, () => {
     console.log('8080');
   })
@@ -144,7 +144,6 @@ app.post('/add', async (request, response) => {
         response.send('내용 입력 하세요.')
       } else {
         await db.collection('post').insertOne({
-          // _id : totalDataLength + 1,
           user : request.user._id,
           username : request.user.username,
           title : request.body.title, 
@@ -209,6 +208,7 @@ app.put('/edit', async(request, response) => {
 })
 
 app.delete('/delete', async (request, response) => {
+  console.log(request.query)
   try {
     await db.collection('post').deleteOne({ 
       _id : new ObjectId( request.query.docid ),
@@ -400,9 +400,9 @@ io.on('connection', (socket) => {
 
 app.get('/stream/list', (request, response) => {
   response.writeHead(200, {
-    "Connection": "keep-alive",
-    "Content-Type": "text/event-stream",
-    "Cache-Control": "no-cache",
+    "Connection": "keep-alive",
+    "Content-Type": "text/event-stream",
+    "Cache-Control": "no-cache",
   })
 
   // setInterval(() => {
