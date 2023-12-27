@@ -68,9 +68,16 @@ const upload = multer({
 let connectData = require('./database.js')
 
 let db;
+let changeStream;
 connectData.then((client)=>{
   console.log('DB연결성공');
   db = client.db('forum');
+
+  let 조건 = [
+    {$match : { operationType : 'insert' }}
+  ]
+  changeStream = db.collection('post').watch(조건)
+
   server.listen(process.env.PORT, () => {
     console.log('8080');
   })
@@ -404,11 +411,6 @@ app.get('/stream/list', (request, response) => {
   // }, 1000)
 
   // change stream 사용법
-  let 조건 = [
-    {$match : { operationType : 'insert' }}
-  ]
-
-  let changeStream = db.collection('post').watch(조건)
   changeStream.on('change', (result)=>{
     // console.log(result.fullDocument)
     response.write('event: msg\n')
