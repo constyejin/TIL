@@ -101,6 +101,8 @@ let checkLogin = require('./checkLogin.js')
 // (request, response, next) => {} 함수 바로 넣기 가능
 // middleware 여러개 넣기 가능
 app.get('/', checkLogin, (request, response) => {
+  // JSDoc
+  /**  @type {{ title : string, content : string }} */
   // checkLogin(request, response)
   response.render('main.ejs')
 })
@@ -417,5 +419,4 @@ app.get('/stream/list', (request, response) => {
     response.write(`data: ${JSON.stringify(result.fullDocument)}\n\n`)
   })
 })
-
 
