@@ -76,9 +76,9 @@ connectData.then((client)=>{
   let 조건 = [
     { $match : { operationType : 'insert' }}
   ]
-
   changeStream = db.collection('post').watch(조건)
-  server.listen(process.env.PORT, () => {
+
+  app.listen(process.env.PORT, () => {
     console.log('8080');
   })
 }).catch((err)=>{
@@ -139,14 +139,14 @@ app.post('/add', async (request, response) => {
     if(err) return response.send('Upload Error!')
 
     try {
-    // 여기 코드 실행해보고
+      // 여기 코드 실행해보고
       if(request.body.title === ''){
         response.send('제목 입력 하세요.')
       } else if (request.body.content === ''){
         response.send('내용 입력 하세요.')
       } else {
         await db.collection('post').insertOne({
-          user : request.user._id,
+          // user : request.user._id,
           username : request.user.username,
           title : request.body.title, 
           content : request.body.content,
