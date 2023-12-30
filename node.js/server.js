@@ -1,27 +1,27 @@
 const express = require('express');
 const app = express();
 const { MongoClient, ObjectId } = require('mongodb');
-const methodOverride = require('method-override')
-const bcrypt = require('bcrypt') 
+const methodOverride = require('method-override');
+const bcrypt = require('bcrypt') ;
 
-const { createServer } = require('http')
-const { Server } = require('socket.io')
-const server = createServer(app)
-const io = new Server(server) 
+const { createServer } = require('http');
+const { Server } = require('socket.io');
+const server = createServer(app);
+const io = new Server(server);
 
 
-require('dotenv').config() 
+require('dotenv').config();
 
-app.use(methodOverride('_method')) 
+app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public'));
-app.set('view engine', 'ejs')
-app.use(express.json())
-app.use(express.urlencoded({extended:true})) 
+app.set('view engine', 'ejs');
+app.use(express.json());
+app.use(express.urlencoded({extended:true})) ;
 
-const session = require('express-session')
-const passport = require('passport')
-const LocalStrategy = require('passport-local')
-const MongoStore = require('connect-mongo')
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const MongoStore = require('connect-mongo');
 
 
 app.use(passport.initialize())
@@ -78,7 +78,7 @@ connectData.then((client)=>{
   ]
   changeStream = db.collection('post').watch(조건)
 
-  app.listen(process.env.PORT, () => {
+  server.listen(process.env.PORT, () => {
     console.log('8080');
   })
 }).catch((err)=>{
