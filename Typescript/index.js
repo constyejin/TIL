@@ -14,3 +14,10 @@ var User = /** @class */ (function () {
     }
     return User;
 }());
+// Pro tip : Typescript는 타입을 따로 지정하지 않아도 자동으로 된다.
+var song = { singer: '유재하', song: '내 마음에 비친 내 모습' };
+var project = {
+    member: ['kim', 'park'],
+    days: 30,
+    started: true,
+};

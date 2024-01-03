@@ -29,3 +29,16 @@ class User {
     this.name = name;
   }
 }
+
+// Pro tip : Typescript는 타입을 따로 지정하지 않아도 자동으로 된다.
+let song : { singer : string, song : string } = { singer : '유재하', song : '내 마음에 비친 내 모습'}
+
+let project : {
+   member : string[], 
+   days : number, 
+   started : boolean
+  } = {
+    member : ['kim', 'park'],
+    days : 30,
+    started : true,
+  }
