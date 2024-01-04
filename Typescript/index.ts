@@ -50,6 +50,26 @@ let 회원들 : (number | string)[] = [1,'2',3];
 let 오브젝트 :{a : number | string} = { a: '123' }
 
 // any Type: 모든 자료형 허용
+// 타입실드 해제문법으로 타입관련 버그가 나도 캐치하지 못한다.
 let 아무거나 :any;
 아무거나 = 123;;
 아무거나 = '히히';
+
+// unknown Type
+// any랑 비슷하지만 더 안전한 타입
+let 아무거나2 :unknown;
+아무거나2 = 456;
+아무거나2 = [1,2,3];
+
+let 변수1 :string = 아무거나;
+
+// Typescript는 간단한 수학연산도 타입이 맞아야한다.
+// string Type + 1 (허용)
+// number Type + 1 (허용)
+// string | number Type + 1 (허용X) 
+
+let user :string = 'Lee';
+let age :number | undefined = undefined;
+let married :boolean = false;
+let 철수 :(string|number|undefined|boolean)[] = [user, age, married];
+

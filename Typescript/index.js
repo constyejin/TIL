@@ -27,7 +27,22 @@ var 회원들 = [1, '2', 3];
 // let 회원들 :Array<string | number> = [1,'2',3];
 var 오브젝트 = { a: '123' };
 // any Type: 모든 자료형 허용
+// 타입실드 해제문법으로 타입관련 버그가 나도 캐치하지 못한다.
 var 아무거나;
 아무거나 = 123;
 ;
 아무거나 = '히히';
+// unknown Type
+// any랑 비슷하지만 더 안전한 타입
+var 아무거나2;
+아무거나2 = 456;
+아무거나2 = [1, 2, 3];
+var 변수1 = 아무거나;
+// Typescript는 간단한 수학연산도 타입이 맞아야한다.
+// string Type + 1 (허용)
+// number Type + 1 (허용)
+// string | number Type + 1 (허용X) 
+var user = 'Lee';
+var age = undefined;
+var married = false;
+var 철수 = [user, age, married];
