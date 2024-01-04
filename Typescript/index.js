@@ -76,14 +76,34 @@ function task1(name) {
         console.log('이름이 없습니다.');
     }
 }
-task1();
-task1('이예진');
+// task1();
+// task1('이예진');
 function task2(num) {
     // 숫자를 문자로 바꾼 후 해당 문자열의 길이를 얻는다.
     console.log(num.toString().length);
 }
-task2(123);
-task2('123456789');
+// task2(123)
+// task2('123456789')
+function task3(income, home, charm) {
+    var total = 0;
+    if (income) {
+        income = income / 10000;
+        if (income >= 1) {
+            total = income;
+        }
+    }
+    if (home == true) {
+        total = total + 500;
+    }
+    if (charm == '상') {
+        total = total + 100;
+    }
+    if (total >= 600) {
+        return '결혼 가능';
+    }
+}
+console.log(task3(300000, true, '상'));
+console.log(task3(3000, false, '하'));
 // function 함수3(x :number | string) :void {
 //   if() {
 //     console.log(x + 3)
