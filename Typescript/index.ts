@@ -1,4 +1,5 @@
 // 변수 타입 지정 (string, number, boolean, null, undefined, bigint, [], {} ...etc)
+// Union Type : 타입 2개 이상 합찬 새로운 타입
 let 이름 :string | number = 'Lee';
 이름 = 123
 
