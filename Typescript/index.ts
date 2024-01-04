@@ -85,3 +85,15 @@ let 학교 :{
 
 학교.score[4] = false;
 학교.friend = ['Lee' , 학교.teacher];
+
+// 함수는 parameter, return 값 지정 가능하다.
+
+function 함수1(x :number) :number{
+  return x * 2
+}
+
+// 함수에서 void Type 활용가능
+// return 쓰기 싫은 함수에 사용한다. 실수로 return하는 것을 사전에 막아준다.
+function 함수2(x :number) :void {
+  1 * 2
+}
