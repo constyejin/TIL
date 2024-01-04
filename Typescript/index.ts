@@ -94,6 +94,10 @@ function 함수1(x :number) :number{
 
 // 함수에서 void Type 활용가능
 // return 쓰기 싫은 함수에 사용한다. 실수로 return하는 것을 사전에 막아준다.
-function 함수2(x :number) :void {
+function 함수2(x? :number) :void {
   1 * 2
 }
+
+함수2()
+// Javascript와 다른 점
+// 1. 타입 지정된 파라미터 필수

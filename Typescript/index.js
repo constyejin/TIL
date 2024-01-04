@@ -62,3 +62,6 @@ function 함수1(x) {
 function 함수2(x) {
     1 * 2;
 }
+함수2();
+// Javascript와 다른 점
+// 1. 타입 지정된 파라미터 필수
