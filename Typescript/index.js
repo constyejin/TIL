@@ -59,9 +59,33 @@ function 함수1(x) {
 }
 // 함수에서 void Type 활용가능
 // return 쓰기 싫은 함수에 사용한다. 실수로 return하는 것을 사전에 막아준다.
+// parameter가 option일 경우 변수? : type
+// ? 연산자는 값이 들어올 수도 있다 == undefined가 포함된 union Type
+// :number | undefined
 function 함수2(x) {
     1 * 2;
 }
 함수2();
 // Javascript와 다른 점
 // 1. 타입 지정된 파라미터 필수
+function task1(name) {
+    if (name) {
+        console.log('안녕하세요' + name);
+    }
+    else {
+        console.log('이름이 없습니다.');
+    }
+}
+task1();
+task1('이예진');
+function task2(num) {
+    // 숫자를 문자로 바꾼 후 해당 문자열의 길이를 얻는다.
+    console.log(num.toString().length);
+}
+task2(123);
+task2('123456789');
+// function 함수3(x :number | string) :void {
+//   if() {
+//     console.log(x + 3)
+//   }
+// }
