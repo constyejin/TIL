@@ -1,5 +1,6 @@
 // 변수 타입 지정 (string, number, boolean, null, undefined, bigint, [], {} ...etc)
 // Union Type : 타입 2개 이상 합찬 새로운 타입
+// (string | number | boolean)
 var 이름 = 'Lee';
 이름 = 123;
 function 함수(x) {
@@ -22,3 +23,11 @@ var project = {
     days: 30,
     started: true,
 };
+var 회원들 = [1, '2', 3];
+// let 회원들 :Array<string | number> = [1,'2',3];
+var 오브젝트 = { a: '123' };
+// any Type: 모든 자료형 허용
+var 아무거나;
+아무거나 = 123;
+;
+아무거나 = '히히';

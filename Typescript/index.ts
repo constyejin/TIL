@@ -1,5 +1,6 @@
 // 변수 타입 지정 (string, number, boolean, null, undefined, bigint, [], {} ...etc)
 // Union Type : 타입 2개 이상 합찬 새로운 타입
+// (string | number | boolean)
 let 이름 :string | number = 'Lee';
 이름 = 123
 
@@ -43,3 +44,12 @@ let project : {
     days : 30,
     started : true,
   }
+
+let 회원들 : (number | string)[] = [1,'2',3];
+// let 회원들 :Array<string | number> = [1,'2',3];
+let 오브젝트 :{a : number | string} = { a: '123' }
+
+// any Type: 모든 자료형 허용
+let 아무거나 :any;
+아무거나 = 123;;
+아무거나 = '히히';
