@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "node-sass" : "node-sass",
-    "sass" : "node-sass -wr styles/main.scss style.css"
+    "node-sass": "node-sass",
+    "sass": "node-sass -wr styles/main.scss style.css"
   },
   "keywords": [],
   "author": "Lee Yejin <lightup.jin@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "node-sass": "^9.0.0"
+    "node-sass": "^9.0.0",
+    "stylint": "^2.0.0"
   }
 }
