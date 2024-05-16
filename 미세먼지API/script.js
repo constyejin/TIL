@@ -9,8 +9,9 @@ var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'rOGI%2BIvn6bqh
 queryParams += '&' + encodeURIComponent('returnType') + '=' + encodeURIComponent('json'); // 응답 데이터 타입 설정
 queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); // 한 페이지에 표시할 항목 개수 설정
 queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); // 페이지 번호 설정
-queryParams += '&' + encodeURIComponent('sidoName') + '=' + encodeURIComponent('경북'); // 조회할 시도 이름 설정
+queryParams += '&' + encodeURIComponent('sidoName') + '=' + encodeURIComponent('세종'); // 조회할 시도 이름 설정
 queryParams += '&' + encodeURIComponent('searchCondition') + '=' + encodeURIComponent('DAILY'); // 데이터 기간 하루
+
 
 // API 호출 및 응답 데이터 처리
 xhr.open('GET', url + queryParams);
@@ -80,7 +81,7 @@ function updateData() {
             // items 배열을 순회한 값을 item 이라는 변수에 할당
               let item = items[i];
 
-            if (item.cityName == '경주시') { 
+            if (item.cityName == '세종시') { 
               // 1. latestData에 값이 비어있을 경우 = 참  
               // 2. 현재 item.dataTiem 보다 최신 데이터라면 latestData 변수에 그 값을 저장한다.
               if (!latestData || item.dataTime > latestData.dataTime) {
