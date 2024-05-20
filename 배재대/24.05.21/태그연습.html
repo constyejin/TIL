@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- 문자 인코딩 -->
+  <meta charset="UTF-8">
+  <!-- 반응형 웹이나 모바일 등 기기장치 인식할 때 기준 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- 검색 엔진의 결과에 표시되는 페이지에 대한 설명 -->
+  <meta name="description" content="이 페이지는 ~~~ 페이지다.">
+  <!-- 검색 엔진에 의해 검색될 키워드 지정 -->
+  <meta name="keywords" content="HTML, CSS, Javascript, Frontend">
+  <!-- 문서 작성한 사람에 대한 정보 -->
+  <meta name="author" content="YEJIN LEE">
+  <title>HTML 태그 연습</title>
+</head>
+<style>
+
+</style>
+<body>
+  <!-- div : 상자처럼 구역을 나누는 태그 -->
+  <!-- 박스같은 개념, 코드 덩어리를 감쌀 때 사용한다. -->
+  <div>나는 구역을 나누는 태그 div야</div>
+  <div>그리고 나는 Block요소 태그야</div>
+
+  <!-- 문단 태그 / 글 본문 등을 작성할 때 사용된다. -->
+  <p>나는 pragraph 문단</p>
+  <p>p태그도 Block 요소</p>
+  <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque,<br>
+    rerum cum qui modi adipisci<br>
+    aut error excepturi incidunt consectetur!<br>
+    Iste tenetur cum doloribus dolor accusamus<br>
+    voluptatem vitae laboriosam, consequuntur quod?<br>
+  </p>
+
+  <!-- Heading Tag
+    h1~h3까지 많이 사용됨
+    사이트에서 중요한 제목 등을 작성할 때 사용한다.
+  -->
+  <h1>안녕하세요~!</h1>
+  <h2>안녕하세요~!</h2>
+  <h3>안녕하세요~!</h3>
+  <h4>안녕하세요~!</h4>
+  <h5>안녕하세요~!</h5>
+  <h6>안녕하세요~!</h6>
+  
+
+  <!-- block / inline -->
+  <!-- block : 가로폭 전체를 차지하는 태그 -->
+  <!-- inline : 내용만큼만 차지하는 태그 -->
+  <p>123</p>
+  <p>456</p>
+
+  <span>123</span>
+  <span>456</span>
+  <hr>
+
+  <span>나는 텍스트의 특정 부분에 스타일을 적용할 때 사용하는 span</span>
+  <span>나는 inline 요소라서 Block요소의 안에 들어갈 수 있다.</span>
+
+  <span>
+    <div>나는 Block 요소여서 절대 inline인 span태그 안에 들어갈 수 없어</div>
+    <p>나도 Block 요소여서 inline요소 안에 절대 들어갈 수 없어</p>
+  </span>
+
+
+  <!-- Ordered List : 순서가 중요한 리스트 작성 -->
+  <ol>
+    <!-- <li>태그는 <ol>, <ul> 태그의 자식 요소로 사용한다. -->
+    <li>첫번째</li>
+    <li>두번째</li>
+    <li>세번째</li>
+  </ol>
+
+  <!-- Unordered List : 순서가 중요하지 않은 리스트 작성 -->
+  <ul>
+    <li>리스트1</li>
+    <li>리스트2</li>
+    <li>리스트3</li>
+  </ul>
+
+  <div class="first-p">
+    <p>문단1</p>
+    <p>문단2</p>
+    <p>문단3</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </div>
+</body>
+</html>
