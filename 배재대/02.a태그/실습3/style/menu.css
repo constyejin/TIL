@@ -24,14 +24,13 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* align-items center :사진과 동일하게 가운데 선상으로 옮기는 것 */
   padding: 10px 0;
   background-color: #333;
 }
 
 .logo img {
-  width: 50px;
-  margin-left: 10px;
+  width: 40px;
+  margin-left: 20px;
 }
 
 .gnb-list {
@@ -43,5 +42,11 @@ nav {
 
 .gnb-item a {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  transition: all 300ms ease-in-out;
+}
+
+.gnb-item a:hover {
+  color: dodgerblue;
+  text-decoration: underline;
 }
