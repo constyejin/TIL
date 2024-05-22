@@ -1,0 +1,36 @@
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+img {
+  width: 300px;
+}
+
+.txt-green {
+  color: green;
+}
+
+.box {
+  width: 400px;
+  margin: 20px auto;
+  border-radius: 10px;
+  padding: 20px;
+  /* text-align의 기본값은 left */
+  /* text-align 속성으로 이미지도 정렬할 수 있다
+     img태그 자체한테 text-align: center; 그 부모요소한테 적용
+  */
+  text-align: center;
+}
+
+.google {
+  border: 2px solid blue;
+}
+
+.txt-bold {
+  font-weight: 700;
+}
+
+.naver {
+  border: 2px solid green;
+}
