@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* align-items center :사진과 동일하게 가운데 선상으로 옮기는 것 */
+  padding: 10px 0;
+  background-color: #333;
+}
+
+.logo img {
+  width: 50px;
+  margin-left: 10px;
+}
+
+.gnb-list {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin-right: 40px;
+}
+
+.gnb-item a {
+  font-size: 16px;
+  font-weight: 600;
+}
