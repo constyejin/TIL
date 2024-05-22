@@ -1,0 +1,35 @@
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  font-size: 36px;
+}
+
+.header {
+  width: 1200px;
+  height: 100px;
+  background-color: aquamarine;
+}
+
+.left-menu {
+  width: 200px;
+  height: 500px;
+  /* 이 요소를 붕 띄워서 왼쪽으로 정렬 */
+  float: left;
+  background-color: cornflowerblue;
+}
+
+.right-menu {
+  width: 1000px;
+  height: 500px;
+  /* 앞에 left 옆으로 붙으라는 의미에서 left를 사용해도되고, 남은 공간 오른쪽으로 가라 해서 right를 사용해도 됨! */
+  float: left;
+  background-color: coral;
+}
+
+.footer {
+  clear: both;
+  width: 1200px;
+  height: 150px;
+  background-color: lightgreen;
+}
+

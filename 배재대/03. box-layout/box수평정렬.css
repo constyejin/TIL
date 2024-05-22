@@ -1,0 +1,116 @@
+.box div {
+  width: 100px;
+  height: 100px;
+  border: 5px solid red;
+}
+
+.left {
+  margin-top: 30px;
+}
+
+.left_float div {
+  float: left;
+
+}
+
+/*  부모 요소 다음에 오는 요소한테 clear */
+.clear {
+  clear: both;
+}
+
+.left_inline div {
+  display: inline-block;
+}
+
+.left_flex {
+  /* 좌측 정렬이 기본값 */
+  display: flex;
+}
+
+/* right */
+.right_float div {
+  float: right;
+}
+
+.right_float div div {
+  float: left;
+}
+
+.right_inline {
+  text-align: right;
+}
+
+.right_inline div {
+  display: inline-block;
+  text-align: left;
+}
+
+.right_flex {
+  display: flex;
+  justify-content: end;
+}
+
+
+/* center */
+.center_float {
+  width: 330px;
+  margin: 0 auto;
+}
+
+.center_float div {
+  float: left;
+}
+
+.center_inline {
+  /* text-align : 문단을 수평으로 정렬하는 속성 */
+  /* block 요소에 안에 있는 inline 요소를 정렬한다 */
+  /* text를 정렬할 때는 본인에게 적용가능 */
+  /* inline 요소라면 text뿐 아니라 이미지도 정렬 가능함! */
+  text-align: center;
+}
+
+.center_inline div {
+  display: inline-block;
+  text-align: left;
+}
+
+.center_flex {
+  display: flex;
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+  /* 설정 안할 시 기본값이 start */
+  justify-content: center;
+  /* 세로축 중간 정렬 */
+  /* align-items: center; */
+
+  /* 박스가 떨어지는 방향 -> 주축 변경 */
+  /* flex-direction: column; */
+  height: 600px;
+  border: 2px solid #000;
+}
+
+.flex div  {
+  border: 5px solid blue;
+}
+
+  /* 부모의 display가 flex인 자식 요소들에게 order이라는 속성을 통해 
+     화면에 보여 줄 순서를 조정할 수 았다. */
+  /* 
+  
+  기본값은 0이고, 작은 값이 있는 요소부터 출력. 
+  값이 같다면 입력한 순서대로 출력 
+  */
+/* .first {
+  order: 2;
+}
+
+.second {
+  order: 3;
+}
+
+.third {
+  order: 1;
+} */

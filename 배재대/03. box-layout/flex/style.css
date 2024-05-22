@@ -1,0 +1,40 @@
+.wrapper {
+  width: 90%;
+  font-size: 36px;
+  margin: 0 auto;
+}
+
+.layout {
+  display: flex;
+  /* 기본값이 nowrap : 폭이 넘쳐도 아래로 안 떨어지고 꽉 채움 */
+  flex-wrap: wrap;
+}
+
+.header {
+  /* 부모 태그의 100% */
+  width: 100%;
+  height: 100px;
+  background-color: aquamarine;
+}
+
+.left-menu {
+   /* 부모 태그의 20% */
+  width: 20%;
+  height: 500px;
+  background-color: cornflowerblue;
+}
+
+.right-menu {
+  /* order: 1; */
+  width: 80%;
+  height: 500px;
+  background-color: coral;
+}
+
+.footer {
+  /* order: 3; */
+  width: 100%;
+  height: 150px;
+  background-color: lightgreen;
+}
+
