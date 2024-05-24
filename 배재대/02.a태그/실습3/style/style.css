@@ -46,7 +46,7 @@ a {
 
 .back-img {
   height: 600px;
-  background-image: url(./images/back.jpeg);
+  background-image: url(../images/back.jpeg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
