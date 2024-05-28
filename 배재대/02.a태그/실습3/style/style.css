@@ -54,6 +54,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   height: 600px;
   color: #fff;
 }
@@ -149,3 +150,18 @@ a {
   } 
 }
 
+
+@media screen and (max-width : 768px) {
+  .back-img {
+    height: 400px;
+  }
+
+  .card-list {
+    width: 90%;
+    margin: 30px auto 0 auto;
+  }
+
+  .global-footer {
+    margin-top: 3cqmin;
+  } 
+}
