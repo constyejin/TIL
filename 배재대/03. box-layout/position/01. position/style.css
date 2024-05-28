@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.position {
+  width: 500px;
+  height: 800px;
+  margin: 0 auto;
+  border: 3px solid darkblue;
+}
+
+/* 공중에 떠있는 애들중에 누가 맨 앞에오고 뒤에 올건지 정해주는 속성 : 정수 z-index가 높을수록 앞으로 */
+.position div {
+  width: 200px;
+  height: 100px;
+  border: 1px solid #000;
+  text-align: center;
+  box-sizing: border-box;
+  /* normal : 웹브라우저에서 정한 기본값 1.2입니다. */
+  line-height: 100px;
+}
+
+.box1 {
+  background: red;
+}
+
+.box2 {
+  background: yellow;
+}
+
+.box3 {
+  background: yellowgreen;
+}
+
+/* .txt {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.cat-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  /* margin: auto; */
+  background-color: #ccc;
+  /* padding: 10px; */
+}
+
+.cat {
+  width: 500px;
+  height: 500px;
+  background-color: #fff;
+  background-image: url('./images/pic1.jpg');
+  /* 배경 이미지의 스크롤 여부를 정하는 속성 */
+  /* 기본값 scroll */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.box:last-of-type {
+  margin-right: 0;
+}
+
+.empty-box {
+  height: 1500px;
+}
