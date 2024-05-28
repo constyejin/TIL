@@ -13,6 +13,12 @@ a {
   color: #fff;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
 .visually-hidden {
   display: none;
 }
@@ -185,6 +191,36 @@ footer {
   font-size: 38px;
   color: rgb(41, 127, 161);
   z-index: 10;
+}
+
+/* popup */
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.popup-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup img {
+  width: 300px;
+  margin-top: 20px;
+}
+
+.popup-close {
+  font-size: 22px;
 }
 
 .side-menu {
