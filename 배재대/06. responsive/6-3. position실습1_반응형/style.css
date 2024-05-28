@@ -1,0 +1,317 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+.global-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  background-color: skyblue;
+}
+
+.logo img {
+  width: 50px;
+  margin-left: 20px;
+}
+
+.gnb-list {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin-right: 40px;
+}
+
+.gnb-item a {
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 300ms ease-in-out;
+}
+
+.gnb-item a:hover {
+  color: dodgerblue;
+}
+
+.background {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('./images/스누피배경.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+}
+
+.main-title {
+  display: inline-block;
+  font-size: 48px;
+}
+
+.main-content {
+  margin-top: 20px;
+}
+
+.main-btn {
+  position: relative;
+  align-self: center;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.post-box-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 30px auto;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 32%;
+  height: 300px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 30px;
+  background-color: rgb(217, 241, 254);
+}
+
+.fixed-back {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(217, 241, 254);
+}
+
+.back1 {
+  width: 500px;
+	height: 500px;
+	background-attachment: fixed;
+	background-image: url('./images/스누피2.png');
+  background-position: bottom left 250px;
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-color: #fff;
+  margin-right: 20px;
+}
+
+.back2 {
+  width: 500px;
+	height: 500px;
+	background-attachment: fixed;
+	background-image: url('./images/pngegg.png');
+  background-position: bottom right 250px;
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-color: #fff;
+}
+
+footer {
+  background-color: skyblue;
+  padding: 20px 0;
+}
+
+.global-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.global-footer h3{
+  color: #fff;
+}
+
+.footer-list {
+  display: flex;
+}
+
+.footer-item {
+  margin-right: 20px;
+}
+
+.footer-item:last-child {
+  margin-right: 0;
+}
+
+.footer-item i {
+  font-size: 24px;
+}
+
+.footer-item a {
+  transition: color 300ms ease-in-out;
+}
+
+.footer-item a:hover {
+  color: dodgerblue;
+}
+
+.top-btn i {
+  /* fixed : viewport라고 부르는 브라우저 화면을 기준으로 삼아서 좌표 이동 */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 38px;
+  color: rgb(41, 127, 161);
+  z-index: 10;
+}
+
+.side-menu {
+  position: fixed;
+  top: 150px;
+  right: 50px;
+  width: 200px;
+  background-color: #fff;
+  box-shadow: 5px 5px 5px #888;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px 0;
+}
+
+.side-menu-item {
+  padding: 10px;
+}
+
+.side-menu-item a {
+  color: #888;
+  transition: all 300ms ease-in-out;
+}
+
+.side-menu-item a:hover {
+  color: dodgerblue;
+  text-decoration: underline;
+}
+
+@media screen and (max-width : 1200px) {
+  .background {
+    height: 400px;
+  }
+
+  .post-box-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .post-card {
+    width: 70%;
+    min-width: 300px;
+    height: 200px;
+    padding: 20px;
+    margin-top: 30px;
+  }
+
+  .post-card:first-child {
+    margin-top: 0;
+  }
+
+  .fixed-back {
+    height: 500px;
+    display: block;
+  }
+
+  .back1 {
+    width: 100%;
+    height: 500px;
+    background-position: bottom 60px center;
+    background-color: rgb(217, 241, 254);
+  }
+
+  .back2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width : 768px) {
+  .logo img {
+    width: 40px;
+  }
+
+  .gnb-list {
+    width: 220px;
+    margin-right: 20px;
+  }
+
+  .gnb-item a {
+    font-size: 14px;
+  }
+
+  .background {
+    height: 300px;
+  }
+
+  .main-title {
+    font-size: 36px;
+  }
+
+  .main-content {
+    padding: 0 10px;
+  }
+
+  .post-card {
+    width: 90%;
+    height: 300px;
+    padding: 20px;
+  }
+
+  .side-menu {
+    display: none;
+  }
+
+  .fixed-back {
+    height: 250px;
+    display: block;
+  }
+  
+  .back1 {
+    height: 250px;
+    background-position: bottom center;
+    background-size: 300px;
+    margin-right: 0;
+  }
+
+  .global-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-list {
+    margin-top: 10px;
+  }
+
+  .top-btn i {
+    font-size: 32px;
+  }
+}
+
+

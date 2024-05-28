@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+nav {
+  /* display: flex는내가 정렬하고 아이템의 부모에게 줘야함 */
+  /* flexible box라고도 부른다. 말 그대로 유연한 박스 배치가 가능! */
+  display: flex;
+  /* 수평정렬 하는 속성  */
+  justify-content: space-between;
+  /* 수직정렬 하는 속성 */
+  align-items: center;
+  /* align-items: center :사진과 동일하게 가운데 선상으로 옮기는 것 */
+  padding: 10px 0;
+  background-color: #333;
+}
+
+.logo img {
+  width: 40px;
+  margin-left: 20px;
+}
+
+.gnb-list {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin-right: 40px;
+}
+
+.gnb-item a {
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 300ms ease-in-out;
+}
+
+.gnb-item a:hover {
+  color: dodgerblue;
+  font-size: 17px;
+  text-decoration: underline;
+}
+
+.background {
+  height: 600px;
+  background-image: url('./images/back.jpeg');
+  background-repeat: no-repeat;
+  /* 배경 이미지를 어디에 위치하게 할건지 top,bottom, left, right, center, x축 y축 픽셀로도 지정가능! */
+  background-position: center;
+  /* 1. */
+  background-size: cover;
+}
+
+.front-txt {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.front-title {
+  font-size: 36px;
+}
+
+.front-content {
+  font-size: 24px;
+  margin-top: 30px;
+}
+
+.front-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+.margin-top {
+  margin-top: -70px;
+}
+
+.second-txt {
+  width: 500px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #666;
+}
+
+.second-txt p {
+  margin-top: 30px;
+}
+
+.post-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 250px; 
+  height: 300px;
+  color: #fff;
+  background-color: #000;
+  margin-right: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 5px 5px #000;
+  padding: 20px;
+}
+
+.post-card :last-child {
+  margin-right: 0;
+}
+
+.post-card-txt {
+  margin-top: 20px;
+}
+
+
+footer {
+  margin-top: 120px;
+  background-color: #333;
+  padding: 20px 0;
+}
+
+.global-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+.global-footer h3{
+  color: #fff;
+}
+
+.footer-list {
+  display: flex;
+}
+
+.footer-item {
+  margin-right: 20px;
+}
+
+.footer-item :last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width : 1200px) {
+  .background {
+    height: 400px;
+  }
+
+  .front-txt {
+    width: 90%;
+    margin: 0 auto;
+    height: 400px;
+    text-align: center;
+  }
+
+  .margin-top {
+    margin-top: -30px;
+  }
+
+  .second-txt {
+    width: 50%;
+    max-width: 500px;
+    min-width: 200px;
+  }
+
+  .post-box {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  .post-card {
+    width: 80%; 
+    max-width: 700px;
+    height: 200px;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .post-card:last-child {
+    margin-bottom: 0;
+  }
+
+  footer {
+    margin-top: 60px;
+  }
+}
+
+@media screen and (max-width : 768px) {
+  .logo img {
+    width: 30px;
+  }
+
+  .gnb-list {
+    width: 200px;
+    margin-right: 30px;
+  }
+
+  .background {
+    height: 300px;
+  }
+
+  .front-txt {
+    height: 300px;
+  }
+
+  .front-title {
+    font-size: 24px;
+  }
+
+  .front-content {
+    font-size: 16px;
+  }
+
+  .margin-top {
+    margin-top: -20px;
+  }
+
+  .second-txt {
+    width: 80%;
+  }
+
+  .post-box {
+    margin-top: 50px;
+  }
+
+  .post-card {
+    box-shadow: none;
+  } 
+}

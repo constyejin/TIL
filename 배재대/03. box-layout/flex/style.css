@@ -1,13 +1,10 @@
 .wrapper {
-  width: 90%;
-  font-size: 36px;
-  margin: 0 auto;
-}
-
-.layout {
   display: flex;
   /* 기본값이 nowrap : 폭이 넘쳐도 아래로 안 떨어지고 꽉 채움 */
   flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 36px;
 }
 
 .header {

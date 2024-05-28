@@ -1,0 +1,413 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+/* 부트스트랩에서 권장하는 그리드 시스템
+   sm(Small), md(Medium) 768px, lg(Large) 1200px  */
+.sm-only {
+  display: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px 0;
+  background-color: #fff;
+}
+
+.logo img {
+  width: 70px;
+}
+
+.gnb-list {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.gnb-item a {
+  font-size: 16px;
+  font-weight: 700;
+  transition: color 300ms ease-in-out;
+}
+
+.gnb-item a:hover {
+  color: red;
+}
+
+.lnb-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.lnb-list {
+  display: flex;
+  padding: 20px 0;
+  background-color: rgb(235, 27, 27);
+  border-top: 3px solid rgb(255, 213, 23);
+}
+
+.lnb-item:first-child {
+  margin-left: 20px;
+}
+
+.lnb-item a {
+  padding: 0 20px;
+  color: #fff;
+}
+
+.background {
+  height: 600px;
+  background-image: url('../images/back.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.food-box {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 80px auto 0 auto;
+}
+
+.food-box-list {
+  display: flex;
+  margin-top: 40px;
+}
+
+.food-box-list:first-child {
+  margin-top: 0;
+}
+
+.food-box-item {
+  width: 300px; 
+  color: #fff;
+  margin-right: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 3px 3px 5px #e1e1e1;
+  overflow: hidden;
+}
+
+.food-box-item:last-child {
+  margin-right: 0;
+}
+
+.food-box-item a {
+  transition: opacity 300ms ease-in-out;
+}
+
+.food-box-item a:hover {
+  opacity: .7;
+}
+
+.food-box-item img {
+  width: 300px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.food-box-txt {
+  width: 90%;
+  margin: 30px auto;
+}
+
+.mac-story-box {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  text-align: center;
+  background-color: #fff;
+  margin-top: 80px;
+  padding: 20px 0;
+  border-top: 2px solid rgb(255, 213, 23);
+}
+
+.mac-story-list {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.mac-story-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+footer {
+  background-color: rgb(235, 27, 27);
+  padding: 20px 0;
+}
+
+.global-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  color: #fff;
+  margin: 0 auto;
+}
+
+.mac-link-list {
+  margin-right: 100px;
+}
+
+.mac-link-item a {
+  display: inline-block;
+  color: #fff;
+  padding: 5px 0;
+}
+
+.mac-link-item:first-child a {
+  color: rgb(255, 213, 23)
+}
+
+/* flex-grow 속성 : flex-grow가 적용되지 않았을 경우 레이아웃 보다 아이템들의 width 합이 작으면 오른쪽에 여백이 남는데,
+   grow 속성에 준 비율대로 남는 공간을 차지하게 할 수 있다.
+*/
+.mac-info-list {
+  flex-grow: 1;
+}
+
+.mac-info-list li {
+  padding: 5px 0;
+}
+
+.mac-icon-list {
+  display: flex;
+  align-items: center;
+}
+
+.mac-icon-list li {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: background-color 300ms ease-in-out;
+}
+
+.mac-icon-list li:last-child {
+  margin-right: 0;
+}
+
+.mac-icon-list li:hover {
+  background-color: rgb(235, 27, 27);
+}
+
+/* position 가운데 정렬  */
+/* absolute는 flex, text-align 등 다른 속성이 먹지 않는다. */
+.mac-icon-list i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 26px;
+  color: rgb(235, 27, 27);
+  transition: color 300ms ease-in-out;
+}
+
+.mac-icon-list li:hover i {
+  color: #fff
+}
+
+@media screen and (max-width : 1200px) { 
+  nav {
+    padding: 5px;
+  }
+
+  .logo img {
+    width: 60px;
+  }
+
+  .gnb-list {
+    width: 250px;
+  }
+
+  .background {
+    height: 400px;
+  }
+
+  .food-box {
+    margin-top: 50px;
+  }
+
+  .food-box-item {
+    width: 33%;
+  }
+
+  .food-box-item img {
+    width: 100%;
+    height: 150px;
+  }
+  
+  .food-box-txt {
+    margin: 20px auto;
+  }
+
+  .mac-story-box {
+    margin-top: 50px;
+    padding: 10px 0;
+  }
+
+  .mac-story-list {
+    width: 40%;
+  }
+
+  .mac-story-item img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media screen and (max-width : 768px) { 
+  .sm-hidden {
+    display: none;
+  }
+
+  .sm-only {
+    display: block;
+  }
+
+  .logo img {
+    width: 50px;
+  }
+
+  .gnb-icon-button i {
+    font-size: 24px;
+  }
+
+  .background {
+    height: 300px;
+  }
+
+  .food-box {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .food-box-list {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .food-box-item {
+    width: 90%; 
+    color: #fff;
+    margin: 20px auto 0 auto;
+  }
+
+  .food-box > .food-box-list:first-child > .food-box-item:first-child {
+    margin-top: 0;
+  }
+
+  .food-box-item:last-child {
+    margin-right: auto;
+  }
+
+  .mac-story-box {
+    padding: 10px 0;
+  }
+
+  .mac-story-list {
+    width: 50%;
+  }
+
+  .mac-story-item img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .global-footer {
+    flex-wrap: wrap;
+  }
+
+  .mac-info-list {
+    text-align: right;
+  }
+
+  .mac-icon-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .mac-icon-list li {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    padding: 32px 20px;
+    background-color: #fff;
+    z-index: 200;
+    transform: translateX(-200px);
+    transition: transform 200ms ease-in-out; 
+  }
+
+  .sidebar.is-active {
+    transform: translateX(0); 
+  }
+
+ .side-menu-item a {
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+    color: #3f4150;
+  }
+
+  .overlay {
+    position: fixed;
+    /* top, left, bottom, right 좌표를 다 0으로 줄 경우, 네 꼭지점에서 서로 잡아 당기기 때문에 쫙 펴져서
+    width : 100%, height : 100%와 동일한 효과를 줄 수 있다. */
+    top: 0;
+    left: 0;
+    /* bottom: 0;
+    right: 0; */
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(63, 65, 80, 0.5);
+    /* display: none은 transiton이 먹지 않으므로 UI Animation 효과를 주고싶다면 visibility 사용 */
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms ease-in-out; 
+  }
+    
+  .overlay.is-active {
+    /* 눈에 보이게 함 / 디폴트값 : visible*/
+    visibility: visible;
+    opacity: 1;
+  }
+}
