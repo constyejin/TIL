@@ -5,21 +5,20 @@
 }
 
 .position {
+  position: relative;
   width: 500px;
   height: 800px;
-  margin: 0 auto;
+  margin: 100px auto;
   border: 3px solid darkblue;
 }
 
 /* 공중에 떠있는 애들중에 누가 맨 앞에오고 뒤에 올건지 정해주는 속성 : 정수 z-index가 높을수록 앞으로 */
 .position div {
   width: 200px;
-  height: 100px;
-  border: 1px solid #000;
+  padding: 40px 0;
+  font-weight: 700;
   text-align: center;
-  box-sizing: border-box;
-  /* normal : 웹브라우저에서 정한 기본값 1.2입니다. */
-  line-height: 100px;
+  border: 1px solid #000;
 }
 
 .box1 {
@@ -33,13 +32,6 @@
 .box3 {
   background: yellowgreen;
 }
-
-/* .txt {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-} */
 
 .cat-box {
   display: flex;
