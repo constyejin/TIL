@@ -1,105 +1,62 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>flex 실습예제1</title>
-  <link rel="stylesheet" href="./style/menu.css">
+  <title>layout 실습예제2</title>
   <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
-  <div class="wrapper">
-    <header>
-      <nav>
-        <h1 class="logo">
-          <a href="./index.html">
-            <img src="./images/applelogo.png" alt="logo">
-          </a>
-        </h1>
+  <header class="global-header">
+    <h1 class="logo">
+      <a href="./index.html">
+        <img src="./images/applelogo.png" alt="apple logo">
+      </a>
+    </h1>
+    <ul class="gnb-list">
+      <li><a href="./page1.html">menu1</a></li>
+      <li><a href="./page2.html">menu2</a></li>
+      <li><a href="./page3.html">menu3</a></li>
+    </ul>
+  </header>
 
-        <h2 class="visually-hidden">메뉴</h2>
-        <ul class="gnb-list">
-          <li class="gnb-item">
-            <a href="./menu1.html">menu1</a>
-          </li>
-          <li class="gnb-item">
-            <a href="./menu2.html">menu2</a>
-          </li>
-          <li class="gnb-item">
-            <a href="./menu3.html">menu3</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <div class="main-wrapper">
-        <section class="background">
-          <div class="front-txt">
-            <h2 class="front-title">Lorem ipsum dolor sit
-            </h2>
-            <p class="front-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta eos nisi, 
-              nemo deleniti veritatis mollitia unde <br>ipsam odit quas provident quae velit amet 
-              placeat facilis quaerat atque quasi, quidem maxime.
-            </p>
-            <button class="front-btn" type="button" onclick="alert('Hello')">버튼</button>
-          </div>
-        </section>
-
-        <section class="margin-top">
-          <div class="second-txt">
-            <h2>Lorem ipsum dolor sit.</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-              Soluta repudiandae eaque accusamus commodi quibusdam quis?
-            </p>
-          </div>
-        </section>
-
-        <section class="post-box">
-          <div class="post-card">
-            <h2>Lorem ipsum dolor sit.</h2>
-            <p class="post-card-txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, quam? 
-              Quas porro possimus nemo mollitia hic ut, architecto voluptatibus laborum!
-            </p>
-          </div>
-
-          <div class="post-card">
-            <h2>Lorem ipsum dolor sit.</h2>
-            <p class="post-card-txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, quam? 
-              Quas porro possimus nemo mollitia hic ut, architecto voluptatibus laborum!
-            </p>
-          </div>
-
-          <div class="post-card">
-            <h2>Lorem ipsum dolor sit.</h2>
-            <p class="post-card-txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, quam? 
-              Quas porro possimus nemo mollitia hic ut, architecto voluptatibus laborum!
-            </p>
-          </div>
-        </section>
+  <main>
+    <div class="back-img">
+      <div class="back-txt">
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea reiciendis nisi laudantium similique fugiat sint hic autem et vitae est!</p>
+        <button type="button">버튼</button>
       </div>
-    </main>
+    </div>
 
-    <footer>
-      <div class="global-footer">
-        <h3>Contact</h3>
-        <ul class="footer-list">
-          <li class="footer-item">
-            <a href="mailto:asosa78@naver.com">메일</a>
-          </li>
-          <li class="footer-item">
-            <a href="tel:01024586092">전화</a>
-          </li>
-          <li class="footer-item">
-            <a href="https://www.youtube.com">유튜브</a> 
-          </li>
-        </ul>
+    <div class="second-box">
+      <h2>Lorem ipsum dolor sit.</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam quo veritatis vero optio inventore modi?</p>
+    </div>
+
+    <div class="card-list">
+      <div>
+        <h2>Lorem, ipsum dolor.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae explicabo quidem porro neque exercitationem rerum iste consectetur quam, iusto suscipit blanditiis pariatur, tempora temporibus, deserunt voluptatibus et? Quia, unde nemo!</p>
       </div>
-    </footer>
-  </div>
+      <div>
+        <h2>Lorem, ipsum dolor.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid magni aliquam dolorum ipsam possimus pariatur voluptatibus similique. Quia itaque modi veritatis repellendus et temporibus commodi harum hic consectetur, necessitatibus quisquam.</p>
+      </div>
+      <div>
+        <h2>Lorem, ipsum dolor.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos totam nam quidem sequi numquam. Minus obcaecati minima excepturi rem? Neque alias similique quam error explicabo molestias animi in, expedita natus.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="global-footer">
+    <h3>Contact</h3>
+    <ul class="footer-link">
+      <li><a href="mailto:">메일</a></li>
+      <li><a href="tel:">전화</a></li>
+      <li><a href="">유튜브</a></li>
+    </ul>
+  </footer>
 </body>
 </html>
