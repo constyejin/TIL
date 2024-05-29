@@ -19,6 +19,10 @@ button {
   background-color: transparent;
 }
 
+.sm-only {
+  display: none;
+}
+
 .visually-hidden {
   display: none;
 }
@@ -294,17 +298,23 @@ footer {
 }
 
 @media screen and (max-width : 768px) {
+  .sm-only {
+    display: block;
+  }
+
+  .sm-hidden {
+    display: none;
+  }
+
   .logo img {
     width: 40px;
   }
 
-  .gnb-list {
-    width: 220px;
+  .sidebar-btn {
     margin-right: 20px;
-  }
-
-  .gnb-item a {
-    font-size: 14px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
   }
 
   .background {
@@ -352,6 +362,41 @@ footer {
 
   .top-btn i {
     font-size: 32px;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    z-index: 100;
+    width: 300px;
+    height: 100vh;
+    padding: 20px;
+    background-color: #fff;
+    transform: translateX(300px);
+    transition: transform 300ms ease-in-out;
+  }
+
+  .sidebar.active {
+    right: 0;
+    transform: translateX(0);
+  }
+
+  .sidebar-close-btn {
+    cursor: pointer;
+    font-size: 20px;
+    text-align: right;
+  }
+
+  .sidebar-list {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .sidebar-list li a {
+    display: inline-block;
+    color: #000;
+    padding: 10px 0;
   }
 }
 
