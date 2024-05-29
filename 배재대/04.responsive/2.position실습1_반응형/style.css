@@ -367,13 +367,14 @@ footer {
   .sidebar {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     width: 300px;
     height: 100vh;
     z-index: 100;
     padding: 20px;
     background-color: #fff;
-    transform: translateX(300px);
+    /* translateX 작동 방식 => 양수 : 오른쪽 / 음수 : 왼쪽 */
+    transform: translateX(-300px);
     transition: transform 300ms ease-in-out;
   }
 
