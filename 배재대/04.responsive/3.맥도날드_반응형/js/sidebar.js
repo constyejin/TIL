@@ -8,7 +8,7 @@ const sidebar = document.querySelector('.sidebar');
 const sidebarOverlay = document.querySelector('.overlay');
 
 // 어떤 실수를 할지 모르기 때문에 항상 작성 하고나서 내 의도대로 됐는지 확인 해보는 게 좋음 ->  로그 찍어보기
-console.log(gnbIconBtn, sidebar, sidebarOverlay);
+// console.log(gnbIconBtn, sidebar, sidebarOverlay);
 
 
 function openSidebar() {
@@ -59,3 +59,19 @@ sidebarOverlay.addEventListener('click', closeSidebar);
 //   sidebar.classList.remove('is-active');
 //   sidebarOverlay.classList.remove('is-active');
 // })
+
+
+// search
+let search = document.querySelector('.search');
+let searchOpenBtn = document.querySelector('.search-open-btn');
+let searchCloseIcon = document.querySelector('.search-close-btn');
+
+searchOpenBtn.addEventListener('click', function(e){
+  e.preventDefault();
+  search.classList.add('active');
+})
+
+searchCloseIcon.addEventListener('click', function(){
+  search.classList.remove('active');
+})
+
