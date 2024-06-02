@@ -48,6 +48,10 @@ nav {
   width: 70px;
 }
 
+.search-open-btn {
+  cursor: pointer;
+}
+
 .gnb-list {
   display: flex;
   justify-content: space-between;
