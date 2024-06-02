@@ -1,0 +1,20 @@
+.box {
+  width: 200px;
+  height: 200px;
+}
+
+.box1 {
+  /* display : none => 화면상 X , 공간 차지 X */
+  /* visibility : hideen => 화면상 X, 공간 차지 O */
+  /* display: none; */
+  visibility: hidden;
+  background-color: red;
+}
+
+.box2 {
+  background-color: green;
+}
+
+.box3 {
+  background-color: blue;
+}
