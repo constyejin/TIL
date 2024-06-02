@@ -1,6 +1,6 @@
 // 변수 선언 : var, let, const 
 // 변수명이 길더라도 명시적으로 적어주는 게 좋음
-const gnbIconBtn = document.querySelector('.gnb-icon-button');
+const sidebarOpenBtn = document.querySelector('.sidebar-open-btn');
 
 const sidebar = document.querySelector('.sidebar');
 // 자바스크립트가 처음이기 때문에 하나하나 이해하려고 하지말고 
@@ -33,7 +33,7 @@ function openSidebar() {
 }
 
 // 내가 sidebarMenuButton에게 클릭 이벤트를 추가할건데, 걔를 클릭 했을 때 openSidebar 함수를 실행 시켜줘
-gnbIconBtn.addEventListener('click', openSidebar);
+sidebarOpenBtn.addEventListener('click', openSidebar);
 
 
 // 콜백함수 : 함수를 활용하는 하나의 방식
@@ -66,8 +66,7 @@ let search = document.querySelector('.search');
 let searchOpenBtn = document.querySelector('.search-open-btn');
 let searchCloseIcon = document.querySelector('.search-close-btn');
 
-searchOpenBtn.addEventListener('click', function(e){
-  e.preventDefault();
+searchOpenBtn.addEventListener('click', function(){
   search.classList.add('active');
 })
 
