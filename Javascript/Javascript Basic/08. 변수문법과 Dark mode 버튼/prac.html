@@ -47,25 +47,35 @@
 <body>
   <nav>
     <h1>LOGO</h1>
-    <button type="button" class="btn">Dark 
-      <span>🔄</span>
-    </button>
+    <button type="button" class="btn">Dark</button>
   </nav>
 </body>
 
 <script>
-  count = 0
+  let count = 0
   document.querySelector('.btn').addEventListener('click', function(){
+    let modeTxt = document.querySelector('.btn').innerHTML;
+
     count = count + 1
     if(count % 2 == 0) {
-      this.innerHTML = 'Dark 🔄'
+      this.innerHTML = 'Dark'
       document.querySelector('nav').classList.remove('dark_mode')
       document.querySelector('.btn').classList.remove('dark_mode')
     } else {
-      this.innerHTML = 'Light 🔄'
+      this.innerHTML = 'Light'
       document.querySelector('nav').classList.add('dark_mode')
       document.querySelector('.btn').classList.add('dark_mode')
     }
+     
+    // if(modeTxt == 'Light') {
+    //   this.innerHTML = 'Dark'
+    //   document.querySelector('nav').classList.remove('dark_mode')
+    //   document.querySelector('.btn').classList.remove('dark_mode')
+    // } else {
+    //   this.innerHTML = 'Light'
+    //   document.querySelector('nav').classList.add('dark_mode')
+    //   document.querySelector('.btn').classList.add('dark_mode')
+    // }
   })
 </script>
 </html>
