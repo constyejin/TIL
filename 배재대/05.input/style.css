@@ -1,0 +1,18 @@
+.wrapper {
+  margin: 100px;
+}
+
+.info-table tr {
+  margin-top: 30px;
+}
+
+.name-table  {
+  margin: 30px 0;
+  /* collapse : border를 한 줄로 합치기*/
+  /* separate : border 분리 (기본값) */
+  border-collapse: collapse;
+}
+
+.info-table tr td:first-child{
+  width: 80px;
+}
