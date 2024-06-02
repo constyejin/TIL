@@ -244,18 +244,22 @@ footer {
 }
 
 .search {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 300;
-  background-color: rgba(0, 0, 0, .8);
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  background-color: rgba(0, 0 , 0, 0.8);
+  transition: all 300ms;
 }
 
 .search.active {
-  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .search > div {
@@ -296,6 +300,8 @@ footer {
   margin-top: 100px;
   background-color: #ffbc0d;
 }
+
+
 
 @media screen and (max-width : 1200px) { 
   nav {
@@ -359,6 +365,7 @@ footer {
   }
 
   .sidebar-open-btn i {
+    cursor: pointer;
     font-size: 24px;
   }
 
@@ -418,16 +425,16 @@ footer {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 300;
     width: 200px;
     height: 100vh;
     padding: 32px 20px;
     background-color: #fff;
-    z-index: 200;
     transform: translateX(-200px);
     transition: transform 200ms ease-in-out; 
   }
 
-  .sidebar.is-active {
+  .sidebar.active {
     transform: translateX(0); 
   }
 
@@ -448,15 +455,15 @@ footer {
     right: 0;
     /* width: 100%;
     height: 100%; */
-    z-index: 100;
+    z-index: 200;
     background-color: rgba(0, 0 , 0, 0.8);
     /* display: none은 transiton이 먹지 않으므로 UI Animation 효과를 주고싶다면 visibility 사용 */
     visibility: hidden;
     opacity: 0;
     transition: all 300ms ease-in-out; 
   }
-    
-  .overlay.is-active {
+
+  .overlay.active {
     /* 눈에 보이게 함 / 디폴트값 : visible*/
     visibility: visible;
     opacity: 1;
