@@ -105,8 +105,8 @@ nav {
 
 .food-box-list {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin-top: 70px;
 }
 
@@ -116,6 +116,8 @@ nav {
   color: #fff;
   border-radius: 10px;
   text-align: center;
+  /* offset-x | offset-y | blur | color */
+  /* offset-x | offset-y | blur | spread | color */
   box-shadow: 3px 3px 5px #e1e1e1;
   overflow: hidden;
 }
@@ -143,10 +145,10 @@ nav {
   position: sticky;
   bottom: 0;
   z-index: 10;
+  margin-top: 70px;
+  padding: 20px 0;
   text-align: center;
   background-color: #fff;
-  margin-top: 80px;
-  padding: 20px 0;
   border-top: 2px solid rgb(255, 213, 23);
 }
 
