@@ -3,8 +3,6 @@
 const sidebarOpenBtn = document.querySelector('.sidebar-open-btn');
 
 const sidebar = document.querySelector('.sidebar');
-// 자바스크립트가 처음이기 때문에 하나하나 이해하려고 하지말고 
-// 저런 식으로 작성을 하는구나 정도만 느껴도 충분함 
 const sidebarOverlay = document.querySelector('.overlay');
 
 // 어떤 실수를 할지 모르기 때문에 항상 작성 하고나서 내 의도대로 됐는지 확인 해보는 게 좋음 ->  로그 찍어보기
