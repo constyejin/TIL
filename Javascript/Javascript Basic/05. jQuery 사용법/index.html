@@ -96,6 +96,19 @@
       $('.hello').html('제이쿼리');
       $('.hello').css('color', 'blue');
 
+      let hello = document.querySelectorAll('.hello');
+
+      hello.forEach((item) => {
+        item.innerHTML = '바꿨지롱!';
+      })
+
+      for(let i = 0; i < hello.length; i++) {
+        if(i % 2 == 0) {
+          document.querySelectorAll('.hello')[i].style.color = 'red'
+        }
+      }
+
+
       // addEventListener 차이
       // Vanilla JS (외부 라이브러리나 프레임워크를 사용하지 않은 순수 Javascript)
       // document.querySelector('.navbar-toggler').addEventListener('click', function(){
