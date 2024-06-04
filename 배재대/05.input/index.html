@@ -179,16 +179,28 @@
 						<script>
 							let year = new Date();
 							year = year.getFullYear();
+
 							for(i=1900; i<=year; i++){
-								$("#year").append("<option>"+i+"</option>");
+								// $("#year").append("<option>"+i+"</option>");
+								
+								let option = document.createElement('option');
+								option.innerHTML = i;
+								document.getElementById('year').appendChild(option);
 							}
 
 							for(i=1; i<=12; i++){
-								$("#month").append("<option>"+i+"</option>");
+								// $("#month").append("<option>"+i+"</option>");
+								let option = document.createElement('option');
+								option.innerHTML = i;
+								document.getElementById('month').appendChild(option);
 							}
 
 							for(i=1; i<=31; i++){
-								$("#date").append("<option>"+i+"</option>");
+								// $("#date").append("<option>"+i+"</option>");
+
+								let option = document.createElement('option');
+								option.innerHTML = i;
+								document.getElementById('date').appendChild(option);
 							}
 						</script>
 					</tr>
