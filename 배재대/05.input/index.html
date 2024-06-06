@@ -20,21 +20,19 @@
 			</div>
 			<hr>
 			<!-- 유저가 입력하는 정보를 받기 위한 틀
-					form 태그는 입력된 데이터를 한 번에 서버로 전송한다. -->
-			<!-- action : 데이터를 서버로 전송할 때 데이터가 도착할 URL을 작성한다. -->
-			<!-- 웹 페이지 주소 뒤에 추가적으로 전달될 데이터 정보가 연결된다. -->
-			<!-- method : 데이터가 서버로 전송될 때 사용되는 HTTP 메소드를 선택한다. GET, POST-->
+					form 태그는 입력된 데이터를 서버로 전송한다. -->
+
+			<!-- action : 데이터가 전송될 서버 URL을 명시한다. -->
+			<!-- method : 데이터를 전송하는 방식(HTTP 메소드)을 지정한다. -->
 			
-			<!-- GET, POST 둘 다 브라우저에서 폼 데이터를 서버로 전송하는 기능을 수행하지만 방식이 다르다 -->
+			<!-- GET, POST 데이터를 서버로 전송하는 기능을 수행하지만 방식이 다르다 -->
 			<!-- 
-				1. GET : 폼으로 전송한 데이터가 URL 끝에 붙어서 눈에 보이게 전송된다. 
-					- 데이터가 외부에 노출되고 브라우저에 기록이 남기 때문에 보안에 취약하다.
-					- GET 요청은 데이터를 요청하는 데 사용된다. (수정 X)
+				1. GET : 폼으로 전송한 데이터가 URL 끝에 붙어서 사용자에게 값이 보인다. 
+					- 외부에 노출되고 브라우저에 기록이 남기 때문에 보안이 취약하다.
 			-->
 			<!-- 
 				2. POST : 내부적으로 보이지 않게 데이터를 전송한다. 
 					- 브라우저에 기록이 남지 않기 때문에 개인정보 또는 보안이 중요한 경우 사용된다.
-					- POST는 데이터를 수정, 삭제할 때 사용한다.
 			-->
 			<form action="./action.html" method="">
 				<!-- table : 테이블을 만드는 태그 -->
@@ -54,9 +52,9 @@
 						<td>첫번째 칸</td>
 						<td>두번째 칸</td>
 					</tr>
-				</table>
+				</table> -->
 
-				<table class="name-table" border="1">
+				<!-- <table class="name-table" border="1">
 					<tr>
 						<th>번호</th>
 						<th>이름</th>
@@ -74,13 +72,15 @@
 						<td>lee</td>
 					</tr>
 				</table> -->
-				<input type="color">
 
 				<!-- input 태그란 사용자로부터 정보를 받는 용도로 사용하는 태그 -->
 				<!-- type이라는 속성을 통해 여러 입력 양식을 사용 할 수 있다. -->
 				<table class="info-table">
 					<tr>
 						<td>
+							<!-- label : 폼 요소와 연결, 접근성 향상
+								for 속성 값은 연결할 폼 요소의 id 속성 값과 동일해야 한다.
+							-->
 							<label for="id">아이디</label>
 						</td>
 						<td>
@@ -88,6 +88,7 @@
 							<button type="button">아이디 중복체크</button>
 						</td>
 					</tr>
+
 					<tr>
 						<td>
 							<label for="pw">비밀번호</label>
@@ -96,6 +97,7 @@
 							<input id="pw" required type="password" name="userpw">
 						</td>
 					</tr>
+
 					<tr>
 						<td>
 							<label for="name">이름</label>
@@ -104,16 +106,18 @@
 							<input id="name" required type="text" name="username">
 						</td>
 					</tr>
+
 					<tr>
 						<td><label for="email">이메일</label></td>
 						<td><input id="email" required type="email" name="useremail"></td>
 					</tr>
+
 					<tr>
 						<td>
 							<label for="nation">국적</label>
 						</td>
 						<td>
-							<!-- name 속성은 폼이 제출된 후 form에서 데이터를 참조하기 위해 사용된다. -->
+							<!-- name으로 전송된 데이터를 식별한다. -->
 							<select id="nation" name="nation">
 								<!-- option 태그를 그룹화 -->
 								<optgroup label="Asia">
@@ -158,12 +162,12 @@
 							</select>
 						</td>
 					</tr>
+
 					<tr>
 						<td>
 							<label>생년월일</label>
 						</td>
 						<td>
-							<!-- 해당 옵션이 선택될때 서버로 제출되는 값 = 서버로 보내지는 값 -->
 							<span><select name="year" id="year"></select>년</span>
 							<span><select name="month" id="month"></select>월</span>
 							<span><select name="date" id="date"></select>일</span>
@@ -173,8 +177,6 @@
 							<!-- 프레임워크는 만든 사람이 짜놓은 틀 안에서 수동적으로 동작하기 때문에 제어 흐름이 프레임워크에게 있다 -->
 							<!-- 자바스크립트 라이브러리 : React -->
 							<!-- 라이브러리는 사용하는 개발자에게 제어 흐름이 있어서 능동적으로 사용할 수 있다. -->
-
-							<!-- Most popular javascirpt frameworks -->
 						</td>
 						<script>
 							let year = new Date();
@@ -204,6 +206,7 @@
 							}
 						</script>
 					</tr>
+
 					<tr>
 						<td>성별</td>
 						<td>
@@ -213,6 +216,7 @@
 							<span><input type="radio" name="gender" value="1" />여자</span>
 						</td>
 					</tr>
+
 					<tr>
 						<td>전화번호</td>
 						<td>
@@ -229,6 +233,7 @@
 							<input type="text" name="phone3" maxlength="4" />
 						</td>
 					</tr>
+
 					<tr>
 						<td>희망연봉</td>
 						<td>
@@ -238,6 +243,7 @@
 							<input type="range" name="salary" min="200" max="2000" step="200" />
 						</td>
 					</tr>
+
 					<tr>
 						<td>취미</td>
 						<td>
@@ -259,12 +265,14 @@
 							<label><input type="checkbox" name="hobby" value="go" />바둑</label>
 						</td>
 					</tr>
+
 					<tr>
 						<td>증명사진</td>
 						<td>
 							<input type="file">
 						</td>
 					</tr>
+
 					<tr>
 						<td>자기소개서</td>
 						<td><textarea rows="10" placeholder="400자 미만으로 작성하시오."></textarea></td>
