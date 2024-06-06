@@ -8,3 +8,16 @@
   /* separate : border 분리 (기본값) */
   border-collapse: collapse;
 }
+
+.birth span {
+  margin-right: 8px;
+}
+
+.id-alert {
+  display: none;
+  color: red;
+}
+
+.id-alert.active {
+  display: inline-block;
+}
