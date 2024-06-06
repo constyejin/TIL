@@ -34,7 +34,9 @@
 				2. POST : 내부적으로 보이지 않게 데이터를 전송한다. 
 					- 브라우저에 기록이 남지 않기 때문에 개인정보 또는 보안이 중요한 경우 사용된다.
 			-->
-			<form action="./action.html" method="">
+			
+			<!-- method 값이 비어있을 때 기본값 : GET -->
+			<form id="join-form" action="./action.html" method="">
 				<!-- table : 테이블을 만드는 태그 -->
 				<!-- th(table head) : 표의 제목을 만드는 태그 -->
 				<!-- tr(table row) : 표의 행(가로줄)을 만드는 태그 -->
@@ -86,6 +88,7 @@
 						<td>
 							<input placeholder="아이디를 입력하세요" id="id" required type="text" name="userid">
 							<button type="button">아이디 중복체크</button>
+							<span class="id-alert">아이디를 8글자 이상 입력하세요.</ㄴ>
 						</td>
 					</tr>
 
@@ -167,10 +170,10 @@
 						<td>
 							<label>생년월일</label>
 						</td>
-						<td>
-							<span><select name="year" id="year"></select>년</span>
-							<span><select name="month" id="month"></select>월</span>
-							<span><select name="date" id="date"></select>일</span>
+						<td class="birth">
+							<span><select name="year" id="year"></select> 년</span>
+							<span><select name="month" id="month"></select> 월</span>
+							<span><select name="date" id="date"></select> 일</span>
 							<!-- jQuery는 웹 사이트에서 자바스크립트를 쉽고 간단한게 사용할 수 있게 도와주는 오픈소스 자바스크립트 라이브러리 -->
 							<!-- 프레임워크 / 라이브러리 차이점 : 프로그램의 흐름에 대한 제어 권한-->
 							<!-- 자바스크립트 프레임워크 : Angular, Vue -->
@@ -178,33 +181,6 @@
 							<!-- 자바스크립트 라이브러리 : React -->
 							<!-- 라이브러리는 사용하는 개발자에게 제어 흐름이 있어서 능동적으로 사용할 수 있다. -->
 						</td>
-						<script>
-							let year = new Date();
-							year = year.getFullYear();
-
-							for(i=1900; i<=year; i++){
-								// $("#year").append("<option>"+i+"</option>");
-								
-								let option = document.createElement('option');
-								option.innerHTML = i;
-								document.getElementById('year').appendChild(option);
-							}
-
-							for(i=1; i<=12; i++){
-								// $("#month").append("<option>"+i+"</option>");
-								let option = document.createElement('option');
-								option.innerHTML = i;
-								document.getElementById('month').appendChild(option);
-							}
-
-							for(i=1; i<=31; i++){
-								// $("#date").append("<option>"+i+"</option>");
-
-								let option = document.createElement('option');
-								option.innerHTML = i;
-								document.getElementById('date').appendChild(option);
-							}
-						</script>
 					</tr>
 
 					<tr>
@@ -279,7 +255,7 @@
 					</tr>
 					<tr>
 						<td>
-							<input type="submit" />
+							<input id="submit-btn" type="submit" />
 						</td>
 						<td>
 							<input type="reset" />
@@ -288,6 +264,8 @@
 				</table>
 			</form>
 		</div>
+
+		<script src="./script.js"></script>
 	</body>
 </html>
 
