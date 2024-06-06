@@ -14,6 +14,7 @@ submitBtn.addEventListener('click', function(e) {
   }
 })
 
+
 // 한국 표준시 (Korea Standard Time)
 let kst = new Date();
 let getYear = kst.getFullYear(); // 년
@@ -53,4 +54,17 @@ for(let i = 1; i <= 31; i++){
   // $("#date").append("<option>"+i+"</option>");
 }
 
-console.log()
+
+let checkboxes = document.querySelectorAll('input[type="checkbox"][name="hobby"]');
+let maxChecked = 5;
+
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener('change', function() {
+    let checkedCount = document.querySelectorAll('input[type="checkbox"][name="hobby"]:checked').length;
+
+    if (checkedCount > maxChecked) {
+      checkbox.checked = false; // 현재 체크박스를 체크 해제
+      alert('최대 5개까지만 선택할 수 있습니다.');
+    }
+  });
+});
