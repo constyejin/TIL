@@ -18,7 +18,7 @@ submitBtn.addEventListener('click', function(e) {
 // 한국 표준시 (Korea Standard Time)
 let kst = new Date();
 let getYear = kst.getFullYear(); // 년
-let getMonth = kst.getMonth(); // 월
+let getMonth = kst.getMonth() + 1; // 월
 let getDate = kst.getDate(); // 일
 
 let year = document.getElementById('year');
