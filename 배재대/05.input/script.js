@@ -1,17 +1,17 @@
 let submitBtn = document.getElementById('submit-btn');
 let joinForm = document.getElementById('join-form');
 let idInput = document.getElementById('id');
-let idAlert = document.querySelector('.id-alert');
+let idBox = document.getElementById('id-box');
+let idWran = document.getElementById('id-warn');
 
-submitBtn.addEventListener('click', function(e) {
-  // keyup : 키를 떼었을 때 이벤트가 발생 | 자바스크립트 이벤트 종류
-  if(idInput.value.length <= 8) {
-    e.preventDefault();
-    // alert('아이디를 8글자 이상 입력하세요.');
-    idAlert.classList.add('active');
-  } else {
-    joinForm.submit();
-  }
+// keyup : 키보드 눌렀다 놓을 때 발생
+// focusout 
+idInput.addEventListener('keyup', function() {
+    if(idInput.value.length <= 8) {
+      idWran.innerHTML = `<span class="txt-red">아이디를 8글자 이상 입력하세요.</span>`;
+    } else {
+      idWran.innerHTML = `<span class="txt-green">멋진 아이디네요!</span>`;
+    }
 })
 
 
