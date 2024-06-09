@@ -37,44 +37,6 @@
 			
 			<!-- method 값이 비어있을 때 기본값 : GET -->
 			<form id="join-form" action="./action.html" method="GET">
-				<!-- table : 테이블을 만드는 태그 -->
-				<!-- th(table head) : 표의 제목을 만드는 태그 -->
-				<!-- tr(table row) : 표의 행(가로줄)을 만드는 태그 -->
-				<!-- td(table data) : 표의 셀을 만드는 태그 -->
-				<!-- <table border="1">
-					<tr>
-						<th>테이블</th>
-						<th>만들기</th>
-					</tr>
-					<tr>
-						<td>첫번째 칸</td>
-						<td>두번째 칸</td>
-					</tr>
-					<tr>
-						<td>첫번째 칸</td>
-						<td>두번째 칸</td>
-					</tr>
-				</table> -->
-
-				<!-- <table class="name-table" border="1">
-					<tr>
-						<th>번호</th>
-						<th>이름</th>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>이예진</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>yejin</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>lee</td>
-					</tr>
-				</table> -->
-
 				<!-- input 태그란 사용자로부터 정보를 받는 용도로 사용하는 태그 -->
 				<!-- type이라는 속성을 통해 여러 입력 양식을 사용 할 수 있다. -->
 				<table class="info-table">
@@ -98,6 +60,17 @@
 						</td>
 						<td>
 							<input id="pw" required type="password" name="userpw">
+							<p id="pw-warn"></p>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<label for="pwchk">비밀번호 재확인</label>
+						</td>
+						<td>
+							<input id="pwchk" required type="password" name="userpwchk">
+							<p id="pwchk-warn"></p>
 						</td>
 					</tr>
 
