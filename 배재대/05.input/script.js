@@ -1,17 +1,48 @@
-let submitBtn = document.getElementById('submit-btn');
 let joinForm = document.getElementById('join-form');
+let submitBtn = document.getElementById('submit-btn');
+
 let idInput = document.getElementById('id');
 let idBox = document.getElementById('id-box');
-let idWran = document.getElementById('id-warn');
+let idWarn = document.getElementById('id-warn');
+
+let pwInput = document.getElementById('pw');
+let pwWarn = document.getElementById('pw-warn');
+
+let pwChkInput = document.getElementById('pwchk');
+let pwChkWarn = document.getElementById('pwchk-warn');
+
+// 복합 대입 연산자
+let idVeri = pwVeri = pwChkVeri = false;
 
 // keyup : 키보드 눌렀다 놓을 때 발생
 // focusout 
-idInput.addEventListener('keyup', function() {
+idInput.addEventListener('focusout', function() {
     if(idInput.value.length <= 8) {
-      idWran.innerHTML = `<span class="txt-red">아이디를 8글자 이상 입력하세요.</span>`;
+      idWarn.innerHTML = `<span class="txt-red">아이디를 8글자 이상 입력하세요.</span>`;
     } else {
-      idWran.innerHTML = `<span class="txt-green">멋진 아이디네요!</span>`;
+      idWarn.innerHTML = `<span class="txt-green">멋진 아이디네요!</span>`;
+      idVeri = true;
     }
+})
+
+pwInput.addEventListener('focusout', function() {
+  let pwExp = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+  // test => 문자열과 정규 표현식 일치 여부를 Boolean으로 반환하는 메서드 (false(0), true(1))
+  if(!pwExp.test(pwInput.value)) {
+    pwWarn.innerHTML = `<span class="txt-red">8~16자 영문 대 소문자, 숫자를 사용하세요.</span>`;
+  } else {
+     pwWarn.innerHTML = '';
+     pwVeri = true;
+  }
+})
+
+pwChkInput.addEventListener('focusout', function() {
+  if(pwInput.value == pwChkInput.value) {
+    pwChkWarn.innerHTML = '';
+    pwChkVeri = true;
+  } else {
+    pwChkWarn.innerHTML = `<span class="txt-red">비밀번호가 일치하지 않습니다.</span>`;
+  }
 })
 
 
@@ -60,6 +91,7 @@ for(let i = 1; i <= 31; i++){
 let checkboxes = document.querySelectorAll('input[type="checkbox"][name="hobby"]');
 let maxChecked = 5;
 
+// 요소의 값을 변경할 때 발생
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', function() {
     let checkedCount = document.querySelectorAll('input[type="checkbox"][name="hobby"]:checked').length;
@@ -70,3 +102,18 @@ checkboxes.forEach((checkbox) => {
     }
   });
 });
+
+
+joinForm.addEventListener('click', function(e) {
+  if(idVeri && pwVeri && pwChkVeri) {
+    joinForm.submit();
+  } else {
+    // 기본 동작인 폼 제출 방지
+    e.preventDefault();
+
+    //  focusout 이벤트 강제 발생
+    document.querySelectorAll('input').forEach(function(input){
+      input.dispatchEvent(new Event("focusout"));
+    })
+  }
+})
