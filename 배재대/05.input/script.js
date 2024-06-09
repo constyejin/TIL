@@ -18,6 +18,8 @@ idInput.addEventListener('keyup', function() {
 // 한국 표준시 (Korea Standard Time)
 let kst = new Date();
 let getYear = kst.getFullYear(); // 년
+// Date 객체에서 getMonth() 메서드를 호출하면 반환되는 값은 0부터 시작한다. 
+// 즉, 1월은 0, 2월은 1, 실제 month를 얻으려면 getMonth()의 반환값에 1을 더해야 한다.
 let getMonth = kst.getMonth() + 1; // 월
 let getDate = kst.getDate(); // 일
 
