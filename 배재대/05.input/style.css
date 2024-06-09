@@ -2,6 +2,14 @@
   margin: 100px;
 }
 
+.txt-red {
+  color: red;
+}
+
+.txt-green {
+  color: green;
+}
+
 .name-table  {
   margin: 30px 0;
   /* collapse : border를 한 줄로 합치기*/
@@ -11,13 +19,4 @@
 
 .birth span {
   margin-right: 8px;
-}
-
-.id-alert {
-  display: none;
-  color: red;
-}
-
-.id-alert.active {
-  display: inline-block;
 }
