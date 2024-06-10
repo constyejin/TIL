@@ -110,10 +110,11 @@ joinForm.addEventListener('click', function(e) {
   } else {
     // 기본 동작인 폼 제출 방지
     e.preventDefault();
+    alert('빈 칸을 입력하세요.');
 
-    //  focusout 이벤트 강제 발생
-    document.querySelectorAll('input').forEach(function(input){
-      input.dispatchEvent(new Event("focusout"));
-    })
+    // //  focusout 이벤트 강제 발생
+    // document.querySelectorAll('input').forEach(function(input){
+    //   input.dispatchEvent(new Event("focusout"));
+    // })
   }
 })
