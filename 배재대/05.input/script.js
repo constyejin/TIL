@@ -99,18 +99,18 @@ checkboxes.forEach((checkbox) => {
     if (checkedCount > maxChecked) {
       checkbox.checked = false; // 현재 체크박스를 체크 해제
       alert('최대 5개까지만 선택할 수 있습니다.');
-    }
+    } 
   });
 });
 
 
-joinForm.addEventListener('click', function(e) {
+submitBtn.addEventListener('click', function(e) {
   if(idVeri && pwVeri && pwChkVeri) {
     joinForm.submit();
   } else {
     // 기본 동작인 폼 제출 방지
     e.preventDefault();
-    alert('빈 칸을 입력하세요.');
+    // alert('빈 칸을 입력하세요.')
 
     // //  focusout 이벤트 강제 발생
     // document.querySelectorAll('input').forEach(function(input){
