@@ -13,7 +13,7 @@ $flex-map: (
 );
 
 @function _get-flex-value($key) {
-  // map-get: Sass가 제공하는 내장함
+  // map-get: Map에서 특정 key의 value를 반환하는 Sass 내장함수
   @return map-get($flex-map, $key);
 }
 
