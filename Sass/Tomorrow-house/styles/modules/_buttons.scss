@@ -1,0 +1,50 @@
+%btn-base {
+  @include inline-flexbox;
+  padding: 0 8px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+// Button => Styles, Sizes, States
+.btn-primary {
+  @extend %btn-base;
+  color: $white;
+  background-color: $blue;
+}
+
+.btn-secondary {
+  @extend %btn-base;
+  color: $primary;
+  background-color: $border;
+}
+
+.btn-outlined {
+  @extend %btn-base;
+  color: $blue;
+  background-color: $white;
+  border: 1px solid $blue;
+}
+
+.btn-ghost {
+  @extend %btn-base;
+  color: $primary;
+  background-color: transparent;
+}
+
+// NOTE : Buttons Sizes
+// 버튼 width는 고정으로 주지 않는 게 좋다
+.btn-32 {
+  height: 32px;
+}
+
+.btn-40 {
+  height: 40px;
+}
+
+.btn-48 {
+  height: 48px;
+}
+
+.btn-55 {
+  height: 55px;
+}
