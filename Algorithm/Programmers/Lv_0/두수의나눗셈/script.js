@@ -1,3 +1,4 @@
+// Arrow Function return값이 하나일 경우 중괄호랑 같이 생략 가능.
 const solution = (num1, num2) => Math.trunc((num1 / num2) * 1000);
 
 console.log(solution(3, 2)) // 1500
