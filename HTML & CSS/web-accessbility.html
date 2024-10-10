@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web Accessbility</title>
+  <style>
+    .visually-hidden {
+      display: none;
+    }
+
+    .logo img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
   <div>
@@ -40,8 +52,10 @@
   </div>
 
   <header>
-    <h1 class="logo"
-      <img src="https://www.maskerix.com/wp-content/uploads/2019/07/nope-mr-and-mrs-potato-head-costume.jpg" alt="mrs.potato">
+    <h1 class="logo">
+      <a href="https://www.pixar.com/">
+        <img src="https://www.maskerix.com/wp-content/uploads/2019/07/nope-mr-and-mrs-potato-head-costume.jpg" alt="mrs.potato">
+      </a>
     </h1>
   </header>
 
@@ -66,20 +80,20 @@
   <!-- role -->
   <nav aria-label="Main Navigation">
     <ul>
-      <li><a href="...">Home</a></li>
-      <li><a href="...">Shop</a></li>
+      <li><a href="javascript:;">Home</a></li>
+      <li><a href="javascript:;">Shop</a></li>
       <li class="has-submenu">
-        <a aria-expanded="false" aria-haspopup="true" href="...">SpaceBears</a>
+        <!-- aria-expanded : true(해당 요소가 펼쳐져 있음) / false(해당 요소가 접혀 있음) -->
+        <!-- aris-haspopup : true(해당 요소가 하위 팝업이나 메뉴를 가지고 있음) / false(해당 요소가 하위 팝업이나 메뉴를 가지고 있지 않음) -->
+        <a aria-expanded="false" aria-haspopup="true" href="javascript:;">SpaceBears</a>
         <ul>
-            <li><a href="...">SpaceBear 6</a></li>
-            <li><a href="...">SpaceBear 6 Plus</a></li>
+            <li><a href="javascript:;">SpaceBear 6</a></li>
+            <li><a href="javascript:;">SpaceBear 6 Plus</a></li>
         </ul>
       </li>
-      <li><a href="...">MarsCars</a></li>
-      <li><a href="...">Contact</a></li>
+      <li><a href="javascript:;">MarsCars</a></li>
+      <li><a href="javascript:;">Contact</a></li>
     </ul>
   </nav>
-
-
 </body>
 </html>
