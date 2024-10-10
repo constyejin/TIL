@@ -3,13 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Web Accessbility</title>
 </head>
 <body>
+  <div>
+    <h1>WAI_ARIA</h1>
+    <b>Web Accessbility Initiative's Accessible Rich Internet Applications</b>
+    <p>스크린리더가 브라우저를 읽을 때 각 요소가 어떤 역할을 하는지 알 수 있도록 한다.</p>
+    <p>role 속성으로 태그 역할을 지정하고, aria-label로 이름표를 붙여주면 스크린 리더가 읽을 수 있다.</p>
+  </div>
+
+  <hr>
+
+  <div>
+    <div>
+      <h3>role</h3>
+      <p>role은 태그의 역할을 알려주는 속성(attribute)이다</p>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques">MDN : role</a>
+    </div>
+    
+    <div>
+      <h3>aria-label</h3>
+      <p>aria-label은 태그가 가지고 있는 의미를 적어주는 이름표 역할을 한다.</p>
+      <ol>
+        <li>role처럼 특정 값이 정해져 있는 게 아니라, 브라우저가 스크린 리더 사용자에게 전달 할 내용이 들어간다.</li>
+        <li>시멘틱 태그이거나, role 속성 값이 상호작용 하는 값일 때 aira-label을 사용할 수 있다.</li>
+        <li>시맨틱 태그가 아닐 경우, role 속성이 없으면 aria-label 사용 불가.</li>
+        <li>시멘틱 태그에는 가능한 role을 사용하지 않는다.</li>
+        <li>시멘틱 태그가 의미하는 것을 aria-label로 나타낼 필요없다.</li>
+      </ol>
+
+      <div>
+        <a href="#" aria-label="펼치기" role="button"><i class="ico ico-arrow"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <h1 class="logo"
+      <img src="https://www.maskerix.com/wp-content/uploads/2019/07/nope-mr-and-mrs-potato-head-costume.jpg" alt="mrs.potato">
+    </h1>
+  </header>
+
   <time datetime="2015-08-07">7 Aug 2015</time>
 
+  <!-- img 태그 alt 속성 필수 -->
+
+  <!-- Emmet Documentation -->
+  <!-- https://docs.emmet.io/abbreviations/syntax/ -->
+  <!-- 태그 안에 텍스트 {}, 숫자 $-->
+  <!-- div*3>{section$} -->
+  <section>
+    <h2 class="visually-hidden">title</h2>
+    <div>section1</div>
+    <div>section2</div>
+    <div>section3</div>
+  </section>
   <!-- 위젯이 키보드 이벤트에 응답하는 방식과 같은 추가 코드 -->
-  <nav aria-label="Main Navigation" role="navigation">
+  <!-- aria-label : 시각 장애가 있는 사용자를 포함하여 모든 사용자에게 요소의 목적과 기능을 명확하게 전달한다-->
+  <!-- 웹 페이지 콘텐츠를 읽어주는 보조 기술 : aria-label 속성에 지정된 텍스트는 스크린 리더가 해당 요소를 설명할 때 사용된다.  -->
+  
+  <!-- role -->
+  <nav aria-label="Main Navigation">
     <ul>
       <li><a href="...">Home</a></li>
       <li><a href="...">Shop</a></li>
@@ -24,5 +79,7 @@
       <li><a href="...">Contact</a></li>
     </ul>
   </nav>
+
+
 </body>
 </html>
