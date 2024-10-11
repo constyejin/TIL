@@ -2,11 +2,6 @@
 // https://stylelint.io/user-guide/rules
 
 
-{
-  "extends": "stylelint-config-standard-scss"
-}
-
-
 // {
 //   "rules": {
 //       "at-rule-empty-line-before": [ "always", {
