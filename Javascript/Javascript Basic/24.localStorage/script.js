@@ -59,7 +59,7 @@ console.log(JSON.parse(getItme)[0]);
 // - cart 항목 있으면 array 수정
 let buyBtn = document.querySelectorAll('.buy');
 
-buyBtn.forEach(function(item, i) {
+buyBtn.forEach(function(item) {
   item.addEventListener('click', function() {
     let title = item.previousElementSibling.previousElementSibling.innerHTML;
     
