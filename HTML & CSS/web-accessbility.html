@@ -5,8 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web Accessbility</title>
   <style>
+    a {
+      color: #666;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 300ms ease-in-out;
+
+      &:hover {
+        color: dodgerblue;
+      }
+    }
+
+    ul li {
+      list-style: none;
+    }
+
     .visually-hidden {
       display: none;
+    }
+
+    .txt-red {
+      color: red;
     }
 
     .logo img {
@@ -20,7 +39,9 @@
 <body>
   <div>
     <h1>WAI_ARIA</h1>
-    <b>Web Accessbility Initiative's Accessible Rich Internet Applications</b>
+    <b class="wai-aria">
+      Web Accessbility Initiative's Accessible Rich Internet Applications
+    </b>
     <p>스크린리더가 브라우저를 읽을 때 각 요소가 어떤 역할을 하는지 알 수 있도록 한다.</p>
     <p>role 속성으로 태그 역할을 지정하고, aria-label로 이름표를 붙여주면 스크린 리더가 읽을 수 있다.</p>
   </div>
@@ -31,7 +52,7 @@
     <div>
       <h3>role</h3>
       <p>role은 태그의 역할을 알려주는 속성(attribute)이다</p>
-      <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques">MDN : role</a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques" target="_blank">MDN : role</a>
     </div>
     
     <div>
@@ -51,6 +72,8 @@
     </div>
   </div>
 
+  <hr>
+
   <header>
     <h1 class="logo">
       <a href="https://www.pixar.com/">
@@ -58,6 +81,8 @@
       </a>
     </h1>
   </header>
+
+  <hr>
 
   <time datetime="2015-08-07">7 Aug 2015</time>
 
@@ -95,5 +120,9 @@
       <li><a href="javascript:;">Contact</a></li>
     </ul>
   </nav>
+  <script>
+    let waiAria = document.querySelector('.wai-aria').innerHTML;
+    
+  </script>
 </body>
 </html>
