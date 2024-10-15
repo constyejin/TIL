@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot');
+  src:  url('../fonts/icomoon.eot#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf') format('truetype'),
+    url('../fonts/icomoon.woff') format('woff'),
+    url('../fonts/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ic-holdem:before {
+  content: "\e900";
+}
+.ic-home:before {
+  content: "\e901";
+}
+.ic-minigame-1:before {
+  content: "\e902";
+}
+.ic-minigame-2:before {
+  content: "\e903";
+}
+.ic-minigame-3:before {
+  content: "\e904";
+}
+.ic-minigame:before {
+  content: "\e905";
+}
+.ic-slot:before {
+  content: "\e906";
+}
+.ic-ball:before {
+  content: "\e907";
+}
+.ic-sub:before {
+  content: "\e908";
+}
