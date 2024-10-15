@@ -15,7 +15,7 @@
 html, 
 body {
   font-family: Pretendard, sans-serif;
-  color: var(--mid-brown);
+  color: var(--primary);
 }
 
 a {
@@ -42,7 +42,7 @@ button {
 }
 
 .dark-brown-txt {
-  color : var(--dark-brown);
+  color : var(--tertiary);
 }
 
 .wrap {
@@ -62,7 +62,7 @@ button {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  color: var(--mid-brown);
+  color: var(--primary);
   line-height: normal;
 
   i {
@@ -90,7 +90,7 @@ button {
 }
 
 .gnb-main-item.is-active {
-  background-color: var(--mid-brown);
+  background-color: var(--primary);
 
   a, i {
     color : var(--white);
@@ -106,7 +106,7 @@ button {
   margin-top: 50px;
   padding: 40px 20px;
   border-radius: 30px;
-  background-color: var(--light-brown);
+  background-color: var(--secondary);
 }
 
 .sm-btn {
@@ -137,12 +137,12 @@ button {
 }
 
 .light-brown-btn {
-  color: var(--mid-brown);
-  background: var(--light-brown);
+  color: var(--primary);
+  background: var(--secondary);
 }
 
 .light-brown-gra-btn {
-  color: var(--dark-brown);
+  color: var(--tertiary);
   background: var(--light-brown-btn);
 }
 
@@ -150,7 +150,7 @@ button {
   display: flex;
   align-items: center;
   height: 100px;
-  background-color: var(--mid-brown);
+  background-color: var(--primary);
 }
 
 .search-input {

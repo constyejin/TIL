@@ -6,11 +6,11 @@
   --gray-3 : #333333;
   --gray-6 : #666666;
 
-  --light-brown : #E4D5B8;
-  --mid-brown : #B58362;
-  --dark-brown : #492710;
+  --primary : #B58362;;    
+  --secondary :#E4D5B8;;    
+  --tertiary : #492710;;  
 
-  --board-brown : #D8B99C;
+  --notice-back : #D8B99C;
 
   --light-brown-btn : linear-gradient(180deg, #D8B99C, #EADDCB);
   --dark-brown-btn : linear-gradient(360deg, #D8B99C, #3B211B);
