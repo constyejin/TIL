@@ -72,3 +72,9 @@ i {
 .ic-sub:before {
   content: "\e908";
 }
+.ic-bell:before {
+  content: "\e910";
+}
+.ic-user:before {
+  content: "\e911";
+}
