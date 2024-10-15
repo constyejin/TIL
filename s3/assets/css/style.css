@@ -133,7 +133,7 @@ button {
 
 .dark-brown-btn {
   color: var(--white);
-  background: var(--dark-brown-btn);
+  background: var(--dark-btn);
 }
 
 .light-brown-btn {
@@ -143,7 +143,7 @@ button {
 
 .light-brown-gra-btn {
   color: var(--tertiary);
-  background: var(--light-brown-btn);
+  background: var(--light-btn);
 }
 
 .input {

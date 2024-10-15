@@ -7,11 +7,11 @@
   --gray-6 : #666666;
 
   --primary : #B58362;;    
-  --secondary :#E4D5B8;;    
-  --tertiary : #492710;;  
+  --secondary :#E4D5B8;;   
+  --tertiary : #492710;;
 
   --notice-back : #D8B99C;
 
-  --light-brown-btn : linear-gradient(180deg, #D8B99C, #EADDCB);
-  --dark-brown-btn : linear-gradient(360deg, #D8B99C, #3B211B);
+  --light-btn : linear-gradient(180deg, #D8B99C, #EADDCB);
+  --dark-btn : linear-gradient(360deg, #D8B99C, #3B211B);
 }
