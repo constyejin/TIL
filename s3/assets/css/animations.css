@@ -1,55 +1,55 @@
 /* Play button */
 @keyframes pulse {
-    0% {
-        transform: scale(1, 1);
-    }
+  0% {
+    transform: scale(1, 1);
+  }
 
-    25% {
-        transform: scale(1, 1);
-    }
+  25% {
+    transform: scale(1, 1);
+  }
 
-    50% {
-        transform: scale(1.2, 1.2);
-    }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
 
-    100% {
-        transform: scale(1, 1);
-    }
+  100% {
+    transform: scale(1, 1);
+  }
 }
 
 /* Top banner moving item */
 @keyframes floatUpDown {
-    0% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(0);
+  }
 
-    100% {
-        transform: translateY(-20px);
-    }
+  100% {
+    transform: translateY(-20px);
+  }
 }
 
 /* Bg deco appear from left */
 @keyframes deco-appear-left {
-    from {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Bg deco appear from right */
 @keyframes deco-appear-right {
-    from {
-        opacity: 0;
-        transform: translateX(100%);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
