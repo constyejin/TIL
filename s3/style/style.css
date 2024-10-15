@@ -1,3 +1,4 @@
+@import './grid.css';
 @import './color.css';
 
 * {
@@ -106,12 +107,12 @@ button {
   position: relative;
   width: 440px;
   height: 40px;
-  padding: 8px 20px 12px 20px;
   border-radius: 6px;
   border: 0.7px solid var(--white);
 
   input {
     width: 100%;
+    padding: 8px 20px 12px 20px;
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
