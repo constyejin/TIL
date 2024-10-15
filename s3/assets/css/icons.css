@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
   src:  url('../fonts/icomoon.eot');
-  src:  url('../fonts/icomoon.eot#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf') format('truetype'),
-    url('../fonts/icomoon.woff') format('woff'),
-    url('../fonts/icomoon.svg#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?5den83#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?5den83') format('truetype'),
+    url('../fonts/icomoon.woff?5den83') format('woff'),
+    url('../fonts/icomoon.svg?5den83#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -24,22 +24,43 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ic-book:before {
+  content: "\e909";
+}
+.ic-deposit:before {
+  content: "\e90a";
+}
+.ic-helpdesk:before {
+  content: "\e90b";
+}
+.ic-withdraw:before {
+  content: "\e90c";
+}
+.ic-list-check:before {
+  content: "\e90d";
+}
+.ic-friend:before {
+  content: "\e90e";
+}
+.ic-event:before {
+  content: "\e90f";
+}
 .ic-holdem:before {
   content: "\e900";
 }
 .ic-home:before {
   content: "\e901";
 }
-.ic-minigame-1:before {
+.ic-sport:before {
   content: "\e902";
 }
-.ic-minigame-2:before {
+.ic-minigame-1:before {
   content: "\e903";
 }
-.ic-minigame-3:before {
+.ic-minigame-2:before {
   content: "\e904";
 }
-.ic-minigame:before {
+.ic-powerball:before {
   content: "\e905";
 }
 .ic-slot:before {
