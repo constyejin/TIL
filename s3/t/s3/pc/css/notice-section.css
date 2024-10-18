@@ -1,0 +1,127 @@
+.notice-section {
+  padding: 50px;
+}
+
+.notice-section .notice-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.notice-section .item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 554.875px;
+  /* height: 289px; */
+  margin: 0 20px 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.notice-list .top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 65px;
+  padding: 17px 20px;
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.notice-list .winner-item .top-section {
+  color: var(--tertiary);
+  background-color: var(--secondary);
+}
+
+.notice-list .top-section .title {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.notice-list .item .bottom-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: calc(32px * 7);
+  font-size: 16px;
+  background-color: var(--secondary);
+}
+
+.notice-list .bottom-section .content {
+  flex-grow: 1;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.bottom-section .swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.notice-section .bottom-section .info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 30px 6px 15px;
+}
+
+.item .swiper-slide:nth-child(odd) .info-row {
+  background-color: var(--notice-back);
+}
+
+.item.winner-item .swiper-slide:nth-child(odd) .info-row {
+  background-color: var(--secondary);
+}
+
+.item .swiper-slide:nth-child(even) .info-row {
+  background-color: var(--secondary);
+}
+
+.winner-item .swiper-slide .info-row {
+  height: calc(224px / 3);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+
+.winner-item .bottom-section img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* INFO TEXT  */
+.notice-section .bottom-section .info {
+  font-weight: 400;
+}
+
+.notice-section .bottom-section .info.left {
+  text-align: left;
+}
+
+.notice-section .bottom-section .info.right {
+  text-align: right;
+}
+
+.notice-section .bottom-section .info.line-2 {
+  display: -webkit-box;
+  max-height: 3em;
+  line-height: 1.3em;
+  text-overflow: ellipsis;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  color: var(--tertiary);
+}
+
+.notice-section .bottom-section .info.red {
+  color: var(--red);
+}
+
