@@ -1,0 +1,149 @@
+.global-footer {
+  color: var(--white);
+}
+
+.global-footer > div {
+  padding: 40px 100px;
+}
+
+.footer-img-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  li {
+    padding: 0 20px;
+  }
+
+  img {
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+.game-list {
+  position: relative;
+}
+
+.game-list:after {
+  position: absolute;
+  bottom: 0;
+  content: '';
+  width: 90%;
+  height: 3px;
+  background: linear-gradient(180deg, rgba(47, 47, 56, 0)40%, #2F2F38 75.1%, rgba(47, 47, 56, 0) 50%);
+}
+
+.card-list img {
+  opacity: .5;
+}
+
+.select-country {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+
+  i {
+    margin-right: 10px;
+    font-size: 30px;
+  }
+}
+
+
+/* ············ FOOTER BOTTOM ············ */
+.footer-bottom {
+  display: flex;
+  width: 100%;
+  height: 324px;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: var(--primary);
+}
+
+.sns {
+  margin-right: 70px;
+}
+
+.sns-txt {
+  margin-top: 18px;
+  opacity: .5;
+}
+
+.sns-icon-list {
+  display: flex;
+  margin-top: 12px;
+
+  li {
+    margin-right: 40px;
+  }
+
+  i {
+    font-size: 30px;
+  }
+}
+
+.contact {
+  opacity: .5;
+}
+
+.contact p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px; 
+}
+
+.contact ul {
+  margin-top: 38px;
+}
+
+.contact ul li:not(:first-child) {
+  margin-top: 5px;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-grow: 1;
+}
+
+.search-input {
+  position: relative;
+  width: 440px;
+  height: 40px;
+  padding: 8px 48px 10px 20px;
+  border-radius: 6px;
+  border: 0.7px solid var(--white);
+
+  input {
+    width: 100%;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--white);
+
+    &::placeholder {
+      color: var(--white);
+    }
+
+    &::-ms-input-placeholder { 
+      /* Edge 12 -18 */
+      color: var(--white);
+    }
+  }
+
+  i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    font-size: 19.6px;
+  }
+}
+
+.select-country {
+  margin-top: 40px;
+}
