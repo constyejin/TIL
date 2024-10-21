@@ -13,6 +13,9 @@
   --notice-back : #D8B99C;
   --background : #eeeeee;
 
+  --success : #32E571;
+  --error : #FA6980;
+
   --light-btn : linear-gradient(180deg, #D8B99C, #EADDCB);
   --dark-btn : linear-gradient(360deg, #D8B99C, #3B211B);
 }

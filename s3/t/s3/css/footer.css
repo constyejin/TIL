@@ -109,20 +109,12 @@
   flex-grow: 1;
 }
 
-.search-input {
+.inputbox.search-input {
   position: relative;
   width: 440px;
-  height: 40px;
-  padding: 8px 48px 10px 20px;
-  border-radius: 6px;
-  border: 0.7px solid var(--white);
+  border-color: var(--white);
 
   input {
-    width: 100%;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
     color: var(--white);
 
     &::placeholder {
@@ -130,7 +122,6 @@
     }
 
     &::-ms-input-placeholder { 
-      /* Edge 12 -18 */
       color: var(--white);
     }
   }
@@ -140,6 +131,7 @@
     top: 50%;
     transform: translateY(-50%);
     right: 20px;
+    color: var(--white);
     font-size: 19.6px;
   }
 }

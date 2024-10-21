@@ -1,0 +1,84 @@
+/* ············ BTN SIZE ············ */
+.sm-btn {
+  width: 85px;
+  height: 38px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px; 
+  border-radius: 20px;
+}
+
+.lg-btn {
+  width: 281px;
+  height: 78px;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  border-radius: 10px;
+  line-height: 61px; 
+}
+
+
+/* ············ BTN COLOR ············ */
+.dark-brown-btn {
+  color: var(--white);
+  background: var(--dark-btn);
+}
+
+.light-brown-btn {
+  color: var(--primary);
+  background: var(--secondary);
+}
+
+
+/* ············ DIMENSIONAL-BTN ············ */
+.dimensional-btn {
+  position: relative;
+  height: fit-content;
+  color: var(--tertiary);
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+}
+
+.dimensional-btn:before {
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display:block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: var(--primary);
+}
+
+.dimensional-btn .txt {
+  position: relative;
+  z-index: var(--dimensional-btn);
+  display: block;
+  height: 72px;
+  color: var(--tertiary);
+  line-height: 72px;
+  border-radius: 10px;
+  background: var(--light-btn);
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+  will-change: transform;
+}
+
+.dimensional-btn:hover .txt {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.dimensional-btn:active .txt {
+  transform: translateY(0px);
+  transition: transform 34ms;
+}
+
+.dimensional-btn:focus:not(:focus-visible) {
+  outline: none;
+}

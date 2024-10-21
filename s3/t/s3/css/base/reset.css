@@ -4,16 +4,19 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
+  font-family: 'Pretendard', sans-serif;
 }
 
 html {
   font-family: Pretendard, sans-serif;
   color: var(--primary);
+  font-family: 'Pretendard', sans-serif;
 }
 
 body {
   font-family: Pretendard, sans-serif;
   background-color: var(--background);
+  font-family: 'Pretendard', sans-serif;
 }
 
 h1 {
@@ -56,3 +59,19 @@ ol {
   display: none;
 }
 
+.overlay {
+  position: fixed;
+  z-index: var(--overlay);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+/* .overlay.is-active {
+  display: block;
+  opacity: 1;
+} */

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Components</title>
   <link rel="stylesheet" href="/t/s3/pc/css/style.css">
-  <link rel="stylesheet" href="/t/s3/css/components.css">
+  <link rel="stylesheet" href="/t/s3/css/components/components.css">
 </head>
 <body>
   <div class="wrapper">
@@ -18,63 +18,43 @@
       <h2>ICON</h2>
       
       <h4>gnb-top-icon</h4>
-      <ul class="line gnb-top-icon-list">
-        <li><i class="ic-home"></i></li>
-        <li><i class="ic-ball"></i></li>
-        <li><i class="ic-sub"></i></li>
-        <li><i class="ic-holdem"></i></li>
-        <li><i class="ic-slot"></i></li>
-        <li><i class="ic-powerball"></i></li>
-        <li><i class="ic-minigame-1"></i></li>
-        <li><i class="ic-sport"></i></li>
-        <li><i class="ic-minigame-2"></i></li>
-      </ul>
+      <ul class="line gnb-top-icon-list"></ul>
 
       <h4>gnb-bottom-icon</h4>
-      <ul class="line gnb-bottom-icon-list">
-        <li><i class="ic-deposit"></i></li>
-        <li><i class="ic-withdraw"></i></li>
-        <li><i class="ic-list-check"></i></li>
-        <li><i class="ic-friend"></i></li>
-        <li><i class="ic-helpdesk"></i></li>
-        <li><i class="ic-book"></i></li>
-        <li><i class="ic-event"></i></li>
-      </ul>
+      <ul class="line gnb-bottom-icon-list"></ul>
 
       <h4>top-notice-icon</h4>
       <ul class="line top-notice-icon-list">
         <li><img src="/r/theme/s3/icons/exchange.svg" alt="exchange-icon"></li>
-        <li><i class="ic-bell"></i></li>
         <li class="notice-num-list is-active">
           <i class="ic-bell"></i>
           <span class="circle notice-num">13</span>
         </li>
-        <li><i class="ic-user"></i></li>
       </ul>
 
       <h4>footer-icon</h4>
-      <ul class="line footer-icon-list">
-        <li>
-          <a href="javascript:;">
-            <i class="ic-face"></i>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <i class="ic-twitter"></i>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <i class="ic-instagram"></i>
-          </a>
-        </li>
-      </ul>
+      <ul class="line footer-icon-list"> </ul>
 
       <ul class="line">
-        <div class="messenger-icon circle">
+        <li>
+          <i class="ic-sidebar"></i>
+          <span>ic-sidebar</span>
+        </li>
+        <li>
+          <i class="ic-close"></i>
+          <span>ic-close</span>
+        </li>
+        <li>
+          <i class="ic-search"></i>
+          <span>ic-search</span>
+        </li>
+        <li>
           <i class="ic-messenger"></i>
-        </div>
+          <span>ic-messenger</span>
+        </li>
+        <li class="messenger-icon circle">
+          <i class="ic-messenger"></i>
+        </li>
       </ul>
     </section>
 
@@ -83,23 +63,82 @@
       <div class="line">
         <button class="sm-btn dark-brown-btn" type="button">Start</button>
         <button class="sm-btn light-brown-btn" type="button">More</button>
-        <button class="lg-btn light-brown-gra-btn" type="button">View Detail</button>
+        <button class="lg-btn dimensional-btn" type="button">
+          <span class="txt">View Detail</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="select">
+      <h2>SELECT</h2>
+      <div class="line">
+        <label>
+          <input type="checkbox">
+          <div class="checkbox-img"></div>
+          <span>unchecked</span>
+        </label>
+
+        <label>
+          <input type="checkbox">
+          <div class="checkbox-img checked"></div>
+          <span>checked</span>
+        </label>
+      </div>
+    </section>
+
+    <section>
+      <h2>PAGINATION</h2>
+      <div class="line">
+        <div class="pagination">
+          <button class="page-control page-prev" type="button">
+            <i class="ic-arrow-left"></i>
+          </button>
+          <ol class="page-list">
+            <li class="is-active">
+              <a href="javascript:;">01</a>
+            </li>
+            <li>
+              <a href="javascript:;">02</a>
+            </li>
+            <li>
+              <a href="javascript:;">03</a>
+            </li>
+            <li>
+              <a href="javascript:;">04</a>
+            </li>
+            <li>
+              <a href="javascript:;">05</a>
+            </li>
+          </ol>
+          <button class="page-control page-next" type="button">
+            <i class="ic-arrow-right"></i>
+          </button>
+        </div>
       </div>
     </section>
 
 
-    <section>
+    <section class="input">
       <h2>INPUT</h2>
+      <div class="line">
+        <div class="inputbox">
+          <input type="text" placeholder="Inactive">
+        </div>
+        <div class="inputbox active">
+          <input type="text" placeholder="Active">
+        </div>
+        <div class="inputbox success">
+          <input type="text" placeholder="Success">
+        </div>
+        <div class="inputbox error">
+          <input type="text" placeholder="Error">
+        </div>
+      </div>
 
-      <div class="input">
-        <div class="search-input">
+      <div class="input-back">
+        <div class="inputbox search-input">
           <input type="text" placeholder="Search...">
           <i class="ic-search"></i>
-        </div>
-
-        <div class="select-country">
-          <i class="ic-country"></i>
-          <p>Select Country</p>
         </div>
       </div>
     </section>
@@ -118,7 +157,9 @@
     </footer>
   </div>
 
-  <script src="/t/s3/js/colorList.js"></script>
-  <script src="/t/s3/js/footerImgList.js"></script>
+  <script src="/t/s3/js/components/colorList.js"></script>
+  <script src="/t/s3/js/components/iconList.js"></script>
+  <script src="/t/s3/js/components/checkbox.js"></script>
+  <script src="/t/s3/js/components/footerImgList.js"></script>
 </body>
 </html>

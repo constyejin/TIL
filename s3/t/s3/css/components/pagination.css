@@ -1,0 +1,37 @@
+.pagination,
+.page-list {
+  display: flex;
+  align-items: center;
+  color: var(--notice-back);
+}
+
+.pagination .page-control {
+  color: var(--notice-back);
+  font-size: 10px;
+}
+
+.page-list {
+  margin: 0 6px;
+}
+
+.page-list li {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 14px;
+}
+
+.page-list li.is-active {
+  position: relative;
+  color: var(--tertiary);
+}
+
+.page-list li.is-active::before {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 2px;
+  background-color: var(--tertiary);
+}

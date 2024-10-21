@@ -13,10 +13,14 @@
   flex-direction: column;
   flex-shrink: 0;
   width: 554.875px;
-  /* height: 289px; */
+  height: 288px;
   margin: 0 20px 20px 0;
   border-radius: 10px;
   overflow: hidden;
+}
+
+.notice-section .withdraw-item .info-row div:last-child {
+  font-weight: 700;
 }
 
 .notice-list .top-section {
@@ -66,7 +70,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 30px 6px 15px;
+  padding: 6px 20px;
+}
+
+
+/* ············ TYPE-A ············ */
+.notice-section .bottom-section .type-a .info-row div {
+  &:first-child {
+    width: 120px;
+  }
+
+  &:nth-child(2) {
+    flex-grow: 1;
+    color: var(--black);
+  }
 }
 
 .item .swiper-slide:nth-child(odd) .info-row {
@@ -81,13 +98,42 @@
   background-color: var(--secondary);
 }
 
+
+/* ············ TYPE-B ············ */
+.notice-section .bottom-section .type-b .swiper-slide {
+  position: relative;
+
+  &:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: var(--white);
+    opacity: 0.25;
+  }
+}
+
+.notice-section .bottom-section .type-b .info-row div {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-3);
+
+  &:first-child {
+    width: 86px;
+  }
+
+  &:nth-child(2) {
+    flex-grow: 1;
+    padding-left: 6px;
+    color: var(--gray-6);
+  }
+}
+
 .winner-item .swiper-slide .info-row {
   height: calc(224px / 3);
   background-repeat: no-repeat;
   background-size: contain;
 }
-
-
 
 .winner-item .bottom-section img {
   height: 60px;

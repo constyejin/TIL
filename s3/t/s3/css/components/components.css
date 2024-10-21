@@ -1,0 +1,96 @@
+body {
+  padding: 40px;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+.line {
+  padding: 20px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--primary);
+}
+
+/* ··········· COLOR ··········· */
+.color-item {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 30px;
+  border: 1px solid var(--primary);
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.color-name {
+  margin-left: 20px;
+  font-size: 20px;
+  color: var(--black);
+}
+
+
+/* ··········· ICON ··········· */
+.icons {
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    margin: 0 8px;
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  i {
+    margin-right: 12px;
+    padding: 8px 0;
+    font-size: 32px;
+  }
+}
+
+.footer-icon-list {
+  color: var(--secondary);
+
+  span {
+    color: var(--primary);
+  }
+}
+
+.messenger-icon {
+  position: relative;
+  width: 60px;
+  height: 60px;
+
+  i {
+    position: absolute;
+    top: 49%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    color: var(--secondary);
+  }
+}
+
+
+/* ··········· INPUT ··········· */
+.inputbox {
+  width: 30%;
+  margin: 12px 0;
+}
+.input-back {
+  margin-top: 12px;
+  padding: 20px;
+  background-color: var(--primary);
+}

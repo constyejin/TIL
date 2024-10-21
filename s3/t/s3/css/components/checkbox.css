@@ -1,0 +1,22 @@
+.select label {
+  display: flex;
+  align-items: center;
+}
+
+.select label input {
+  display: none;
+}
+
+.checkbox-img {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('/r/theme/s3/images/unchecked.png');
+}
+
+.checkbox-img.checked {
+  background-image: url('/r/theme/s3/images/checked.png'); 
+}

@@ -1,0 +1,53 @@
+.slide-item {
+  position: relative;
+  width: 100%;
+  height: 585px;
+  padding-left: 100px;
+  background: url('/r/theme/s3/images/slide1.png') lightgray 50% / cover no-repeat;;
+
+  button {
+    position: relative;
+    margin-top: 95px;
+  }
+}
+
+.slide-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 344px;
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .7) 50%);
+}
+
+.slide-txt {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  min-width: 1392px;
+}
+
+.slide-item p {
+  color: var(--white);
+  font-style: normal;
+  font-weight: 400;
+  mix-blend-mode: hard-light;
+
+  &:nth-child(1) {
+    font-size: 40px;
+    line-height: 80px;
+  }
+
+  &:nth-child(2) {
+    font-size: 102px;
+    line-height: 102px; 
+    letter-spacing: -5.1px;
+  }
+}
+
+.slide-item button {
+  position: absolute;
+  bottom: 83px;
+  left: 100px;
+}

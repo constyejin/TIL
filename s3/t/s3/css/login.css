@@ -1,0 +1,23 @@
+.login-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--login);
+  display: none;
+}
+
+.login-popup.is-active {
+  display: block;
+}
+
+.login-popup.is-active .overlay {
+  display: block;
+  opacity: 1;
+}
+
+.login-popup > div {
+  width: 400px;
+  height: 400px;
+  background-color: #fff;
+}

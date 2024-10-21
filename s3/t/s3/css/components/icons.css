@@ -24,75 +24,123 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.circle {
+  border-radius: 50%;
+  background-color: var(--tertiary);
+}
+
+.ic-arrow-right:before {
+  content: "\e91b";
+}
+
+.ic-arrow-left:before {
+  content: "\e91c";
+}
+
+.ic-close:before {
+  content: "\e919";
+}
+
+.ic-sidebar:before {
+  content: "\e91a";
+}
+
 .ic-search:before {
   content: "\e912";
 }
+
+.ic-join:before {
+  content: "\e918";
+}
+
 .ic-country:before {
   content: "\e913";
 }
+
 .ic-face:before {
   content: "\e914";
 }
+
 .ic-instagram:before {
   content: "\e915";
 }
+
 .ic-messenger:before {
   content: "\e916";
 }
+
 .ic-twitter:before {
   content: "\e917";
 }
+
 .ic-bell:before {
   content: "\e910";
 }
+
 .ic-user:before {
   content: "\e911";
 }
+
 .ic-book:before {
   content: "\e909";
 }
+
 .ic-deposit:before {
   content: "\e90a";
 }
+
 .ic-helpdesk:before {
   content: "\e90b";
 }
+
 .ic-withdraw:before {
   content: "\e90c";
 }
+
 .ic-list-check:before {
   content: "\e90d";
 }
+
 .ic-friend:before {
   content: "\e90e";
 }
+
 .ic-event:before {
   content: "\e90f";
 }
+
 .ic-holdem:before {
   content: "\e900";
 }
+
 .ic-home:before {
   content: "\e901";
 }
+
 .ic-sport:before {
   content: "\e902";
 }
+
 .ic-minigame-1:before {
   content: "\e903";
 }
+
 .ic-minigame-2:before {
   content: "\e904";
 }
+
 .ic-powerball:before {
   content: "\e905";
 }
+
 .ic-slot:before {
   content: "\e906";
 }
+
 .ic-ball:before {
   content: "\e907";
 }
+
 .ic-sub:before {
   content: "\e908";
 }
