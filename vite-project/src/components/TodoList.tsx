@@ -1,5 +1,23 @@
 import React from 'react';
 import { useState } from 'react';
+import styled, { css } from 'styled-components';
+
+
+
+const commonHeight = css`
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 4px;
+`;
+
+const Input = styled.input`
+  ${commonHeight}
+`
+
+const AddButton = styled.button`
+  ${commonHeight}
+`
+
 
 const TodoList: React.FC = () => {
   const [input, setInput] = useState<string>('');
@@ -18,9 +36,10 @@ const TodoList: React.FC = () => {
   return (
     <div>
       <h2>Todo List</h2>
-      <input type="text" value={input} onChange={handleChange} placeholder="할 일을 입력하세요" />
-      <button onClick={handleAdd}>추가</button>
-
+      <div>
+        <Input type="text" value={input} onChange={handleChange} placeholder="할 일을 입력하세요" />
+        <AddButton onClick={handleAdd}>추가</AddButton>
+      </div>
       <ul>
         {list.map((item, i) => (
           <li key={i}>
