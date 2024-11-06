@@ -2,8 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
 
-
-
 const commonHeight = css`
   height: 40px;
   padding: 0 10px;
