@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.content-wrap {
+  width: 100%;
+  text-align: center;
+}
+
+.input-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-top: 20px;
+}
+
+.input-wrap input {
+  width: 300px;
+}
+
+.input-wrap button {
+  min-width: 80px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  background-color: dodgerblue;
+  transition: filter 300ms ease-in-out;
+}
+
+.input-wrap button:not(:disabled):hover {
+  filter: brightness(1.2);
+}
+
+.todo-list {
+  max-width: 600px;
+  height: 200px;
+  margin: 40px auto;
+  border-radius: 24px;
+  background-color: #3a3a3a;
+}
+
+.todo-list li:nth-child(even) {
+  background-color: #494949;
+}
