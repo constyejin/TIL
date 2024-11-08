@@ -1,4 +1,5 @@
 // Styled Components
+import './App.css';
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 
@@ -21,19 +22,24 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  input,
   button {
     border: none;
     outline: none;
+  }
+
+  li {
+    list-style: none;
   }
 `;
 
 
 function App() {
   return (
-    <>
+    <div className='wrapper'>
       <GlobalStyle />
       <TodoList />
-    </>
+    </div>
   )
 }
 
