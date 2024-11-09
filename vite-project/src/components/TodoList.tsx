@@ -32,20 +32,29 @@ const TodoList: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className='content-wrap'>
       <h2>Todo List</h2>
-      <div>
-        <Input type="text" value={input} onChange={handleChange} placeholder="할 일을 입력하세요" />
-        <AddButton onClick={handleAdd}>추가</AddButton>
+
+      <div className='input-wrap'>
+        <Input type="text" value={input} onChange={handleChange} placeholder="Enter your Task" />
+        <AddButton onClick={handleAdd}>Add</AddButton>
       </div>
-      <ul>
-        {list.map((item, i) => (
-          <li key={i}>
-            <span className='item-num'>{i + 1}</span>
-            {item}
-          </li>
-        ))}
-      </ul>
+
+      <div className='todo-table'>
+        <div className='table-header'>
+          <p className='no'>No</p>
+          <p className='content'>List</p>
+        </div>
+
+        <div className='table-list'>
+          {list.map((item, i) => (
+            <div className='table-item' key={i}>
+              <p className='no'>{i + 1}</p>
+              <p className='content'>{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
