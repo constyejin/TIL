@@ -3,13 +3,14 @@ import { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 const commonHeight = css`
-  height: 40px;
-  padding: 0 10px;
-  border-radius: 4px;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 24px;
 `;
 
 const Input = styled.input`
   ${commonHeight}
+  margin-right: 4px;
 `
 
 const AddButton = styled.button`
