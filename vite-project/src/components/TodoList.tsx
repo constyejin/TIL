@@ -50,8 +50,11 @@ const TodoList: React.FC = () => {
         <div className='table-list'>
           {list.map((item, i) => (
             <div className='table-item' key={i}>
-              <p className='no'>{i + 1}</p>
-              <p className='content'>{item}</p>
+              <div>
+                <p className='no'>{i + 1}</p>
+                <p className='content'>{item}</p>
+              </div>
+              <button>삭제</button>
             </div>
           ))}
         </div>
