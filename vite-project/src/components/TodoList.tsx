@@ -54,7 +54,7 @@ const TodoList: React.FC = () => {
                 <p className='no'>{i + 1}</p>
                 <p className='content'>{item}</p>
               </div>
-              <button>삭제</button>
+              <button className='delete-btn'>삭제</button>
             </div>
           ))}
         </div>
