@@ -14,20 +14,23 @@
   justify-content: center;
   align-items: center;
   gap: 4px;
+  height: 50px;
   margin-top: 20px;
+}
+
+.input-wrap input,
+.input-wrap button {
+  height: 100%;
+  border-radius: 24px;
 }
 
 .input-wrap input {
   width: 300px;
+  padding: 0 20px;
 }
 
 .input-wrap button {
-  min-width: 80px;
-  font-weight: 700;
-  cursor: pointer;
-  color: #fff;
   background-color: dodgerblue;
-  transition: filter 300ms ease-in-out;
 }
 
 .input-wrap button:not(:disabled):hover {
@@ -42,7 +45,7 @@
   background-color: #3a3a3a;
 }
 
-.todo-table::after {
+/* .todo-table::after {
   content: '';
   position: absolute;
   left: 80px;
@@ -51,7 +54,7 @@
   width: 1px;
   height: 90%;
   background-color: #575555;
-}
+} */
 
 .todo-table .no {
   min-width: 80px;
@@ -68,19 +71,7 @@
 }
 
 .todo-table .table-header {
-  position: relative;
   font-weight: 700;
-}
-
-.todo-table .table-header::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 95%;
-  height: 1px;
-  background-color: #575555;
 }
 
 .todo-table .table-header,
@@ -91,3 +82,28 @@
   text-align: left;
 }
 
+.table-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-item > div {
+  display: flex;
+  align-items: center;
+}
+
+.table-item .delete-btn {
+  margin-right: 20px;
+}
+
+/* .table-item:first-child::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 1px;
+  background-color: #575555;
+} */
