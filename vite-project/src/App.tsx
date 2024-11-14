@@ -31,6 +31,14 @@ const GlobalStyle = createGlobalStyle`
   li {
     list-style: none;
   }
+
+  .btn {
+    min-width: 80px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    transition: filter 300ms ease-in-out;
+  }
 `;
 
 
