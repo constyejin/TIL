@@ -1,22 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import styled, { css } from 'styled-components';
-
-const commonHeight = css`
-  height: 44px;
-  padding: 0 20px;
-  border-radius: 24px;
-`;
-
-const Input = styled.input`
-  ${commonHeight}
-  margin-right: 4px;
-`
-
-const AddButton = styled.button`
-  ${commonHeight}
-`
-
+import styled from 'styled-components';
 
 const TodoList: React.FC = () => {
   const [input, setInput] = useState<string>('');
@@ -37,8 +21,8 @@ const TodoList: React.FC = () => {
       <h2>Todo List</h2>
 
       <div className='input-wrap'>
-        <Input type="text" value={input} onChange={handleChange} placeholder="Enter your Task" />
-        <AddButton onClick={handleAdd}>Add</AddButton>
+        <input type="text" value={input} onChange={handleChange} placeholder="Enter your Task" />
+        <button className='btn' onClick={handleAdd}>Add</button>
       </div>
 
       <div className='todo-table'>
