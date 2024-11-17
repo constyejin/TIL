@@ -37,7 +37,16 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 700;
     cursor: pointer;
     color: #fff;
+    border-radius: 24px;
     transition: filter 300ms ease-in-out;
+  }
+
+  .btn-40 {
+    height: 40px;
+  }
+
+  .btn-50 {
+    height: 50px;
   }
 `;
 
