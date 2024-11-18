@@ -22,7 +22,7 @@ const TodoList: React.FC = () => {
 
       <div className='input-wrap'>
         <input type="text" value={input} onChange={handleChange} placeholder="Enter your Task" />
-        <button className='btn' onClick={handleAdd}>Add</button>
+        <button className='btn btn-50' onClick={handleAdd}>Add</button>
       </div>
 
       <div className='todo-table'>
@@ -38,7 +38,7 @@ const TodoList: React.FC = () => {
                 <p className='no'>{i + 1}</p>
                 <p className='content'>{item}</p>
               </div>
-              <button className='delete-btn'>삭제</button>
+              <button className='btn delete-btn btn-40'>삭제</button>
             </div>
           ))}
         </div>
