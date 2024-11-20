@@ -26,6 +26,10 @@ const TodoList: React.FC = () => {
   const handleDelete = (index: number) => {
     setList(list.filter((_, i) => i !== index));
   };
+
+  const handleDeleteAll = () => {
+    setList([]);
+  };
   
 
   return (
@@ -47,6 +51,7 @@ const TodoList: React.FC = () => {
         <div className='table-header'>
           <p className='no'>No</p>
           <p className='content'>List</p>
+          <button className='btn btn-40 delete-btn' onClick={handleDeleteAll}>전체삭제</button>
         </div>
 
         <div className='table-list'>
@@ -56,7 +61,7 @@ const TodoList: React.FC = () => {
                 <p className='no'>{i + 1}</p>
                 <p className='content'>{item}</p>
               </div>
-              <button className='btn delete-btn btn-40' onClick={() => handleDelete(i)}>삭제</button>
+              <button className='btn btn-40 delete-btn' onClick={() => handleDelete(i)}>삭제</button>
             </div>
           ))}
         </div>
