@@ -50,7 +50,7 @@ const TodoList: React.FC = () => {
         <div className='table-header'>
           <p className='no'>No</p>
           <p className='content'>List</p>
-          <button className='btn btn-40 delete-btn' onClick={handleDeleteAll}>전체삭제</button>
+          {list.length > 1 && <button className='btn btn-40 delete-btn' onClick={handleDeleteAll}>전체삭제</button>}
         </div>
 
         <div className='table-list'>
