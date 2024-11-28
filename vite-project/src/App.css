@@ -1,6 +1,7 @@
 :root {
   --txt-main: #fff;
   --main-back: #333;
+  --delete-btn: #e35050;
 }
 
 * {
@@ -88,17 +89,6 @@ li {
   background-color: #3a3a3a;
 }
 
-/* .todo-table::after {
-  content: '';
-  position: absolute;
-  left: 80px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 90%;
-  background-color: #575555;
-} */
-
 .todo-table .no {
   min-width: 80px;
   text-align: center;
@@ -106,11 +96,6 @@ li {
 
 .todo-table .no {
   color: dodgerblue;
-}
-
-.todo-table .content {
-  flex-grow: 1;
-  padding: 0 20px;
 }
 
 .todo-table .table-header {
@@ -136,9 +121,14 @@ li {
   align-items: center;
 }
 
+.todo-table .content {
+  flex-grow: 1;
+  padding: 0 20px;
+}
+
 .delete-btn {
   margin-right: 20px;
-  background-color: #e35050;
+  background-color: var(--delete-btn);
 }
 
 /* .table-item:first-child::before {
