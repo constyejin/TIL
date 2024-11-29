@@ -30,7 +30,6 @@ const TodoList: React.FC = () => {
     setList([]);
   };
   
-
   return (
     <div className='content-wrap'>
       <h2>Todo List</h2>
