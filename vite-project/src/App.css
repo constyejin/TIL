@@ -2,6 +2,7 @@
   --txt-main: #fff;
   --main-back: #333;
   --delete-btn: #e35050;
+  --border-color: #575555;
 }
 
 * {
@@ -130,6 +131,8 @@ li {
   margin-right: 20px;
   background-color: var(--delete-btn);
 }
+
+
 
 /* .table-item:first-child::before {
   content: '';
