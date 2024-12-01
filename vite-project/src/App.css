@@ -103,6 +103,10 @@ li {
   font-weight: 700;
 }
 
+.table-header .no {
+  border-right: 1px solid var(--border-color);
+}
+
 .todo-table .table-header,
 .table-item {
   display: flex;
