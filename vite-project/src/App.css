@@ -9,6 +9,7 @@
   font-family: Arial, sans-serif;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -99,7 +100,8 @@ li {
   color: dodgerblue;
 }
 
-.todo-table .table-header {
+.table-header {
+  height: 80px;
   font-weight: 700;
 }
 
@@ -136,15 +138,3 @@ li {
   background-color: var(--delete-btn);
 }
 
-
-
-/* .table-item:first-child::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  width: 95%;
-  height: 1px;
-  background-color: #575555;
-} */
