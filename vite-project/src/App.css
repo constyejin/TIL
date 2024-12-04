@@ -131,7 +131,7 @@ li {
   transform: translateX(-50%);
   width: 95%;
   height: 1px;
-  background-color: #575555;
+  background-color: var(--border-color);
 }
 
 .table-item > div {
