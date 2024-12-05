@@ -126,8 +126,8 @@ li {
 .table-item:first-child::before {
   content: '';
   position: absolute;
-  left: 50%;
   top: 0;
+  left: 50%;
   transform: translateX(-50%);
   width: 95%;
   height: 1px;
