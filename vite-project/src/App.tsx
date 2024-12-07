@@ -1,4 +1,4 @@
-import './App.css';
+import './Main.css';
 
 import Hello from './components/Hello';
 import Counter from './components/Counter';
