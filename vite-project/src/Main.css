@@ -1,0 +1,150 @@
+:root {
+  --txt-main: #fff;
+  --main-back: #333;
+  --delete-btn: #e35050;
+  --border-color: #575555;
+}
+
+* {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: var(--main-back);
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+li {
+  list-style: none;
+}
+
+.btn {
+  min-width: 80px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 24px;
+  transition: filter 300ms ease-in-out;
+}
+
+.btn-40 {
+  height: 40px;
+}
+
+.btn-50 {
+  height: 50px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.content-wrap {
+  width: 100%;
+  text-align: center;
+}
+
+.input-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  height: 50px;
+  margin-top: 20px;
+}
+
+.input-wrap input {
+  width: 300px;
+  height: 100%;
+  padding: 0 20px;
+  border-radius: 24px;
+  color: var(--txt-main);
+  background-color: #525252;
+}
+
+.input-wrap button {
+  background-color: dodgerblue;
+}
+
+.input-wrap button:not(:disabled):hover {
+  filter: brightness(1.2);
+}
+
+.todo-table {
+  position: relative;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 24px;
+  background-color: #3a3a3a;
+}
+
+.todo-table .no {
+  min-width: 80px;
+  text-align: center;
+}
+
+.todo-table .no {
+  color: dodgerblue;
+}
+
+.table-header {
+  height: 80px;
+  font-weight: 700;
+}
+
+.table-header .no {
+  border-right: 1px solid var(--border-color);
+}
+
+.todo-table .table-header,
+.table-item {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  text-align: left;
+}
+
+.table-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-item:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+.table-item > div {
+  display: flex;
+  align-items: center;
+}
+
+.todo-table .content {
+  flex-grow: 1;
+  padding: 0 20px;
+}
+
+.delete-btn {
+  margin-right: 20px;
+  background-color: var(--delete-btn);
+}
