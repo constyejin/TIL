@@ -1,12 +1,7 @@
 @use './styles/base/reset';
 @use './styles/base/nomalize';
 
-:root {
-  --txt-main: #fff;
-  --main-back: #333;
-  --delete-btn: #e35050;
-  --border-color: #575555;
-}
+@use './styles/constants/color';
 
 * {
   font-family: Arial, sans-serif;
