@@ -1,6 +1,7 @@
+@use './styles/constants/color';
+
 @use './styles/base/reset';
 @use './styles/base/nomalize';
 
-@use './styles/constants/color';
-
 @use './styles/components/todo';
+
