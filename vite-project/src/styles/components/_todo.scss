@@ -1,24 +1,11 @@
 body {
-  color: #fff;
-  background-color: var(--main-back);
-}
-
-input,
-button {
-  border: none;
-  outline: none;
-  background-color: transparent;
-}
-
-li {
-  list-style: none;
+  color: $txt-main;
+  background-color: $main-back;
 }
 
 .btn {
   min-width: 80px;
-  font-weight: 700;
-  cursor: pointer;
-  color: #fff;
+  font-weight: 700;;
   border-radius: 24px;
   transition: filter 300ms ease-in-out;
 }
@@ -91,7 +78,7 @@ li {
 }
 
 .table-header .no {
-  border-right: 1px solid var(--border-color);
+  border-right: 1px solid $border-color;
 }
 
 .todo-table .table-header,
@@ -116,7 +103,7 @@ li {
   transform: translateX(-50%);
   width: 95%;
   height: 1px;
-  background-color: var(--border-color);
+  background-color: $border-color;
 }
 
 .table-item > div {
@@ -131,6 +118,6 @@ li {
 
 .delete-btn {
   margin-right: 20px;
-  background-color: var(--delete-btn);
+  background-color: $delete-btn;
 }
 
