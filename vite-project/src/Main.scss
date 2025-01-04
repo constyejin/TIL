@@ -1,8 +1,8 @@
-@use './styles/constants/color';
-@use './styles/constants/typography';
+@import './styles/constants/typography';
+@import './styles/constants/color';
 
-@use './styles/base/reset';
-@use './styles/base/nomalize';
+@import './styles/base/reset';
+@import './styles/base/nomalize';
 
-@use './styles/components/todo';
+@import './styles/components/todo';
 
