@@ -1,5 +1,5 @@
 %btn-base {
-  @include inline-flexbox;
+  // @include inline-flexbox;
   padding: 0 8px;
   font-weight: 700;
   border-radius: 4px;
@@ -13,8 +13,7 @@
 // NOTE: Button Styles
 .btn-primary {
   @extend %btn-base;
-  color: $white;
-  background-color: $add-btn;
+  color: $txt-main;
   transition: background-color 200ms ease-in-out;
 
   &:not(:disabled):hover {
