@@ -4,5 +4,8 @@
 @import './styles/base/reset';
 @import './styles/base/nomalize';
 
+@import './styles/mixins/fonts';
+
 @import './styles/components/todo';
 
+@import './styles/modules/buttons'
