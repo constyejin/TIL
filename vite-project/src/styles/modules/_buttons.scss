@@ -32,12 +32,7 @@
   height: 40px;
 }
 
-.btn-48 {
+.btn-50 {
   @include text-style(16);
-  height: 48px;
-}
-
-.btn-55 {
-  @include text-style(18);
-  height: 55px;
+  height: 50px;
 }
