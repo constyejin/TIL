@@ -42,7 +42,7 @@ const TodoList: React.FC = () => {
           onKeyDown={handleKeyDown}
           placeholder="Enter your Task" 
         />
-        <button className='btn btn-50' onClick={handleAdd}>Add</button>
+        <button className='btn-primary btn-50' onClick={handleAdd}>Add</button>
       </div>
 
       <div className='todo-table'>
