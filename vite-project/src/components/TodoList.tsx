@@ -49,7 +49,7 @@ const TodoList: React.FC = () => {
         <div className='table-header'>
           <p className='no'>No</p>
           <p className='content'>List</p>
-          {list.length > 1 && <button className='btn-primary btn-40 delete-btn' onClick={handleDeleteAll}>전체삭제</button>}
+          {list.length > 1 && <button className='btn-primary btn-32 delete-btn' onClick={handleDeleteAll}>전체삭제</button>}
         </div>
 
         <div className='table-list'>
@@ -59,7 +59,7 @@ const TodoList: React.FC = () => {
                 <p className='no'>{i + 1}</p>
                 <p className='content'>{item}</p>
               </div>
-              <button className='btn-primary btn-40 delete-btn' onClick={() => handleDelete(i)}>삭제</button>
+              <button className='btn-primary btn-32 delete-btn' onClick={() => handleDelete(i)}>삭제</button>
             </div>
           ))}
         </div>
