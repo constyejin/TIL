@@ -2,7 +2,7 @@
   // @include inline-flexbox;
   padding: 0 8px;
   font-weight: 700;
-  border-radius: 4px;
+  border-radius: $primary;
 
   &:disabled {
     cursor: not-allowed;
