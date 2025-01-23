@@ -36,10 +36,6 @@ body {
   }
 }
 
-.input-wrap button:not(:disabled):hover {
-  filter: brightness(1.2);
-}
-
 .todo-table {
   position: relative;
   max-width: 600px;
