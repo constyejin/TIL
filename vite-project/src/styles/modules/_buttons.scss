@@ -14,10 +14,10 @@
 .btn-primary {
   @extend %btn-base;
   color: $txt-main;
-  transition: background-color 200ms ease-in-out;
+  transition: filter 200ms ease-in-out;
 
   &:not(:disabled):hover {
-    background-color: $border-color;
+    filter: brightness(1.2);
   }
 }
 
