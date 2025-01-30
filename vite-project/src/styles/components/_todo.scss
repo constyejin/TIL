@@ -28,7 +28,7 @@
 
   button {
     min-width: 96px;
-    background-color: var(--add-btn);
+    background-color: $add-btn;
   }
 }
 
@@ -46,7 +46,7 @@
 }
 
 .todo-table .no {
-  color: var(--add-btn);
+  color: $add-btn;
 }
 
 .table-header {
