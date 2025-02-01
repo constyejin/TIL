@@ -58,7 +58,8 @@
 }
 
 .table-list {
-  max-height: 60vh;
+  max-height: calc(58px * 10);
+  overflow-y: scroll;
 }
 
 .todo-table .table-header,
@@ -73,6 +74,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
+  height: 58px;
 }
 
 .table-item:first-child::before {
