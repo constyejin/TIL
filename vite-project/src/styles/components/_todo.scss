@@ -76,7 +76,7 @@ $table-tiem-height: 58px;
   position: relative;
   display: flex;
   justify-content: space-between;
-  height: 58px;
+  height: $table-tiem-height;
 }
 
 .table-item:first-child::before {
