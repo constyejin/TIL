@@ -1,13 +1,14 @@
 import './Main.css';
 
-import Hello from './components/Hello';
-import Counter from './components/Counter';
 import TodoList from './components/TodoList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   return (
     <div className='wrapper'>
       <TodoList />
+      <FontAwesomeIcon icon={faGear} />
     </div>
   )
 }
