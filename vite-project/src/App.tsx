@@ -8,7 +8,7 @@ function App() {
   return (
     <div className='wrapper'>
       <TodoList />
-      <FontAwesomeIcon icon={faGear} />
+      <FontAwesomeIcon className='setting-icon' icon={faGear} />
     </div>
   )
 }
