@@ -16,12 +16,25 @@ const TodoList: React.FC = () => {
     setInput('');
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleAdd();
+    }
+  };
+
+
   return (
     <div className='content-wrap'>
       <h2>Todo List</h2>
 
       <div className='input-wrap'>
-        <input type="text" value={input} onChange={handleChange} placeholder="Enter your Task" />
+        <input 
+          type="text" 
+          value={input} 
+          onChange={handleChange} 
+          onKeyDown={handleKeyDown}
+          placeholder="Enter your Task" 
+        />
         <button className='btn btn-50' onClick={handleAdd}>Add</button>
       </div>
 
