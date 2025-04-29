@@ -23,6 +23,10 @@ const TodoList: React.FC = () => {
     }
   };
 
+  const handleDelete = (index: number) => {
+    setList(list.filter((_, i) => i !== index));
+  };
+  
 
   return (
     <div className='content-wrap'>
@@ -52,7 +56,7 @@ const TodoList: React.FC = () => {
                 <p className='no'>{i + 1}</p>
                 <p className='content'>{item}</p>
               </div>
-              <button className='btn delete-btn btn-40'>삭제</button>
+              <button className='btn delete-btn btn-40' onClick={() => handleDelete(i)}>삭제</button>
             </div>
           ))}
         </div>
