@@ -57,6 +57,10 @@
   border-right: 1px solid $border-color;
 }
 
+.table-list {
+  max-height: 60vh;
+}
+
 .todo-table .table-header,
 .table-item {
   display: flex;
@@ -69,6 +73,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
+  border: 2px solid red;
 }
 
 .table-item:first-child::before {
